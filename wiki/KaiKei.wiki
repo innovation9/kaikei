@@ -1,0 +1,13 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Proyecto desarrollado para la administración contable de un panadería, desarrollado por estudiantes de la Universidad de El Salvador, para la Materia Sistemas Contables, en el ciclo II/2009.
+
+
+= Details =
+
+Principales requerimientos:
+  * Manejo de Cuentas T.
+  * Manejo de Doble partida.
+  * otros...
