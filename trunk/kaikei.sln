@@ -1,7 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kaikei.core", "kaikei.core\kaikei.core.csproj", "{D36B831E-57D4-4325-AE96-F1D713B8460E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kaikei", "kaikei\kaikei.csproj", "{79ACF231-A698-4549-8EE1-79BCAF58D674}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D36B831E-57D4-4325-AE96-F1D713B8460E} = {D36B831E-57D4-4325-AE96-F1D713B8460E}
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D36B831E-57D4-4325-AE96-F1D713B8460E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D36B831E-57D4-4325-AE96-F1D713B8460E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D36B831E-57D4-4325-AE96-F1D713B8460E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D36B831E-57D4-4325-AE96-F1D713B8460E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79ACF231-A698-4549-8EE1-79BCAF58D674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79ACF231-A698-4549-8EE1-79BCAF58D674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79ACF231-A698-4549-8EE1-79BCAF58D674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79ACF231-A698-4549-8EE1-79BCAF58D674}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
