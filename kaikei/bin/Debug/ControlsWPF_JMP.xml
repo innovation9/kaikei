@@ -1,0 +1,79 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ControlsWPF_JMP
+</name>
+</assembly>
+<members>
+<member name="M:ControlsWPF_JMP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+	<summary>
+CreateInstance
+</summary>
+</member><member name="M:ControlsWPF_JMP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+	<summary>
+GetPropertyValue
+</summary>
+</member><member name="M:ControlsWPF_JMP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+	<summary>
+SetPropertyValue
+</summary>
+</member><member name="M:ControlsWPF_JMP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+	<summary>
+CreateDelegate
+</summary>
+</member><member name="M:ControlsWPF_JMP.XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+	<summary>
+AddEventHandler
+</summary>
+</member><member name="T:ControlsWPF_JMP.XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+	<summary>
+GeneratedInternalTypeHelper
+</summary>
+</member><member name="M:ControlsWPF_JMP.Ventanas.GlassVentana.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Instancia una nueva clase con los parametros de los tamaños donde se va aplicar el Glass
+ </summary>
+	<param name="mLeft">Define el tamaño de la parte Izquierda de la ventana donde se aplicara el Glass</param>
+	<param name="mRight">Define el tamaño de la parte Derecha de la ventana donde se aplicara el Glass</param>
+	<param name="mTop">Define el tamaño de la parte de Arriba de la ventana donde se aplicara el Glass</param>
+	<param name="mBottom">Define el tamaño de la parte de Abajo de la ventana donde se aplicara el Glass</param>
+	<remarks></remarks>
+</member><member name="M:ControlsWPF_JMP.Ventanas.GlassVentana.AplicarGlass">
+	<summary>
+ Aplica la configuracion de Glass cuando se instancio la Ventana
+ </summary>
+	<remarks></remarks>
+</member><member name="P:ControlsWPF_JMP.Ventanas.WindowJMP.IsInDesignMode">
+	<summary>
+ Permite a la aplicacion determinar si se encuentra en tiempo Diseño o en Tiempo de ejecucion
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ControlsWPF_JMP.Ventanas.GlassWindowsSource.MARGINS.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+	<summary>
+ Establece los margenes para el Glass en la ventana
+ </summary>
+	<param name="mLeft">El tamaño desde el lateral Izquierdo</param>
+	<param name="mRight">El tamaño desde el lateral Derecho</param>
+	<param name="mTop">El tamaño desde la parte de arriba de la ventana</param>
+	<param name="mBottom">El tamaño desde la parte de abajo de la ventana</param>
+	<remarks></remarks>
+</member><member name="P:ControlsWPF_JMP.Ventanas.ctlPlantillaJMP.GetFondoTituloDefault">
+	<summary>
+ Devuelve la imagen de fondo del Panel de titulo de la ventana en el Tema por defecto
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ControlsWPF_JMP.Ventanas.ctlPlantillaJMP.GetFondoBotonesDefault">
+	<summary>
+ Devuelve la imagen de fondo del panel de botones de la ventan en el tema por defecto
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

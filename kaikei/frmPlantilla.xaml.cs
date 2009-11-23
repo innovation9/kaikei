@@ -20,17 +20,11 @@ namespace kaikei
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class frmPlantilla : Window
+    public partial class frmPlantilla : WindowJMP
     {
         public frmPlantilla()
         {
             InitializeComponent();
-        }
-
-        private void Plantilla_Loaded(object sender, RoutedEventArgs e)
-        {
-            GlassVentana wndGlass = new GlassVentana(15, 15, 15, 15, new WindowInteropHelper(this).Handle);
-            wndGlass.AplicarGlass();
         }
     }
 }

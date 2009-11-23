@@ -1,0 +1,5 @@
+C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei.core\bin\Debug\kaikei.core.dll
+C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei.core\bin\Debug\kaikei.core.pdb
+C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei.core\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei.core\obj\Debug\kaikei.core.dll
+C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei.core\obj\Debug\kaikei.core.pdb
