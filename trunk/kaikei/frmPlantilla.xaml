@@ -1,5 +1,5 @@
 ﻿<controlsJMP:WindowJMP x:Class="kaikei.frmPlantilla"
-    xmlns:local="clr-namespace:kaikei"    
+    xmlns:kaikei="clr-namespace:kaikei"    
     xmlns:controlsJMP="clr-namespace:ControlsWPF_JMP.Ventanas;assembly=ControlsWPF_JMP"        
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,11 +7,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     x:Name="Plantilla" mc:Ignorable="d"
-    Title="Menu Principal Kaikei System" Background="Transparent" d:DesignWidth="525" d:DesignHeight="498" Width="400" Height="400">
+    Title="Menu Principal Kaikei System" d:DesignWidth="525" d:DesignHeight="498" Width="400" Height="400" Background="Transparent">
     
     <Grid>
-        <local:ctlPlantilla Imagen="stsNormal.png">
-            
-        </local:ctlPlantilla>
+        <kaikei:ctlPlantilla Imagen="stsNormal.png">
+			<Grid x:Name="gridElementos" Margin="5,0,5,5" Grid.Row="1">
+            	<Grid.RowDefinitions>
+                	<RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="0.2*"/>
+				</Grid.RowDefinitions>
+            	<Grid x:Name="gridBotones" Margin="0" Grid.Column="1" Grid.Row="1">
+            		<Grid.ColumnDefinitions>
+                		<ColumnDefinition Width="0.23*"/>
+                    	<ColumnDefinition Width="0.77*"/>
+                	</Grid.ColumnDefinitions>
+            	</Grid>
+			</Grid>
+        </kaikei:ctlPlantilla>
     </Grid>
 </controlsJMP:WindowJMP>
