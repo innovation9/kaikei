@@ -1,7 +1,17 @@
 ﻿<Application x:Class="kaikei.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="frmPlantilla.xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:System="clr-namespace:System;assembly=mscorlib"
+	StartupUri="wndLogin.xaml">
     <Application.Resources>
-         
+		<!-- Definimos el estilo por defecto de los Titulos de Pantalla -->
+		<FontFamily x:Key="FontTitulos">SquireD</FontFamily>
+		<FontWeight x:Key="FontTitulos_Estilo">Bold</FontWeight>
+		<System:Double x:Key="FontTitulos_Tamaño">19</System:Double>
+		
+		<!-- Definimos el estilo por defecto los labels en pantalla -->
+		<FontFamily x:Key="FontLabels">Segoe UI</FontFamily>
+		<FontWeight x:Key="FonLabels_Estilo">Bold</FontWeight>
+		<System:Double x:Key="FonLabels_Tamaño">13.4</System:Double>
     </Application.Resources>
 </Application>
