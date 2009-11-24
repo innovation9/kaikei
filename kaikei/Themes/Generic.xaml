@@ -1,11 +1,11 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:kaikei"
-    xmlns:controlsJMP="clr-namespace:ControlsWPF_JMP.Ventanas;assembly=ControlsWPF_JMP">
+    xmlns:controlsJMP="clr-namespace:ControlsWPF_JMP.Ventanas;assembly=ControlsWPF_JMP"
+	xmlns:controlJMP="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP">
     
-
-
+	<!-- Estilo por defecto de la plantilla utilizada en los formularios -->
     <Style TargetType="{x:Type local:ctlPlantilla}">
         <Setter Property="Template">
             <Setter.Value>
@@ -63,4 +63,234 @@
             </Setter.Value>
         </Setter>
     </Style>
+	
+	<!--Colores personalizados que se utilizan en el TextBox-->
+	<SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE"/>
+	<SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888"/>
+
+	<!-- Estilo por defecto de los controles TextBox de toda la aplicacion -->
+	<Style TargetType="{x:Type controlJMP:TextBoxJMP}">
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controlJMP:TextBoxJMP}">
+                	<ControlTemplate.Resources>
+                		<Storyboard x:Key="Activate_MouseOver">
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#00000000"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.7000000" Value="#FFB9B9B9"/>
+                			</ColorAnimationUsingKeyFrames>
+                		</Storyboard>
+                		<Storyboard x:Key="Desactivate_MouseOver">
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFB9B9B9"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.7000000" Value="#00B9B9B9"/>
+                			</ColorAnimationUsingKeyFrames>
+                		</Storyboard>
+                		<Storyboard x:Key="Activate_Focus">
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFA9A8A8"/>
+                			</ColorAnimationUsingKeyFrames>
+                		</Storyboard>
+                		<Storyboard x:Key="Desactivate_Focus">
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="White"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.6000000" Value="Transparent"/>
+                			</ColorAnimationUsingKeyFrames>
+                			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[2].(GradientStop.Offset)">
+                				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.85"/>
+                			</DoubleAnimationUsingKeyFrames>
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFE8F8FE"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.6000000" Value="#00E8F8FE"/>
+                			</ColorAnimationUsingKeyFrames>
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFDCF4FF"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.6000000" Value="#00DCF4FF"/>
+                			</ColorAnimationUsingKeyFrames>
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFA9A8A8"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.6000000" Value="#00A9A8A8"/>
+                			</ColorAnimationUsingKeyFrames>
+                		</Storyboard>
+                	</ControlTemplate.Resources>
+                    <Grid>
+                        <Border x:Name="Border" BorderThickness="1,1,1,1" Padding="0" CornerRadius="5" Opacity="1" BorderBrush="#00000000">
+                        	<Border.Background>
+                        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        			<GradientStop Color="#00000000" Offset="0"/>
+                        			<GradientStop Offset="1"/>
+                        			<GradientStop Color="Transparent" Offset="0.847"/>
+                        		</LinearGradientBrush>
+                        	</Border.Background>
+
+                            <!-- La implementacion coloca el contenido en el ScrollViewer. Debe denominarse PART_ContentHost para que el control funcione -->
+                            <ScrollViewer Margin="2,3" x:Name="PART_ContentHost" Background="{x:Null}" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}"/>
+                        </Border>
+                        <TextBlock x:Name="textBlock" Opacity="0.4" TextWrapping="Wrap" Visibility="Hidden" FontStyle="Italic" FontFamily="Arial" Margin="0,0,0,0" VerticalAlignment="Stretch" TextAlignment="{TemplateBinding TextAlignment}" Padding="5,5,0,0" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" Text="{TemplateBinding TextHelp}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"/>
+                                <Condition Property="Text" Value=""/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" TargetName="textBlock" Value="Visible"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                        	<MultiTrigger.ExitActions>
+                        		<BeginStoryboard x:Name="Desactivate_MouseOver_BeginStoryboard" Storyboard="{StaticResource Desactivate_MouseOver}"/>
+                        	</MultiTrigger.ExitActions>
+                        	<MultiTrigger.EnterActions>
+                        		<BeginStoryboard Storyboard="{StaticResource Activate_MouseOver}"/>
+                        	</MultiTrigger.EnterActions>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush" TargetName="Border" Value="#FFB9B9B9"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsFocused" Value="True">
+                        	<Trigger.ExitActions>
+                        		<BeginStoryboard x:Name="Desactivate_Focus_BeginStoryboard" Storyboard="{StaticResource Desactivate_Focus}"/>
+                        	</Trigger.ExitActions>
+                        	<Trigger.EnterActions>
+                        		<BeginStoryboard x:Name="Activate_Focus_BeginStoryboard" Storyboard="{StaticResource Activate_Focus}"/>
+                        	</Trigger.EnterActions>
+                            <Setter Property="Background" TargetName="Border">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="White" Offset="0"/>
+                                        <GradientStop Color="#FFDCF4FF" Offset="1"/>
+                                        <GradientStop Color="#FFE8F8FE" Offset="0.881"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" TargetName="Border" Value="#FFA9A8A8"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+	
+	<!-- Estilo por defecto de los controles PasswordBox de toda la aplicacion -->
+	<Style x:Key="PasswordBoxDefault" TargetType="{x:Type PasswordBox}">
+    		<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+    		<Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
+    		<Setter Property="FontFamily" Value="Times New Roman"/>
+    		<Setter Property="PasswordChar" Value="●"/>
+    		<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+    		<Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+    		<Setter Property="BorderThickness" Value="1"/>
+    		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+    		<Setter Property="Padding" Value="1"/>
+    		<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    		<Setter Property="AllowDrop" Value="true"/>
+    		<Setter Property="Template">
+				<Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                	<ControlTemplate.Resources>
+                		<Storyboard x:Key="Activate_MouseOver">
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#00000000"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.7000000" Value="#FFB9B9B9"/>
+                			</ColorAnimationUsingKeyFrames>
+                		</Storyboard>
+                		<Storyboard x:Key="Desactivate_MouseOver">
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFB9B9B9"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.7000000" Value="#00B9B9B9"/>
+                			</ColorAnimationUsingKeyFrames>
+                		</Storyboard>
+                		<Storyboard x:Key="Activate_Focus">
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFA9A8A8"/>
+                			</ColorAnimationUsingKeyFrames>
+                		</Storyboard>
+                		<Storyboard x:Key="Desactivate_Focus">
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="White"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.6000000" Value="Transparent"/>
+                			</ColorAnimationUsingKeyFrames>
+                			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[2].(GradientStop.Offset)">
+                				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.85"/>
+                			</DoubleAnimationUsingKeyFrames>
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFE8F8FE"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.6000000" Value="#00E8F8FE"/>
+                			</ColorAnimationUsingKeyFrames>
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFDCF4FF"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.6000000" Value="#00DCF4FF"/>
+                			</ColorAnimationUsingKeyFrames>
+                			<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                				<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFA9A8A8"/>
+                				<SplineColorKeyFrame KeyTime="00:00:00.6000000" Value="#00A9A8A8"/>
+                			</ColorAnimationUsingKeyFrames>
+                		</Storyboard>
+                	</ControlTemplate.Resources>
+                    <Grid>
+                        <Border x:Name="Border" BorderThickness="1,1,1,1" Padding="0" CornerRadius="5" Opacity="1" BorderBrush="#00000000">
+                        	<Border.Background>
+                        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        			<GradientStop Color="#00000000" Offset="0"/>
+                        			<GradientStop Offset="1"/>
+                        			<GradientStop Color="Transparent" Offset="0.847"/>
+                        		</LinearGradientBrush>
+                        	</Border.Background>
+
+                            <!-- La implementacion coloca el contenido en el ScrollViewer. Debe denominarse PART_ContentHost para que el control funcione -->
+                            <ScrollViewer Margin="2,3" x:Name="PART_ContentHost" Background="{x:Null}" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                        	<MultiTrigger.ExitActions>
+                        		<BeginStoryboard x:Name="Desactivate_MouseOver_BeginStoryboard" Storyboard="{StaticResource Desactivate_MouseOver}"/>
+                        	</MultiTrigger.ExitActions>
+                        	<MultiTrigger.EnterActions>
+                        		<BeginStoryboard Storyboard="{StaticResource Activate_MouseOver}"/>
+                        	</MultiTrigger.EnterActions>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsFocused" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush" TargetName="Border" Value="#FFB9B9B9"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsFocused" Value="True">
+                        	<Trigger.ExitActions>
+                        		<BeginStoryboard x:Name="Desactivate_Focus_BeginStoryboard" Storyboard="{StaticResource Desactivate_Focus}"/>
+                        	</Trigger.ExitActions>
+                        	<Trigger.EnterActions>
+                        		<BeginStoryboard x:Name="Activate_Focus_BeginStoryboard" Storyboard="{StaticResource Activate_Focus}"/>
+                        	</Trigger.EnterActions>
+                            <Setter Property="Background" TargetName="Border">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="White" Offset="0"/>
+                                        <GradientStop Color="#FFDCF4FF" Offset="1"/>
+                                        <GradientStop Color="#FFE8F8FE" Offset="0.881"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="BorderBrush" TargetName="Border" Value="#FFA9A8A8"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+    		</Setter>
+    	</Style>
 </ResourceDictionary>

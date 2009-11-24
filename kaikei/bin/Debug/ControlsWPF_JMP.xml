@@ -30,6 +30,13 @@ AddEventHandler
 	<summary>
 GeneratedInternalTypeHelper
 </summary>
+</member><member name="P:ControlsWPF_JMP.Controls.TextBoxJMP.TextHelp">
+	<summary>
+ Obtiene o establece la ayuda interactiva en el TextBox en color gris
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="M:ControlsWPF_JMP.Ventanas.GlassVentana.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
 	<summary>
  Instancia una nueva clase con los parametros de los tamaños donde se va aplicar el Glass
