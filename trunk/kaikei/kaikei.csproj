@@ -55,6 +55,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ControlesWPF JMPP\ControlsWPF JMP\bin\Debug\ControlsWPF_JMP.dll</HintPath>
     </Reference>
+    <Reference Include="Expression.Samples.Shaders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c7dd7e4745814058" />
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -87,6 +88,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="frmPlantilla.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -137,6 +142,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="IconosBotones\boton_Salir.png" />
+    <Resource Include="IconosBotones\boton_Siguiente.png" />
     <Resource Include="IconosWindows\icon_Login.png" />
     <Resource Include="stsNormal.png" />
     <Resource Include="Themes\imgPanelBotones.png" />
