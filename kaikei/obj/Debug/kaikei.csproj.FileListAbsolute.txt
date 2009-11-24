@@ -19,3 +19,5 @@ C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei\obj\
 C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei\obj\Debug\wndLogin.g.cs
 C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei\obj\Debug\wndLogin.baml
 C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei\obj\Debug\App.baml
+C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei\obj\Debug\Simple Styles.baml
+C:\Users\Ju@ncho\Documents\Visual Studio 2008\Projects\kaikei(Nueva)\kaikei\bin\Debug\Expression.Samples.Shaders.dll

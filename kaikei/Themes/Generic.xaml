@@ -3,8 +3,37 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:kaikei"
     xmlns:controlsJMP="clr-namespace:ControlsWPF_JMP.Ventanas;assembly=ControlsWPF_JMP"
-	xmlns:controlJMP="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP">
+	xmlns:controlJMP="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" xmlns:shaders="clr-namespace:Expression.Samples.Shaders;assembly=Expression.Samples.Shaders" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
     
+	<!--Colores personalizados que se utilizan en el TextBox-->
+	<SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE"/>
+	<SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888"/>
+	<SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA"/>
+	
+	<!-- DefaultedBorderBrush is used to show KeyBoardFocus -->
+	<LinearGradientBrush x:Key="DefaultedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#777" Offset="0.0"/>
+		<GradientStop Color="#000" Offset="1.0"/>
+	</LinearGradientBrush>
+	
+	<!-- MouseOverBrush is used for MouseOver in Button, Radio Button, CheckBox -->
+	<LinearGradientBrush x:Key="MouseOverBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#FFF" Offset="0.0"/>
+		<GradientStop Color="#AAA" Offset="1.0"/>
+	</LinearGradientBrush>
+	
+	<!-- PressedBrush is used for Pressed in Button, Radio Button, CheckBox -->
+	<LinearGradientBrush x:Key="PressedBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#BBB" Offset="0.0"/>
+		<GradientStop Color="#EEE" Offset="0.1"/>
+		<GradientStop Color="#EEE" Offset="0.9"/>
+		<GradientStop Color="#FFF" Offset="1.0"/>
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="PressedBorderBrush" EndPoint="0,1" StartPoint="0,0">
+		<GradientStop Color="#444" Offset="0.0"/>
+		<GradientStop Color="#888" Offset="1.0"/>
+	</LinearGradientBrush>
+	
 	<!-- Estilo por defecto de la plantilla utilizada en los formularios -->
     <Style TargetType="{x:Type local:ctlPlantilla}">
         <Setter Property="Template">
@@ -28,7 +57,7 @@
 								<DropShadowEffect BlurRadius="7" ShadowDepth="4" Direction="336" Color="White"/>
 							</TextBlock.Effect>
                             </TextBlock>
-                            <Image Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Margin="0" Name="imgIcon" Stretch="Fill" Width="70" Height="70" VerticalAlignment="Center" Source="{TemplateBinding Imagen}"/>
+                            <Image Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Margin="0" x:Name="imgIcon" Stretch="Fill" Width="70" Height="70" VerticalAlignment="Center" Source="{TemplateBinding Imagen}"/>
                         </Grid>
 
                         <Grid x:Name="gridElementos" Margin="5,0,5,5" Grid.Row="1">
@@ -64,10 +93,6 @@
         </Setter>
     </Style>
 	
-	<!--Colores personalizados que se utilizan en el TextBox-->
-	<SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE"/>
-	<SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888"/>
-
 	<!-- Estilo por defecto de los controles TextBox de toda la aplicacion -->
 	<Style TargetType="{x:Type controlJMP:TextBoxJMP}">
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
@@ -293,4 +318,150 @@
             </Setter.Value>
     		</Setter>
     	</Style>
+		
+	<Style TargetType="{x:Type controlJMP:ButtonJMP}" BasedOn="{x:Null}">
+		<Setter Property="FocusVisualStyle" Value="{DynamicResource SimpleButtonFocusVisual}"/>
+		<Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controlJMP:ButtonJMP}">
+					
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="Activate_Focus">
+							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+								<SplineColorKeyFrame KeyTime="00:00:00" Value="#00F5FA9F"/>
+								<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#FFF5FA9F"/>
+							</ColorAnimationUsingKeyFrames>
+							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+								<SplineColorKeyFrame KeyTime="00:00:00" Value="#00F3FC5B"/>
+								<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#FFF3FC5B"/>
+							</ColorAnimationUsingKeyFrames>
+							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+								<SplineColorKeyFrame KeyTime="00:00:00" Value="Transparent"/>
+								<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="White"/>
+							</ColorAnimationUsingKeyFrames>
+							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+								<SplineColorKeyFrame KeyTime="00:00:00" Value="#006A6A6A"/>
+								<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#FF6A6A6A"/>
+							</ColorAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="imgIcon" Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00" Value="15"/>
+								<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="Desactivate_Focus">
+							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[2].(GradientStop.Color)">
+								<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFF5FA9F"/>
+								<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#00F5FA9F"/>
+							</ColorAnimationUsingKeyFrames>
+							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+								<SplineColorKeyFrame KeyTime="00:00:00" Value="#FFF3FC5B"/>
+								<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#00F3FC5B"/>
+							</ColorAnimationUsingKeyFrames>
+							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+								<SplineColorKeyFrame KeyTime="00:00:00" Value="White"/>
+								<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="Transparent"/>
+							</ColorAnimationUsingKeyFrames>
+							<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+								<SplineColorKeyFrame KeyTime="00:00:00" Value="#FF6A6A6A"/>
+								<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#006A6A6A"/>
+							</ColorAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="imgIcon" Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+								<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="15"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</ControlTemplate.Resources>
+					
+					<!-- We use Grid as a root because it is easy to add more elements to customize the button -->
+					<Grid x:Name="Grid">
+						
+						<!-- Content Presenter is where the text content etc is placed by the control -->
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.344*"/>
+							<ColumnDefinition Width="0.8*"/>
+						</Grid.ColumnDefinitions>
+						<Border x:Name="Border" Padding="{TemplateBinding Padding}" Grid.ColumnSpan="2" BorderBrush="#006A6A6A" BorderThickness="1" CornerRadius="4">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Offset="0"/>
+									<GradientStop Color="#00F9FF8B" Offset="0.996"/>
+									<GradientStop Color="#00FCFFCA" Offset="0.881"/>
+								</LinearGradientBrush>
+							</Border.Background>
+						</Border>
+						
+						<Image x:Name="imgIcon" HorizontalAlignment="Center" Margin="2,2,0,2" VerticalAlignment="Center" Width="25" Height="25" Source="{TemplateBinding Icon}" Stretch="Fill">
+							<Image.Effect>
+								<BlurEffect Radius="11"/>
+							</Image.Effect>
+						</Image>
+						<!-- The bindings are useful so that the control can be parameterized without editing the template -->
+						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" Margin="0" Grid.Column="1" d:LayoutOverrides="Height"/>
+					</Grid>
+					
+					<!--Each state sets a brush on the Border in the template -->
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsKeyboardFocused" Value="true">
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource Activate_Focus}"/>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard x:Name="Desactivate_Focus_BeginStoryboard1" Storyboard="{StaticResource Desactivate_Focus}"/>
+							</Trigger.ExitActions>
+							<Setter Property="BorderBrush" TargetName="Border" Value="#FF6A6A6A"/>
+							<Setter Property="Background" TargetName="Border">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="White" Offset="0"/>
+										<GradientStop Color="#FFF9FF8B" Offset="0.996"/>
+										<GradientStop Color="#FFFCFFCA" Offset="0.881"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter Property="Effect" TargetName="imgIcon">
+								<Setter.Value>
+									<BlurEffect Radius="0"/>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Trigger.EnterActions>
+								<BeginStoryboard x:Name="Activate_Focus_BeginStoryboard" Storyboard="{StaticResource Activate_Focus}"/>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard x:Name="Desactivate_Focus_BeginStoryboard" Storyboard="{StaticResource Desactivate_Focus}"/>
+							</Trigger.ExitActions>
+							<Setter Property="BorderBrush" TargetName="Border" Value="#FF6A6A6A"/>
+							<Setter Property="Background" TargetName="Border">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="White" Offset="0"/>
+										<GradientStop Color="#FFF9FF8B" Offset="1"/>
+										<GradientStop Color="#FFFCFFCA" Offset="0.881"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter Property="Effect" TargetName="imgIcon">
+								<Setter.Value>
+									<BlurEffect Radius="0"/>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="true">
+							<Setter Property="Background" Value="{DynamicResource PressedBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource PressedBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="true"/>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+							<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 </ResourceDictionary>

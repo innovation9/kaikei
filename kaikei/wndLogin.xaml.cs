@@ -24,5 +24,10 @@ namespace Kaikei
 			
 			// Insert code required on object creation below this point.
 		}
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtUsuario.Focus();
+        }
 	}
 }
