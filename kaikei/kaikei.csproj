@@ -51,14 +51,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ControlsWPF_JMP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\ControlsWPF_JMP.dll</HintPath>
-    </Reference>
-    <Reference Include="Expression.Samples.Shaders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c7dd7e4745814058, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Expression.Samples.Shaders.dll</HintPath>
-    </Reference>
+    <Reference Include="ControlsWPF_JMP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Expression.Samples.Shaders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c7dd7e4745814058, processorArchitecture=MSIL" />
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -183,6 +177,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Recursos\ControlsWPF_JMP.dll" />
+    <Content Include="Recursos\Expression.Samples.Shaders.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
