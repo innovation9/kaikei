@@ -182,6 +182,12 @@
     <Content Include="Recursos\ControlsWPF_JMP.dll" />
     <Content Include="Recursos\Expression.Samples.Shaders.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\kaikei.core\kaikei.core.csproj">
+      <Project>{D36B831E-57D4-4325-AE96-F1D713B8460E}</Project>
+      <Name>kaikei.core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
