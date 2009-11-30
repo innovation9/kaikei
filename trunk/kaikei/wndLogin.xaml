@@ -42,7 +42,7 @@
 						</ResourceDictionary>
 					</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 				</ControlsWPF_JMP_Controls:TextBoxJMP>
-				<ControlsWPF_JMP_Controls:ButtonJMP Margin="0,8,5,8" Content="Iniciar" Grid.Column="1" Grid.Row="1" BorderThickness="1" TabIndex="2" FontFamily="{DynamicResource FontButtons}" FontSize="{DynamicResource FontButtons_Tamaño}" FontWeight="{DynamicResource FontButtons_Estilo}" Icon="IconosBotones/boton_Siguiente.png" HorizontalAlignment="Right" Width="90" VerticalAlignment="Center" Height="30">
+				<ControlsWPF_JMP_Controls:ButtonJMP Margin="0,8,5,8" Content="Iniciar" Grid.Column="1" Grid.Row="1" BorderThickness="1" TabIndex="2" FontFamily="{DynamicResource FontButtons}" FontSize="{DynamicResource FontButtons_Tamaño}" FontWeight="{DynamicResource FontButtons_Estilo}" Icon="IconosBotones/boton_Siguiente.png" HorizontalAlignment="Right" Width="90" VerticalAlignment="Center" Height="30" Click="btnIniciar_Click" Name="btnIniciar" IsDefault="True">
 					<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>
@@ -51,7 +51,7 @@
 						</ResourceDictionary>
 					</ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 				</ControlsWPF_JMP_Controls:ButtonJMP>
-				<ControlsWPF_JMP_Controls:ButtonJMP HorizontalAlignment="Right" Margin="0,8,99,8" VerticalAlignment="Center" Width="90" Height="30" Content="Salir" BorderThickness="1" FontFamily="{DynamicResource FontButtons}" FontSize="{DynamicResource FontButtons_Tamaño}" FontWeight="{DynamicResource FontButtons_Estilo}" TabIndex="2" Grid.Row="1" Icon="IconosBotones/boton_Salir.png" Grid.ColumnSpan="2">
+				<ControlsWPF_JMP_Controls:ButtonJMP HorizontalAlignment="Right" Margin="0,8,99,8" VerticalAlignment="Center" Width="90" Height="30" Content="Salir" BorderThickness="1" FontFamily="{DynamicResource FontButtons}" FontSize="{DynamicResource FontButtons_Tamaño}" FontWeight="{DynamicResource FontButtons_Estilo}" TabIndex="2" Grid.Row="1" Icon="IconosBotones/boton_Salir.png" Grid.ColumnSpan="2" IsCancel="True" Name="btnSalir" Click="btnSalir_Click">
 					<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>
@@ -60,8 +60,7 @@
 						</ResourceDictionary>
 					</ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 				</ControlsWPF_JMP_Controls:ButtonJMP>
-
-			</Grid>
+            </Grid>
         </kaikei:ctlPlantilla>
     </Grid>
 </controlsJMP:WindowJMP>
