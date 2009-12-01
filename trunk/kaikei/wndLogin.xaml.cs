@@ -54,11 +54,16 @@ namespace Kaikei
             //es correcta
             if ((txtUsuario.Text == "admin") && (txtPassword.Password == "kaikei"))
             {
-                MessageBox.Show("Usuario valido");
+                wndPrincipal wnd = new wndPrincipal();
+                wnd.Show();
+                this.Close();
             }
             else
+            {
                 MsjError("Lo sentimos, pero el usuario o contraseña digitada es incorrecta, por favor vuelva a intentarlo",
                     "Usuario o Contraseña invalidas");
+                txtPassword.SelectAll();
+            }
 
         }
 

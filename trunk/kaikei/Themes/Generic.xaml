@@ -41,29 +41,29 @@
                 <ControlTemplate TargetType="{x:Type local:ctlPlantilla}">
                     <Grid x:Name="gridRoot" Visibility="Visible">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="85"/>
+                            <RowDefinition Height="70"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
                         <Grid x:Name="gridTitulo" Margin="5,5,5,0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="100"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
                             <Border x:Name="borderTitulo" Margin="0" BorderBrush="Black" BorderThickness="1,1,1,0" CornerRadius="13,13,0,0" Grid.ColumnSpan="2" Background="{TemplateBinding FondoTitulo}"/>
-                            <TextBlock x:Name="lblTitulo" Margin="-50,0,10,0" Text="{TemplateBinding Titulo}" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Monotype Corsiva" FontSize="50.667" Foreground="#FF393939" Grid.Column="1" HorizontalAlignment="Center">
+                            <TextBlock x:Name="lblTitulo" Margin="-50,0,10,0" Text="{TemplateBinding Titulo}" TextWrapping="Wrap" VerticalAlignment="Center" TextAlignment="Center" FontFamily="Monotype Corsiva" FontSize="42.667" Foreground="#FF393939" Grid.Column="1" HorizontalAlignment="Center">
 					    	<TextBlock.Effect>
 								<DropShadowEffect BlurRadius="7" ShadowDepth="4" Direction="336" Color="White"/>
 							</TextBlock.Effect>
                             </TextBlock>
-                            <Image Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Margin="0" x:Name="imgIcon" Stretch="Fill" Width="70" Height="70" VerticalAlignment="Center" Source="{TemplateBinding Imagen}"/>
+                            <Image Grid.ColumnSpan="1" HorizontalAlignment="Stretch" Margin="0" x:Name="imgIcon" Stretch="Fill" Width="55" Height="55" VerticalAlignment="Center" Source="{TemplateBinding Imagen}"/>
                         </Grid>
 
                         <Grid x:Name="gridElementos" Margin="5,0,5,5" Grid.Row="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="65"/>
+                                <RowDefinition Height="55"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="0.2*"/>

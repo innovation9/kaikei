@@ -12,7 +12,7 @@
     		<!-- Definimos el estilo por defecto de los Titulos de Pantalla -->
     		<FontFamily x:Key="FontTitulos">SquireD</FontFamily>
     		<FontWeight x:Key="FontTitulos_Estilo">Bold</FontWeight>
-    		<System:Double x:Key="FontTitulos_Tamaño">19</System:Double>
+    		<System:Double x:Key="FontTitulos_Tamaño">18</System:Double>
 		
     		<!-- Definimos el estilo por defecto los labels en pantalla -->
     		<FontFamily x:Key="FontLabels">Segoe UI</FontFamily>
@@ -33,6 +33,11 @@
     			<GradientStop Color="#E2E3EA" Offset="0.07"/>
     			<GradientStop Color="#E3E9EF" Offset="1"/>
     		</LinearGradientBrush>
+			
+			<!-- Definimos el estilo por defecto los Titulos de Menu -->
+    		<FontFamily x:Key="FontTituloMenu">SquireD</FontFamily>
+    		<FontWeight x:Key="FontTituloMenu_Estilo">Bold</FontWeight>
+    		<System:Double x:Key="FontTituloMenu_Tamaño">18.8</System:Double>
     	</ResourceDictionary>
     </Application.Resources>
 </Application>
