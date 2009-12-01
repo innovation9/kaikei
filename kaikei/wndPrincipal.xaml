@@ -5,7 +5,7 @@
     xmlns:controlsJMP="clr-namespace:ControlsWPF_JMP.Ventanas;assembly=ControlsWPF_JMP"
     Title="Kaikei - Sistema de contabilidad General y Contabilidad de Costos" Height="700" Width="900" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="900" MinHeight="700">
     <Grid>
-    	<Menu x:Name="menu_Principal" Margin="0" Style="{DynamicResource SimpleMenu}" VerticalAlignment="Top" Height="40">
+    	<Menu x:Name="menu_Principal" Margin="0" Style="{DynamicResource SimpleMenu}" VerticalAlignment="Top" Height="42">
 			<Menu.Background>
 				<ImageBrush ImageSource="pack://application:,,,/kaikei;component/Themes/imgPanelTitulos.jpg" />
 			</Menu.Background>

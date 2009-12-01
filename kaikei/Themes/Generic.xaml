@@ -66,8 +66,8 @@
                                 <RowDefinition Height="55"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.2*"/>
-                                <ColumnDefinition Width="0.8*"/>
+                                <ColumnDefinition Width="0.10*"/>
+                                <ColumnDefinition Width="0.90*"/>
                             </Grid.ColumnDefinitions>
 
                             <Border x:Name="borderElementos" Margin="0" BorderBrush="Black" BorderThickness="1,0,1,1" CornerRadius="0,0,13,13" Grid.ColumnSpan="2" Grid.RowSpan="2">

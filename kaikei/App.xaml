@@ -35,9 +35,9 @@
     		</LinearGradientBrush>
 			
 			<!-- Definimos el estilo por defecto los Titulos de Menu -->
-    		<FontFamily x:Key="FontTituloMenu">SquireD</FontFamily>
-    		<FontWeight x:Key="FontTituloMenu_Estilo">Bold</FontWeight>
-    		<System:Double x:Key="FontTituloMenu_Tamaño">18.8</System:Double>
+    		<FontFamily x:Key="FontTituloMenu">Monotype Corsiva</FontFamily>
+    		<FontWeight x:Key="FontTituloMenu_Estilo">Medium</FontWeight>
+    		<System:Double x:Key="FontTituloMenu_Tamaño">22</System:Double>
     	</ResourceDictionary>
     </Application.Resources>
 </Application>
