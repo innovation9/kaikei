@@ -762,7 +762,7 @@
 							</Grid.ColumnDefinitions>
 							
 							<!-- ContentPresenter to show an Icon if needed -->
-							<ContentPresenter Margin="4,0,6,0" x:Name="Icon" VerticalAlignment="Center" ContentSource="Icon"/>
+							<ContentPresenter Margin="5,4,6,4" x:Name="Icon" VerticalAlignment="Center" ContentSource="Icon"/>
 							
 							<!-- Glyph is a checkmark if needed for a checkable menu -->
 							<Grid Visibility="Hidden" Margin="4,0,6,0" x:Name="GlyphPanel" VerticalAlignment="Center">
@@ -770,7 +770,7 @@
 							</Grid>
 							
 							<!-- Content for the menu text etc -->
-							<ContentPresenter Grid.Column="1" Margin="{TemplateBinding Padding}" x:Name="HeaderHost" RecognizesAccessKey="True" ContentSource="Header"/>
+							<ContentPresenter Grid.Column="1" Margin="{TemplateBinding Padding}" x:Name="HeaderHost" RecognizesAccessKey="True" ContentSource="Header" VerticalAlignment="Center"/>
 							
 							<!-- Arrow drawn path which points to the next level of the menu -->
 							<Grid Grid.Column="3" Margin="4,0,6,0" x:Name="ArrowPanel" VerticalAlignment="Center">

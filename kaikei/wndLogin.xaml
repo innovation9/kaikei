@@ -7,8 +7,8 @@
 	x:Class="Kaikei.wndLogin"
 	x:Name="Window"
 	Title="Inicio de Sesión"
-	Width="321" Height="328"
-	WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+	Width="302" Height="295"
+	WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="CanMinimize">
 
 	<Grid x:Name="LayoutRoot">
         <kaikei:ctlPlantilla Imagen="IconosWindows/icon_Login.png" Titulo="Login">
@@ -22,9 +22,9 @@
 					<RowDefinition Height="0.297*"/>
 				</Grid.RowDefinitions>
 				<TextBlock Margin="15,12,8,0" VerticalAlignment="Top" Text="Ingrese sus credenciales:" TextWrapping="Wrap" Grid.ColumnSpan="2" FontSize="{DynamicResource FontTitulos_Tamaño}" Foreground="#FF00329D" FontWeight="{DynamicResource FontTitulos_Estilo}" FontFamily="{DynamicResource FontTitulos}" HorizontalAlignment="Center"/>
-				<TextBlock HorizontalAlignment="Center" Margin="35,53.403,0,0" VerticalAlignment="Top" Width="63.052" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Usuario:" TextWrapping="Wrap" FontFamily="{DynamicResource FontLabels}"/>
-				<TextBlock Margin="35,86,0,0" Text="Password:" TextWrapping="Wrap" FontWeight="{DynamicResource FonLabels_Estilo}" FontSize="{DynamicResource FonLabels_Tamaño}" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="{DynamicResource FontLabels}"/>
-				<PasswordBox x:Name="txtPassword" HorizontalAlignment="Center" Margin="-33,0,0,27.439" VerticalAlignment="Bottom" Grid.Column="1" Width="130" TabIndex="1" Style="{DynamicResource PasswordBoxDefault}" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}">
+				<TextBlock HorizontalAlignment="Center" Margin="20,53.403,0,0" VerticalAlignment="Top" Width="63.052" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Usuario:" TextWrapping="Wrap" FontFamily="{DynamicResource FontLabels}"/>
+				<TextBlock Margin="20,86,0,0" Text="Password:" TextWrapping="Wrap" FontWeight="{DynamicResource FonLabels_Estilo}" FontSize="{DynamicResource FonLabels_Tamaño}" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="{DynamicResource FontLabels}"/>
+				<PasswordBox x:Name="txtPassword" Margin="-3.932,0,29.068,21.815" VerticalAlignment="Bottom" Grid.Column="1" TabIndex="1" Style="{DynamicResource PasswordBoxDefault}" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" Width="130">
 					<PasswordBox.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>
@@ -42,7 +42,7 @@
 						</ResourceDictionary>
 					</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 				</ControlsWPF_JMP_Controls:TextBoxJMP>
-				<ControlsWPF_JMP_Controls:ButtonJMP Margin="0,8,5,8" Content="Iniciar" Grid.Column="1" Grid.Row="1" BorderThickness="1" TabIndex="2" FontFamily="{DynamicResource FontButtons}" FontSize="{DynamicResource FontButtons_Tamaño}" FontWeight="{DynamicResource FontButtons_Estilo}" Icon="IconosBotones/boton_Siguiente.png" HorizontalAlignment="Right" Width="90" VerticalAlignment="Center" Height="30" Click="btnIniciar_Click" Name="btnIniciar" IsDefault="True">
+				<ControlsWPF_JMP_Controls:ButtonJMP Margin="0,20,1,5" Content="Iniciar" Grid.Column="1" Grid.Row="1" BorderThickness="1" TabIndex="2" FontFamily="{DynamicResource FontButtons}" FontSize="{DynamicResource FontButtons_Tamaño}" FontWeight="{DynamicResource FontButtons_Estilo}" Icon="IconosBotones/boton_Siguiente.png" HorizontalAlignment="Right" Width="90" Click="btnIniciar_Click" Name="btnIniciar" IsDefault="True" VerticalAlignment="Center" Grid.ColumnSpan="2">
 					<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>
@@ -51,7 +51,7 @@
 						</ResourceDictionary>
 					</ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 				</ControlsWPF_JMP_Controls:ButtonJMP>
-				<ControlsWPF_JMP_Controls:ButtonJMP HorizontalAlignment="Right" Margin="0,8,99,8" VerticalAlignment="Center" Width="90" Height="30" Content="Salir" BorderThickness="1" FontFamily="{DynamicResource FontButtons}" FontSize="{DynamicResource FontButtons_Tamaño}" FontWeight="{DynamicResource FontButtons_Estilo}" TabIndex="2" Grid.Row="1" Icon="IconosBotones/boton_Salir.png" Grid.ColumnSpan="2" IsCancel="True" Name="btnSalir" Click="btnSalir_Click">
+				<ControlsWPF_JMP_Controls:ButtonJMP HorizontalAlignment="Right" Margin="0,20,95,5" Width="90" Content="Salir" BorderThickness="1" FontFamily="{DynamicResource FontButtons}" FontSize="{DynamicResource FontButtons_Tamaño}" FontWeight="{DynamicResource FontButtons_Estilo}" TabIndex="2" Grid.Row="1" Icon="IconosBotones/boton_Salir.png" IsCancel="True" Name="btnSalir" Click="btnSalir_Click" VerticalAlignment="Center" Grid.ColumnSpan="2">
 					<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>

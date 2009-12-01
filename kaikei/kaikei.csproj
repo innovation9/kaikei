@@ -100,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="wndPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -127,6 +131,9 @@
     <Compile Include="wndLogin.xaml.cs">
       <DependentUpon>wndLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="wndPrincipal.xaml.cs">
+      <DependentUpon>wndPrincipal.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -145,6 +152,12 @@
     <Resource Include="stsNormal.png" />
     <Resource Include="Themes\imgPanelBotones.png" />
     <Resource Include="Themes\imgPanelTitulos.jpg" />
+    <Resource Include="Themes\mnu_Ayuda.png" />
+    <Resource Include="Themes\mnu_ContabilidadCostos.png" />
+    <Resource Include="Themes\mnu_ContabilidadGral.png" />
+    <Resource Include="Themes\mnu_Empleados.png" />
+    <Resource Include="Themes\mnu_EstadosFinancieros.png" />
+    <Resource Include="Themes\mnu_Inventario.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
