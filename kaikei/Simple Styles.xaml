@@ -849,8 +849,7 @@
 						
 						<!-- Using the system colors for the Menu Highlight and IsEnabled-->
 						<Trigger Property="IsHighlighted" Value="true">
-							<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TargetName="Border"/>
-							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+							<Setter Property="Background" TargetName="Border" Value="#FFFCFFC2"/>
 						</Trigger>
 						<Trigger Property="IsEnabled" Value="false">
 							<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
