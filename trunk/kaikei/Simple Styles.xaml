@@ -770,7 +770,11 @@
 							</Grid>
 							
 							<!-- Content for the menu text etc -->
-							<ContentPresenter Grid.Column="1" Margin="{TemplateBinding Padding}" x:Name="HeaderHost" RecognizesAccessKey="True" ContentSource="Header" VerticalAlignment="Center"/>
+							<ContentPresenter Grid.Column="1" Margin="{TemplateBinding Padding}" x:Name="HeaderHost" RecognizesAccessKey="True" ContentSource="Header" VerticalAlignment="Center">
+								<ContentPresenter.Effect>
+									<DropShadowEffect Color="White" BlurRadius="4" ShadowDepth="2"/>
+								</ContentPresenter.Effect>
+							</ContentPresenter>
 							
 							<!-- Arrow drawn path which points to the next level of the menu -->
 							<Grid Grid.Column="3" Margin="4,0,6,0" x:Name="ArrowPanel" VerticalAlignment="Center">
