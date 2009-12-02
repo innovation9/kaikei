@@ -1,0 +1,10 @@
+﻿<controlsJMP:WindowJMP x:Class="Kaikei.wndPlanilla"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:controlsJMP="clr-namespace:ControlsWPF_JMP.Ventanas;assembly=ControlsWPF_JMP"
+    xmlns:kaikei="clr-namespace:kaikei"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Planilla" Height="500" Width="700">
+    <Grid>
+        <kaikei:ctlPlantilla Titulo="Planilla"></kaikei:ctlPlantilla>
+    </Grid>
+</controlsJMP:WindowJMP>

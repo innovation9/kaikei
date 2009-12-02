@@ -8,5 +8,10 @@ namespace kaikei.core
 {
     class CEmpleado
     {
+        int id_empleado;
+        CAfp afp;
+        String nombre;
+        String apellido;
+
     }
 }
