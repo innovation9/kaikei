@@ -1,4 +1,6 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	xmlns:controlJMP="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" >
 	
 	<!-- SimpleStyles.XAML defines a set of control styles which are simplified starting points for creating your own controls -->
 	
@@ -462,25 +464,21 @@
 	
 	<!-- Simple Expander ToggleButton - This Button is used by the Expander control. When it is toggled it switches visibility on the Up_Arrow and Down_Arrow -->
 	<ControlTemplate x:Key="ExpanderToggleButton" TargetType="{x:Type ToggleButton}">
-		<Grid>
-			<Rectangle Margin="0,0,0,0" x:Name="Rectangle" Fill="Transparent" Stroke="{DynamicResource NormalBorderBrush}"/>
-			<Path HorizontalAlignment="Center" x:Name="Up_Arrow" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M 0 0 L 4 4 L 8 0 Z"/>
-			<Path Visibility="Collapsed" HorizontalAlignment="Center" x:Name="Down_Arrow" VerticalAlignment="Center" Fill="{DynamicResource GlyphBrush}" Data="M 0 4 L 4 0 L 8 4 Z"/>
+		<Grid Background="#00000000">
+			<Path HorizontalAlignment="Center" x:Name="Up_Arrow" VerticalAlignment="Center" Fill="{x:Null}" Data="M0,0L6,6 12,0z" StrokeThickness="1" Margin="0" Stroke="#FF929292"/>
+			<Path Visibility="Collapsed" HorizontalAlignment="Center" x:Name="Down_Arrow" VerticalAlignment="Center" Fill="{x:Null}" Data="M0,6L6,0 12,6z" Stroke="#FF929292"/>
 		</Grid>
 		<ControlTemplate.Triggers>
 			<Trigger Property="IsMouseOver" Value="true">
-				<Setter Property="Fill" Value="{DynamicResource MouseOverBrush}" TargetName="Rectangle"/>
+				<Setter Property="StrokeThickness" TargetName="Down_Arrow" Value="2"/>
+				<Setter Property="StrokeThickness" TargetName="Up_Arrow" Value="2"/>
 			</Trigger>
-			<Trigger Property="IsPressed" Value="true">
-				<Setter Property="Fill" Value="{DynamicResource PressedBrush}" TargetName="Rectangle"/>
-			</Trigger>
+			<Trigger Property="IsPressed" Value="true"/>
 			<Trigger Property="IsChecked" Value="true">
 				<Setter Property="Visibility" Value="Visible" TargetName="Down_Arrow"/>
 				<Setter Property="Visibility" Value="Collapsed" TargetName="Up_Arrow"/>
 			</Trigger>
 			<Trigger Property="IsEnabled" Value="False">
-				<Setter Property="Fill" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Rectangle"/>
-				<Setter Property="Stroke" Value="{DynamicResource DisabledBorderBrush}" TargetName="Rectangle"/>
 				<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
 				<Setter Property="Fill" Value="{DynamicResource DisabledForegroundBrush}" TargetName="Up_Arrow"/>
 			</Trigger>
@@ -490,28 +488,38 @@
 	<!-- Simple Expander 
 	 This uses the Simpler ExpanderToggleButton. It sets Visibility on the ContentPresenter to expand
 	 Limitations : The Simple Expander only expands down -->
-	<Style x:Key="SimpleExpander" TargetType="{x:Type Expander}">
+	<Style x:Key="SimpleExpander" TargetType="{x:Type controlJMP:ExpanderJMP}">
 		<Setter Property="Background" Value="{DynamicResource LightBrush}"/>
 		<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type Expander}">
+				<ControlTemplate TargetType="{x:Type controlJMP:ExpanderJMP}">
 					<Grid>
 						<Grid.RowDefinitions>
+						
 							<RowDefinition Height="Auto"/>
 							<RowDefinition Height="*" x:Name="ContentRow"/>
 						</Grid.RowDefinitions>
-						<Border Grid.Row="0" x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="2,2,0,0">
+						<Border Grid.Row="0" x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5,5,0,0">
 							<Grid>
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="20"/>
+									<ColumnDefinition Width="40"/>
 									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="30"/>
 								</Grid.ColumnDefinitions>
-								<ToggleButton Template="{DynamicResource ExpanderToggleButton}" Background="{DynamicResource NormalBrush}" IsChecked="{Binding Path=IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True"/>
-								<ContentPresenter Grid.Column="1" Margin="4" RecognizesAccessKey="True" ContentSource="Header"/>
+								<Image HorizontalAlignment="Stretch" Margin="5,3" Width="25" Grid.Column="0" Source="{TemplateBinding Imagen}" Height="25"/>
+								<ToggleButton Template="{DynamicResource ExpanderToggleButton}" Background="{x:Null}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" OverridesDefaultStyle="True" Grid.Column="2" Margin="0,0,5,0"/>
+								<ContentPresenter Grid.Column="1" Margin="4" RecognizesAccessKey="True" ContentSource="Header" VerticalAlignment="Center"/>
 							</Grid>
 						</Border>
-						<Border Visibility="Collapsed" Grid.Row="1" x:Name="ExpandSite" Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1,0,1,1" CornerRadius="0,0,2,2">
+						<Border Visibility="Collapsed" Grid.Row="1" x:Name="ExpandSite" BorderBrush="{DynamicResource SolidBorderBrush}" BorderThickness="1,0,1,1" CornerRadius="0,0,2,2">
+							<Border.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFFCFFC8" Offset="1"/>
+									<GradientStop Color="White"/>
+									<GradientStop Color="#FFFEFFED" Offset="0.855"/>
+								</LinearGradientBrush>
+							</Border.Background>
 							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="false"/>
 						</Border>
 					</Grid>
