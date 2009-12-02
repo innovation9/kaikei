@@ -100,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="wndPlanilla.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="wndPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,6 +134,9 @@
     </Compile>
     <Compile Include="wndLogin.xaml.cs">
       <DependentUpon>wndLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="wndPlanilla.xaml.cs">
+      <DependentUpon>wndPlanilla.xaml</DependentUpon>
     </Compile>
     <Compile Include="wndPrincipal.xaml.cs">
       <DependentUpon>wndPrincipal.xaml</DependentUpon>
