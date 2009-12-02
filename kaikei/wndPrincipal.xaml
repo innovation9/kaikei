@@ -3,8 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controlsJMP="clr-namespace:ControlsWPF_JMP.Ventanas;assembly=ControlsWPF_JMP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" 
     x:Class="Kaikei.wndPrincipal"
-    Title="Kaikei - Sistema de contabilidad General y Contabilidad de Costos" Height="700" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="900" MinHeight="700" mc:Ignorable="d">
+    Title="Kaikei - Sistema de contabilidad General y Contabilidad de Costos" Height="700" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="900" MinHeight="700">
 	<DockPanel>
 		<Menu x:Name="menu_Principal" Margin="0" Style="{DynamicResource SimpleMenu}" VerticalAlignment="Top" Height="42" DockPanel.Dock="Top">
 			<Menu.Background>
@@ -74,15 +75,59 @@
 					<GradientStop Color="White" Offset="0.813"/>
 				</LinearGradientBrush>
 			</Border.Background>
-			<StackPanel ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-				<Expander Margin="10" IsExpanded="True" Header="Favoritos" BorderBrush="Black">
-					<StackPanel>
-						<TextBlock HorizontalAlignment="Left" Text="TextBlock" TextWrapping="Wrap"/>
-						<TextBlock HorizontalAlignment="Left" Text="TextBlock" TextWrapping="Wrap"/>
-						<TextBlock HorizontalAlignment="Left" Text="TextBlock" TextWrapping="Wrap"/>
+			<StackPanel x:Name="panel_Vinculos" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Contabilidad" Header="Contabilidad" Margin="10" Style="{DynamicResource SimpleExpander}" Imagen="Themes/expander_Conta.png" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" BorderThickness="1">
+					<ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+						<LinearGradientBrush EndPoint="1,1.5" StartPoint="0,0">
+							<GradientStop Color="White" Offset="0"/>
+							<GradientStop Color="#FFDDD6FF" Offset="0.996"/>
+							<GradientStop Color="#FFECE7FF" Offset="0.826"/>
+						</LinearGradientBrush>
+					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+					<StackPanel Margin="3,2,3,3">
+						<TextBlock HorizontalAlignment="Left" Text="TextBlock" TextWrapping="Wrap" Margin="0,0,0,5"/>
+						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
 					</StackPanel>
-				</Expander>
+				</ControlsWPF_JMP_Controls:ExpanderJMP>
+				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Reportes" Margin="10" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Reportes" Imagen="Themes/mnu_EstadosFinancieros.png">
+					<ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+						<LinearGradientBrush EndPoint="1,1.5" StartPoint="0,0">
+							<GradientStop Color="White" Offset="0"/>
+							<GradientStop Color="#FFDDD6FF" Offset="0.996"/>
+							<GradientStop Color="#FFECE7FF" Offset="0.826"/>
+						</LinearGradientBrush>
+					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+					<StackPanel Margin="3,2,3,3">
+						<TextBlock HorizontalAlignment="Left" Margin="0,0,0,5" Text="TextBlock" TextWrapping="Wrap"/>
+						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+					</StackPanel>
+				</ControlsWPF_JMP_Controls:ExpanderJMP>
+				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Favoritos" Margin="10" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Favoritos" Imagen="Themes/expander_Favoritos.png">
+					<ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+						<LinearGradientBrush EndPoint="1,1.5" StartPoint="0,0">
+							<GradientStop Color="White" Offset="0"/>
+							<GradientStop Color="#FFDDD6FF" Offset="0.996"/>
+							<GradientStop Color="#FFECE7FF" Offset="0.826"/>
+						</LinearGradientBrush>
+					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+					<StackPanel Margin="3,2,3,3">
+						<TextBlock HorizontalAlignment="Left" Margin="0,0,0,5" Text="TextBlock" TextWrapping="Wrap"/>
+						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+					</StackPanel>
+				</ControlsWPF_JMP_Controls:ExpanderJMP>
 			</StackPanel>
 		</Border>
+		<Grid x:Name="grid_Contenedor">
+			<Image HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" VerticalAlignment="Bottom" Height="75" Source="Themes/Logo.jpg"/>
+			<TextBlock HorizontalAlignment="Left" Margin="94,0,0,48" VerticalAlignment="Bottom" Text="Kaikei System" TextWrapping="Wrap" FontSize="24" FontWeight="Bold" FontStyle="Italic">
+				<TextBlock.Effect>
+					<DropShadowEffect ShadowDepth="3" Color="#FFCACACA"/>
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock HorizontalAlignment="Left" Margin="94,0,0,25.04" VerticalAlignment="Bottom" Text="Todos los derechos reservados @ 2009" TextWrapping="Wrap" FontStyle="Italic" FontSize="13.333"/>
+		</Grid>
 	</DockPanel>
 </Window>

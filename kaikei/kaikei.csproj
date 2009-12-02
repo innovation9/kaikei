@@ -150,8 +150,14 @@
     <Resource Include="IconosBotones\boton_Siguiente.png" />
     <Resource Include="IconosWindows\icon_Login.png" />
     <Resource Include="stsNormal.png" />
+    <Resource Include="Themes\expander_Conta.png" />
+    <Resource Include="Themes\expander_Down.png" />
+    <Resource Include="Themes\expander_Favoritos.png" />
+    <Resource Include="Themes\expander_Informes.png" />
+    <Resource Include="Themes\expander_Up.png" />
     <Resource Include="Themes\imgPanelBotones.png" />
     <Resource Include="Themes\imgPanelTitulos.jpg" />
+    <Resource Include="Themes\Logo.jpg" />
     <Resource Include="Themes\mnu_Ayuda.png" />
     <Resource Include="Themes\mnu_ContabilidadCostos.png" />
     <Resource Include="Themes\mnu_ContabilidadGral.png" />

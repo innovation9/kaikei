@@ -38,6 +38,11 @@
     		<FontFamily x:Key="FontTituloMenu">Monotype Corsiva</FontFamily>
     		<FontWeight x:Key="FontTituloMenu_Estilo">Medium</FontWeight>
     		<System:Double x:Key="FontTituloMenu_Tamaño">22</System:Double>
+			
+			<!-- Definimos el estilo por defecto los Titulos de Expander -->
+    		<FontFamily x:Key="FontTituloExpander">TimeScrDLig</FontFamily>
+    		<FontWeight x:Key="FontTituloExpander_Estilo">SemiBold</FontWeight>
+    		<System:Double x:Key="FontTituloExpander_Tamaño">14.5</System:Double>
     	</ResourceDictionary>
     </Application.Resources>
 </Application>
