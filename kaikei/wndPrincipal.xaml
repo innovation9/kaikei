@@ -7,67 +7,32 @@
     x:Class="Kaikei.wndPrincipal"
     Title="Kaikei - Sistema de contabilidad General y Contabilidad de Costos" Height="700" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="900" MinHeight="700">
 	<DockPanel>
-		<Menu x:Name="menu_Principal" Margin="0" Style="{DynamicResource SimpleMenu}" VerticalAlignment="Top" Height="42" DockPanel.Dock="Top">
-			<Menu.Background>
-				<ImageBrush ImageSource="pack://application:,,,/kaikei;component/Themes/imgPanelTitulos.jpg" />
-			</Menu.Background>
-			<MenuItem x:Name="mnu_tit_ContaGral" Margin="0" Style="{DynamicResource SimpleMenuItem}" Header="Contabilidad General" FontFamily="{DynamicResource FontTituloMenu}" FontSize="{DynamicResource FontTituloMenu_Tamaño}" FontWeight="{DynamicResource FontTituloMenu_Estilo}">
-				<MenuItem.Icon>
-					<Image>
-						<Image.Source>
-							<BitmapImage UriSource="/kaikei;component/Themes/mnu_ContabilidadGral.png" />
-						</Image.Source>
-					</Image>
-				</MenuItem.Icon>
-			</MenuItem>
-			<MenuItem x:Name="mnu_tit_ContaCosto" Margin="0" Style="{DynamicResource SimpleMenuItem}" FontFamily="{DynamicResource FontTituloMenu}" FontSize="{DynamicResource FontTituloMenu_Tamaño}" FontWeight="{DynamicResource FontTituloMenu_Estilo}" Header="Contabilidad Costos">
-				<MenuItem.Icon>
-					<Image>
-						<Image.Source>
-							<BitmapImage UriSource="/kaikei;component/Themes/mnu_ContabilidadCostos.png" />
-						</Image.Source>
-					</Image>
-				</MenuItem.Icon>
-			</MenuItem>
-			<MenuItem x:Name="mnu_tit_Inventario" Margin="0" Style="{DynamicResource SimpleMenuItem}" FontFamily="{DynamicResource FontTituloMenu}" FontSize="{DynamicResource FontTituloMenu_Tamaño}" FontWeight="{DynamicResource FontTituloMenu_Estilo}" Header="Inventario">
-				<MenuItem.Icon>
-					<Image>
-						<Image.Source>
-							<BitmapImage UriSource="/kaikei;component/Themes/mnu_Inventario.png" />
-						</Image.Source>
-					</Image>
-				</MenuItem.Icon>
-			</MenuItem>
-			<MenuItem x:Name="mnu_tit_Planilla" Margin="0" Style="{DynamicResource SimpleMenuItem}" Header="Planilla" FontFamily="{DynamicResource FontTituloMenu}" FontSize="{DynamicResource FontTituloMenu_Tamaño}" FontWeight="{DynamicResource FontTituloMenu_Estilo}">
-				<MenuItem.Icon>
-					<Image>
-						<Image.Source>
-							<BitmapImage UriSource="/kaikei;component/Themes/mnu_Empleados.png" />
-						</Image.Source>
-					</Image>
-				</MenuItem.Icon>
-			</MenuItem>
-			<MenuItem x:Name="mnu_tit_EstadosF" Margin="0" Style="{DynamicResource SimpleMenuItem}" FontFamily="{DynamicResource FontTituloMenu}" FontSize="{DynamicResource FontTituloMenu_Tamaño}" FontWeight="{DynamicResource FontTituloMenu_Estilo}" Header="Reportes">
-				<MenuItem.Icon>
-					<Image>
-						<Image.Source>
-							<BitmapImage UriSource="/kaikei;component/Themes/mnu_EstadosFinancieros.png" />
-						</Image.Source>
-					</Image>
-				</MenuItem.Icon>
-			</MenuItem>
-			<MenuItem x:Name="mnu_tit_Ayuda" Margin="0" Style="{DynamicResource SimpleMenuItem}" FontFamily="{DynamicResource FontTituloMenu}" FontSize="{DynamicResource FontTituloMenu_Tamaño}" FontWeight="{DynamicResource FontTituloMenu_Estilo}" Header="Ayuda">
-				<MenuItem.Icon>
-					<Image>
-						<Image.Source>
-							<BitmapImage UriSource="/kaikei;component/Themes/mnu_Ayuda.png" />
-						</Image.Source>
-					</Image>
-				</MenuItem.Icon>
-			</MenuItem>
-		</Menu>
         
-		<Border HorizontalAlignment="Right" Width="250" BorderBrush="Black" BorderThickness="1,1,0,0" DockPanel.Dock="Right">
+		<Border BorderBrush="Black" BorderThickness="0" DockPanel.Dock="Top" Height="40">
+			<Border.Background>
+				<ImageBrush ImageSource="Themes/imgPanelTitulos.jpg" />
+			</Border.Background>
+			<Grid>
+				<TextBlock HorizontalAlignment="Left" Margin="80,0,0,0" Text="Kaikei System" TextWrapping="Wrap" FontSize="21.333" FontWeight="Bold" FontStyle="Italic" d:LayoutOverrides="Height" VerticalAlignment="Center" FontFamily="Segoe Print">
+					<TextBlock.Effect>
+						<DropShadowEffect ShadowDepth="3" Color="#FFCACACA"/>
+					</TextBlock.Effect>
+				</TextBlock>
+				<TextBlock HorizontalAlignment="Right" Margin="0,0,10,5" VerticalAlignment="Bottom" Text="Todos los derechos reservados @ 2009" TextWrapping="Wrap" FontStyle="Italic" FontWeight="Bold"/>
+				<Image HorizontalAlignment="Left" Margin="10,3,0,3" VerticalAlignment="Bottom" Source="Themes/Logo.png"/>
+			</Grid>
+		</Border>
+        
+		<Border x:Name="border" HorizontalAlignment="Right" Width="250" BorderThickness="0,0,1,0">
+			<Border.BorderBrush>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="White" Offset="0"/>
+					<GradientStop Color="White" Offset="1"/>
+					<GradientStop Color="#FF4F4F4F" Offset="0.5"/>
+					<GradientStop Color="White"/>
+					<GradientStop Offset="1" Color="White"/>
+				</LinearGradientBrush>
+			</Border.BorderBrush>
 			<Border.Background>
 				<LinearGradientBrush EndPoint="0.5,1" StartPoint="-2,0">
 					<GradientStop Color="#7F9FD2FF" Offset="1"/>
@@ -120,14 +85,6 @@
 				</ControlsWPF_JMP_Controls:ExpanderJMP>
 			</StackPanel>
 		</Border>
-		<Grid x:Name="grid_Contenedor">
-			<Image HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" VerticalAlignment="Bottom" Height="75" Source="Themes/Logo.jpg"/>
-			<TextBlock HorizontalAlignment="Left" Margin="94,0,0,48" VerticalAlignment="Bottom" Text="Kaikei System" TextWrapping="Wrap" FontSize="24" FontWeight="Bold" FontStyle="Italic">
-				<TextBlock.Effect>
-					<DropShadowEffect ShadowDepth="3" Color="#FFCACACA"/>
-				</TextBlock.Effect>
-			</TextBlock>
-			<TextBlock HorizontalAlignment="Left" Margin="94,0,0,25.04" VerticalAlignment="Bottom" Text="Todos los derechos reservados @ 2009" TextWrapping="Wrap" FontStyle="Italic" FontSize="13.333"/>
-		</Grid>
+		<Grid x:Name="grid_Contenedor"/>
 	</DockPanel>
 </Window>

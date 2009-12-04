@@ -164,7 +164,7 @@
     <Resource Include="Themes\expander_Up.png" />
     <Resource Include="Themes\imgPanelBotones.png" />
     <Resource Include="Themes\imgPanelTitulos.jpg" />
-    <Resource Include="Themes\Logo.jpg" />
+    <Resource Include="Themes\Logo.png" />
     <Resource Include="Themes\mnu_Ayuda.png" />
     <Resource Include="Themes\mnu_ContabilidadCostos.png" />
     <Resource Include="Themes\mnu_ContabilidadGral.png" />
