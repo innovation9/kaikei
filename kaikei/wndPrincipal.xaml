@@ -4,9 +4,10 @@
     xmlns:controlsJMP="clr-namespace:ControlsWPF_JMP.Ventanas;assembly=ControlsWPF_JMP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     mc:Ignorable="d" xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" 
+    xmlns:kaikei="clr-namespace:kaikei" 
     x:Class="Kaikei.wndPrincipal"
     Title="Kaikei - Sistema de contabilidad General y Contabilidad de Costos" Height="700" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="900" MinHeight="700">
-	<DockPanel>
+	<DockPanel ScrollViewer.HorizontalScrollBarVisibility="Auto">
         
 		<Border BorderBrush="Black" BorderThickness="0" DockPanel.Dock="Top" Height="40">
 			<Border.Background>
@@ -23,7 +24,7 @@
 			</Grid>
 		</Border>
         
-		<Border x:Name="border" HorizontalAlignment="Right" Width="250" BorderThickness="0,0,1,0">
+		<Border x:Name="border" HorizontalAlignment="Right" Width="250" BorderThickness="0,0,1,0" ScrollViewer.VerticalScrollBarVisibility="Auto">
 			<Border.BorderBrush>
 				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 					<GradientStop Color="White" Offset="0"/>
@@ -40,8 +41,8 @@
 					<GradientStop Color="White" Offset="0.813"/>
 				</LinearGradientBrush>
 			</Border.Background>
-			<StackPanel x:Name="panel_Vinculos" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Contabilidad" Header="Contabilidad" Margin="10" Style="{DynamicResource SimpleExpander}" Imagen="Themes/expander_Conta.png" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" BorderThickness="1">
+			<StackPanel x:Name="panel_Vinculos" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Contabilidad" Header="Contabilidad" Margin="10,7" Style="{DynamicResource SimpleExpander}" Imagen="Themes/expander_Conta.png" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" BorderThickness="1">
 					<ControlsWPF_JMP_Controls:ExpanderJMP.Background>
 						<LinearGradientBrush EndPoint="1,1.5" StartPoint="0,0">
 							<GradientStop Color="White" Offset="0"/>
@@ -50,12 +51,12 @@
 						</LinearGradientBrush>
 					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
 					<StackPanel Margin="3,2,3,3">
-						<TextBlock HorizontalAlignment="Left" Text="TextBlock" TextWrapping="Wrap" Margin="0,0,0,5"/>
-						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
-						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Efectuar Transaccion" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Catalogo de Cuentas" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Orden de Fabricacion" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
 					</StackPanel>
 				</ControlsWPF_JMP_Controls:ExpanderJMP>
-				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Reportes" Margin="10" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Reportes" Imagen="Themes/mnu_EstadosFinancieros.png">
+				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Inventario" Margin="10,7" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Inventario" Imagen="Themes/mnu_Inventario.png">
 					<ControlsWPF_JMP_Controls:ExpanderJMP.Background>
 						<LinearGradientBrush EndPoint="1,1.5" StartPoint="0,0">
 							<GradientStop Color="White" Offset="0"/>
@@ -64,12 +65,12 @@
 						</LinearGradientBrush>
 					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
 					<StackPanel Margin="3,2,3,3">
-						<TextBlock HorizontalAlignment="Left" Margin="0,0,0,5" Text="TextBlock" TextWrapping="Wrap"/>
-						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
-						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Efectuar nueva compra" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Visualizar Inventario Disponible" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Visualizar Inventario KARDEX" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
 					</StackPanel>
 				</ControlsWPF_JMP_Controls:ExpanderJMP>
-				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Favoritos" Margin="10" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Favoritos" Imagen="Themes/expander_Favoritos.png">
+				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Planilla" Margin="10,7" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Planilla" Imagen="Themes/mnu_Empleados.png">
 					<ControlsWPF_JMP_Controls:ExpanderJMP.Background>
 						<LinearGradientBrush EndPoint="1,1.5" StartPoint="0,0">
 							<GradientStop Color="White" Offset="0"/>
@@ -78,13 +79,55 @@
 						</LinearGradientBrush>
 					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
 					<StackPanel Margin="3,2,3,3">
-						<TextBlock HorizontalAlignment="Left" Margin="0,0,0,5" Text="TextBlock" TextWrapping="Wrap"/>
-						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
-						<TextBlock Margin="0,0,69.273,5" Text="TextBlock" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Agregar nuevo Empleado" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Ver toda la Planilla" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+					</StackPanel>
+				</ControlsWPF_JMP_Controls:ExpanderJMP>
+				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Periodo" Margin="10,7" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Periodo Contable" Imagen="Themes/mnu_Periodo.png">
+					<ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+						<LinearGradientBrush EndPoint="1,1.5" StartPoint="0,0">
+							<GradientStop Color="White" Offset="0"/>
+							<GradientStop Color="#FFDDD6FF" Offset="0.996"/>
+							<GradientStop Color="#FFECE7FF" Offset="0.826"/>
+						</LinearGradientBrush>
+					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+					<StackPanel Margin="3,2,3,3">
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Cierre de Periodo actual" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Asiento de Ajustes" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+					</StackPanel>
+				</ControlsWPF_JMP_Controls:ExpanderJMP>
+				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Contabilidad1" Header="Reportes o Informes" Margin="10,7" Style="{DynamicResource SimpleExpander}" Imagen="Themes/mnu_EstadosFinancieros.png" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" BorderThickness="1">
+					<ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+						<LinearGradientBrush EndPoint="1,1.5" StartPoint="0,0">
+							<GradientStop Color="White" Offset="0"/>
+							<GradientStop Color="#FFDDD6FF" Offset="0.996"/>
+							<GradientStop Color="#FFECE7FF" Offset="0.826"/>
+						</LinearGradientBrush>
+					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
+					<StackPanel Margin="3,2,3,3">
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Balance de Comprobacion" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Estado de Resultados" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Estado de Capital" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Balance General" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
 					</StackPanel>
 				</ControlsWPF_JMP_Controls:ExpanderJMP>
 			</StackPanel>
 		</Border>
-		<Grid x:Name="grid_Contenedor"/>
+		<TabControl x:Name="tab_Ventanas" Style="{DynamicResource SimpleTabControl}">
+			<TabItem Style="{DynamicResource SimpleTabItem}" Header="Inventario">
+				<Grid>
+					<kaikei:ctlPlantillaTabItem d:LayoutOverrides="Width" SubTitulo="Inventario" Descripcion="Muestra el inventario de productos disponibles en el sistema">
+						<kaikei:ctlPlantillaTabItem.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</kaikei:ctlPlantillaTabItem.Resources>
+						<Grid/>
+					</kaikei:ctlPlantillaTabItem>
+				</Grid>
+			</TabItem>
+		</TabControl>
 	</DockPanel>
 </Window>
