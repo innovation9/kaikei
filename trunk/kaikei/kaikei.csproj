@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controlPlantilla.cs" />
+    <Compile Include="controlPlantillaTabItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -158,7 +159,6 @@
     <Resource Include="IconosWindows\icon_Login.png" />
     <Resource Include="stsNormal.png" />
     <Resource Include="Themes\expander_Conta.png" />
-    <Resource Include="Themes\expander_Down.png" />
     <Resource Include="Themes\expander_Favoritos.png" />
     <Resource Include="Themes\expander_Informes.png" />
     <Resource Include="Themes\expander_Up.png" />
@@ -171,6 +171,7 @@
     <Resource Include="Themes\mnu_Empleados.png" />
     <Resource Include="Themes\mnu_EstadosFinancieros.png" />
     <Resource Include="Themes\mnu_Inventario.png" />
+    <Resource Include="Themes\mnu_Periodo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

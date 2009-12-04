@@ -2,7 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
 	xmlns:System="clr-namespace:System;assembly=mscorlib"
-	xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="kaikei.App"
+	xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" xmlns:local="clr-namespace:kaikei" x:Class="kaikei.App"
 	StartupUri="wndLogin.xaml">
     <Application.Resources>
     	<ResourceDictionary>
@@ -43,6 +43,77 @@
     		<FontFamily x:Key="FontTituloExpander">TimeScrDLig</FontFamily>
     		<FontWeight x:Key="FontTituloExpander_Estilo">SemiBold</FontWeight>
     		<System:Double x:Key="FontTituloExpander_Tamaño">14.5</System:Double>
+    		<Style x:Key="StyleExpanderItem" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+    			<Setter Property="FocusVisualStyle" Value="{DynamicResource SimpleButtonFocusVisual}"/>
+    			<Setter Property="Background" Value="{DynamicResource NormalBrush}"/>
+    			<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}"/>
+    			<Setter Property="Template">
+    				<Setter.Value>
+    					<ControlTemplate TargetType="{x:Type Button}">
+    						<ControlTemplate.Resources>
+    							<Storyboard x:Key="MouseOver_Begin">
+    								<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+    									<SplineColorKeyFrame KeyTime="00:00:00" Value="#00004B8A"/>
+    									<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#FF004B8A"/>
+    								</ColorAnimationUsingKeyFrames>
+    								<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+    									<SplineColorKeyFrame KeyTime="00:00:00" Value="#00CCF6FF"/>
+    									<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#66CCF6FF"/>
+    								</ColorAnimationUsingKeyFrames>
+    							</Storyboard>
+    							<Storyboard x:Key="MouseOver_Finish">
+    								<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+    									<SplineColorKeyFrame KeyTime="00:00:00" Value="#66CCF6FF"/>
+    									<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#00CCF6FF"/>
+    								</ColorAnimationUsingKeyFrames>
+    								<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+    									<SplineColorKeyFrame KeyTime="00:00:00" Value="#FF004B8A"/>
+    									<SplineColorKeyFrame KeyTime="00:00:00.3000000" Value="#00004B8A"/>
+    								</ColorAnimationUsingKeyFrames>
+    							</Storyboard>
+    						</ControlTemplate.Resources>
+					
+    						<!-- We use Grid as a root because it is easy to add more elements to customize the button -->
+    						<Grid x:Name="Grid">
+    							<Border x:Name="Border" Padding="{TemplateBinding Padding}" BorderBrush="#00004B8A" BorderThickness="0.5" OpacityMask="{x:Null}" Background="#00CCF6FF"/>
+						
+    							<!-- Content Presenter is where the text content etc is placed by the control -->
+    							<!-- The bindings are useful so that the control can be parameterized without editing the template -->
+    							<ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" HorizontalAlignment="Left" Margin="5,2,0,2"/>
+    						</Grid>
+					
+    						<!--Each state sets a brush on the Border in the template -->
+    						<ControlTemplate.Triggers>
+    							<Trigger Property="IsKeyboardFocused" Value="true">
+    								<Setter Property="BorderBrush" Value="{DynamicResource DefaultedBorderBrush}" TargetName="Border"/>
+    							</Trigger>
+    							<Trigger Property="IsMouseOver" Value="true">
+    								<Trigger.ExitActions>
+    									<BeginStoryboard x:Name="MouseOver_Finish_BeginStoryboard" Storyboard="{StaticResource MouseOver_Finish}"/>
+    								</Trigger.ExitActions>
+    								<Trigger.EnterActions>
+    									<BeginStoryboard x:Name="MouseOver_Begin_BeginStoryboard" Storyboard="{StaticResource MouseOver_Begin}"/>
+    								</Trigger.EnterActions>
+    								<Setter Property="BorderBrush" TargetName="Border" Value="#FF004B8A"/>
+    								<Setter Property="Background" TargetName="Border" Value="#66CCF6FF"/>
+    								<Setter Property="OpacityMask" TargetName="Border" Value="{x:Null}"/>
+    							</Trigger>
+    							<Trigger Property="IsPressed" Value="true">
+    								<Setter Property="Background" Value="{DynamicResource PressedBrush}" TargetName="Border"/>
+    								<Setter Property="BorderBrush" Value="{DynamicResource PressedBorderBrush}" TargetName="Border"/>
+    							</Trigger>
+    							<Trigger Property="IsEnabled" Value="true"/>
+    							<Trigger Property="IsEnabled" Value="false">
+    								<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+    								<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+    								<Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+    							</Trigger>
+    						</ControlTemplate.Triggers>
+    					</ControlTemplate>
+    				</Setter.Value>
+    			</Setter>
+    		</Style>
+    		
     	</ResourceDictionary>
     </Application.Resources>
 </Application>
