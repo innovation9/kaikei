@@ -9,19 +9,19 @@ namespace kaikei.core
     public class CEmpleado : IConeccion
     {
         CConeccion conex;
-        public int Id_empleado { set; private get; }
-        public CAfp AFP { set; private get; }
-        public String Nombres { set; private get; }
-        public String Apellidos { set; private get; }
-        public String Direccion { set; private get; }
-        public int DUI { set; private get; }
-        public int NIT { set; private get; }
-        public int ISSS { set; private get; }
-        public int NUP { set; private get; }
-        public int TelefonoFijo { set; private get; }
-        public int TelefonoMovil { set; private get; }
-        public String Email { set; private get; }
-        public Double Salario { set; private get; }
+        public int Id_empleado { set; get; }
+        public CAfp AFP { set; get; }
+        public String Nombres { set; get; }
+        public String Apellidos { set; get; }
+        public String Direccion { set; get; }
+        public int DUI { set; get; }
+        public int NIT { set; get; }
+        public int ISSS { set; get; }
+        public int NUP { set; get; }
+        public int TelefonoFijo { set; get; }
+        public int TelefonoMovil { set; get; }
+        public String Email { set; get; }
+        public Double Salario { set; get; }
 
         public CEmpleado() { }
         public CEmpleado(CConeccion c, int id)
@@ -83,7 +83,7 @@ namespace kaikei.core
                 return conex.sqlQuery(
                     "INSERT INTO EMPLEADOS (ID_AFP,NOMBRES,APELLIDOS,DIRECCION,DUI,NIT,ISSS," +
                     "NUP,TELEFONOFIJO,TELEFONOMOVIL,EMAIL,SALARIONOMINAL) " +
-                    "VALUES ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})", this.AFP.ToString(), this.Nombres,
+                    "VALUES ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})", this.AFP.Id_AFP, this.Nombres,
                     this.Apellidos, this.Direccion, this.DUI.ToString(), this.NIT.ToString(), this.ISSS.ToString(),
                     this.NUP.ToString(), this.TelefonoFijo.ToString(), this.TelefonoMovil.ToString(), this.Email,
                     this.Salario.ToString());
@@ -114,7 +114,7 @@ namespace kaikei.core
                 return conex.sqlQuery("UPDATE FROM EMPLEADOS SET ID_AFP = '{1}',NOMBRES = '{2}'," +
                         "APELLIDOS = '{3}',DIRECCION = '{4}',DUI = '{5}',NIT = '{6}',ISSS = '{7}',NUP = '{8}'," +
                         "TELEFONOFIJO = '{9}',TELEFONOMOVIL = '{10}',EMAIL = '{11}',SALARIONOMINAL = '{12}' " +
-                        "WHERE ID_EMPLEADO = '{0}'", this.Id_empleado, this.AFP.getId_AFP(), this.Nombres,
+                        "WHERE ID_EMPLEADO = '{0}'", this.Id_empleado, this.AFP.Id_AFP, this.Nombres,
                         this.Apellidos, this.Direccion, this.DUI.ToString(), this.NIT.ToString(), this.ISSS.ToString(),
                         this.NUP.ToString(), this.TelefonoFijo.ToString(), this.TelefonoMovil.ToString(), this.Email,
                         this.Salario.ToString());
