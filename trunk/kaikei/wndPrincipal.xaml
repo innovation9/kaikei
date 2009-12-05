@@ -79,8 +79,9 @@
 						</LinearGradientBrush>
 					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
 					<StackPanel Margin="3,2,3,3">
-						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Agregar nuevo Empleado" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
-						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Ver toda la Planilla" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Agregar nuevo Empleado" FontFamily="{DynamicResource FontLabels}" FontSize="12" Name="btnNuevoEmpleado" Click="btnNuevoEmpleado_Click" />
+                        <Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Administrar Empleados" FontFamily="{DynamicResource FontLabels}" FontSize="12" Name="btnAdminEmpleado" Click="btnAdminEmpleado_Click" />
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Ver toda la Planilla" FontFamily="{DynamicResource FontLabels}" FontSize="12" Name="btnGenerarPlanilla" />
 					</StackPanel>
 				</ControlsWPF_JMP_Controls:ExpanderJMP>
 				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Periodo" Margin="10,7" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Periodo Contable" Imagen="Themes/mnu_Periodo.png">
@@ -114,7 +115,7 @@
 			</StackPanel>
 		</Border>
 		<TabControl x:Name="tab_Ventanas" Style="{DynamicResource SimpleTabControl}">
-			<TabItem Style="{DynamicResource SimpleTabItem}" Header="Inventario">
+			<TabItem Style="{DynamicResource SimpleTabItem}" Header="Inventario" Name="tabInventarioResumen">
 				<Grid>
 					<kaikei:ctlPlantillaTabItem d:LayoutOverrides="Width" SubTitulo="Inventario" Descripcion="Muestra el inventario de productos disponibles en el sistema">
 						<kaikei:ctlPlantillaTabItem.Resources>
@@ -128,6 +129,49 @@
 					</kaikei:ctlPlantillaTabItem>
 				</Grid>
 			</TabItem>
-		</TabControl>
+            <TabItem Style="{DynamicResource SimpleTabItem}" Header="Planilla" Name="tabNuevoEmpleado">
+                <Grid>
+                    <kaikei:ctlPlantillaTabItem d:LayoutOverrides="Width" SubTitulo="Nuevo Empleado" Descripcion="Crear un nuevo empleado.">
+                        <kaikei:ctlPlantillaTabItem.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.MergedDictionaries>
+                                    <ResourceDictionary Source="Themes/Generic.xaml"/>
+                                </ResourceDictionary.MergedDictionaries>
+                            </ResourceDictionary>
+                        </kaikei:ctlPlantillaTabItem.Resources>
+                        <Grid>
+                            <Label Height="28" HorizontalAlignment="Left" Margin="20,10,0,0" Name="label1" VerticalAlignment="Top" Width="120">Nombres:</Label>
+                            <Label Height="28" HorizontalAlignment="Left" Margin="20,44,0,0" Name="label2" VerticalAlignment="Top" Width="120">Apellidos:</Label>
+                            <Label Height="28" HorizontalAlignment="Left" Margin="20,78,0,0" Name="label3" VerticalAlignment="Top" Width="120">Dirección:</Label>
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="125,10,0,0" Name="txtNombres" VerticalAlignment="Top" Width="300" />
+                            <TextBox Height="23" Margin="125,44,287,0" Name="txtApellidos" VerticalAlignment="Top" />
+                            <TextBox Height="46" Margin="125,78,287,0" Name="txtDireccion" VerticalAlignment="Top" MinLines="1" />
+                            <Label Height="28" HorizontalAlignment="Left" Margin="20,145.64,0,0" Name="label4" VerticalAlignment="Top" Width="120">AFP</Label>
+                            <ComboBox Height="23" HorizontalAlignment="Left" Margin="125,140,0,0" Name="cmbAFP" VerticalAlignment="Top" Width="120" />
+                            <Label Height="28" HorizontalAlignment="Left" Margin="20,180,0,0" Name="label5" VerticalAlignment="Top" Width="120">DUI:</Label>
+                            <Label Height="28" HorizontalAlignment="Left" Margin="20,214,0,0" Name="label6" VerticalAlignment="Top" Width="120">NIT:</Label>
+                            <Label HorizontalAlignment="Left" Margin="20,248,0,249" Name="label7" Width="120">ISSS:</Label>
+                            <Label Height="28" HorizontalAlignment="Left" Margin="20,0,0,215" Name="label8" VerticalAlignment="Bottom" Width="120">NUP:</Label>
+                        </Grid>
+                    </kaikei:ctlPlantillaTabItem>
+                    <Button Height="23" HorizontalAlignment="Right" Margin="0,10.99,10,0" Name="button1" VerticalAlignment="Top" Width="75">Cancelar</Button>
+                    <Button Height="23" HorizontalAlignment="Right" Margin="0,10.99,91,0" Name="button2" VerticalAlignment="Top" Width="75">Guardar</Button>
+                </Grid>
+            </TabItem>
+            <TabItem Style="{DynamicResource SimpleTabItem}" Header="Planilla" Name="tabNuevaAFP">
+                <Grid>
+                    <kaikei:ctlPlantillaTabItem d:LayoutOverrides="Width" SubTitulo="Nueva AFP" Descripcion="Registro de AFPs">
+                        <kaikei:ctlPlantillaTabItem.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.MergedDictionaries>
+                                    <ResourceDictionary Source="Themes/Generic.xaml"/>
+                                </ResourceDictionary.MergedDictionaries>
+                            </ResourceDictionary>
+                        </kaikei:ctlPlantillaTabItem.Resources>
+                        <Grid/>
+                    </kaikei:ctlPlantillaTabItem>
+                </Grid>
+            </TabItem>
+        </TabControl>
 	</DockPanel>
 </Window>

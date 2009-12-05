@@ -5,7 +5,7 @@ using System.Text;
 
 namespace kaikei.core
 {
-    class CPlanilla
+    public class CPlanilla
     {
         CEmpleado Empleado;
 
