@@ -1,0 +1,21 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:conexionDatos="clr-namespace:Kaikei.ConnectionDS"
+    xmlns:Kaikei_ConnectionDS="clr-namespace:Kaikei.ConnectionDS" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:kaikei="clr-namespace:kaikei" xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit" x:Name="View_InventarioDisp" x:Class="Kaikei.VistasTabItem.ViewInventarioD" mc:Ignorable="d" d:DesignWidth="568.24" d:DesignHeight="586.72">
+	
+	<UserControl.Resources>
+		<ObjectDataProvider x:Key="InventariosDisp_DP" ObjectType="{x:Type conexionDatos:InventarioDisp_Provider}" />
+		<ObjectDataProvider x:Key="Inventarios_ViewDS" ObjectInstance="{StaticResource InventariosDisp_DP}" MethodName="GetView" />
+	</UserControl.Resources>
+	
+    <Grid x:Name="rootGrid" DataContext="{StaticResource Inventarios_ViewDS}">
+            
+    	<kaikei:ctlPlantillaTabItem Margin="0" Descripcion="Muestra el total de inventario disponible que hay en el sistema" SubTitulo="Inventario Disponible" d:LayoutOverrides="Width, Height">
+    		<Grid x:Name="gridElements">
+    			<Custom:DataGrid Margin="20,20,20,75" ItemsSource="{Binding}"/>
+    		</Grid>
+    	</kaikei:ctlPlantillaTabItem>
+            
+    </Grid>
+</UserControl>
