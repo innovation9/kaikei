@@ -9,9 +9,9 @@ namespace kaikei.core
     {
         CConeccion conexion;
 
-        public int Id_AFP { set; private get; }
-        public String Nombre { set; private get; }
-        public Double Tasa { set; private get; }
+        public int Id_AFP { set; get; }
+        public String Nombre { set; get; }
+        public Double Tasa { set; get; }
 
         public CAfp()
         {
@@ -22,11 +22,6 @@ namespace kaikei.core
             this.conexion = c;
             this.Id_AFP = id;
             
-        }
-
-        public int getId_AFP()
-        {
-            return this.Id_AFP;
         }
 
         public int sqlInsert()

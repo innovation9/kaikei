@@ -26,6 +26,8 @@ namespace Kaikei
         {
             InitializeComponent();
             this.tabNuevoEmpleado.Visibility = Visibility.Hidden;
+            this.tabNuevaAFP.Visibility = Visibility.Hidden;
+            //this.tab_Ventanas.t
         }
 
         private void btnAdminEmpleado_Click(object sender, RoutedEventArgs e)
@@ -38,6 +40,11 @@ namespace Kaikei
             TabItem tb = new TabItem();
             this.tabNuevoEmpleado.Visibility = Visibility.Visible;
             this.tabNuevoEmpleado.Focus();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
         }
     }
 }
