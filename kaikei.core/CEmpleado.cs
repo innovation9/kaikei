@@ -78,20 +78,21 @@ namespace kaikei.core
         
         public int sqlInsert()
         {
-            try
-            {
-                return conex.sqlQuery(
-                    "INSERT INTO EMPLEADOS (ID_AFP,NOMBRES,APELLIDOS,DIRECCION,DUI,NIT,ISSS," +
-                    "NUP,TELEFONOFIJO,TELEFONOMOVIL,EMAIL,SALARIONOMINAL) " +
-                    "VALUES ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})", this.AFP.Id_AFP, this.Nombres,
-                    this.Apellidos, this.Direccion, this.DUI.ToString(), this.NIT.ToString(), this.ISSS.ToString(),
-                    this.NUP.ToString(), this.TelefonoFijo.ToString(), this.TelefonoMovil.ToString(), this.Email,
-                    this.Salario.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+        //    try
+        //    {
+        //        return conex.sqlQuery(
+        //            "INSERT INTO EMPLEADOS (ID_AFP,NOMBRES,APELLIDOS,DIRECCION,DUI,NIT,ISSS," +
+        //            "NUP,TELEFONOFIJO,TELEFONOMOVIL,EMAIL,SALARIONOMINAL) " +
+        //            "VALUES ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})", this.AFP.Id_AFP, this.Nombres,
+        //            this.Apellidos, this.Direccion, this.DUI.ToString(), this.NIT.ToString(), this.ISSS.ToString(),
+        //            this.NUP.ToString(), this.TelefonoFijo.ToString(), this.TelefonoMovil.ToString(), this.Email,
+        //            this.Salario.ToString());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+            return 0;
         }
 
         public int sqlDelete()
@@ -109,21 +110,22 @@ namespace kaikei.core
 
         public int sqlUpdate()
         {
-            try
-            {
-                return conex.sqlQuery("UPDATE FROM EMPLEADOS SET ID_AFP = '{1}',NOMBRES = '{2}'," +
-                        "APELLIDOS = '{3}',DIRECCION = '{4}',DUI = '{5}',NIT = '{6}',ISSS = '{7}',NUP = '{8}'," +
-                        "TELEFONOFIJO = '{9}',TELEFONOMOVIL = '{10}',EMAIL = '{11}',SALARIONOMINAL = '{12}' " +
-                        "WHERE ID_EMPLEADO = '{0}'", this.Id_empleado, this.AFP.Id_AFP, this.Nombres,
-                        this.Apellidos, this.Direccion, this.DUI.ToString(), this.NIT.ToString(), this.ISSS.ToString(),
-                        this.NUP.ToString(), this.TelefonoFijo.ToString(), this.TelefonoMovil.ToString(), this.Email,
-                        this.Salario.ToString());
-            }
-            catch (Exception ex)
-            {
+            //try
+            //{
+            //    return conex.sqlQuery("UPDATE FROM EMPLEADOS SET ID_AFP = '{1}',NOMBRES = '{2}'," +
+            //            "APELLIDOS = '{3}',DIRECCION = '{4}',DUI = '{5}',NIT = '{6}',ISSS = '{7}',NUP = '{8}'," +
+            //            "TELEFONOFIJO = '{9}',TELEFONOMOVIL = '{10}',EMAIL = '{11}',SALARIONOMINAL = '{12}' " +
+            //            "WHERE ID_EMPLEADO = '{0}'", this.Id_empleado, this.AFP.Id_AFP, this.Nombres,
+            //            this.Apellidos, this.Direccion, this.DUI.ToString(), this.NIT.ToString(), this.ISSS.ToString(),
+            //            this.NUP.ToString(), this.TelefonoFijo.ToString(), this.TelefonoMovil.ToString(), this.Email,
+            //            this.Salario.ToString());
+            //}
+            //catch (Exception ex)
+            //{
                 
-                throw ex;
-            }
+            //    throw ex;
+            //}
+            return 0;
         }
     }
 }             

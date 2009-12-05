@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InventariosDS" targetNamespace="http://tempuri.org/InventariosDS.xsd" xmlns:mstns="http://tempuri.org/InventariosDS.xsd" xmlns="http://tempuri.org/InventariosDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KaikeiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KaikeiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Kaikei.Properties.Settings.GlobalReference.Default.KaikeiConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="INVENTARIO_CARDEXTableAdapter" GeneratorDataComponentClassName="INVENTARIO_CARDEXTableAdapter" Name="INVENTARIO_CARDEX" UserDataComponentName="INVENTARIO_CARDEXTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KaikeiConnectionString (Settings)" DbObjectName="dbo.INVENTARIO_CARDEX" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID_MATERIAL, FECHA, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, PRECIOUNITARIO, DISPONIBILIDAD FROM dbo.INVENTARIO_CARDEX</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_MATERIAL" DataSetColumn="ID_MATERIAL" />
+              <Mapping SourceColumn="FECHA" DataSetColumn="FECHA" />
+              <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
+              <Mapping SourceColumn="COMPRAS" DataSetColumn="COMPRAS" />
+              <Mapping SourceColumn="VENTAS" DataSetColumn="VENTAS" />
+              <Mapping SourceColumn="DIFERENCIA" DataSetColumn="DIFERENCIA" />
+              <Mapping SourceColumn="PRECIOUNITARIO" DataSetColumn="PRECIOUNITARIO" />
+              <Mapping SourceColumn="DISPONIBILIDAD" DataSetColumn="DISPONIBILIDAD" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="INVENTARIO_DISPONIBLETableAdapter" GeneratorDataComponentClassName="INVENTARIO_DISPONIBLETableAdapter" Name="INVENTARIO_DISPONIBLE" UserDataComponentName="INVENTARIO_DISPONIBLETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KaikeiConnectionString (Settings)" DbObjectName="dbo.INVENTARIO_DISPONIBLE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID_MATERIAL, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, DISPONIBILIDAD FROM dbo.INVENTARIO_DISPONIBLE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_MATERIAL" DataSetColumn="ID_MATERIAL" />
+              <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
+              <Mapping SourceColumn="COMPRAS" DataSetColumn="COMPRAS" />
+              <Mapping SourceColumn="VENTAS" DataSetColumn="VENTAS" />
+              <Mapping SourceColumn="DIFERENCIA" DataSetColumn="DIFERENCIA" />
+              <Mapping SourceColumn="DISPONIBILIDAD" DataSetColumn="DISPONIBILIDAD" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InventariosDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="InventariosDS" msprop:Generator_UserDSName="InventariosDS" msprop:EnableTableAdapterManager="True">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="INVENTARIO_CARDEX" msprop:Generator_UserTableName="INVENTARIO_CARDEX" msprop:Generator_RowDeletedName="INVENTARIO_CARDEXRowDeleted" msprop:Generator_TableClassName="INVENTARIO_CARDEXDataTable" msprop:Generator_RowChangedName="INVENTARIO_CARDEXRowChanged" msprop:Generator_RowClassName="INVENTARIO_CARDEXRow" msprop:Generator_RowChangingName="INVENTARIO_CARDEXRowChanging" msprop:Generator_RowEvArgName="INVENTARIO_CARDEXRowChangeEvent" msprop:Generator_RowEvHandlerName="INVENTARIO_CARDEXRowChangeEventHandler" msprop:Generator_TablePropName="INVENTARIO_CARDEX" msprop:Generator_TableVarName="tableINVENTARIO_CARDEX" msprop:Generator_RowDeletingName="INVENTARIO_CARDEXRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
+              <xs:element name="FECHA" msprop:Generator_UserColumnName="FECHA" msprop:Generator_ColumnPropNameInRow="FECHA" msprop:Generator_ColumnVarNameInTable="columnFECHA" msprop:Generator_ColumnPropNameInTable="FECHAColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPRAS" msprop:Generator_UserColumnName="COMPRAS" msprop:Generator_ColumnPropNameInRow="COMPRAS" msprop:Generator_ColumnVarNameInTable="columnCOMPRAS" msprop:Generator_ColumnPropNameInTable="COMPRASColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="VENTAS" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VENTAS" msprop:Generator_ColumnPropNameInRow="VENTAS" msprop:Generator_ColumnVarNameInTable="columnVENTAS" msprop:Generator_ColumnPropNameInTable="VENTASColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DIFERENCIA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DIFERENCIA" msprop:Generator_ColumnPropNameInRow="DIFERENCIA" msprop:Generator_ColumnVarNameInTable="columnDIFERENCIA" msprop:Generator_ColumnPropNameInTable="DIFERENCIAColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="PRECIOUNITARIO" msprop:Generator_UserColumnName="PRECIOUNITARIO" msprop:Generator_ColumnPropNameInRow="PRECIOUNITARIO" msprop:Generator_ColumnVarNameInTable="columnPRECIOUNITARIO" msprop:Generator_ColumnPropNameInTable="PRECIOUNITARIOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DISPONIBILIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DISPONIBILIDAD" msprop:Generator_ColumnPropNameInRow="DISPONIBILIDAD" msprop:Generator_ColumnVarNameInTable="columnDISPONIBILIDAD" msprop:Generator_ColumnPropNameInTable="DISPONIBILIDADColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="INVENTARIO_DISPONIBLE" msprop:Generator_UserTableName="INVENTARIO_DISPONIBLE" msprop:Generator_RowDeletedName="INVENTARIO_DISPONIBLERowDeleted" msprop:Generator_TableClassName="INVENTARIO_DISPONIBLEDataTable" msprop:Generator_RowChangedName="INVENTARIO_DISPONIBLERowChanged" msprop:Generator_RowClassName="INVENTARIO_DISPONIBLERow" msprop:Generator_RowChangingName="INVENTARIO_DISPONIBLERowChanging" msprop:Generator_RowEvArgName="INVENTARIO_DISPONIBLERowChangeEvent" msprop:Generator_RowEvHandlerName="INVENTARIO_DISPONIBLERowChangeEventHandler" msprop:Generator_TablePropName="INVENTARIO_DISPONIBLE" msprop:Generator_TableVarName="tableINVENTARIO_DISPONIBLE" msprop:Generator_RowDeletingName="INVENTARIO_DISPONIBLERowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPRAS" msprop:Generator_UserColumnName="COMPRAS" msprop:Generator_ColumnPropNameInRow="COMPRAS" msprop:Generator_ColumnVarNameInTable="columnCOMPRAS" msprop:Generator_ColumnPropNameInTable="COMPRASColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="VENTAS" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VENTAS" msprop:Generator_ColumnPropNameInRow="VENTAS" msprop:Generator_ColumnVarNameInTable="columnVENTAS" msprop:Generator_ColumnPropNameInTable="VENTASColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DIFERENCIA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DIFERENCIA" msprop:Generator_ColumnPropNameInRow="DIFERENCIA" msprop:Generator_ColumnVarNameInTable="columnDIFERENCIA" msprop:Generator_ColumnPropNameInTable="DIFERENCIAColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DISPONIBILIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DISPONIBILIDAD" msprop:Generator_ColumnPropNameInRow="DISPONIBILIDAD" msprop:Generator_ColumnVarNameInTable="columnDISPONIBILIDAD" msprop:Generator_ColumnPropNameInTable="DISPONIBILIDADColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:INVENTARIO_CARDEX" />
+      <xs:field xpath="mstns:ID_MATERIAL" />
+    </xs:unique>
+    <xs:unique name="INVENTARIO_DISPONIBLE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:INVENTARIO_DISPONIBLE" />
+      <xs:field xpath="mstns:ID_MATERIAL" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

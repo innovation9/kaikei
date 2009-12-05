@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     mc:Ignorable="d" xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" 
     xmlns:kaikei="clr-namespace:kaikei" 
+    xmlns:Kaikei_VistasTabItem="clr-namespace:Kaikei.VistasTabItem" 
     x:Class="Kaikei.wndPrincipal"
     Title="Kaikei - Sistema de contabilidad General y Contabilidad de Costos" Height="700" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="900" MinHeight="700">
 	<DockPanel ScrollViewer.HorizontalScrollBarVisibility="Auto">
@@ -117,16 +118,7 @@
 		<TabControl x:Name="tab_Ventanas" Style="{DynamicResource SimpleTabControl}">
 			<TabItem Style="{DynamicResource SimpleTabItem}" Header="Inventario" Name="tabInventarioResumen">
 				<Grid>
-					<kaikei:ctlPlantillaTabItem d:LayoutOverrides="Width" SubTitulo="Inventario" Descripcion="Muestra el inventario de productos disponibles en el sistema">
-						<kaikei:ctlPlantillaTabItem.Resources>
-							<ResourceDictionary>
-								<ResourceDictionary.MergedDictionaries>
-									<ResourceDictionary Source="Themes/Generic.xaml"/>
-								</ResourceDictionary.MergedDictionaries>
-							</ResourceDictionary>
-						</kaikei:ctlPlantillaTabItem.Resources>
-						<Grid/>
-					</kaikei:ctlPlantillaTabItem>
+					<Kaikei_VistasTabItem:ViewInventarioD Margin="0" d:LayoutOverrides="Width"/>
 				</Grid>
 			</TabItem>
             <TabItem Style="{DynamicResource SimpleTabItem}" Header="Planilla" Name="tabNuevoEmpleado">
