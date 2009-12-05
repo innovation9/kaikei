@@ -5,7 +5,7 @@ using System.Text;
 
 namespace kaikei.core
 {
-    class CAfp : IConeccion
+    public class CAfp : IConeccion
     {
         CConeccion conexion;
 
@@ -22,6 +22,11 @@ namespace kaikei.core
             this.conexion = c;
             this.Id_AFP = id;
             
+        }
+
+        public int getId_AFP()
+        {
+            return this.Id_AFP;
         }
 
         public int sqlInsert()
@@ -60,6 +65,11 @@ namespace kaikei.core
             {
                 throw ex;
             }
+        }
+
+        override public String ToString()
+        {
+            return this.Id_AFP.ToString();
         }
 
     }
