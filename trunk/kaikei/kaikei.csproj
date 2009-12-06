@@ -138,6 +138,7 @@
     <Compile Include="controlExpanderInventario.cs" />
     <Compile Include="controlPlantilla.cs" />
     <Compile Include="controlPlantillaTabItem.cs" />
+    <Compile Include="FormatoCampos.cs" />
     <Compile Include="InventariosDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -216,6 +217,7 @@
     <Resource Include="Themes\mnu_EstadosFinancieros.png" />
     <Resource Include="Themes\mnu_Inventario.png" />
     <Resource Include="Themes\mnu_Periodo.png" />
+    <Resource Include="Themes\viñeta_Punto.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

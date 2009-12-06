@@ -310,6 +310,14 @@ namespace Kaikei {
             
             private global::System.Data.DataColumn columnDISPONIBILIDAD;
             
+            private global::System.Data.DataColumn columnPROVEEDOR;
+            
+            private global::System.Data.DataColumn columnCOMPRASUNIDAD;
+            
+            private global::System.Data.DataColumn columnVENTASUNIDAD;
+            
+            private global::System.Data.DataColumn columnTOTALUNIDAD;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public INVENTARIO_CARDEXDataTable() {
                 this.TableName = "INVENTARIO_CARDEX";
@@ -397,6 +405,34 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PROVEEDORColumn {
+                get {
+                    return this.columnPROVEEDOR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn COMPRASUNIDADColumn {
+                get {
+                    return this.columnCOMPRASUNIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn VENTASUNIDADColumn {
+                get {
+                    return this.columnVENTASUNIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TOTALUNIDADColumn {
+                get {
+                    return this.columnTOTALUNIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -425,7 +461,7 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public INVENTARIO_CARDEXRow AddINVENTARIO_CARDEXRow(int ID_MATERIAL, System.DateTime FECHA, string NOMBRE, int COMPRAS, int VENTAS, int DIFERENCIA, decimal PRECIOUNITARIO, string DISPONIBILIDAD) {
+            public INVENTARIO_CARDEXRow AddINVENTARIO_CARDEXRow(int ID_MATERIAL, System.DateTime FECHA, string NOMBRE, int COMPRAS, int VENTAS, int DIFERENCIA, decimal PRECIOUNITARIO, string DISPONIBILIDAD, string PROVEEDOR, string COMPRASUNIDAD, string VENTASUNIDAD, string TOTALUNIDAD) {
                 INVENTARIO_CARDEXRow rowINVENTARIO_CARDEXRow = ((INVENTARIO_CARDEXRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_MATERIAL,
@@ -435,7 +471,11 @@ namespace Kaikei {
                         VENTAS,
                         DIFERENCIA,
                         PRECIOUNITARIO,
-                        DISPONIBILIDAD};
+                        DISPONIBILIDAD,
+                        PROVEEDOR,
+                        COMPRASUNIDAD,
+                        VENTASUNIDAD,
+                        TOTALUNIDAD};
                 rowINVENTARIO_CARDEXRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowINVENTARIO_CARDEXRow);
                 return rowINVENTARIO_CARDEXRow;
@@ -469,6 +509,10 @@ namespace Kaikei {
                 this.columnDIFERENCIA = base.Columns["DIFERENCIA"];
                 this.columnPRECIOUNITARIO = base.Columns["PRECIOUNITARIO"];
                 this.columnDISPONIBILIDAD = base.Columns["DISPONIBILIDAD"];
+                this.columnPROVEEDOR = base.Columns["PROVEEDOR"];
+                this.columnCOMPRASUNIDAD = base.Columns["COMPRASUNIDAD"];
+                this.columnVENTASUNIDAD = base.Columns["VENTASUNIDAD"];
+                this.columnTOTALUNIDAD = base.Columns["TOTALUNIDAD"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -489,6 +533,14 @@ namespace Kaikei {
                 base.Columns.Add(this.columnPRECIOUNITARIO);
                 this.columnDISPONIBILIDAD = new global::System.Data.DataColumn("DISPONIBILIDAD", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDISPONIBILIDAD);
+                this.columnPROVEEDOR = new global::System.Data.DataColumn("PROVEEDOR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPROVEEDOR);
+                this.columnCOMPRASUNIDAD = new global::System.Data.DataColumn("COMPRASUNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOMPRASUNIDAD);
+                this.columnVENTASUNIDAD = new global::System.Data.DataColumn("VENTASUNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVENTASUNIDAD);
+                this.columnTOTALUNIDAD = new global::System.Data.DataColumn("TOTALUNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTOTALUNIDAD);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_MATERIAL}, true));
                 this.columnID_MATERIAL.AllowDBNull = false;
@@ -498,6 +550,12 @@ namespace Kaikei {
                 this.columnDIFERENCIA.ReadOnly = true;
                 this.columnDISPONIBILIDAD.ReadOnly = true;
                 this.columnDISPONIBILIDAD.MaxLength = 1;
+                this.columnPROVEEDOR.MaxLength = 25;
+                this.columnCOMPRASUNIDAD.MaxLength = 36;
+                this.columnVENTASUNIDAD.ReadOnly = true;
+                this.columnVENTASUNIDAD.MaxLength = 36;
+                this.columnTOTALUNIDAD.ReadOnly = true;
+                this.columnTOTALUNIDAD.MaxLength = 36;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1062,6 +1120,67 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string PROVEEDOR {
+                get {
+                    try {
+                        return ((string)(this[this.tableINVENTARIO_CARDEX.PROVEEDORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PROVEEDOR\' de la tabla \'INVENTARIO_CARDEX\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableINVENTARIO_CARDEX.PROVEEDORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string COMPRASUNIDAD {
+                get {
+                    try {
+                        return ((string)(this[this.tableINVENTARIO_CARDEX.COMPRASUNIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COMPRASUNIDAD\' de la tabla \'INVENTARIO_CARDEX\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableINVENTARIO_CARDEX.COMPRASUNIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string VENTASUNIDAD {
+                get {
+                    try {
+                        return ((string)(this[this.tableINVENTARIO_CARDEX.VENTASUNIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'VENTASUNIDAD\' de la tabla \'INVENTARIO_CARDEX\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableINVENTARIO_CARDEX.VENTASUNIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TOTALUNIDAD {
+                get {
+                    try {
+                        return ((string)(this[this.tableINVENTARIO_CARDEX.TOTALUNIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTALUNIDAD\' de la tabla \'INVENTARIO_CARDEX\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableINVENTARIO_CARDEX.TOTALUNIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsFECHANull() {
                 return this.IsNull(this.tableINVENTARIO_CARDEX.FECHAColumn);
             }
@@ -1129,6 +1248,46 @@ namespace Kaikei {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetDISPONIBILIDADNull() {
                 this[this.tableINVENTARIO_CARDEX.DISPONIBILIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPROVEEDORNull() {
+                return this.IsNull(this.tableINVENTARIO_CARDEX.PROVEEDORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPROVEEDORNull() {
+                this[this.tableINVENTARIO_CARDEX.PROVEEDORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCOMPRASUNIDADNull() {
+                return this.IsNull(this.tableINVENTARIO_CARDEX.COMPRASUNIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCOMPRASUNIDADNull() {
+                this[this.tableINVENTARIO_CARDEX.COMPRASUNIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsVENTASUNIDADNull() {
+                return this.IsNull(this.tableINVENTARIO_CARDEX.VENTASUNIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetVENTASUNIDADNull() {
+                this[this.tableINVENTARIO_CARDEX.VENTASUNIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsTOTALUNIDADNull() {
+                return this.IsNull(this.tableINVENTARIO_CARDEX.TOTALUNIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetTOTALUNIDADNull() {
+                this[this.tableINVENTARIO_CARDEX.TOTALUNIDADColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1498,6 +1657,10 @@ namespace Kaikei.InventariosDSTableAdapters {
             tableMapping.ColumnMappings.Add("DIFERENCIA", "DIFERENCIA");
             tableMapping.ColumnMappings.Add("PRECIOUNITARIO", "PRECIOUNITARIO");
             tableMapping.ColumnMappings.Add("DISPONIBILIDAD", "DISPONIBILIDAD");
+            tableMapping.ColumnMappings.Add("PROVEEDOR", "PROVEEDOR");
+            tableMapping.ColumnMappings.Add("COMPRASUNIDAD", "COMPRASUNIDAD");
+            tableMapping.ColumnMappings.Add("VENTASUNIDAD", "VENTASUNIDAD");
+            tableMapping.ColumnMappings.Add("TOTALUNIDAD", "TOTALUNIDAD");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1509,12 +1672,20 @@ namespace Kaikei.InventariosDSTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_MATERIAL, FECHA, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, PRECIOUNITARIO, D" +
-                "ISPONIBILIDAD FROM dbo.INVENTARIO_CARDEX";
+                "ISPONIBILIDAD, COMPRASUNIDAD, PROVEEDOR, VENTASUNIDAD, TOTALUNIDAD FROM INVENTAR" +
+                "IO_CARDEX";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT ID_MATERIAL, FECHA, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, PRECIOUNITARIO, D" +
+                "ISPONIBILIDAD, COMPRASUNIDAD, PROVEEDOR, VENTASUNIDAD, TOTALUNIDAD FROM INVENTAR" +
+                "IO_CARDEX WHERE (ID_MATERIAL = @IDM)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDM", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_MATERIAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1534,6 +1705,30 @@ namespace Kaikei.InventariosDSTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual InventariosDS.INVENTARIO_CARDEXDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            InventariosDS.INVENTARIO_CARDEXDataTable dataTable = new InventariosDS.INVENTARIO_CARDEXDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByID(InventariosDS.INVENTARIO_CARDEXDataTable dataTable, int IDM) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDM));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual InventariosDS.INVENTARIO_CARDEXDataTable GetDataByID(int IDM) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDM));
             InventariosDS.INVENTARIO_CARDEXDataTable dataTable = new InventariosDS.INVENTARIO_CARDEXDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
