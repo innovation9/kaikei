@@ -27,10 +27,23 @@ namespace Kaikei
 		public string Unidades {get; set;}
 		[Category("Contenido")]
 		public bool IsDisponibilidad {get; set;}
+
+        [Category("Contenido")]
+        public string IDMaterial
+        {
+            get {
+                return (string)GetValue(IDMaterialProperty);
+            }
+            set
+            {
+                SetValue(IDMaterialProperty, value);
+            }
+        }
 		
 		public static DependencyProperty CantidadProperty = DependencyProperty.Register("Cantidad",typeof(string),typeof(controlExpanderInventario),null);
 		public static DependencyProperty UnidadesProperty = DependencyProperty.Register("Unidades",typeof(string),typeof(controlExpanderInventario),null);
 		public static DependencyProperty IsDisponibilidadProperty = DependencyProperty.Register("IsDisponibilidad",typeof(bool),typeof(controlExpanderInventario),new FrameworkPropertyMetadata(true));
+        public static DependencyProperty IDMaterialProperty = DependencyProperty.Register("IDMaterial", typeof(string), typeof(controlExpanderInventario), null);
 		
 	}
 }
