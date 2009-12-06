@@ -12,12 +12,12 @@
     		<!-- Definimos el estilo por defecto de los Titulos de Pantalla -->
     		<FontFamily x:Key="FontTitulos">SquireD</FontFamily>
     		<FontWeight x:Key="FontTitulos_Estilo">Bold</FontWeight>
-    		<System:Double x:Key="FontTitulos_Tamaño">18</System:Double>
+    		<System:Double x:Key="FontTitulos_Tamaño">16</System:Double>
 		
     		<!-- Definimos el estilo por defecto los labels en pantalla -->
     		<FontFamily x:Key="FontLabels">Segoe UI</FontFamily>
     		<FontWeight x:Key="FonLabels_Estilo">Bold</FontWeight>
-    		<System:Double x:Key="FonLabels_Tamaño">13.4</System:Double>
+    		<System:Double x:Key="FonLabels_Tamaño">12</System:Double>
 			
 			<!-- Definimos el estilo por defecto los Button en pantalla -->
     		<FontFamily x:Key="FontButtons">Bauhaus Md BT</FontFamily>
@@ -27,7 +27,7 @@
     		<!-- Definimos el estilo por defecto los TextBoxJMP en pantalla -->
     		<FontFamily x:Key="FontTextBox">Segoe UI</FontFamily>
     		<FontWeight x:Key="FontTextBox_Estilo">Normal</FontWeight>
-    		<System:Double x:Key="FontTextBox_Tamaño">13.4</System:Double>
+    		<System:Double x:Key="FontTextBox_Tamaño">12</System:Double>
     		<LinearGradientBrush x:Key="TextBoxBorder" EndPoint="0,20" StartPoint="0,0" MappingMode="Absolute">
     			<GradientStop Color="#ABADB3" Offset="0.05"/>
     			<GradientStop Color="#E2E3EA" Offset="0.07"/>

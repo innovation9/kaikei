@@ -12,6 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ControlsWPF_JMP.Ventanas;
 using kaikei.core;
+using System.Collections;
+using Kaikei.VistasTabItem;
+using kaikei;
 
 namespace Kaikei
 {
@@ -21,30 +24,68 @@ namespace Kaikei
     public partial class wndPrincipal : Window
     {
         CConeccion coneccion = new CConeccion();
+        Hashtable tableTabs = new Hashtable();
 
         public wndPrincipal()
         {
             InitializeComponent();
-            this.tabNuevoEmpleado.Visibility = Visibility.Hidden;
-            this.tabNuevaAFP.Visibility = Visibility.Hidden;
-            //this.tab_Ventanas.t
         }
 
-        private void btnAdminEmpleado_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            CargarTabItem(TipoTab.VisualizarInventarioDisp);
         }
 
-        private void btnNuevoEmpleado_Click(object sender, RoutedEventArgs e)
+        private enum TipoTab { VisualizarInventarioDisp = 0,
+                               VisualizarInventarioK = 1 }
+
+        private void CargarTabItem(TipoTab tipo)
         {
-            TabItem tb = new TabItem();
-            this.tabNuevoEmpleado.Visibility = Visibility.Visible;
-            this.tabNuevoEmpleado.Focus();
+            //Primero buscamos en la lista de tab que no exista
+            if (!tableTabs.ContainsKey(tipo))
+            {
+                CloseableTabItem newTab = new CloseableTabItem();
+                this.AddHandler(CloseableTabItem.CloseTabEvent, new RoutedEventHandler(this.CloseTab));
+
+                switch (tipo)
+                {
+                    case TipoTab.VisualizarInventarioDisp:
+                        newTab.Name = "tabInventarioD";
+                        newTab.Header = "Inventario Disponible";
+                        newTab.Content = new ViewInventarioD();
+                        break;
+                    case TipoTab.VisualizarInventarioK:
+                        newTab.Name = "tabInventarioK";
+                        newTab.Header = "Inventario KARDEX";
+                        newTab.Content = new viewInventarioKardex();
+                        break;
+                }
+
+                //Agregamos a la tabla Has el nuevo control
+                newTab.Tag = tipo;
+                tableTabs.Add(tipo, newTab);
+                tab_Ventanas.Items.Add(newTab);
+                tab_Ventanas.SelectedIndex = tab_Ventanas.Items.Count - 1;
+            }
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void CloseTab(object source, RoutedEventArgs args)
         {
-            this.Visibility = Visibility.Hidden;
+            TabItem tabItem = args.Source as TabItem;
+            if (tabItem != null)
+            {
+                TabControl tabControl = tabItem.Parent as TabControl;
+                if (tabControl != null)
+                    tabControl.Items.Remove(tabItem);
+
+                //Tambien lo eliminamos de la tabla Hash
+                tableTabs.Remove(tabItem.Tag);
+            }
+        }
+
+        private void mnu_InvKardex_Click(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.VisualizarInventarioK);
         }
     }
 }

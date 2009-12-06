@@ -98,9 +98,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="VistasTabItem\viewEmpleados.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VistasTabItem\ViewInventarioD.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistasTabItem\viewInventarioKardex.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="wndLogin.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -124,8 +132,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloseableTabItem.cs" />
     <Compile Include="ConnectionDS\InventarioDisp_Provider.cs" />
     <Compile Include="ConnectionDS\InventariosDataProvider.cs" />
+    <Compile Include="controlExpanderInventario.cs" />
     <Compile Include="controlPlantilla.cs" />
     <Compile Include="controlPlantillaTabItem.cs" />
     <Compile Include="InventariosDS.Designer.cs">
@@ -146,8 +156,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="VistasTabItem\viewEmpleados.xaml.cs">
+      <DependentUpon>viewEmpleados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistasTabItem\ViewInventarioD.xaml.cs">
       <DependentUpon>ViewInventarioD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewInventarioKardex.xaml.cs">
+      <DependentUpon>viewInventarioKardex.xaml</DependentUpon>
     </Compile>
     <Compile Include="wndLogin.xaml.cs">
       <DependentUpon>wndLogin.xaml</DependentUpon>
