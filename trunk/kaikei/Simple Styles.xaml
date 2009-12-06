@@ -1129,4 +1129,36 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+	<Style x:Key="ListInventario" TargetType="{x:Type ListBox}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}"/>
+		<Setter Property="BorderBrush" Value="{DynamicResource SolidBorderBrush}"/>
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+		<Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListBox}">
+					<Grid>
+						<Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+						<ScrollViewer Margin="1" Style="{DynamicResource SimpleScrollViewer}" Focusable="false" Background="{TemplateBinding Background}">
+							
+							<!-- The StackPanel is used to display the children by setting IsItemsHost to be Trus -->
+							<StackPanel Margin="2" IsItemsHost="true"/>
+							
+						</ScrollViewer>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+							<Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
+						</Trigger>
+						<Trigger Property="IsGrouping" Value="true">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 </ResourceDictionary>

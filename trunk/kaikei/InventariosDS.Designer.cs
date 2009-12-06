@@ -211,7 +211,7 @@ namespace Kaikei {
             this.DataSetName = "InventariosDS";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/InventariosDS.xsd";
-            this.EnforceConstraints = true;
+            this.EnforceConstraints = false;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableINVENTARIO_CARDEX = new INVENTARIO_CARDEXDataTable();
             base.Tables.Add(this.tableINVENTARIO_CARDEX);
@@ -635,6 +635,8 @@ namespace Kaikei {
             
             private global::System.Data.DataColumn columnDISPONIBILIDAD;
             
+            private global::System.Data.DataColumn columnUNIDADES;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public INVENTARIO_DISPONIBLEDataTable() {
                 this.TableName = "INVENTARIO_DISPONIBLE";
@@ -708,6 +710,13 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn UNIDADESColumn {
+                get {
+                    return this.columnUNIDADES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -736,7 +745,7 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public INVENTARIO_DISPONIBLERow AddINVENTARIO_DISPONIBLERow(int ID_MATERIAL, string NOMBRE, int COMPRAS, int VENTAS, int DIFERENCIA, string DISPONIBILIDAD) {
+            public INVENTARIO_DISPONIBLERow AddINVENTARIO_DISPONIBLERow(int ID_MATERIAL, string NOMBRE, int COMPRAS, int VENTAS, int DIFERENCIA, int DISPONIBILIDAD, string UNIDADES) {
                 INVENTARIO_DISPONIBLERow rowINVENTARIO_DISPONIBLERow = ((INVENTARIO_DISPONIBLERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_MATERIAL,
@@ -744,7 +753,8 @@ namespace Kaikei {
                         COMPRAS,
                         VENTAS,
                         DIFERENCIA,
-                        DISPONIBILIDAD};
+                        DISPONIBILIDAD,
+                        UNIDADES};
                 rowINVENTARIO_DISPONIBLERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowINVENTARIO_DISPONIBLERow);
                 return rowINVENTARIO_DISPONIBLERow;
@@ -776,6 +786,7 @@ namespace Kaikei {
                 this.columnVENTAS = base.Columns["VENTAS"];
                 this.columnDIFERENCIA = base.Columns["DIFERENCIA"];
                 this.columnDISPONIBILIDAD = base.Columns["DISPONIBILIDAD"];
+                this.columnUNIDADES = base.Columns["UNIDADES"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -790,8 +801,10 @@ namespace Kaikei {
                 base.Columns.Add(this.columnVENTAS);
                 this.columnDIFERENCIA = new global::System.Data.DataColumn("DIFERENCIA", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDIFERENCIA);
-                this.columnDISPONIBILIDAD = new global::System.Data.DataColumn("DISPONIBILIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDISPONIBILIDAD = new global::System.Data.DataColumn("DISPONIBILIDAD", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDISPONIBILIDAD);
+                this.columnUNIDADES = new global::System.Data.DataColumn("UNIDADES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUNIDADES);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_MATERIAL}, true));
                 this.columnID_MATERIAL.AllowDBNull = false;
@@ -800,7 +813,7 @@ namespace Kaikei {
                 this.columnVENTAS.ReadOnly = true;
                 this.columnDIFERENCIA.ReadOnly = true;
                 this.columnDISPONIBILIDAD.ReadOnly = true;
-                this.columnDISPONIBILIDAD.MaxLength = 1;
+                this.columnUNIDADES.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1036,12 +1049,11 @@ namespace Kaikei {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string DISPONIBILIDAD {
                 get {
-                    try {
-                        return ((string)(this[this.tableINVENTARIO_CARDEX.DISPONIBILIDADColumn]));
+                    if (this.IsDISPONIBILIDADNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DISPONIBILIDAD\' de la tabla \'INVENTARIO_CARDEX\' es DBNull" +
-                                ".", e);
+                    else {
+                        return ((string)(this[this.tableINVENTARIO_CARDEX.DISPONIBILIDADColumn]));
                     }
                 }
                 set {
@@ -1206,10 +1218,10 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string DISPONIBILIDAD {
+            public int DISPONIBILIDAD {
                 get {
                     try {
-                        return ((string)(this[this.tableINVENTARIO_DISPONIBLE.DISPONIBILIDADColumn]));
+                        return ((int)(this[this.tableINVENTARIO_DISPONIBLE.DISPONIBILIDADColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'DISPONIBILIDAD\' de la tabla \'INVENTARIO_DISPONIBLE\' es DB" +
@@ -1218,6 +1230,21 @@ namespace Kaikei {
                 }
                 set {
                     this[this.tableINVENTARIO_DISPONIBLE.DISPONIBILIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string UNIDADES {
+                get {
+                    try {
+                        return ((string)(this[this.tableINVENTARIO_DISPONIBLE.UNIDADESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'UNIDADES\' de la tabla \'INVENTARIO_DISPONIBLE\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableINVENTARIO_DISPONIBLE.UNIDADESColumn] = value;
                 }
             }
             
@@ -1269,6 +1296,16 @@ namespace Kaikei {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetDISPONIBILIDADNull() {
                 this[this.tableINVENTARIO_DISPONIBLE.DISPONIBILIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsUNIDADESNull() {
+                return this.IsNull(this.tableINVENTARIO_DISPONIBLE.UNIDADESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetUNIDADESNull() {
+                this[this.tableINVENTARIO_DISPONIBLE.UNIDADESColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1624,6 +1661,7 @@ namespace Kaikei.InventariosDSTableAdapters {
             tableMapping.ColumnMappings.Add("VENTAS", "VENTAS");
             tableMapping.ColumnMappings.Add("DIFERENCIA", "DIFERENCIA");
             tableMapping.ColumnMappings.Add("DISPONIBILIDAD", "DISPONIBILIDAD");
+            tableMapping.ColumnMappings.Add("UNIDADES", "UNIDADES");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1638,8 +1676,8 @@ namespace Kaikei.InventariosDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_MATERIAL, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, DISPONIBILIDAD FROM dbo." +
-                "INVENTARIO_DISPONIBLE";
+            this._commandCollection[0].CommandText = "SELECT ID_MATERIAL, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, DISPONIBILIDAD, UNIDADES" +
+                " FROM INVENTARIO_DISPONIBLE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

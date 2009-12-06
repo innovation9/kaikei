@@ -1,0 +1,28 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:datos="clr-namespace:Kaikei.InventariosDSTableAdapters"
+	mc:Ignorable="d"
+	xmlns:kaikei="clr-namespace:kaikei"
+	xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+	x:Class="Kaikei.viewInventarioKardex"
+	x:Name="viewInventariosKardex"
+	d:DesignWidth="793" d:DesignHeight="522">
+
+	<Grid x:Name="LayoutRoot">
+		<kaikei:ctlPlantillaTabItem Margin="0" d:LayoutOverrides="Width" SubTitulo="Inventario KARDEX - PEPS" Descripcion="Muestra el inventario de todos los productos detallando las difrentes compras que se han realizado del producto">
+			<Grid>
+				<Custom:DataGrid Margin="10,10,10,70" ItemsSource="{Binding}" AutoGenerateColumns="False">
+					<Custom:DataGrid.Columns>
+						<Custom:DataGridTextColumn Header="Nombre del Material" Binding="{Binding NOMBRE}"/>
+						<Custom:DataGridTextColumn Header="Fecha Compra" Binding="{Binding FECHA}"/>
+						<Custom:DataGridTextColumn Header="Precio Unitario" Binding="{Binding PRECIOUNITARIO}"/>
+						<Custom:DataGridTextColumn Header="Unidades Disponibles" Binding="{Binding CANTIDAD}"/>
+					</Custom:DataGrid.Columns>
+				</Custom:DataGrid>
+			</Grid>
+		</kaikei:ctlPlantillaTabItem>
+	</Grid>
+</UserControl>
