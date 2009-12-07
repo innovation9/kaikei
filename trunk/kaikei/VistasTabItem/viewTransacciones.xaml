@@ -37,7 +37,7 @@
 				<TextBlock HorizontalAlignment="Left" Margin="-10,15,0,6.796" Grid.Column="1" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Operaciones" TextWrapping="Wrap" d:LayoutOverrides="Height, GridBox"/>
 				<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Nombre de la Operacion:" TextWrapping="Wrap" VerticalAlignment="Center"/>
 				<ComboBox x:Name="txtOperaciones" HorizontalAlignment="Left" Margin="153,0,0,0" Width="300" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" IsEditable="True" StaysOpenOnEdit="True" GotFocus="txtOperaciones_GotFocus" ItemsSource="{Binding}" DisplayMemberPath="{Binding DESCRIPCION, Mode=Default}" SelectedValuePath="{Binding ID_OPERACION, Mode=Default}" MaxDropDownHeight="80" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" TabIndex="0"/>
-				<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnCargar" HorizontalAlignment="Left" Margin="650,0,0,0" VerticalAlignment="Center" Content="Cargar Operacion" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="GridBox" Width="142" IsDefault="True" Icon="/Kaikei;Component/IconosBotones/boton_Cargar.png" TabIndex="2">
+				<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnCargar" HorizontalAlignment="Left" Margin="650,0,0,0" VerticalAlignment="Center" Content="Cargar Operacion" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="GridBox" Width="142" IsDefault="True" Icon="/Kaikei;Component/IconosBotones/boton_Cargar.png" TabIndex="2" Click="btnCargar_Click">
 					<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>
@@ -81,7 +81,7 @@
 						</LinearGradientBrush>
 					</Rectangle.Fill>
 				</Rectangle>
-				<Custom:DataGrid x:Name="dgDetalleT" Margin="0,15,25,10" Grid.Column="1" Grid.Row="8" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold">
+				<Custom:DataGrid x:Name="dgDetalleT" Margin="0,15,25,10" Grid.Column="1" Grid.Row="8" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold" CellEditEnding="dgDetalleT_CellEditEnding" RowEditEnding="dgDetalleT_RowEditEnding">
 					<Custom:DataGrid.Columns>
 						<Custom:DataGridTextColumn Header="ID" Width="35" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding ID, Mode=Default}"/>
 						<Custom:DataGridTextColumn Header="NOMBRE DE LA CUENTA" IsReadOnly="True" MinWidth="500" Binding="{Binding NOMBRE, Mode=Default}"/>
@@ -99,7 +99,7 @@
 					<ComboBox x:Name="txtCuentas" HorizontalAlignment="Left" Margin="140,0,0,0" Width="300" IsEditable="True" StaysOpenOnEdit="True" GotFocus="txtCuentas_GotFocus" ItemsSource="{Binding}" DisplayMemberPath="{Binding DESCRIPCION, Mode=Default}" SelectedValuePath="{Binding ID_OPERACION, Mode=Default}" MaxDropDownHeight="80" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" d:LayoutOverrides="Height" VerticalAlignment="Center" TabIndex="3"/>
 					<TextBlock HorizontalAlignment="Left" Margin="0" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Monto en el DEBE [$]:" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="1"/>
 					<TextBlock Margin="306.456,0,305,0" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Monto en el HABER [$]:" TextWrapping="Wrap" Grid.Row="1" d:LayoutOverrides="Width, Height" VerticalAlignment="Center"/>
-					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtDebe" HorizontalAlignment="Left" Margin="140,0,0,0" Width="100" TabIndex="4" Grid.Row="1" TextWrapping="Wrap" TextHelp="DEBE [$]" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center" Text="0">
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtDebe" HorizontalAlignment="Left" Margin="140,0,0,0" Width="100" TabIndex="4" Grid.Row="1" TextWrapping="Wrap" TextHelp="DEBE [$]" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center" Text="0" GotFocus="txtDebe_GotFocus">
 						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -108,7 +108,7 @@
 							</ResourceDictionary>
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
-					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtHaber" HorizontalAlignment="Left" Margin="446.456,0,0,0" Width="100" TabIndex="5" Grid.Row="1" TextWrapping="Wrap" TextHelp="HABER [$]" d:LayoutOverrides="Height" Text="0" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtHaber" HorizontalAlignment="Left" Margin="446.456,0,0,0" Width="100" TabIndex="5" Grid.Row="1" TextWrapping="Wrap" TextHelp="HABER [$]" d:LayoutOverrides="Height" Text="0" VerticalAlignment="Center" GotFocus="txtDebe_GotFocus">
 						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -117,7 +117,7 @@
 							</ResourceDictionary>
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
-					<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnACuenta" HorizontalAlignment="Left" Margin="500,0,0,0" Content="Añadir Cuenta" d:LayoutOverrides="Height" Icon="/Kaikei;Component/IconosBotones/boton_Add.png" Width="120" TabIndex="5" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnACuenta" HorizontalAlignment="Left" Margin="500,0,0,0" Content="Añadir Cuenta" d:LayoutOverrides="Height" Icon="/Kaikei;Component/IconosBotones/boton_Add.png" Width="120" TabIndex="5" VerticalAlignment="Center" Click="btnACuenta_Click">
 						<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -128,7 +128,7 @@
 					</ControlsWPF_JMP_Controls:ButtonJMP>
 				</Grid>
 				<TextBlock HorizontalAlignment="Left" Margin="480,0,0,0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Monto $:" TextWrapping="Wrap" VerticalAlignment="Center"/>
-				<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtMonto" HorizontalAlignment="Left" Margin="535,0,0,0" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextHelp="Transaccion [$]" Width="100" VerticalAlignment="Center" TabIndex="1">
+				<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtMonto" HorizontalAlignment="Left" Margin="535,0,0,0" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" TextHelp="Transaccion [$]" Width="100" VerticalAlignment="Center" TabIndex="1" GotFocus="txtMonto_GotFocus">
 					<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>
@@ -138,7 +138,7 @@
 					</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 				</ControlsWPF_JMP_Controls:TextBoxJMP>
 				<TextBlock HorizontalAlignment="Left" Margin="0" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Descripcion de la Transaccion:" TextWrapping="Wrap" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"/>
-				<ControlsWPF_JMP_Controls:TextBoxJMP HorizontalAlignment="Left" Margin="175,0,0,0" Width="500" TabIndex="6" Grid.Row="7" TextWrapping="Wrap" TextHelp="Escriba una breve descripcion de la Transaccion" Grid.Column="1" VerticalAlignment="Center">
+				<ControlsWPF_JMP_Controls:TextBoxJMP HorizontalAlignment="Left" Margin="175,0,0,0" Width="500" TabIndex="6" Grid.Row="7" TextWrapping="Wrap" TextHelp="Escriba una breve descripcion de la Transaccion" Grid.Column="1" VerticalAlignment="Center" Name="txtDescripcion" MaxLines="1">
 					<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>
@@ -153,7 +153,7 @@
 					<TextBlock FontSize="16" FontWeight="Bold" Foreground="#FFB31700" Text="TOTAL HABER:" TextWrapping="Wrap" Margin="100,0,0,0"/>
 					<TextBlock x:Name="lblTotalHaber" FontSize="16" Foreground="Black" Text="$1200.80" TextWrapping="Wrap" Margin="8,0,0,0"/>
 				</StackPanel>
-				<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnTransaccion" HorizontalAlignment="Right" Margin="0,0,25,0" Content="Efectuar Transaccion" Icon="/Kaikei;Component/IconosBotones/btn_Transaccion.png" Width="170" TabIndex="7" Grid.Column="1" Grid.Row="9" d:LayoutOverrides="Height" VerticalAlignment="Center">
+				<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnTransaccion" HorizontalAlignment="Right" Margin="0,0,25,0" Content="Efectuar Transaccion" Icon="/Kaikei;Component/IconosBotones/btn_Transaccion.png" Width="170" TabIndex="7" Grid.Column="1" Grid.Row="9" d:LayoutOverrides="Height" VerticalAlignment="Center" Click="btnTransaccion_Click">
 					<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 						<ResourceDictionary>
 							<ResourceDictionary.MergedDictionaries>
