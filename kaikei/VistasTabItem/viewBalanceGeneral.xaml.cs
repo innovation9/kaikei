@@ -35,12 +35,9 @@ namespace Kaikei.VistasTabItem
             bgDatos =new BALANCE_GENERALTableAdapter();
 
             EstadosContables ec =new EstadosContables();
-            wndFechas f = new wndFechas();
-            f.Show();
-            f.Obtener(ref FechaInicio,ref FechaFin);
-            f.Close();
-
-
+            DateTime t = DateTime.Today;
+            FechaInicio = new DateTime(t.Year,t.Month,1);
+            FechaFin = new DateTime(t.Year,t.Month,30);
             bg.SetDataSource((DataTable)bgDatos.GetData(FechaInicio,FechaFin));
             this.crvBalanceGeneral.ReportSource = bg;
         }

@@ -322,15 +322,16 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BALANCE_COMPROBACIONTableAdapter" GeneratorDataComponentClassName="BALANCE_COMPROBACIONTableAdapter" Name="BALANCE_COMPROBACION" UserDataComponentName="BALANCE_COMPROBACIONTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="KaikeiConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="KaikeiConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        SUM(DETALLE_TRANSACCIONES.DEBE) AS DEBE, SUM(DETALLE_TRANSACCIONES.HABER) AS HABER, DETALLE_TRANSACCIONES.ID_CUENTA, 
-                         CATALOGO_CUENTAS.NOMBRE, CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.NOMBRE AS TIPO
-FROM            CATALOGO_CUENTAS INNER JOIN
-                         CLASIFICACION_CUENTAS ON CATALOGO_CUENTAS.ID_CLASIFICACION = CLASIFICACION_CUENTAS.ID_CLASIFICACION INNER JOIN
-                         DETALLE_TRANSACCIONES ON CATALOGO_CUENTAS.ID_CUENTA = DETALLE_TRANSACCIONES.ID_CUENTA INNER JOIN
-                         TRANSACCIONES ON DETALLE_TRANSACCIONES.ID_TRANSACCION = TRANSACCIONES.ID_TRANSACCION
+                    <CommandText>SELECT     SUM(DETALLE_TRANSACCIONES.DEBE) AS DEBE, SUM(DETALLE_TRANSACCIONES.HABER) AS HABER,
+					  SUM(DETALLE_TRANSACCIONES.DEBE) - SUM(DETALLE_TRANSACCIONES.HABER) AS SALDO, DETALLE_TRANSACCIONES.ID_CUENTA, 
+                      CATALOGO_CUENTAS.NOMBRE, CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.NOMBRE AS TIPO
+FROM         CATALOGO_CUENTAS INNER JOIN
+                      CLASIFICACION_CUENTAS ON CATALOGO_CUENTAS.ID_CLASIFICACION = CLASIFICACION_CUENTAS.ID_CLASIFICACION INNER JOIN
+                      DETALLE_TRANSACCIONES ON CATALOGO_CUENTAS.ID_CUENTA = DETALLE_TRANSACCIONES.ID_CUENTA INNER JOIN
+                      TRANSACCIONES ON DETALLE_TRANSACCIONES.ID_TRANSACCION = TRANSACCIONES.ID_TRANSACCION
 WHERE        (TRANSACCIONES.FECHA &gt;= @FechaInicio) AND (TRANSACCIONES.FECHA &lt;= @FechaFin)
 GROUP BY DETALLE_TRANSACCIONES.ID_CUENTA, CLASIFICACION_CUENTAS.ID_CLASIFICACION, TRANSACCIONES.FECHA, CATALOGO_CUENTAS.NOMBRE, 
                          CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.NOMBRE
@@ -350,6 +351,7 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE</CommandText>
               <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
               <Mapping SourceColumn="DESCRIPCION" DataSetColumn="DESCRIPCION" />
               <Mapping SourceColumn="TIPO" DataSetColumn="TIPO" />
+              <Mapping SourceColumn="SALDO" DataSetColumn="SALDO" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -489,6 +491,7 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="SALDO" msdata:ReadOnly="true" msprop:Generator_UserColumnName="SALDO" msprop:Generator_ColumnPropNameInRow="SALDO" msprop:Generator_ColumnVarNameInTable="columnSALDO" msprop:Generator_ColumnPropNameInTable="SALDOColumn" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
