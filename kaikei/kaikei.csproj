@@ -109,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="VistasTabItem\viewBalanceComprobacion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VistasTabItem\viewBalanceGeneral.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -211,6 +215,14 @@
       <DependentUpon>rBalanceGeneral.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ReportesDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportesDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewBalanceComprobacion.xaml.cs">
+      <DependentUpon>viewBalanceComprobacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistasTabItem\viewBalanceGeneral.xaml.cs">
       <DependentUpon>viewBalanceGeneral.xaml</DependentUpon>
     </Compile>
@@ -294,6 +306,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportesDS.xsc">
+      <DependentUpon>ReportesDS.xsd</DependentUpon>
+    </None>
+    <None Include="ReportesDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportesDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReportesDS.xss">
+      <DependentUpon>ReportesDS.xsd</DependentUpon>
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>

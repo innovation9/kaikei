@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReportesDS" targetNamespace="http://tempuri.org/ReportesDS.xsd" xmlns:mstns="http://tempuri.org/ReportesDS.xsd" xmlns="http://tempuri.org/ReportesDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KaikeiConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KaikeiConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Kaikei.Properties.Settings.GlobalReference.Default.KaikeiConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BALANCE_COMPROBACIONTableAdapter" GeneratorDataComponentClassName="BALANCE_COMPROBACIONTableAdapter" Name="BALANCE_COMPROBACION" UserDataComponentName="BALANCE_COMPROBACIONTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KaikeiConnectionString (Settings)" DbObjectName="Kaikei.dbo.BALANCE_COMPROBACION" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NOMBRE, DESCRIPCION, DEBE, HABER FROM dbo.BALANCE_COMPROBACION</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
+              <Mapping SourceColumn="DESCRIPCION" DataSetColumn="DESCRIPCION" />
+              <Mapping SourceColumn="DEBE" DataSetColumn="DEBE" />
+              <Mapping SourceColumn="HABER" DataSetColumn="HABER" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReportesDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="ReportesDS" msprop:Generator_UserDSName="ReportesDS" msprop:EnableTableAdapterManager="True">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BALANCE_COMPROBACION" msprop:Generator_UserTableName="BALANCE_COMPROBACION" msprop:Generator_RowDeletedName="BALANCE_COMPROBACIONRowDeleted" msprop:Generator_TableClassName="BALANCE_COMPROBACIONDataTable" msprop:Generator_RowChangedName="BALANCE_COMPROBACIONRowChanged" msprop:Generator_RowClassName="BALANCE_COMPROBACIONRow" msprop:Generator_RowChangingName="BALANCE_COMPROBACIONRowChanging" msprop:Generator_RowEvArgName="BALANCE_COMPROBACIONRowChangeEvent" msprop:Generator_RowEvHandlerName="BALANCE_COMPROBACIONRowChangeEventHandler" msprop:Generator_TablePropName="BALANCE_COMPROBACION" msprop:Generator_TableVarName="tableBALANCE_COMPROBACION" msprop:Generator_RowDeletingName="BALANCE_COMPROBACIONRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DEBE" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DEBE" msprop:Generator_ColumnPropNameInRow="DEBE" msprop:Generator_ColumnVarNameInTable="columnDEBE" msprop:Generator_ColumnPropNameInTable="DEBEColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="HABER" msdata:ReadOnly="true" msprop:Generator_UserColumnName="HABER" msprop:Generator_ColumnPropNameInRow="HABER" msprop:Generator_ColumnVarNameInTable="columnHABER" msprop:Generator_ColumnPropNameInTable="HABERColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
