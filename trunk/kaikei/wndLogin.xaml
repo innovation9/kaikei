@@ -20,7 +20,7 @@
 					<RowDefinition Height="0.703*"/>
 					<RowDefinition Height="0.297*"/>
 				</Grid.RowDefinitions>
-				<TextBlock Margin="15,12,8,0" VerticalAlignment="Top" Text="Ingrese sus credenciales:" TextWrapping="Wrap" Grid.ColumnSpan="2" FontSize="{DynamicResource FontTitulos_Tamaño}" Foreground="#FF00329D" FontWeight="{DynamicResource FontTitulos_Estilo}" FontFamily="{DynamicResource FontTitulos}" HorizontalAlignment="Center"/>
+				<TextBlock Margin="15,12,8,0" VerticalAlignment="Top" Text="Ingrese sus credenciales:" TextWrapping="Wrap" Grid.ColumnSpan="2" FontSize="{DynamicResource FontTitulos_Tamaño}" Foreground="{DynamicResource ColorLetras_Titulos}" FontWeight="{DynamicResource FontTitulos_Estilo}" FontFamily="{DynamicResource FontTitulos}" HorizontalAlignment="Center"/>
 				<TextBlock HorizontalAlignment="Left" Margin="35,53.403,0,0" VerticalAlignment="Top" Width="63.052" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Usuario:" TextWrapping="Wrap" FontFamily="{DynamicResource FontLabels}"/>
 				<TextBlock Margin="35,88,0,0" Text="Password:" TextWrapping="Wrap" FontWeight="{DynamicResource FonLabels_Estilo}" FontSize="{DynamicResource FonLabels_Tamaño}" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="{DynamicResource FontLabels}"/>
 				<PasswordBox x:Name="txtPassword" Margin="0,82,35,0" VerticalAlignment="Top" TabIndex="1" Style="{DynamicResource PasswordBoxDefault}" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" Width="110" HorizontalAlignment="Right">

@@ -37,7 +37,8 @@ namespace Kaikei
         }
 
         private enum TipoTab { VisualizarInventarioDisp = 0,
-                               VisualizarInventarioK = 1 }
+                               EfectuarTransaccion=1
+                               }
 
         private void CargarTabItem(TipoTab tipo)
         {
@@ -51,13 +52,13 @@ namespace Kaikei
                 {
                     case TipoTab.VisualizarInventarioDisp:
                         newTab.Name = "tabInventarioD";
-                        newTab.Header = "Inventario Disponible";
+                        newTab.Header = "Inventario KARDEX";
                         newTab.Content = new ViewInventarioD();
                         break;
-                    case TipoTab.VisualizarInventarioK:
-                        newTab.Name = "tabInventarioK";
-                        newTab.Header = "Inventario KARDEX";
-                        newTab.Content = new viewInventarioKardex();
+                    case TipoTab.EfectuarTransaccion:
+                        newTab.Name = "tabEfecTransacciones";
+                        newTab.Header = "Transacciones";
+                        newTab.Content = new viewTransacciones();
                         break;
                 }
 
@@ -66,6 +67,7 @@ namespace Kaikei
                 tableTabs.Add(tipo, newTab);
                 tab_Ventanas.Items.Add(newTab);
                 tab_Ventanas.SelectedIndex = tab_Ventanas.Items.Count - 1;
+				newTab.Focus();
             }
         }
 
@@ -83,9 +85,10 @@ namespace Kaikei
             }
         }
 
-        private void mnu_InvKardex_Click(object sender, RoutedEventArgs e)
+        private void mnu_EfecTransac_Click(object sender, RoutedEventArgs e)
         {
-            CargarTabItem(TipoTab.VisualizarInventarioK);
+            CargarTabItem(TipoTab.EfectuarTransaccion);
         }
+
     }
 }

@@ -251,7 +251,7 @@
 	
     <Grid x:Name="rootGrid" DataContext="{StaticResource Inventarios_ViewDS}">
             
-    	<kaikei:ctlPlantillaTabItem Margin="0" Descripcion="Muestra el total de inventario disponible que hay en el sistema" SubTitulo="Inventario Disponible" d:LayoutOverrides="Width, Height">
+    	<kaikei:ctlPlantillaTabItem Margin="0" Descripcion="Muestra todo el inventario de los productos en el sistema con los detalles del material" SubTitulo="Inventario Disponible (KARDEX) - PEPS" d:LayoutOverrides="Width, Height">
     		<Grid x:Name="gridElements">
     			<ListBox x:Name="lstInventarios" Margin="10,10,10,70" ItemsSource="{Binding}"/>
     		</Grid>

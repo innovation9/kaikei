@@ -106,7 +106,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VistasTabItem\viewInventarioKardex.xaml">
+    <Page Include="VistasTabItem\viewTransacciones.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -135,6 +135,11 @@
     <Compile Include="CloseableTabItem.cs" />
     <Compile Include="ConnectionDS\InventarioDisp_Provider.cs" />
     <Compile Include="ConnectionDS\InventariosDataProvider.cs" />
+    <Compile Include="ContaGeneralDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContaGeneralDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="controlExpanderInventario.cs" />
     <Compile Include="controlPlantilla.cs" />
     <Compile Include="controlPlantillaTabItem.cs" />
@@ -163,8 +168,8 @@
     <Compile Include="VistasTabItem\ViewInventarioD.xaml.cs">
       <DependentUpon>ViewInventarioD.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VistasTabItem\viewInventarioKardex.xaml.cs">
-      <DependentUpon>viewInventarioKardex.xaml</DependentUpon>
+    <Compile Include="VistasTabItem\viewTransacciones.xaml.cs">
+      <DependentUpon>viewTransacciones.xaml</DependentUpon>
     </Compile>
     <Compile Include="wndLogin.xaml.cs">
       <DependentUpon>wndLogin.xaml</DependentUpon>
@@ -180,6 +185,17 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="ContaGeneralDS.xsc">
+      <DependentUpon>ContaGeneralDS.xsd</DependentUpon>
+    </None>
+    <None Include="ContaGeneralDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ContaGeneralDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ContaGeneralDS.xss">
+      <DependentUpon>ContaGeneralDS.xsd</DependentUpon>
+    </None>
     <None Include="InventariosDS.xsc">
       <DependentUpon>InventariosDS.xsd</DependentUpon>
     </None>
@@ -199,8 +215,11 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="IconosBotones\boton_Add.png" />
+    <Resource Include="IconosBotones\boton_Cargar.png" />
     <Resource Include="IconosBotones\boton_Salir.png" />
     <Resource Include="IconosBotones\boton_Siguiente.png" />
+    <Resource Include="IconosBotones\btn_Transaccion.png" />
     <Resource Include="IconosWindows\icon_Login.png" />
     <Resource Include="stsNormal.png" />
     <Resource Include="Themes\expander_Conta.png" />

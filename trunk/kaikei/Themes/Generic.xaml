@@ -154,7 +154,7 @@
                             <!-- La implementacion coloca el contenido en el ScrollViewer. Debe denominarse PART_ContentHost para que el control funcione -->
                             <ScrollViewer Margin="2,3" x:Name="PART_ContentHost" Background="{x:Null}" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}"/>
                         </Border>
-                        <TextBlock x:Name="textBlock" Opacity="0.4" TextWrapping="Wrap" Visibility="Hidden" FontStyle="Italic" FontFamily="Arial" Margin="0,0,0,0" VerticalAlignment="Stretch" TextAlignment="{TemplateBinding TextAlignment}" Padding="5,5,0,0" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" Text="{TemplateBinding TextHelp}"/>
+                        <TextBlock x:Name="textBlock" Opacity="0.4" TextWrapping="Wrap" Visibility="Hidden" FontStyle="Italic" FontFamily="Arial" Margin="2,0,2,1" VerticalAlignment="Center" TextAlignment="{TemplateBinding TextAlignment}" Padding="5,5,0,0" HorizontalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" Text="{TemplateBinding TextHelp}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
@@ -398,7 +398,7 @@
 							</Image.Effect>
 						</Image>
 						<!-- The bindings are useful so that the control can be parameterized without editing the template -->
-						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" Margin="0" Grid.Column="1" d:LayoutOverrides="Height"/>
+						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" Margin="0,0,5,0" Grid.Column="1" d:LayoutOverrides="Height"/>
 					</Grid>
 					
 					<!--Each state sets a brush on the Border in the template -->
