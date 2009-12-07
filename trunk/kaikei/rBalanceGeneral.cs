@@ -16,14 +16,14 @@ namespace Kaikei {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptBalaceGeneral : ReportClass {
+    public class rBalanceGeneral : ReportClass {
         
-        public rptBalaceGeneral() {
+        public rBalanceGeneral() {
         }
         
         public override string ResourceName {
             get {
-                return "rptBalaceGeneral.rpt";
+                return "rBalanceGeneral.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Kaikei {
         
         public override string FullResourceName {
             get {
-                return "Kaikei.rptBalaceGeneral.rpt";
+                return "Kaikei.rBalanceGeneral.rpt";
             }
             set {
                 // Do nothing
@@ -106,7 +106,7 @@ namespace Kaikei {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_EmpresaNombre {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtAutorizo {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -114,7 +114,7 @@ namespace Kaikei {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_FechaReporte {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtRealizo {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -122,7 +122,7 @@ namespace Kaikei {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtRealizo {
+        public CrystalDecisions.Shared.IParameterField Parameter_EmpresaNombre {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -130,7 +130,7 @@ namespace Kaikei {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtAutorizo {
+        public CrystalDecisions.Shared.IParameterField Parameter_FechaReporte {
             get {
                 return this.DataDefinition.ParameterFields[3];
             }
@@ -138,9 +138,9 @@ namespace Kaikei {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptBalaceGeneral : Component, ICachedReport {
+    public class CachedrBalanceGeneral : Component, ICachedReport {
         
-        public CachedrptBalaceGeneral() {
+        public CachedrBalanceGeneral() {
         }
         
         [Browsable(false)]
@@ -177,7 +177,7 @@ namespace Kaikei {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptBalaceGeneral rpt = new rptBalaceGeneral();
+            rBalanceGeneral rpt = new rBalanceGeneral();
             rpt.Site = this.Site;
             return rpt;
         }
