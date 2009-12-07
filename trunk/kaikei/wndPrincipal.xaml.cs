@@ -81,6 +81,11 @@ namespace Kaikei
                         newTab.Header = "Catalogo Cuentas";
                         newTab.Content = new viewCatalogoCuentas();
                         break;
+                    case TipoTab.BalanceComprobacion:
+                        newTab.Name = "tabBalC";
+                        newTab.Header = "Balance de Comprobacion";
+                        newTab.Content = new viewBalanceComprobacion();
+                        break;
                 }
 
                 //Agregamos a la tabla Has el nuevo control
@@ -124,6 +129,11 @@ namespace Kaikei
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             CargarTabItem(TipoTab.CatalogoCuentas);
+        }
+
+        private void mnu_BalCompro_CLICK(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.BalanceComprobacion);
         }
 
     }

@@ -1,0 +1,27 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:kaikei="clr-namespace:kaikei"
+	xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+	x:Class="Kaikei.viewBalanceComprobacion"
+	x:Name="viewBalC"
+	d:DesignWidth="850" d:DesignHeight="680">
+
+	<Grid x:Name="LayoutRoot">
+		<kaikei:ctlPlantillaTabItem Margin="0" d:LayoutOverrides="Width" Descripcion="Compara todas las cuentas con sus respectivos saldos" SubTitulo="Balance de Comprobacion">
+			<Grid Margin="0">
+				<Custom:DataGrid x:Name="dgBalComprobacion" Margin="25,20,35,80" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold">
+					<Custom:DataGrid.Columns>
+						<Custom:DataGridTextColumn Header="CODIGO" Width="70" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding NOMBRE, Mode=Default}" SortMemberPath="NOMBRE"/>
+						<Custom:DataGridTextColumn Header="NOMBRE DE LA CUENTA" IsReadOnly="True" MinWidth="600" Binding="{Binding DESCRIPCION, Mode=Default}" SortMemberPath="DESCRIPCION"/>
+						<Custom:DataGridTextColumn Header="DEBE" Width="150" CanUserReorder="False" CanUserResize="False" Binding="{Binding DEBE, Mode=Default}" SortMemberPath="DEBE" IsReadOnly="True"/>
+						<Custom:DataGridTextColumn Header="HABER" Width="150" CanUserReorder="False" CanUserResize="False" Binding="{Binding HABER, Mode=Default}" SortMemberPath="HABER" IsReadOnly="True"/>
+					</Custom:DataGrid.Columns>
+				</Custom:DataGrid>
+			</Grid>
+		</kaikei:ctlPlantillaTabItem>
+	</Grid>
+</UserControl>
