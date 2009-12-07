@@ -1,0 +1,149 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:kaikei="clr-namespace:kaikei" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+    x:Name="viewComprasInventarios" x:Class="Kaikei.VistasTabItem.viewComprasInv" d:DesignWidth="850" d:DesignHeight="600">
+    <Grid x:Name="LayoutRoot">
+            
+    	<kaikei:ctlPlantillaTabItem Margin="0" d:LayoutOverrides="Width" Descripcion="Efectuar todas las compras de materiales de la empresa al inventario del sistema" SubTitulo="Compras de Inventario">
+    		<Grid Margin="0,0,10,0">
+    			<Grid.RowDefinitions>
+    				<RowDefinition Height="75"/>
+    				<RowDefinition Height="5"/>
+    				<RowDefinition Height="Auto"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="*"/>
+    			</Grid.RowDefinitions>
+    			<Grid x:Name="gridGeneral" Margin="0">
+    				<Grid.RowDefinitions>
+    					<RowDefinition Height="45"/>
+    					<RowDefinition Height="30"/>
+    				</Grid.RowDefinitions>
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="25"/>
+    					<ColumnDefinition Width="*"/>
+    				</Grid.ColumnDefinitions>
+    				<TextBlock HorizontalAlignment="Left" Margin="-10,15,0,6.796" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Datos Generales de la Factura" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="Height"/>
+    				<Rectangle Margin="5,0,5,4" VerticalAlignment="Bottom" Height="0.8" Grid.ColumnSpan="2">
+    					<Rectangle.Fill>
+    						<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+    							<GradientStop Color="White" Offset="0"/>
+    							<GradientStop Color="White" Offset="1"/>
+    							<GradientStop Color="#FFB31700" Offset="0.502"/>
+    							<GradientStop Color="#FFDE9A90" Offset="0.217"/>
+    							<GradientStop Color="#FFE7B7B0" Offset="0.81"/>
+    						</LinearGradientBrush>
+    					</Rectangle.Fill>
+    				</Rectangle>
+    				<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Fecha de Compra:" TextWrapping="Wrap" VerticalAlignment="Center"/>
+    				<TextBlock HorizontalAlignment="Left" Margin="310,0,0,0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Proveedor:" TextWrapping="Wrap" VerticalAlignment="Center"/>
+    				<Custom:DatePicker x:Name="txtFecha" HorizontalAlignment="Left" Margin="110,0,0,0" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="Height" VerticalAlignment="Center" Width="150" TabIndex="0"/>
+    				<ComboBox x:Name="txtProveedor" HorizontalAlignment="Left" Margin="380,0,0,0" Width="300" Grid.Column="1" Grid.Row="1" IsEditable="True" StaysOpenOnEdit="True" GotFocus="txtProveedor_GotFocus" ItemsSource="{Binding}" DisplayMemberPath="{Binding DESCRIPCION, Mode=Default}" SelectedValuePath="{Binding ID_OPERACION, Mode=Default}" MaxDropDownHeight="80" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" TabIndex="1" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+    			</Grid>
+    			<Grid x:Name="gridDetalle" Margin="0" Grid.Row="2">
+    				<Grid.RowDefinitions>
+    					<RowDefinition Height="45"/>
+    					<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+    				</Grid.RowDefinitions>
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="25"/>
+    					<ColumnDefinition Width="*"/>
+    				</Grid.ColumnDefinitions>
+    				<TextBlock HorizontalAlignment="Left" Margin="-10,15,0,6.796" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Materiales de la Compra" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="Height"/>
+    				<Rectangle Margin="5,0,5,6" VerticalAlignment="Bottom" Height="0.8" Grid.ColumnSpan="2">
+    					<Rectangle.Fill>
+    						<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+    							<GradientStop Color="White" Offset="0"/>
+    							<GradientStop Color="White" Offset="1"/>
+    							<GradientStop Color="#FFB31700" Offset="0.502"/>
+    							<GradientStop Color="#FFDE9A90" Offset="0.217"/>
+    							<GradientStop Color="#FFE7B7B0" Offset="0.81"/>
+    						</LinearGradientBrush>
+    					</Rectangle.Fill>
+    				</Rectangle>
+    				<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Nombre del Material:" TextWrapping="Wrap" VerticalAlignment="Center" d:LayoutOverrides="GridBox"/>
+    				<ComboBox x:Name="txtMaterial" HorizontalAlignment="Left" Margin="130,0,0,0" Width="300" Grid.Column="1" Grid.Row="1" IsEditable="True" StaysOpenOnEdit="True" GotFocus="txtMaterial_GotFocus" ItemsSource="{Binding}" DisplayMemberPath="{Binding DESCRIPCION, Mode=Default}" SelectedValuePath="{Binding ID_OPERACION, Mode=Default}" MaxDropDownHeight="80" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" TabIndex="1" d:LayoutOverrides="Height, GridBox" VerticalAlignment="Center" IsSynchronizedWithCurrentItem="True"/>
+    				<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Total de Unidades Compradas:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+    				<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtTUnit" HorizontalAlignment="Left" Margin="180,0,0,0" Width="80" TabIndex="4" Grid.Row="2" TextWrapping="Wrap" TextHelp="Unidades" VerticalAlignment="Center" Text="0" Grid.Column="1" d:LayoutOverrides="HorizontalAlignment" GotFocus="txt_GotFocus">
+    					<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+    						<ResourceDictionary>
+    							<ResourceDictionary.MergedDictionaries>
+    								<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+    							</ResourceDictionary.MergedDictionaries>
+    						</ResourceDictionary>
+    					</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+    				</ControlsWPF_JMP_Controls:TextBoxJMP>
+    				<TextBlock Margin="270,0,248.896,0" Grid.Column="1" Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" VerticalAlignment="Center" DataContext="{Binding Items, ElementName=txtMaterial}" FontStyle="Italic" Text="{Binding UNIDAD, Mode=Default}"/>
+    				<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="3" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Precio por Unidad [$]:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+    				<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtPrecioU" HorizontalAlignment="Left" Margin="133,0,0,0" Width="100" TabIndex="4" Grid.Row="3" TextWrapping="Wrap" TextHelp="Unidades" Text="0" Grid.Column="1" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center" GotFocus="txt_GotFocus">
+    					<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+    						<ResourceDictionary>
+    							<ResourceDictionary.MergedDictionaries>
+    								<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+    							</ResourceDictionary.MergedDictionaries>
+    						</ResourceDictionary>
+    					</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+    				</ControlsWPF_JMP_Controls:TextBoxJMP>
+    				<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnAMaterial" HorizontalAlignment="Left" Margin="483,0,0,0" Content="Añadir Material" Icon="..\IconosBotones\boton_Add.png" Width="130" TabIndex="5" IsDefault="True" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="Height" VerticalAlignment="Center" Click="btnAMaterial_Click">
+    					<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
+    						<ResourceDictionary>
+    							<ResourceDictionary.MergedDictionaries>
+    								<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+    							</ResourceDictionary.MergedDictionaries>
+    						</ResourceDictionary>
+    					</ControlsWPF_JMP_Controls:ButtonJMP.Resources>
+    				</ControlsWPF_JMP_Controls:ButtonJMP>
+    			</Grid>
+    			<Grid x:Name="gridFactura" Margin="0" Grid.Row="4">
+    				<Grid.RowDefinitions>
+    					<RowDefinition Height="45"/>
+    					<RowDefinition Height="*"/>
+    					<RowDefinition Height="70"/>
+    				</Grid.RowDefinitions>
+    				<TextBlock HorizontalAlignment="Left" Margin="15,15,0,6.796" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Detalle de la Factura" TextWrapping="Wrap" d:LayoutOverrides="Height"/>
+    				<Rectangle Margin="5,0,5,6" VerticalAlignment="Bottom" Height="0.8">
+    					<Rectangle.Fill>
+    						<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+    							<GradientStop Color="White" Offset="0"/>
+    							<GradientStop Color="White" Offset="1"/>
+    							<GradientStop Color="#FFB31700" Offset="0.502"/>
+    							<GradientStop Color="#FFDE9A90" Offset="0.217"/>
+    							<GradientStop Color="#FFE7B7B0" Offset="0.81"/>
+    						</LinearGradientBrush>
+    					</Rectangle.Fill>
+    				</Rectangle>
+    				<Custom:DataGrid x:Name="dgDetalleF" Margin="10,10,10,40" Grid.Row="1" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold">
+    					<Custom:DataGrid.Columns>
+    						<Custom:DataGridTextColumn Header="CODIGO" Width="58" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding CODIGO, Mode=Default}"/>
+    						<Custom:DataGridTextColumn Header="NOMBRE DEL MATERIAL" IsReadOnly="True" MinWidth="500" Binding="{Binding NOMBRE, Mode=Default}"/>
+    						<Custom:DataGridTextColumn Header="CANTIDAD" Width="80" CanUserReorder="False" CanUserResize="False" Binding="{Binding CANTIDAD, Mode=Default}" SortMemberPath="CANTIDAD"/>
+    						<Custom:DataGridTextColumn Header="P. UNITARIO" Width="100" CanUserReorder="False" CanUserResize="False" Binding="{Binding PRECIO, Mode=Default}" SortMemberPath="PRECIO"/>
+    						<Custom:DataGridTextColumn Header="P. TOTAL" Width="100" CanUserReorder="False" CanUserResize="False" Binding="{Binding TOTAL, Mode=Default}" SortMemberPath="TOTAL" IsReadOnly="True"/>
+    					</Custom:DataGrid.Columns>
+    				</Custom:DataGrid>
+    				<StackPanel Margin="200,15,0,0" Grid.Column="1" Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+    					<TextBlock FontSize="16" FontWeight="Bold" Foreground="#FFB31700" Text="TOTAL DE LA COMPRA:" TextWrapping="Wrap"/>
+    					<TextBlock x:Name="lblTotalC" FontSize="16" Foreground="Black" Text="$0.00" TextWrapping="Wrap" Margin="8,0,0,0"/>
+    					<TextBlock FontSize="16" FontWeight="Bold" Foreground="#FFB31700" Text="TOTAL DE MATERIALES:" TextWrapping="Wrap" Margin="50,0,0,0"/>
+    					<TextBlock x:Name="lblTotalM" FontSize="16" Foreground="Black" Text="0 Materiales" TextWrapping="Wrap" Margin="8,0,0,0"/>
+    				</StackPanel>
+    				<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnTransaccion" HorizontalAlignment="Right" Margin="0,0,10,5" Content="Efectuar Compra" Icon="/Kaikei;Component/IconosBotones/boton_Compra.png" Width="140" TabIndex="7" Grid.Row="1" VerticalAlignment="Bottom" Click="btnCompra_Click">
+    					<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
+    						<ResourceDictionary>
+    							<ResourceDictionary.MergedDictionaries>
+    								<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+    							</ResourceDictionary.MergedDictionaries>
+    						</ResourceDictionary>
+    					</ControlsWPF_JMP_Controls:ButtonJMP.Resources>
+    				</ControlsWPF_JMP_Controls:ButtonJMP>
+    				<TextBlock HorizontalAlignment="Left" Margin="25,0,0,10" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="El monto total de la compra se ABONARA en:" TextWrapping="Wrap" VerticalAlignment="Bottom" FontStyle="Italic" Foreground="#FF00159A"/>
+    				<RadioButton x:Name="optEfectivo" Margin="290,0,0,9.5" VerticalAlignment="Bottom" Content="Cuenta EFECTIVO" Grid.Row="1" d:LayoutOverrides="HorizontalAlignment" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" IsChecked="True" HorizontalAlignment="Left"/>
+    				<RadioButton x:Name="optCxP" HorizontalAlignment="Left" Margin="425,0,0,9.5" VerticalAlignment="Bottom" Content="Cuentas por Pagar" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" Grid.Row="1"/>
+    			</Grid>
+    		</Grid>
+    	</kaikei:ctlPlantillaTabItem>
+            
+    </Grid>
+</UserControl>
