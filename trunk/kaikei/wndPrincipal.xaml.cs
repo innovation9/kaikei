@@ -38,7 +38,10 @@ namespace Kaikei
 
         private enum TipoTab { VisualizarInventarioDisp = 0,
                                EfectuarTransaccion=1,
-							   ComprasInventarios=2
+							   ComprasInventarios=2,
+                               BalanceGeneral=3,
+                               BalanceComprobacion = 4,
+                               CatalogoCuentas = 5
                                }
 
         private void CargarTabItem(TipoTab tipo)
@@ -65,6 +68,11 @@ namespace Kaikei
                         newTab.Name = "tabComprasInv";
                         newTab.Header = "Compras";
                         newTab.Content = new viewComprasInv();
+                        break;
+                    case TipoTab.BalanceGeneral:
+                        newTab.Name = "tabBalGral";
+                        newTab.Header = "Balance General";
+                        newTab.Content = new viewBalanceGeneral();
                         break;
                 }
 
@@ -99,6 +107,11 @@ namespace Kaikei
 		private void mnu_ComprasInv_Click(object sender, RoutedEventArgs e)
         {
             CargarTabItem(TipoTab.ComprasInventarios);
+        }
+
+        private void mnu_BalGral_click(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.BalanceGeneral);
         }
 
     }

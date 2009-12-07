@@ -114,7 +114,7 @@
 						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Balance de Comprobacion" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
 						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Estado de Resultados" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
 						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Estado de Capital" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
-						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Balance General" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Balance General" FontFamily="{DynamicResource FontLabels}" FontSize="12" Click="mnu_BalGral_click" />
 					</StackPanel>
 				</ControlsWPF_JMP_Controls:ExpanderJMP>
 			</StackPanel>
