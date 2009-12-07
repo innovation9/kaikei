@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Kaikei.VistasTabItem.viewBalanceGeneral"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:kaikei"
+    xmlns:crystal="clr-namespace:CrystalDecisions.Windows.Forms;assembly=CrystalDecisions.Windows.Forms"
+    Height="485" Width="591">
+    <Grid>
+    <local:ctlPlantillaTabItem SubTitulo="Balance General" Descripcion="Balance General">
+            <WindowsFormsHost Height="258" Name="windowsFormsHost1" Width="404">
+                <crystal:CrystalReportViewer x:Name="crvBalanceGeneral">
+                    
+                </crystal:CrystalReportViewer>
+            </WindowsFormsHost>
+        </local:ctlPlantillaTabItem>
+    </Grid>
+</UserControl>

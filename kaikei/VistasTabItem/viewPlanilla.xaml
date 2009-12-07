@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Kaikei.VistasTabItem.viewPlanilla"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:kaikei"
+    Height="300" Width="300">
+    <Grid>
+        <local:ctlPlantillaTabItem>
+            <WindowsFormsHost Height="105" Name="windowsFormsHost1" Width="207" Margin="0" >
+                
+            </WindowsFormsHost>
+        </local:ctlPlantillaTabItem>
+    </Grid>
+</UserControl>
