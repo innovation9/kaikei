@@ -6,6 +6,7 @@
 	xmlns:datosTA="clr-namespace:Kaikei.ContaGeneralDSTableAdapters"
 	mc:Ignorable="d"
 	xmlns:kaikei="clr-namespace:kaikei"
+    xmlns:Kaikei="clr-namespace:Kaikei"
 	xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP"
 	xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
 	xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
@@ -16,7 +17,7 @@
 
 	<Grid x:Name="LayoutRoot">
 		<kaikei:ctlPlantillaTabItem Margin="0" d:LayoutOverrides="Width" SubTitulo="Transacciones y Operaciones" Descripcion="Efectua las transacciones de toda la empresa ya sea predeterminadas (Operaciones) hasta crear transacciones personalizadas">
-			<Grid>
+			<Grid Kaikei:AccessKeyScoper.IsAccessKeyScope="True">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="45"/>
 					<RowDefinition Height="35"/>
@@ -89,7 +90,7 @@
 						<Custom:DataGridTextColumn Header="MONTO HABER" Width="110" CanUserReorder="False" CanUserResize="False" Binding="{Binding HABER, Mode=Default}"/>
 					</Custom:DataGrid.Columns>
 				</Custom:DataGrid>
-				<Grid x:Name="gridCuentas" Margin="0" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2">
+				<Grid x:Name="gridCuentas" Margin="0" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Kaikei:AccessKeyScoper.IsAccessKeyScope="True">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="40"/>
 						<RowDefinition Height="30"/>
@@ -117,7 +118,7 @@
 							</ResourceDictionary>
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
-					<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnACuenta" HorizontalAlignment="Left" Margin="500,0,0,0" Content="Añadir Cuenta" d:LayoutOverrides="Height" Icon="/Kaikei;Component/IconosBotones/boton_Add.png" Width="120" TabIndex="5" VerticalAlignment="Center" Click="btnACuenta_Click">
+					<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnACuenta" HorizontalAlignment="Left" Margin="500,0,0,0" Content="Añadir Cuenta" d:LayoutOverrides="Height" Icon="/Kaikei;Component/IconosBotones/boton_Add.png" Width="120" TabIndex="5" VerticalAlignment="Center" Click="btnACuenta_Click" IsDefault="True">
 						<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>

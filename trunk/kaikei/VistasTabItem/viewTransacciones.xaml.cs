@@ -281,6 +281,7 @@ namespace Kaikei
             txtHaber.Text = "0";
             txtCuentas.Text = "";
             txtMonto.Text = "";
+            EstablecerTotales();
             txtOperaciones.Focus();
         }
 
