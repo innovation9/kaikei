@@ -29,6 +29,16 @@ namespace Kaikei {
         
         private CATALOGO_CUENTASDataTable tableCATALOGO_CUENTAS;
         
+        private DETALLE_TRANSACCIONESDataTable tableDETALLE_TRANSACCIONES;
+        
+        private TRANSACCIONESDataTable tableTRANSACCIONES;
+        
+        private global::System.Data.DataRelation relationFK_DETALLE__FK_CUENTA_CATALOGO;
+        
+        private global::System.Data.DataRelation relationFK_DETALLE__FK_TRANSA_TRANSACC;
+        
+        private global::System.Data.DataRelation relationFK_TRANSACC_FK_OPERAC_OPERACIO;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -60,6 +70,12 @@ namespace Kaikei {
                 }
                 if ((ds.Tables["CATALOGO_CUENTAS"] != null)) {
                     base.Tables.Add(new CATALOGO_CUENTASDataTable(ds.Tables["CATALOGO_CUENTAS"]));
+                }
+                if ((ds.Tables["DETALLE_TRANSACCIONES"] != null)) {
+                    base.Tables.Add(new DETALLE_TRANSACCIONESDataTable(ds.Tables["DETALLE_TRANSACCIONES"]));
+                }
+                if ((ds.Tables["TRANSACCIONES"] != null)) {
+                    base.Tables.Add(new TRANSACCIONESDataTable(ds.Tables["TRANSACCIONES"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -94,6 +110,24 @@ namespace Kaikei {
         public CATALOGO_CUENTASDataTable CATALOGO_CUENTAS {
             get {
                 return this.tableCATALOGO_CUENTAS;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DETALLE_TRANSACCIONESDataTable DETALLE_TRANSACCIONES {
+            get {
+                return this.tableDETALLE_TRANSACCIONES;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TRANSACCIONESDataTable TRANSACCIONES {
+            get {
+                return this.tableTRANSACCIONES;
             }
         }
         
@@ -162,6 +196,12 @@ namespace Kaikei {
                 if ((ds.Tables["CATALOGO_CUENTAS"] != null)) {
                     base.Tables.Add(new CATALOGO_CUENTASDataTable(ds.Tables["CATALOGO_CUENTAS"]));
                 }
+                if ((ds.Tables["DETALLE_TRANSACCIONES"] != null)) {
+                    base.Tables.Add(new DETALLE_TRANSACCIONESDataTable(ds.Tables["DETALLE_TRANSACCIONES"]));
+                }
+                if ((ds.Tables["TRANSACCIONES"] != null)) {
+                    base.Tables.Add(new TRANSACCIONESDataTable(ds.Tables["TRANSACCIONES"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -204,6 +244,21 @@ namespace Kaikei {
                     this.tableCATALOGO_CUENTAS.InitVars();
                 }
             }
+            this.tableDETALLE_TRANSACCIONES = ((DETALLE_TRANSACCIONESDataTable)(base.Tables["DETALLE_TRANSACCIONES"]));
+            if ((initTable == true)) {
+                if ((this.tableDETALLE_TRANSACCIONES != null)) {
+                    this.tableDETALLE_TRANSACCIONES.InitVars();
+                }
+            }
+            this.tableTRANSACCIONES = ((TRANSACCIONESDataTable)(base.Tables["TRANSACCIONES"]));
+            if ((initTable == true)) {
+                if ((this.tableTRANSACCIONES != null)) {
+                    this.tableTRANSACCIONES.InitVars();
+                }
+            }
+            this.relationFK_DETALLE__FK_CUENTA_CATALOGO = this.Relations["FK_DETALLE__FK_CUENTA_CATALOGO"];
+            this.relationFK_DETALLE__FK_TRANSA_TRANSACC = this.Relations["FK_DETALLE__FK_TRANSA_TRANSACC"];
+            this.relationFK_TRANSACC_FK_OPERAC_OPERACIO = this.Relations["FK_TRANSACC_FK_OPERAC_OPERACIO"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -217,6 +272,22 @@ namespace Kaikei {
             base.Tables.Add(this.tableOPERACIONES);
             this.tableCATALOGO_CUENTAS = new CATALOGO_CUENTASDataTable();
             base.Tables.Add(this.tableCATALOGO_CUENTAS);
+            this.tableDETALLE_TRANSACCIONES = new DETALLE_TRANSACCIONESDataTable();
+            base.Tables.Add(this.tableDETALLE_TRANSACCIONES);
+            this.tableTRANSACCIONES = new TRANSACCIONESDataTable();
+            base.Tables.Add(this.tableTRANSACCIONES);
+            this.relationFK_DETALLE__FK_CUENTA_CATALOGO = new global::System.Data.DataRelation("FK_DETALLE__FK_CUENTA_CATALOGO", new global::System.Data.DataColumn[] {
+                        this.tableCATALOGO_CUENTAS.ID_CUENTAColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDETALLE_TRANSACCIONES.ID_CUENTAColumn}, false);
+            this.Relations.Add(this.relationFK_DETALLE__FK_CUENTA_CATALOGO);
+            this.relationFK_DETALLE__FK_TRANSA_TRANSACC = new global::System.Data.DataRelation("FK_DETALLE__FK_TRANSA_TRANSACC", new global::System.Data.DataColumn[] {
+                        this.tableTRANSACCIONES.ID_TRANSACCIONColumn}, new global::System.Data.DataColumn[] {
+                        this.tableDETALLE_TRANSACCIONES.ID_TRANSACCIONColumn}, false);
+            this.Relations.Add(this.relationFK_DETALLE__FK_TRANSA_TRANSACC);
+            this.relationFK_TRANSACC_FK_OPERAC_OPERACIO = new global::System.Data.DataRelation("FK_TRANSACC_FK_OPERAC_OPERACIO", new global::System.Data.DataColumn[] {
+                        this.tableOPERACIONES.ID_OPERACIONColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTRANSACCIONES.ID_OPERACIONColumn}, false);
+            this.Relations.Add(this.relationFK_TRANSACC_FK_OPERAC_OPERACIO);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -226,6 +297,16 @@ namespace Kaikei {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeCATALOGO_CUENTAS() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeDETALLE_TRANSACCIONES() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeTRANSACCIONES() {
             return false;
         }
         
@@ -285,6 +366,10 @@ namespace Kaikei {
         public delegate void OPERACIONESRowChangeEventHandler(object sender, OPERACIONESRowChangeEvent e);
         
         public delegate void CATALOGO_CUENTASRowChangeEventHandler(object sender, CATALOGO_CUENTASRowChangeEvent e);
+        
+        public delegate void DETALLE_TRANSACCIONESRowChangeEventHandler(object sender, DETALLE_TRANSACCIONESRowChangeEvent e);
+        
+        public delegate void TRANSACCIONESRowChangeEventHandler(object sender, TRANSACCIONESRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -869,6 +954,608 @@ namespace Kaikei {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DETALLE_TRANSACCIONESDataTable : global::System.Data.TypedTableBase<DETALLE_TRANSACCIONESRow> {
+            
+            private global::System.Data.DataColumn columnID_TRANSACCION;
+            
+            private global::System.Data.DataColumn columnID_PARTIDA;
+            
+            private global::System.Data.DataColumn columnID_CUENTA;
+            
+            private global::System.Data.DataColumn columnDEBE;
+            
+            private global::System.Data.DataColumn columnHABER;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESDataTable() {
+                this.TableName = "DETALLE_TRANSACCIONES";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal DETALLE_TRANSACCIONESDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected DETALLE_TRANSACCIONESDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_TRANSACCIONColumn {
+                get {
+                    return this.columnID_TRANSACCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_PARTIDAColumn {
+                get {
+                    return this.columnID_PARTIDA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_CUENTAColumn {
+                get {
+                    return this.columnID_CUENTA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DEBEColumn {
+                get {
+                    return this.columnDEBE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn HABERColumn {
+                get {
+                    return this.columnHABER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESRow this[int index] {
+                get {
+                    return ((DETALLE_TRANSACCIONESRow)(this.Rows[index]));
+                }
+            }
+            
+            public event DETALLE_TRANSACCIONESRowChangeEventHandler DETALLE_TRANSACCIONESRowChanging;
+            
+            public event DETALLE_TRANSACCIONESRowChangeEventHandler DETALLE_TRANSACCIONESRowChanged;
+            
+            public event DETALLE_TRANSACCIONESRowChangeEventHandler DETALLE_TRANSACCIONESRowDeleting;
+            
+            public event DETALLE_TRANSACCIONESRowChangeEventHandler DETALLE_TRANSACCIONESRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddDETALLE_TRANSACCIONESRow(DETALLE_TRANSACCIONESRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESRow AddDETALLE_TRANSACCIONESRow(TRANSACCIONESRow parentTRANSACCIONESRowByFK_DETALLE__FK_TRANSA_TRANSACC, int ID_PARTIDA, CATALOGO_CUENTASRow parentCATALOGO_CUENTASRowByFK_DETALLE__FK_CUENTA_CATALOGO, decimal DEBE, decimal HABER) {
+                DETALLE_TRANSACCIONESRow rowDETALLE_TRANSACCIONESRow = ((DETALLE_TRANSACCIONESRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        ID_PARTIDA,
+                        null,
+                        DEBE,
+                        HABER};
+                if ((parentTRANSACCIONESRowByFK_DETALLE__FK_TRANSA_TRANSACC != null)) {
+                    columnValuesArray[0] = parentTRANSACCIONESRowByFK_DETALLE__FK_TRANSA_TRANSACC[0];
+                }
+                if ((parentCATALOGO_CUENTASRowByFK_DETALLE__FK_CUENTA_CATALOGO != null)) {
+                    columnValuesArray[2] = parentCATALOGO_CUENTASRowByFK_DETALLE__FK_CUENTA_CATALOGO[0];
+                }
+                rowDETALLE_TRANSACCIONESRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDETALLE_TRANSACCIONESRow);
+                return rowDETALLE_TRANSACCIONESRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESRow FindByID_TRANSACCIONID_PARTIDA(int ID_TRANSACCION, int ID_PARTIDA) {
+                return ((DETALLE_TRANSACCIONESRow)(this.Rows.Find(new object[] {
+                            ID_TRANSACCION,
+                            ID_PARTIDA})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                DETALLE_TRANSACCIONESDataTable cln = ((DETALLE_TRANSACCIONESDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DETALLE_TRANSACCIONESDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnID_TRANSACCION = base.Columns["ID_TRANSACCION"];
+                this.columnID_PARTIDA = base.Columns["ID_PARTIDA"];
+                this.columnID_CUENTA = base.Columns["ID_CUENTA"];
+                this.columnDEBE = base.Columns["DEBE"];
+                this.columnHABER = base.Columns["HABER"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnID_TRANSACCION = new global::System.Data.DataColumn("ID_TRANSACCION", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_TRANSACCION);
+                this.columnID_PARTIDA = new global::System.Data.DataColumn("ID_PARTIDA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_PARTIDA);
+                this.columnID_CUENTA = new global::System.Data.DataColumn("ID_CUENTA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_CUENTA);
+                this.columnDEBE = new global::System.Data.DataColumn("DEBE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDEBE);
+                this.columnHABER = new global::System.Data.DataColumn("HABER", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHABER);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_TRANSACCION,
+                                this.columnID_PARTIDA}, true));
+                this.columnID_TRANSACCION.AllowDBNull = false;
+                this.columnID_PARTIDA.AllowDBNull = false;
+                this.columnID_CUENTA.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESRow NewDETALLE_TRANSACCIONESRow() {
+                return ((DETALLE_TRANSACCIONESRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DETALLE_TRANSACCIONESRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(DETALLE_TRANSACCIONESRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DETALLE_TRANSACCIONESRowChanged != null)) {
+                    this.DETALLE_TRANSACCIONESRowChanged(this, new DETALLE_TRANSACCIONESRowChangeEvent(((DETALLE_TRANSACCIONESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DETALLE_TRANSACCIONESRowChanging != null)) {
+                    this.DETALLE_TRANSACCIONESRowChanging(this, new DETALLE_TRANSACCIONESRowChangeEvent(((DETALLE_TRANSACCIONESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DETALLE_TRANSACCIONESRowDeleted != null)) {
+                    this.DETALLE_TRANSACCIONESRowDeleted(this, new DETALLE_TRANSACCIONESRowChangeEvent(((DETALLE_TRANSACCIONESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DETALLE_TRANSACCIONESRowDeleting != null)) {
+                    this.DETALLE_TRANSACCIONESRowDeleting(this, new DETALLE_TRANSACCIONESRowChangeEvent(((DETALLE_TRANSACCIONESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveDETALLE_TRANSACCIONESRow(DETALLE_TRANSACCIONESRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ContaGeneralDS ds = new ContaGeneralDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DETALLE_TRANSACCIONESDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TRANSACCIONESDataTable : global::System.Data.TypedTableBase<TRANSACCIONESRow> {
+            
+            private global::System.Data.DataColumn columnID_TRANSACCION;
+            
+            private global::System.Data.DataColumn columnID_OPERACION;
+            
+            private global::System.Data.DataColumn columnFECHA;
+            
+            private global::System.Data.DataColumn columnCODIGOAFECTADO;
+            
+            private global::System.Data.DataColumn columnMONTO;
+            
+            private global::System.Data.DataColumn columnDESCRIPCION;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESDataTable() {
+                this.TableName = "TRANSACCIONES";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal TRANSACCIONESDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected TRANSACCIONESDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_TRANSACCIONColumn {
+                get {
+                    return this.columnID_TRANSACCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_OPERACIONColumn {
+                get {
+                    return this.columnID_OPERACION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn FECHAColumn {
+                get {
+                    return this.columnFECHA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CODIGOAFECTADOColumn {
+                get {
+                    return this.columnCODIGOAFECTADO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MONTOColumn {
+                get {
+                    return this.columnMONTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DESCRIPCIONColumn {
+                get {
+                    return this.columnDESCRIPCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESRow this[int index] {
+                get {
+                    return ((TRANSACCIONESRow)(this.Rows[index]));
+                }
+            }
+            
+            public event TRANSACCIONESRowChangeEventHandler TRANSACCIONESRowChanging;
+            
+            public event TRANSACCIONESRowChangeEventHandler TRANSACCIONESRowChanged;
+            
+            public event TRANSACCIONESRowChangeEventHandler TRANSACCIONESRowDeleting;
+            
+            public event TRANSACCIONESRowChangeEventHandler TRANSACCIONESRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddTRANSACCIONESRow(TRANSACCIONESRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESRow AddTRANSACCIONESRow(OPERACIONESRow parentOPERACIONESRowByFK_TRANSACC_FK_OPERAC_OPERACIO, System.DateTime FECHA, string CODIGOAFECTADO, decimal MONTO, string DESCRIPCION) {
+                TRANSACCIONESRow rowTRANSACCIONESRow = ((TRANSACCIONESRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        FECHA,
+                        CODIGOAFECTADO,
+                        MONTO,
+                        DESCRIPCION};
+                if ((parentOPERACIONESRowByFK_TRANSACC_FK_OPERAC_OPERACIO != null)) {
+                    columnValuesArray[1] = parentOPERACIONESRowByFK_TRANSACC_FK_OPERAC_OPERACIO[0];
+                }
+                rowTRANSACCIONESRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTRANSACCIONESRow);
+                return rowTRANSACCIONESRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESRow FindByID_TRANSACCION(int ID_TRANSACCION) {
+                return ((TRANSACCIONESRow)(this.Rows.Find(new object[] {
+                            ID_TRANSACCION})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                TRANSACCIONESDataTable cln = ((TRANSACCIONESDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TRANSACCIONESDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnID_TRANSACCION = base.Columns["ID_TRANSACCION"];
+                this.columnID_OPERACION = base.Columns["ID_OPERACION"];
+                this.columnFECHA = base.Columns["FECHA"];
+                this.columnCODIGOAFECTADO = base.Columns["CODIGOAFECTADO"];
+                this.columnMONTO = base.Columns["MONTO"];
+                this.columnDESCRIPCION = base.Columns["DESCRIPCION"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnID_TRANSACCION = new global::System.Data.DataColumn("ID_TRANSACCION", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_TRANSACCION);
+                this.columnID_OPERACION = new global::System.Data.DataColumn("ID_OPERACION", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_OPERACION);
+                this.columnFECHA = new global::System.Data.DataColumn("FECHA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHA);
+                this.columnCODIGOAFECTADO = new global::System.Data.DataColumn("CODIGOAFECTADO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCODIGOAFECTADO);
+                this.columnMONTO = new global::System.Data.DataColumn("MONTO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMONTO);
+                this.columnDESCRIPCION = new global::System.Data.DataColumn("DESCRIPCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCRIPCION);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_TRANSACCION}, true));
+                this.columnID_TRANSACCION.AutoIncrement = true;
+                this.columnID_TRANSACCION.AutoIncrementSeed = -1;
+                this.columnID_TRANSACCION.AutoIncrementStep = -1;
+                this.columnID_TRANSACCION.AllowDBNull = false;
+                this.columnID_TRANSACCION.ReadOnly = true;
+                this.columnID_TRANSACCION.Unique = true;
+                this.columnID_OPERACION.AllowDBNull = false;
+                this.columnCODIGOAFECTADO.MaxLength = 9;
+                this.columnDESCRIPCION.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESRow NewTRANSACCIONESRow() {
+                return ((TRANSACCIONESRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TRANSACCIONESRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(TRANSACCIONESRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TRANSACCIONESRowChanged != null)) {
+                    this.TRANSACCIONESRowChanged(this, new TRANSACCIONESRowChangeEvent(((TRANSACCIONESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TRANSACCIONESRowChanging != null)) {
+                    this.TRANSACCIONESRowChanging(this, new TRANSACCIONESRowChangeEvent(((TRANSACCIONESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TRANSACCIONESRowDeleted != null)) {
+                    this.TRANSACCIONESRowDeleted(this, new TRANSACCIONESRowChangeEvent(((TRANSACCIONESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TRANSACCIONESRowDeleting != null)) {
+                    this.TRANSACCIONESRowDeleting(this, new TRANSACCIONESRowChangeEvent(((TRANSACCIONESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveTRANSACCIONESRow(TRANSACCIONESRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ContaGeneralDS ds = new ContaGeneralDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TRANSACCIONESDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -991,6 +1678,16 @@ namespace Kaikei {
             public void SetCOD_HABERNull() {
                 this[this.tableOPERACIONES.COD_HABERColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESRow[] GetTRANSACCIONESRows() {
+                if ((this.Table.ChildRelations["FK_TRANSACC_FK_OPERAC_OPERACIO"] == null)) {
+                    return new TRANSACCIONESRow[0];
+                }
+                else {
+                    return ((TRANSACCIONESRow[])(base.GetChildRows(this.Table.ChildRelations["FK_TRANSACC_FK_OPERAC_OPERACIO"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1101,6 +1798,286 @@ namespace Kaikei {
             public void SetAJUSTENull() {
                 this[this.tableCATALOGO_CUENTAS.AJUSTEColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESRow[] GetDETALLE_TRANSACCIONESRows() {
+                if ((this.Table.ChildRelations["FK_DETALLE__FK_CUENTA_CATALOGO"] == null)) {
+                    return new DETALLE_TRANSACCIONESRow[0];
+                }
+                else {
+                    return ((DETALLE_TRANSACCIONESRow[])(base.GetChildRows(this.Table.ChildRelations["FK_DETALLE__FK_CUENTA_CATALOGO"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class DETALLE_TRANSACCIONESRow : global::System.Data.DataRow {
+            
+            private DETALLE_TRANSACCIONESDataTable tableDETALLE_TRANSACCIONES;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal DETALLE_TRANSACCIONESRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDETALLE_TRANSACCIONES = ((DETALLE_TRANSACCIONESDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_TRANSACCION {
+                get {
+                    return ((int)(this[this.tableDETALLE_TRANSACCIONES.ID_TRANSACCIONColumn]));
+                }
+                set {
+                    this[this.tableDETALLE_TRANSACCIONES.ID_TRANSACCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_PARTIDA {
+                get {
+                    return ((int)(this[this.tableDETALLE_TRANSACCIONES.ID_PARTIDAColumn]));
+                }
+                set {
+                    this[this.tableDETALLE_TRANSACCIONES.ID_PARTIDAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_CUENTA {
+                get {
+                    return ((int)(this[this.tableDETALLE_TRANSACCIONES.ID_CUENTAColumn]));
+                }
+                set {
+                    this[this.tableDETALLE_TRANSACCIONES.ID_CUENTAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal DEBE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDETALLE_TRANSACCIONES.DEBEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DEBE\' de la tabla \'DETALLE_TRANSACCIONES\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDETALLE_TRANSACCIONES.DEBEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal HABER {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDETALLE_TRANSACCIONES.HABERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'HABER\' de la tabla \'DETALLE_TRANSACCIONES\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDETALLE_TRANSACCIONES.HABERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public CATALOGO_CUENTASRow CATALOGO_CUENTASRow {
+                get {
+                    return ((CATALOGO_CUENTASRow)(this.GetParentRow(this.Table.ParentRelations["FK_DETALLE__FK_CUENTA_CATALOGO"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_DETALLE__FK_CUENTA_CATALOGO"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESRow TRANSACCIONESRow {
+                get {
+                    return ((TRANSACCIONESRow)(this.GetParentRow(this.Table.ParentRelations["FK_DETALLE__FK_TRANSA_TRANSACC"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_DETALLE__FK_TRANSA_TRANSACC"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDEBENull() {
+                return this.IsNull(this.tableDETALLE_TRANSACCIONES.DEBEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDEBENull() {
+                this[this.tableDETALLE_TRANSACCIONES.DEBEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsHABERNull() {
+                return this.IsNull(this.tableDETALLE_TRANSACCIONES.HABERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetHABERNull() {
+                this[this.tableDETALLE_TRANSACCIONES.HABERColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class TRANSACCIONESRow : global::System.Data.DataRow {
+            
+            private TRANSACCIONESDataTable tableTRANSACCIONES;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal TRANSACCIONESRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTRANSACCIONES = ((TRANSACCIONESDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_TRANSACCION {
+                get {
+                    return ((int)(this[this.tableTRANSACCIONES.ID_TRANSACCIONColumn]));
+                }
+                set {
+                    this[this.tableTRANSACCIONES.ID_TRANSACCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_OPERACION {
+                get {
+                    return ((int)(this[this.tableTRANSACCIONES.ID_OPERACIONColumn]));
+                }
+                set {
+                    this[this.tableTRANSACCIONES.ID_OPERACIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime FECHA {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTRANSACCIONES.FECHAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA\' de la tabla \'TRANSACCIONES\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRANSACCIONES.FECHAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string CODIGOAFECTADO {
+                get {
+                    try {
+                        return ((string)(this[this.tableTRANSACCIONES.CODIGOAFECTADOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CODIGOAFECTADO\' de la tabla \'TRANSACCIONES\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRANSACCIONES.CODIGOAFECTADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal MONTO {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTRANSACCIONES.MONTOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MONTO\' de la tabla \'TRANSACCIONES\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRANSACCIONES.MONTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DESCRIPCION {
+                get {
+                    try {
+                        return ((string)(this[this.tableTRANSACCIONES.DESCRIPCIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCRIPCION\' de la tabla \'TRANSACCIONES\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTRANSACCIONES.DESCRIPCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public OPERACIONESRow OPERACIONESRow {
+                get {
+                    return ((OPERACIONESRow)(this.GetParentRow(this.Table.ParentRelations["FK_TRANSACC_FK_OPERAC_OPERACIO"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_TRANSACC_FK_OPERAC_OPERACIO"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFECHANull() {
+                return this.IsNull(this.tableTRANSACCIONES.FECHAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFECHANull() {
+                this[this.tableTRANSACCIONES.FECHAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCODIGOAFECTADONull() {
+                return this.IsNull(this.tableTRANSACCIONES.CODIGOAFECTADOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCODIGOAFECTADONull() {
+                this[this.tableTRANSACCIONES.CODIGOAFECTADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMONTONull() {
+                return this.IsNull(this.tableTRANSACCIONES.MONTOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMONTONull() {
+                this[this.tableTRANSACCIONES.MONTOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDESCRIPCIONNull() {
+                return this.IsNull(this.tableTRANSACCIONES.DESCRIPCIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDESCRIPCIONNull() {
+                this[this.tableTRANSACCIONES.DESCRIPCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESRow[] GetDETALLE_TRANSACCIONESRows() {
+                if ((this.Table.ChildRelations["FK_DETALLE__FK_TRANSA_TRANSACC"] == null)) {
+                    return new DETALLE_TRANSACCIONESRow[0];
+                }
+                else {
+                    return ((DETALLE_TRANSACCIONESRow[])(base.GetChildRows(this.Table.ChildRelations["FK_DETALLE__FK_TRANSA_TRANSACC"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1152,6 +2129,68 @@ namespace Kaikei {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public CATALOGO_CUENTASRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class DETALLE_TRANSACCIONESRowChangeEvent : global::System.EventArgs {
+            
+            private DETALLE_TRANSACCIONESRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESRowChangeEvent(DETALLE_TRANSACCIONESRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public DETALLE_TRANSACCIONESRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class TRANSACCIONESRowChangeEvent : global::System.EventArgs {
+            
+            private TRANSACCIONESRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESRowChangeEvent(TRANSACCIONESRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public TRANSACCIONESRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1343,11 +2382,17 @@ SELECT ID_OPERACION, DESCRIPCION, IVA, COD_DEBE, COD_HABER FROM OPERACIONES WHER
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_OPERACION, DESCRIPCION, IVA, COD_DEBE, COD_HABER FROM dbo.OPERACIONES";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ID_OPERACION, DESCRIPCION, IVA, COD_DEBE, COD_HABER\r\nFROM          " +
+                "  OPERACIONES\r\nWHERE        (ID_OPERACION = @IDO)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDO", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OPERACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1367,6 +2412,30 @@ SELECT ID_OPERACION, DESCRIPCION, IVA, COD_DEBE, COD_HABER FROM OPERACIONES WHER
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual ContaGeneralDS.OPERACIONESDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            ContaGeneralDS.OPERACIONESDataTable dataTable = new ContaGeneralDS.OPERACIONESDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByIDO(ContaGeneralDS.OPERACIONESDataTable dataTable, int IDO) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDO));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual ContaGeneralDS.OPERACIONESDataTable GetDataByIDO(int IDO) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDO));
             ContaGeneralDS.OPERACIONESDataTable dataTable = new ContaGeneralDS.OPERACIONESDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1750,12 +2819,18 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM dbo.CATALOGO" +
                 "_CUENTAS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE\r\nFROM     " +
+                "       CATALOGO_CUENTAS\r\nWHERE        (ID_CUENTA = @IDC)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDC", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_CUENTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1775,6 +2850,30 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual ContaGeneralDS.CATALOGO_CUENTASDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            ContaGeneralDS.CATALOGO_CUENTASDataTable dataTable = new ContaGeneralDS.CATALOGO_CUENTASDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByIDC(ContaGeneralDS.CATALOGO_CUENTASDataTable dataTable, int IDC) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDC));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual ContaGeneralDS.CATALOGO_CUENTASDataTable GetDataByIDC(int IDC) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDC));
             ContaGeneralDS.CATALOGO_CUENTASDataTable dataTable = new ContaGeneralDS.CATALOGO_CUENTASDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1965,6 +3064,785 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class DETALLE_TRANSACCIONESTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public DETALLE_TRANSACCIONESTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "DETALLE_TRANSACCIONES";
+            tableMapping.ColumnMappings.Add("ID_TRANSACCION", "ID_TRANSACCION");
+            tableMapping.ColumnMappings.Add("ID_PARTIDA", "ID_PARTIDA");
+            tableMapping.ColumnMappings.Add("ID_CUENTA", "ID_CUENTA");
+            tableMapping.ColumnMappings.Add("DEBE", "DEBE");
+            tableMapping.ColumnMappings.Add("HABER", "HABER");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[DETALLE_TRANSACCIONES] WHERE (([ID_TRANSACCION] = @Original_ID_TRANSACCION) AND ([ID_PARTIDA] = @Original_ID_PARTIDA) AND ([ID_CUENTA] = @Original_ID_CUENTA) AND ((@IsNull_DEBE = 1 AND [DEBE] IS NULL) OR ([DEBE] = @Original_DEBE)) AND ((@IsNull_HABER = 1 AND [HABER] IS NULL) OR ([HABER] = @Original_HABER)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_TRANSACCION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_TRANSACCION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_PARTIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_PARTIDA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_CUENTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_CUENTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DEBE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEBE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DEBE", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEBE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HABER", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABER", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HABER", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABER", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[DETALLE_TRANSACCIONES] ([ID_TRANSACCION], [ID_PARTIDA], [ID_CUENTA], [DEBE], [HABER]) VALUES (@ID_TRANSACCION, @ID_PARTIDA, @ID_CUENTA, @DEBE, @HABER);
+SELECT ID_TRANSACCION, ID_PARTIDA, ID_CUENTA, DEBE, HABER FROM DETALLE_TRANSACCIONES WHERE (ID_PARTIDA = @ID_PARTIDA) AND (ID_TRANSACCION = @ID_TRANSACCION)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_TRANSACCION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_TRANSACCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_PARTIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_PARTIDA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_CUENTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_CUENTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEBE", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEBE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HABER", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[DETALLE_TRANSACCIONES] SET [ID_TRANSACCION] = @ID_TRANSACCION, [ID_PARTIDA] = @ID_PARTIDA, [ID_CUENTA] = @ID_CUENTA, [DEBE] = @DEBE, [HABER] = @HABER WHERE (([ID_TRANSACCION] = @Original_ID_TRANSACCION) AND ([ID_PARTIDA] = @Original_ID_PARTIDA) AND ([ID_CUENTA] = @Original_ID_CUENTA) AND ((@IsNull_DEBE = 1 AND [DEBE] IS NULL) OR ([DEBE] = @Original_DEBE)) AND ((@IsNull_HABER = 1 AND [HABER] IS NULL) OR ([HABER] = @Original_HABER)));
+SELECT ID_TRANSACCION, ID_PARTIDA, ID_CUENTA, DEBE, HABER FROM DETALLE_TRANSACCIONES WHERE (ID_PARTIDA = @ID_PARTIDA) AND (ID_TRANSACCION = @ID_TRANSACCION)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_TRANSACCION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_TRANSACCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_PARTIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_PARTIDA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_CUENTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_CUENTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DEBE", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEBE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HABER", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABER", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_TRANSACCION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_TRANSACCION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_PARTIDA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_PARTIDA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_CUENTA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_CUENTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DEBE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEBE", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DEBE", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DEBE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_HABER", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABER", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HABER", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HABER", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Kaikei.Properties.Settings.Default.KaikeiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID_TRANSACCION, ID_PARTIDA, ID_CUENTA, DEBE, HABER FROM dbo.DETALLE_TRANSA" +
+                "CCIONES";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ContaGeneralDS.DETALLE_TRANSACCIONESDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ContaGeneralDS.DETALLE_TRANSACCIONESDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ContaGeneralDS.DETALLE_TRANSACCIONESDataTable dataTable = new ContaGeneralDS.DETALLE_TRANSACCIONESDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ContaGeneralDS.DETALLE_TRANSACCIONESDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ContaGeneralDS dataSet) {
+            return this.Adapter.Update(dataSet, "DETALLE_TRANSACCIONES");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID_TRANSACCION, int Original_ID_PARTIDA, int Original_ID_CUENTA, global::System.Nullable<decimal> Original_DEBE, global::System.Nullable<decimal> Original_HABER) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_TRANSACCION));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ID_PARTIDA));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_ID_CUENTA));
+            if ((Original_DEBE.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_DEBE.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HABER.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_HABER.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int ID_TRANSACCION, int ID_PARTIDA, int ID_CUENTA, global::System.Nullable<decimal> DEBE, global::System.Nullable<decimal> HABER) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_TRANSACCION));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ID_PARTIDA));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ID_CUENTA));
+            if ((DEBE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(DEBE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((HABER.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(HABER.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int ID_TRANSACCION, int ID_PARTIDA, int ID_CUENTA, global::System.Nullable<decimal> DEBE, global::System.Nullable<decimal> HABER, int Original_ID_TRANSACCION, int Original_ID_PARTIDA, int Original_ID_CUENTA, global::System.Nullable<decimal> Original_DEBE, global::System.Nullable<decimal> Original_HABER) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_TRANSACCION));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(ID_PARTIDA));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ID_CUENTA));
+            if ((DEBE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(DEBE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((HABER.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(HABER.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID_TRANSACCION));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID_PARTIDA));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ID_CUENTA));
+            if ((Original_DEBE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_DEBE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_HABER.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(Original_HABER.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int ID_CUENTA, global::System.Nullable<decimal> DEBE, global::System.Nullable<decimal> HABER, int Original_ID_TRANSACCION, int Original_ID_PARTIDA, int Original_ID_CUENTA, global::System.Nullable<decimal> Original_DEBE, global::System.Nullable<decimal> Original_HABER) {
+            return this.Update(Original_ID_TRANSACCION, Original_ID_PARTIDA, ID_CUENTA, DEBE, HABER, Original_ID_TRANSACCION, Original_ID_PARTIDA, Original_ID_CUENTA, Original_DEBE, Original_HABER);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class TRANSACCIONESTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public TRANSACCIONESTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TRANSACCIONES";
+            tableMapping.ColumnMappings.Add("ID_TRANSACCION", "ID_TRANSACCION");
+            tableMapping.ColumnMappings.Add("ID_OPERACION", "ID_OPERACION");
+            tableMapping.ColumnMappings.Add("FECHA", "FECHA");
+            tableMapping.ColumnMappings.Add("CODIGOAFECTADO", "CODIGOAFECTADO");
+            tableMapping.ColumnMappings.Add("MONTO", "MONTO");
+            tableMapping.ColumnMappings.Add("DESCRIPCION", "DESCRIPCION");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[TRANSACCIONES] WHERE (([ID_TRANSACCION] = @Original_ID_TRANSACCION) AND ([ID_OPERACION] = @Original_ID_OPERACION) AND ((@IsNull_FECHA = 1 AND [FECHA] IS NULL) OR ([FECHA] = @Original_FECHA)) AND ((@IsNull_CODIGOAFECTADO = 1 AND [CODIGOAFECTADO] IS NULL) OR ([CODIGOAFECTADO] = @Original_CODIGOAFECTADO)) AND ((@IsNull_MONTO = 1 AND [MONTO] IS NULL) OR ([MONTO] = @Original_MONTO)) AND ((@IsNull_DESCRIPCION = 1 AND [DESCRIPCION] IS NULL) OR ([DESCRIPCION] = @Original_DESCRIPCION)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_TRANSACCION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_TRANSACCION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_OPERACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OPERACION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CODIGOAFECTADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGOAFECTADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODIGOAFECTADO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGOAFECTADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MONTO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MONTO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MONTO", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MONTO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DESCRIPCION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DESCRIPCION", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[TRANSACCIONES] ([ID_OPERACION], [FECHA], [CODIGOAFECTADO], [MONTO], [DESCRIPCION]) VALUES (@ID_OPERACION, @FECHA, @CODIGOAFECTADO, @MONTO, @DESCRIPCION);
+SELECT ID_TRANSACCION, ID_OPERACION, FECHA, CODIGOAFECTADO, MONTO, DESCRIPCION FROM TRANSACCIONES WHERE (ID_TRANSACCION = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OPERACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OPERACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODIGOAFECTADO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGOAFECTADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MONTO", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MONTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESCRIPCION", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TRANSACCIONES] SET [ID_OPERACION] = @ID_OPERACION, [FECHA] = @FECHA, [CODIGOAFECTADO] = @CODIGOAFECTADO, [MONTO] = @MONTO, [DESCRIPCION] = @DESCRIPCION WHERE (([ID_TRANSACCION] = @Original_ID_TRANSACCION) AND ([ID_OPERACION] = @Original_ID_OPERACION) AND ((@IsNull_FECHA = 1 AND [FECHA] IS NULL) OR ([FECHA] = @Original_FECHA)) AND ((@IsNull_CODIGOAFECTADO = 1 AND [CODIGOAFECTADO] IS NULL) OR ([CODIGOAFECTADO] = @Original_CODIGOAFECTADO)) AND ((@IsNull_MONTO = 1 AND [MONTO] IS NULL) OR ([MONTO] = @Original_MONTO)) AND ((@IsNull_DESCRIPCION = 1 AND [DESCRIPCION] IS NULL) OR ([DESCRIPCION] = @Original_DESCRIPCION)));
+SELECT ID_TRANSACCION, ID_OPERACION, FECHA, CODIGOAFECTADO, MONTO, DESCRIPCION FROM TRANSACCIONES WHERE (ID_TRANSACCION = @ID_TRANSACCION)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_OPERACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OPERACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODIGOAFECTADO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGOAFECTADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MONTO", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MONTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DESCRIPCION", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_TRANSACCION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_TRANSACCION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_OPERACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_OPERACION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CODIGOAFECTADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGOAFECTADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODIGOAFECTADO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGOAFECTADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MONTO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MONTO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MONTO", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MONTO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DESCRIPCION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DESCRIPCION", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_TRANSACCION", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_TRANSACCION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Kaikei.Properties.Settings.Default.KaikeiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID_TRANSACCION, ID_OPERACION, FECHA, CODIGOAFECTADO, MONTO, DESCRIPCION FR" +
+                "OM dbo.TRANSACCIONES";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ContaGeneralDS.TRANSACCIONESDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ContaGeneralDS.TRANSACCIONESDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ContaGeneralDS.TRANSACCIONESDataTable dataTable = new ContaGeneralDS.TRANSACCIONESDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ContaGeneralDS.TRANSACCIONESDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ContaGeneralDS dataSet) {
+            return this.Adapter.Update(dataSet, "TRANSACCIONES");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID_TRANSACCION, int Original_ID_OPERACION, global::System.Nullable<global::System.DateTime> Original_FECHA, string Original_CODIGOAFECTADO, global::System.Nullable<decimal> Original_MONTO, string Original_DESCRIPCION) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_TRANSACCION));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ID_OPERACION));
+            if ((Original_FECHA.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_FECHA.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CODIGOAFECTADO == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_CODIGOAFECTADO));
+            }
+            if ((Original_MONTO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_MONTO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DESCRIPCION == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_DESCRIPCION));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int ID_OPERACION, global::System.Nullable<global::System.DateTime> FECHA, string CODIGOAFECTADO, global::System.Nullable<decimal> MONTO, string DESCRIPCION) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_OPERACION));
+            if ((FECHA.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(FECHA.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((CODIGOAFECTADO == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(CODIGOAFECTADO));
+            }
+            if ((MONTO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(MONTO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((DESCRIPCION == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(DESCRIPCION));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int ID_OPERACION, global::System.Nullable<global::System.DateTime> FECHA, string CODIGOAFECTADO, global::System.Nullable<decimal> MONTO, string DESCRIPCION, int Original_ID_TRANSACCION, int Original_ID_OPERACION, global::System.Nullable<global::System.DateTime> Original_FECHA, string Original_CODIGOAFECTADO, global::System.Nullable<decimal> Original_MONTO, string Original_DESCRIPCION, int ID_TRANSACCION) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_OPERACION));
+            if ((FECHA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(FECHA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((CODIGOAFECTADO == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(CODIGOAFECTADO));
+            }
+            if ((MONTO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(MONTO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((DESCRIPCION == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(DESCRIPCION));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID_TRANSACCION));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID_OPERACION));
+            if ((Original_FECHA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_FECHA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CODIGOAFECTADO == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_CODIGOAFECTADO));
+            }
+            if ((Original_MONTO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_MONTO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DESCRIPCION == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_DESCRIPCION));
+            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(ID_TRANSACCION));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(int ID_OPERACION, global::System.Nullable<global::System.DateTime> FECHA, string CODIGOAFECTADO, global::System.Nullable<decimal> MONTO, string DESCRIPCION, int Original_ID_TRANSACCION, int Original_ID_OPERACION, global::System.Nullable<global::System.DateTime> Original_FECHA, string Original_CODIGOAFECTADO, global::System.Nullable<decimal> Original_MONTO, string Original_DESCRIPCION) {
+            return this.Update(ID_OPERACION, FECHA, CODIGOAFECTADO, MONTO, DESCRIPCION, Original_ID_TRANSACCION, Original_ID_OPERACION, Original_FECHA, Original_CODIGOAFECTADO, Original_MONTO, Original_DESCRIPCION, Original_ID_TRANSACCION);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -1980,6 +3858,10 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
         private OPERACIONESTableAdapter _oPERACIONESTableAdapter;
         
         private CATALOGO_CUENTASTableAdapter _cATALOGO_CUENTASTableAdapter;
+        
+        private DETALLE_TRANSACCIONESTableAdapter _dETALLE_TRANSACCIONESTableAdapter;
+        
+        private TRANSACCIONESTableAdapter _tRANSACCIONESTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -2022,6 +3904,32 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
+            "", "System.Drawing.Design.UITypeEditor")]
+        public DETALLE_TRANSACCIONESTableAdapter DETALLE_TRANSACCIONESTableAdapter {
+            get {
+                return this._dETALLE_TRANSACCIONESTableAdapter;
+            }
+            set {
+                this._dETALLE_TRANSACCIONESTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
+            "", "System.Drawing.Design.UITypeEditor")]
+        public TRANSACCIONESTableAdapter TRANSACCIONESTableAdapter {
+            get {
+                return this._tRANSACCIONESTableAdapter;
+            }
+            set {
+                this._tRANSACCIONESTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -2046,6 +3954,14 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
                             && (this._cATALOGO_CUENTASTableAdapter.Connection != null))) {
                     return this._cATALOGO_CUENTASTableAdapter.Connection;
                 }
+                if (((this._dETALLE_TRANSACCIONESTableAdapter != null) 
+                            && (this._dETALLE_TRANSACCIONESTableAdapter.Connection != null))) {
+                    return this._dETALLE_TRANSACCIONESTableAdapter.Connection;
+                }
+                if (((this._tRANSACCIONESTableAdapter != null) 
+                            && (this._tRANSACCIONESTableAdapter.Connection != null))) {
+                    return this._tRANSACCIONESTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -2064,6 +3980,12 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
                 if ((this._cATALOGO_CUENTASTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._dETALLE_TRANSACCIONESTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._tRANSACCIONESTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -2074,6 +3996,24 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateUpdatedRows(ContaGeneralDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._oPERACIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.OPERACIONES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._oPERACIONESTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tRANSACCIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TRANSACCIONES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tRANSACCIONESTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._cATALOGO_CUENTASTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.CATALOGO_CUENTAS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -2083,12 +4023,12 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._oPERACIONESTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.OPERACIONES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._dETALLE_TRANSACCIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.DETALLE_TRANSACCIONES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._oPERACIONESTableAdapter.Update(updatedRows));
+                    result = (result + this._dETALLE_TRANSACCIONESTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -2101,6 +4041,22 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateInsertedRows(ContaGeneralDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._oPERACIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.OPERACIONES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._oPERACIONESTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tRANSACCIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TRANSACCIONES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tRANSACCIONESTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._cATALOGO_CUENTASTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.CATALOGO_CUENTAS.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -2109,11 +4065,11 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._oPERACIONESTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.OPERACIONES.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._dETALLE_TRANSACCIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.DETALLE_TRANSACCIONES.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._oPERACIONESTableAdapter.Update(addedRows));
+                    result = (result + this._dETALLE_TRANSACCIONESTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -2126,11 +4082,11 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private int UpdateDeletedRows(ContaGeneralDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._oPERACIONESTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.OPERACIONES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._dETALLE_TRANSACCIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.DETALLE_TRANSACCIONES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._oPERACIONESTableAdapter.Update(deletedRows));
+                    result = (result + this._dETALLE_TRANSACCIONESTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -2139,6 +4095,22 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._cATALOGO_CUENTASTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tRANSACCIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TRANSACCIONES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tRANSACCIONESTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._oPERACIONESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.OPERACIONES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._oPERACIONESTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -2186,6 +4158,16 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
             }
             if (((this._cATALOGO_CUENTASTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._cATALOGO_CUENTASTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
+                        "sma cadena de conexión.");
+            }
+            if (((this._dETALLE_TRANSACCIONESTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._dETALLE_TRANSACCIONESTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
+                        "sma cadena de conexión.");
+            }
+            if (((this._tRANSACCIONESTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tRANSACCIONESTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
                         "sma cadena de conexión.");
             }
@@ -2237,6 +4219,24 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
                     if (this._cATALOGO_CUENTASTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._cATALOGO_CUENTASTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._cATALOGO_CUENTASTableAdapter.Adapter);
+                    }
+                }
+                if ((this._dETALLE_TRANSACCIONESTableAdapter != null)) {
+                    revertConnections.Add(this._dETALLE_TRANSACCIONESTableAdapter, this._dETALLE_TRANSACCIONESTableAdapter.Connection);
+                    this._dETALLE_TRANSACCIONESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._dETALLE_TRANSACCIONESTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._dETALLE_TRANSACCIONESTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._dETALLE_TRANSACCIONESTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._dETALLE_TRANSACCIONESTableAdapter.Adapter);
+                    }
+                }
+                if ((this._tRANSACCIONESTableAdapter != null)) {
+                    revertConnections.Add(this._tRANSACCIONESTableAdapter, this._tRANSACCIONESTableAdapter.Connection);
+                    this._tRANSACCIONESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tRANSACCIONESTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tRANSACCIONESTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tRANSACCIONESTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tRANSACCIONESTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -2304,6 +4304,14 @@ SELECT ID_CUENTA, NOMBRE, DESCRIPCION, ID_CLASIFICACION, AJUSTE FROM CATALOGO_CU
                 if ((this._cATALOGO_CUENTASTableAdapter != null)) {
                     this._cATALOGO_CUENTASTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cATALOGO_CUENTASTableAdapter]));
                     this._cATALOGO_CUENTASTableAdapter.Transaction = null;
+                }
+                if ((this._dETALLE_TRANSACCIONESTableAdapter != null)) {
+                    this._dETALLE_TRANSACCIONESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dETALLE_TRANSACCIONESTableAdapter]));
+                    this._dETALLE_TRANSACCIONESTableAdapter.Transaction = null;
+                }
+                if ((this._tRANSACCIONESTableAdapter != null)) {
+                    this._tRANSACCIONESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tRANSACCIONESTableAdapter]));
+                    this._tRANSACCIONESTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
