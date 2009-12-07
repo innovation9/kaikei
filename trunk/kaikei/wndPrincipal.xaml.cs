@@ -74,6 +74,11 @@ namespace Kaikei
                         newTab.Header = "Balance General";
                         newTab.Content = new viewBalanceGeneral();
                         break;
+                    case TipoTab.CatalogoCuentas:
+                        newTab.Name = "tabCCuentas";
+                        newTab.Header = "Catalogo Cuentas";
+                        newTab.Content = new viewCatalogoCuentas();
+                        break;
                 }
 
                 //Agregamos a la tabla Has el nuevo control
@@ -112,6 +117,11 @@ namespace Kaikei
         private void mnu_BalGral_click(object sender, RoutedEventArgs e)
         {
             CargarTabItem(TipoTab.BalanceGeneral);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.CatalogoCuentas);
         }
 
     }
