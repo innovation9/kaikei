@@ -138,6 +138,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessKeyScoper.cs" />
     <Compile Include="CloseableTabItem.cs" />
     <Compile Include="ConnectionDS\InventarioDisp_Provider.cs" />
     <Compile Include="ConnectionDS\InventariosDataProvider.cs" />

@@ -4,7 +4,10 @@
     xmlns:datosTA="clr-namespace:Kaikei.InventariosDSTableAdapters"
     xmlns:conexionDatos="clr-namespace:Kaikei.ConnectionDS"
 	xmlns:local="clr-namespace:Kaikei"
-    xmlns:Kaikei_ConnectionDS="clr-namespace:Kaikei.ConnectionDS" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:kaikei="clr-namespace:kaikei" xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit" mc:Ignorable="d" xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="View_InventarioDisp" x:Class="Kaikei.VistasTabItem.ViewInventarioD" d:DesignWidth="748.24" d:DesignHeight="591.72">
+    xmlns:Kaikei_ConnectionDS="clr-namespace:Kaikei.ConnectionDS" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:kaikei="clr-namespace:kaikei" xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit" mc:Ignorable="d" xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Name="View_InventarioDisp" x:Class="Kaikei.VistasTabItem.ViewInventarioD" d:DesignWidth="748.24" d:DesignHeight="591.72">
 	
 	<UserControl.Resources>
 		<local:FormatoCampos x:Key="FormatoCampos"/>
