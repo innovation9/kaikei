@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VistasTabItem\viewComprasInv.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VistasTabItem\viewEmpleados.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -199,6 +203,9 @@
     </Compile>
     <Compile Include="VistasTabItem\viewBalanceGeneral.xaml.cs">
       <DependentUpon>viewBalanceGeneral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewComprasInv.xaml.cs">
+      <DependentUpon>viewComprasInv.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistasTabItem\viewEmpleados.xaml.cs">
       <DependentUpon>viewEmpleados.xaml</DependentUpon>
@@ -335,6 +342,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="IconosBotones\boton_Compra.png" />
     <Content Include="Recursos\ControlsWPF_JMP.dll" />
     <Content Include="Recursos\Expression.Samples.Shaders.dll" />
   </ItemGroup>
