@@ -1,0 +1,14 @@
+﻿<Window x:Class="Kaikei.wndFechas"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+    Title="KaiKei System" Height="237" Width="300">
+    <Grid>
+        <Label Height="28" Margin="20,12,55,0" Name="label1" VerticalAlignment="Top">Ingrese las fechas correspondinetes</Label>
+        <Custom:DatePicker Margin="123,65,12,0" Height="25" VerticalAlignment="Top" Name="txtFechaInicio" SelectedDateChanged="txtFechaInicio_SelectedDateChanged" />
+        <Custom:DatePicker Margin="123,107,12,0" Name="txtFechaFin" Height="25" VerticalAlignment="Top" SelectedDateChanged="txtFechaFin_SelectedDateChanged" />
+        <Button Height="23" Margin="99,0,104,12" Name="btnGenerar" VerticalAlignment="Bottom" Click="btnGenerar_Click">Generar</Button>
+        <Label Height="28" HorizontalAlignment="Left" Margin="12,62,0,0" Name="label2" VerticalAlignment="Top" Width="120">Fecha Inicio</Label>
+        <Label HorizontalAlignment="Left" Margin="12,104,0,0" Name="label3" Width="120" Height="28" VerticalAlignment="Top">Fecha Fin</Label>
+    </Grid>
+</Window>
