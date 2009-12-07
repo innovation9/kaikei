@@ -36,13 +36,15 @@ namespace Kaikei
             CargarTabItem(TipoTab.VisualizarInventarioDisp);
         }
 
-        private enum TipoTab { VisualizarInventarioDisp = 0,
-                               EfectuarTransaccion=1,
-							   ComprasInventarios=2,
-                               BalanceGeneral=3,
-                               BalanceComprobacion = 4,
-                               CatalogoCuentas = 5
-                               }
+        private enum TipoTab
+        {
+            VisualizarInventarioDisp,
+            EfectuarTransaccion,
+            ComprasInventarios,
+            BalanceGeneral,
+            BalanceComprobacion,
+            CatalogoCuentas
+        }
 
         private void CargarTabItem(TipoTab tipo)
         {
