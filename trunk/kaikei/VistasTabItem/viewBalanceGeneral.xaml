@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:kaikei"
     xmlns:crystal="clr-namespace:CrystalDecisions.Windows.Forms;assembly=CrystalDecisions.Windows.Forms"
+    
     Height="485" Width="591">
     <Grid>
     <local:ctlPlantillaTabItem SubTitulo="Balance General" Descripcion="Balance General">

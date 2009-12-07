@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 using System.Data.SqlTypes;
 using Kaikei.EstadosContablesTableAdapters;
 
@@ -22,19 +23,25 @@ namespace Kaikei.VistasTabItem
     public partial class viewBalanceGeneral : UserControl
     {
         rBalanceGeneral bg = new rBalanceGeneral();
-        SqlDateTime FechaInicio;
-        SqlDateTime FechaFin;
-        BALANCE_GENERALTableAdapter Datos;
+        DateTime FechaInicio;
+        DateTime FechaFin;
+        BALANCE_GENERALTableAdapter bgDatos;
+        //DataTable Datos;
         
 
         public viewBalanceGeneral()
         {
             InitializeComponent();
-            Datos =new BALANCE_GENERALTableAdapter();
+            bgDatos =new BALANCE_GENERALTableAdapter();
 
             EstadosContables ec =new EstadosContables();
+            wndFechas f = new wndFechas();
+            f.Show();
+            f.Obtener(ref FechaInicio,ref FechaFin);
+            f.Close();
 
-            //bg.SetDataSource(Datos.
+
+            bg.SetDataSource((DataTable)bgDatos.GetData(FechaInicio,FechaFin));
             this.crvBalanceGeneral.ReportSource = bg;
         }
     }
