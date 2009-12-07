@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VistasTabItem\viewCatalogoCuentas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VistasTabItem\viewComprasInv.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -203,6 +207,9 @@
     </Compile>
     <Compile Include="VistasTabItem\viewBalanceGeneral.xaml.cs">
       <DependentUpon>viewBalanceGeneral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewCatalogoCuentas.xaml.cs">
+      <DependentUpon>viewCatalogoCuentas.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistasTabItem\viewComprasInv.xaml.cs">
       <DependentUpon>viewComprasInv.xaml</DependentUpon>
