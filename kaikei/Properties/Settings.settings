@@ -10,5 +10,14 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=localhost\SQLEXPRESS;Initial Catalog=Kaikei;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="EmpresaNombre" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Empresa S.A. de C.V.</Value>
+    </Setting>
+    <Setting Name="EmpresaTelefono" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2450-0000</Value>
+    </Setting>
+    <Setting Name="EmpresaNIT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0000-000000-000-0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
