@@ -53,7 +53,7 @@
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="5"/>
 										<ColumnDefinition Width="0.8*"/>
-										<ColumnDefinition Width="275"/>
+										<ColumnDefinition Width="325"/>
 										<ColumnDefinition Width="0.2*"/>
 										<ColumnDefinition Width="30"/>
 									</Grid.ColumnDefinitions>
@@ -71,8 +71,8 @@
 									</TextBlock>
 									<StackPanel HorizontalAlignment="Left" Margin="0,0,-0.001,0" Width="Auto" Height="Auto" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="1">
 										<TextBlock Text="Total de Unidades Disponibles:" TextWrapping="Wrap" HorizontalAlignment="Stretch" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" VerticalAlignment="Center" Margin="0"/>
-										<TextBlock Text="{TemplateBinding Cantidad}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" Margin="10,0,0,0" HorizontalAlignment="Stretch" Width="25" Foreground="#FF001C7A" FontWeight="Bold"/>
-										<TextBlock VerticalAlignment="Center" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" Text="{TemplateBinding Unidades}" TextWrapping="Wrap" HorizontalAlignment="Stretch" Margin="0" FontStyle="Italic" FontWeight="Bold" Foreground="#FF001C7A"/>
+										<TextBlock Text="{TemplateBinding Cantidad}" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" Margin="10,0,0,0" HorizontalAlignment="Stretch" Width="Auto" Foreground="#FF001C7A" FontWeight="Bold"/>
+										<TextBlock VerticalAlignment="Center" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" Text="{TemplateBinding Unidades}" TextWrapping="Wrap" HorizontalAlignment="Stretch" Margin="5,0,0,0" FontStyle="Italic" FontWeight="Bold" Foreground="#FF001C7A"/>
 									</StackPanel>
 									<StackPanel Margin="0,0,19.999,0" Width="Auto" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right">
 										<TextBlock x:Name="textBlock" Text="AGOTADO" TextWrapping="Wrap" HorizontalAlignment="Stretch" FontFamily="{DynamicResource FontLabels}" FontWeight="{DynamicResource FonLabels_Estilo}" VerticalAlignment="Center" Margin="0" FontStyle="Italic" Foreground="#FF7A7878">

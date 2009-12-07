@@ -83,10 +83,11 @@ namespace Kaikei
             }
             catch (Exception ex)
             {
+                ex.Data.Clear();
                 return;
             }
 
-            if (iIDOper == 11)
+            if (iIDOper == 11 || (iIDOper == 12))
             {
                 txtCuentas.Focus();
                 return;
@@ -191,6 +192,7 @@ namespace Kaikei
             }
             catch (Exception ex)
             {
+                ex.Data.Clear();
                 return;
             }
             sCuenta = (string)txtCuentas.Text;
@@ -239,6 +241,7 @@ namespace Kaikei
             }
             catch (Exception ex)
             {
+                ex.Data.Clear();
                 iIDOper = 11; //Transacciones Personalizada
             }
 
