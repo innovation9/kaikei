@@ -90,6 +90,7 @@ namespace Kaikei
                         newTab.Content = new viewBalanceComprobacion();
                         break;
 
+#if false
                     case TipoTab.EmpleadoAgregar:
                         newTab.Name = "tabNewEmp";
                         newTab.Header = "Agregar Empleado";
@@ -100,7 +101,8 @@ namespace Kaikei
                         newTab.Name = "tabEmpGes";
                         newTab.Header = "Gestionar Empleados";
                         newTab.Content = new viewEmpleados();
-                        break;
+                        break; 
+#endif
                 }
 
                 //Agregamos a la tabla Has el nuevo control

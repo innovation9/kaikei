@@ -7,7 +7,11 @@ namespace kaikei.core
 {
     public class CPlanilla
     {
-        CEmpleado Empleado;
+        CEmpleado Empleado { set; get; }
+
+        public CPlanilla() { }
+
+
 
     }
 }
