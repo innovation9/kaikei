@@ -10,7 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Kaikei.ReportesDSTableAdapters;
+using System.Data;
+using Kaikei.EstadosContablesTableAdapters;
+using validateBLX;
 
 namespace Kaikei
 {
@@ -23,11 +25,14 @@ namespace Kaikei
 		public viewBalanceComprobacion()
 		{
 			this.InitializeComponent();
+            //TODO: Ingresar datos de EstadosContables
 
-            //bcTA = new BALANCE_COMPROBACIONTableAdapter();
-            //ReportesDS cgDS = new ReportesDS();
-            //bcTA.Fill(cgDS.BALANCE_COMPROBACION);
-            //dgBalComprobacion.ItemsSource=cgDS.BALANCE_COMPROBACION.DefaultView;
+            BALANCE_COMPROBACIONTableAdapter bcTA = new BALANCE_COMPROBACIONTableAdapter();
+            EstadosContables ecDS = new EstadosContables();
+            bcTA.Fill(ecDS.BALANCE_COMPROBACION,new DateTime(DateTime.Now.Year,DateTime.Now.Month,1),
+                new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day).AddDays(-1));
+
+            dgBalComprobacion.ItemsSource = ecDS.BALANCE_COMPROBACION.DefaultView;
 		}
 	}
 }
