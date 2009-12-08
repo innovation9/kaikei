@@ -203,7 +203,7 @@ namespace Kaikei.VistasTabItem
         DETALLE_TRANSACCIONESTableAdapter detTransTA = new DETALLE_TRANSACCIONESTableAdapter();
 
         //Hacemos primero la insercion en la tabla transacciones
-        transTA.Insert(12, DateTime.Now, string.Format("F{0}", iIDCompra), dMontoT, "Compra de Materiales");
+        transTA.Insert(12, DateTime.Today, string.Format("F{0}", iIDCompra), dMontoT, "Compra de Materiales");
         transTA.FillByCodigo(contaDS.TRANSACCIONES, string.Format("F{0}", iIDCompra));
         iIDTransaccion = (int)contaDS.TRANSACCIONES[0]["ID_TRANSACCION"];
 

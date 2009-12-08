@@ -19,15 +19,15 @@ namespace Kaikei
 	/// </summary>
 	public partial class viewBalanceComprobacion : UserControl
 	{
-        private BALANCE_COMPROBACIONTableAdapter bcTA;
+        //private BALANCE_COMPROBACIONTableAdapter bcTA;
 		public viewBalanceComprobacion()
 		{
 			this.InitializeComponent();
 
-            bcTA = new BALANCE_COMPROBACIONTableAdapter();
-            ReportesDS cgDS = new ReportesDS();
-            bcTA.Fill(cgDS.BALANCE_COMPROBACION);
-			dgBalComprobacion.ItemsSource=cgDS.BALANCE_COMPROBACION.DefaultView;
+            //bcTA = new BALANCE_COMPROBACIONTableAdapter();
+            //ReportesDS cgDS = new ReportesDS();
+            //bcTA.Fill(cgDS.BALANCE_COMPROBACION);
+            //dgBalComprobacion.ItemsSource=cgDS.BALANCE_COMPROBACION.DefaultView;
 		}
 	}
 }
