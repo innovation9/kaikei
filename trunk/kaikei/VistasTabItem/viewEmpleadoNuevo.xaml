@@ -5,12 +5,12 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	mc:Ignorable="d"
 	xmlns:kaikei="clr-namespace:kaikei"
-	x:Class="Kaikei.viewEmpleados"
+	x:Class="Kaikei.viewEmpleadoNuevo"
 	x:Name="UserControl"
 	d:DesignWidth="748" d:DesignHeight="591.04">
 
 	<Grid x:Name="LayoutRoot">
-		<kaikei:ctlPlantillaTabItem SubTitulo="Nuevo Empleado" Descripcion="Crear un nuevo empleado." d:LayoutOverrides="Width">
+		<kaikei:ctlPlantillaTabItem SubTitulo="Agregar de Empleado" Descripcion="Crear un nuevo empleado." d:LayoutOverrides="Width">
 			<kaikei:ctlPlantillaTabItem.Resources>
 				<ResourceDictionary>
 					<ResourceDictionary.MergedDictionaries>

@@ -125,7 +125,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="VistasTabItem\viewEmpleadoModificar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VistasTabItem\viewEmpleados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistasTabItem\viewEmpleadoNuevo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -232,8 +240,14 @@
     <Compile Include="VistasTabItem\viewComprasInv.xaml.cs">
       <DependentUpon>viewComprasInv.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VistasTabItem\viewEmpleadoModificar.xaml.cs">
+      <DependentUpon>viewEmpleadoModificar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistasTabItem\viewEmpleados.xaml.cs">
       <DependentUpon>viewEmpleados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewEmpleadoNuevo.xaml.cs">
+      <DependentUpon>viewEmpleadoNuevo.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistasTabItem\ViewInventarioD.xaml.cs">
       <DependentUpon>ViewInventarioD.xaml</DependentUpon>

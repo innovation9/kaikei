@@ -43,7 +43,10 @@ namespace Kaikei
             ComprasInventarios,
             BalanceGeneral,
             BalanceComprobacion,
-            CatalogoCuentas
+            CatalogoCuentas,
+            EmpleadoAgregar,
+            EmpleadoGestionar,
+            Planilla
         }
 
         private void CargarTabItem(TipoTab tipo)
@@ -85,6 +88,18 @@ namespace Kaikei
                         newTab.Name = "tabBalC";
                         newTab.Header = "Balance de Comprobacion";
                         newTab.Content = new viewBalanceComprobacion();
+                        break;
+
+                    case TipoTab.EmpleadoAgregar:
+                        newTab.Name = "tabNewEmp";
+                        newTab.Header = "Agregar Empleado";
+                        newTab.Content = new viewEmpleadoNuevo();
+                        break;
+
+                    case TipoTab.EmpleadoGestionar:
+                        newTab.Name = "tabEmpGes";
+                        newTab.Header = "Gestionar Empleados";
+                        newTab.Content = new viewEmpleados();
                         break;
                 }
 
