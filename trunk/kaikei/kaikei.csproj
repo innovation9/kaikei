@@ -78,6 +78,7 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="UIAutomationTypes, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="validateBLX, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -223,11 +224,6 @@
       <DependentUpon>rBalanceGeneral.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReportesDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReportesDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="VistasTabItem\viewBalanceComprobacion.xaml.cs">
       <DependentUpon>viewBalanceComprobacion.xaml</DependentUpon>
     </Compile>
@@ -321,17 +317,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="ReportesDS.xsc">
-      <DependentUpon>ReportesDS.xsd</DependentUpon>
-    </None>
-    <None Include="ReportesDS.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ReportesDS.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ReportesDS.xss">
-      <DependentUpon>ReportesDS.xsd</DependentUpon>
-    </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
@@ -399,6 +384,7 @@
     <Resource Include="IconosBotones\boton_Compra.png" />
     <Content Include="Recursos\ControlsWPF_JMP.dll" />
     <Content Include="Recursos\Expression.Samples.Shaders.dll" />
+    <Content Include="Recursos\validateBLX.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\kaikei.core\kaikei.core.csproj">
