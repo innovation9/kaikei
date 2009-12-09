@@ -85,8 +85,8 @@
 						</LinearGradientBrush>
 					</ControlsWPF_JMP_Controls:ExpanderJMP.Background>
 					<StackPanel Margin="3,2,3,3">
-						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Agregar nuevo Empleado" FontFamily="{DynamicResource FontLabels}" FontSize="12" x:Name="btnNuevoEmpleado" />
-                        <Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Administrar Empleados" FontFamily="{DynamicResource FontLabels}" FontSize="12" x:Name="btnAdminEmpleado" />
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Agregar nuevo Empleado" FontFamily="{DynamicResource FontLabels}" FontSize="12" x:Name="btnNuevoEmpleado" Click="btnNuevoEmpleado_Click" />
+                        <Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Administrar Empleados" FontFamily="{DynamicResource FontLabels}" FontSize="12" x:Name="btnAdminEmpleado" Click="btnAdminEmpleado_Click" />
 						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Ver toda la Planilla" FontFamily="{DynamicResource FontLabels}" FontSize="12" x:Name="btnGenerarPlanilla" />
 					</StackPanel>
 				</ControlsWPF_JMP_Controls:ExpanderJMP>

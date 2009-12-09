@@ -197,5 +197,15 @@ namespace Kaikei
             CargarTabItem(TipoTab.OrdenFabricacion);
         }
 
+        private void btnNuevoEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.EmpleadoAgregar);
+        }
+
+        private void btnAdminEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.EmpleadoGestionar);
+        }
+
     }
 }
