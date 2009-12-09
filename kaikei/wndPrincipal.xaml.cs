@@ -207,5 +207,15 @@ namespace Kaikei
             CargarTabItem(TipoTab.EmpleadoGestionar);
         }
 
+        private void btnEstCap_Click(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.EstadoCapital);
+        }
+
+        private void btnEstRes_Click(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.EstadoResultados);
+        }
+
     }
 }
