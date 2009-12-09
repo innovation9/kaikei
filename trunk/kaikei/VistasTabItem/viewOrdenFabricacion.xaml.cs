@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kaikei.InventariosDSTableAdapters;
 using System.Data;
+using ControlsWPF_JMP.Controls;
 
 namespace Kaikei
 {
@@ -41,6 +42,21 @@ namespace Kaikei
             //Generamos la tabla que se conecta a la tabla de Req. Materiales
             GenerarTabla();
             dgReqMateriales.ItemsSource = tblReqMateriales.DefaultView;
+
+            //Pasamos el handler a la clase manejadora de expresiones matematicas
+            txtCantidad.LostFocus += new RoutedEventHandler(HandlerMathJMP.NumeroEnteroMath);
+            txtCantidadReq.LostFocus += new RoutedEventHandler(HandlerMathJMP.NumeroEnteroMath);
+
+            //Pasamos tambn el handler cuando entran al TextBox se seleccione el texto
+            txtArticulo.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
+            txtEspecificaciones.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
+            txtCantidad.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
+            txtCantidadReq.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
+            txtNoObreros.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
+            txtSalarioxHora.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
+            txtMODNumeroHoras.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
+            txtGIFMonto.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
+            txtGIFTasa.GotFocus += new RoutedEventHandler(HandlerMathJMP.TextSelect);
 		}
 
         private void GenerarTabla()
@@ -57,6 +73,7 @@ namespace Kaikei
         {
             txtMaterial.IsDropDownOpen = true;
         }
+
 	}
 
 
