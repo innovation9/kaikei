@@ -266,15 +266,47 @@ SELECT ID_EMPLEADO, ID_AFP, NOMBRES, APELLIDOS, DIRECCION, DUI, NIT, ISSS, NUP, 
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EMPLEADOS_AFPTableAdapter" GeneratorDataComponentClassName="EMPLEADOS_AFPTableAdapter" Name="EMPLEADOS_AFP" UserDataComponentName="EMPLEADOS_AFPTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KaikeiConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        EMPLEADOS.ID_EMPLEADO, EMPLEADOS.NOMBRES, EMPLEADOS.APELLIDOS, AFPS.NOMBRE AS AFP, EMPLEADOS.DIRECCION, EMPLEADOS.DUI, 
+                         EMPLEADOS.NIT, EMPLEADOS.ISSS, EMPLEADOS.NUP, EMPLEADOS.TELEFONOFIJO, EMPLEADOS.TELEFONOMOVIL, EMPLEADOS.EMAIL, 
+                         EMPLEADOS.SALARIONOMINAL
+FROM            AFPS INNER JOIN
+                         EMPLEADOS ON AFPS.ID_AFP = EMPLEADOS.ID_AFP</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_EMPLEADO" DataSetColumn="ID_EMPLEADO" />
+              <Mapping SourceColumn="NOMBRES" DataSetColumn="NOMBRES" />
+              <Mapping SourceColumn="APELLIDOS" DataSetColumn="APELLIDOS" />
+              <Mapping SourceColumn="DIRECCION" DataSetColumn="DIRECCION" />
+              <Mapping SourceColumn="DUI" DataSetColumn="DUI" />
+              <Mapping SourceColumn="NIT" DataSetColumn="NIT" />
+              <Mapping SourceColumn="ISSS" DataSetColumn="ISSS" />
+              <Mapping SourceColumn="NUP" DataSetColumn="NUP" />
+              <Mapping SourceColumn="TELEFONOFIJO" DataSetColumn="TELEFONOFIJO" />
+              <Mapping SourceColumn="TELEFONOMOVIL" DataSetColumn="TELEFONOMOVIL" />
+              <Mapping SourceColumn="EMAIL" DataSetColumn="EMAIL" />
+              <Mapping SourceColumn="SALARIONOMINAL" DataSetColumn="SALARIONOMINAL" />
+              <Mapping SourceColumn="AFP" DataSetColumn="AFP" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="PlanillaDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="PlanillaDS" msprop:Generator_UserDSName="PlanillaDS" msprop:EnableTableAdapterManager="True">
+  <xs:element name="PlanillaDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PlanillaDS" msprop:Generator_DataSetName="PlanillaDS" msprop:EnableTableAdapterManager="True">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="AFPS" msprop:Generator_UserTableName="AFPS" msprop:Generator_RowDeletedName="AFPSRowDeleted" msprop:Generator_TableClassName="AFPSDataTable" msprop:Generator_RowChangedName="AFPSRowChanged" msprop:Generator_RowClassName="AFPSRow" msprop:Generator_RowChangingName="AFPSRowChanging" msprop:Generator_RowEvArgName="AFPSRowChangeEvent" msprop:Generator_RowEvHandlerName="AFPSRowChangeEventHandler" msprop:Generator_TablePropName="AFPS" msprop:Generator_TableVarName="tableAFPS" msprop:Generator_RowDeletingName="AFPSRowDeleting">
+        <xs:element name="AFPS" msprop:Generator_UserTableName="AFPS" msprop:Generator_RowDeletedName="AFPSRowDeleted" msprop:Generator_RowChangedName="AFPSRowChanged" msprop:Generator_RowClassName="AFPSRow" msprop:Generator_RowChangingName="AFPSRowChanging" msprop:Generator_RowEvArgName="AFPSRowChangeEvent" msprop:Generator_RowEvHandlerName="AFPSRowChangeEventHandler" msprop:Generator_TableClassName="AFPSDataTable" msprop:Generator_TableVarName="tableAFPS" msprop:Generator_RowDeletingName="AFPSRowDeleting" msprop:Generator_TablePropName="AFPS">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_AFP" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_AFP" msprop:Generator_ColumnPropNameInRow="ID_AFP" msprop:Generator_ColumnVarNameInTable="columnID_AFP" msprop:Generator_ColumnPropNameInTable="ID_AFPColumn" type="xs:int" />
@@ -289,7 +321,7 @@ SELECT ID_EMPLEADO, ID_AFP, NOMBRES, APELLIDOS, DIRECCION, DUI, NIT, ISSS, NUP, 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DESCUENTOS" msprop:Generator_UserTableName="DESCUENTOS" msprop:Generator_RowDeletedName="DESCUENTOSRowDeleted" msprop:Generator_TableClassName="DESCUENTOSDataTable" msprop:Generator_RowChangedName="DESCUENTOSRowChanged" msprop:Generator_RowClassName="DESCUENTOSRow" msprop:Generator_RowChangingName="DESCUENTOSRowChanging" msprop:Generator_RowEvArgName="DESCUENTOSRowChangeEvent" msprop:Generator_RowEvHandlerName="DESCUENTOSRowChangeEventHandler" msprop:Generator_TablePropName="DESCUENTOS" msprop:Generator_TableVarName="tableDESCUENTOS" msprop:Generator_RowDeletingName="DESCUENTOSRowDeleting">
+        <xs:element name="DESCUENTOS" msprop:Generator_UserTableName="DESCUENTOS" msprop:Generator_RowDeletedName="DESCUENTOSRowDeleted" msprop:Generator_RowChangedName="DESCUENTOSRowChanged" msprop:Generator_RowClassName="DESCUENTOSRow" msprop:Generator_RowChangingName="DESCUENTOSRowChanging" msprop:Generator_RowEvArgName="DESCUENTOSRowChangeEvent" msprop:Generator_RowEvHandlerName="DESCUENTOSRowChangeEventHandler" msprop:Generator_TableClassName="DESCUENTOSDataTable" msprop:Generator_TableVarName="tableDESCUENTOS" msprop:Generator_RowDeletingName="DESCUENTOSRowDeleting" msprop:Generator_TablePropName="DESCUENTOS">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_DESCUENTO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_DESCUENTO" msprop:Generator_ColumnPropNameInRow="ID_DESCUENTO" msprop:Generator_ColumnVarNameInTable="columnID_DESCUENTO" msprop:Generator_ColumnPropNameInTable="ID_DESCUENTOColumn" type="xs:int" />
@@ -303,7 +335,7 @@ SELECT ID_EMPLEADO, ID_AFP, NOMBRES, APELLIDOS, DIRECCION, DUI, NIT, ISSS, NUP, 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DESCUENTOS_EMPLEADOS" msprop:Generator_UserTableName="DESCUENTOS_EMPLEADOS" msprop:Generator_RowDeletedName="DESCUENTOS_EMPLEADOSRowDeleted" msprop:Generator_TableClassName="DESCUENTOS_EMPLEADOSDataTable" msprop:Generator_RowChangedName="DESCUENTOS_EMPLEADOSRowChanged" msprop:Generator_RowClassName="DESCUENTOS_EMPLEADOSRow" msprop:Generator_RowChangingName="DESCUENTOS_EMPLEADOSRowChanging" msprop:Generator_RowEvArgName="DESCUENTOS_EMPLEADOSRowChangeEvent" msprop:Generator_RowEvHandlerName="DESCUENTOS_EMPLEADOSRowChangeEventHandler" msprop:Generator_TablePropName="DESCUENTOS_EMPLEADOS" msprop:Generator_TableVarName="tableDESCUENTOS_EMPLEADOS" msprop:Generator_RowDeletingName="DESCUENTOS_EMPLEADOSRowDeleting">
+        <xs:element name="DESCUENTOS_EMPLEADOS" msprop:Generator_UserTableName="DESCUENTOS_EMPLEADOS" msprop:Generator_RowDeletedName="DESCUENTOS_EMPLEADOSRowDeleted" msprop:Generator_RowChangedName="DESCUENTOS_EMPLEADOSRowChanged" msprop:Generator_RowClassName="DESCUENTOS_EMPLEADOSRow" msprop:Generator_RowChangingName="DESCUENTOS_EMPLEADOSRowChanging" msprop:Generator_RowEvArgName="DESCUENTOS_EMPLEADOSRowChangeEvent" msprop:Generator_RowEvHandlerName="DESCUENTOS_EMPLEADOSRowChangeEventHandler" msprop:Generator_TableClassName="DESCUENTOS_EMPLEADOSDataTable" msprop:Generator_TableVarName="tableDESCUENTOS_EMPLEADOS" msprop:Generator_RowDeletingName="DESCUENTOS_EMPLEADOSRowDeleting" msprop:Generator_TablePropName="DESCUENTOS_EMPLEADOS">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_DESCUENTO" msprop:Generator_UserColumnName="ID_DESCUENTO" msprop:Generator_ColumnPropNameInRow="ID_DESCUENTO" msprop:Generator_ColumnVarNameInTable="columnID_DESCUENTO" msprop:Generator_ColumnPropNameInTable="ID_DESCUENTOColumn" type="xs:int" />
@@ -313,7 +345,7 @@ SELECT ID_EMPLEADO, ID_AFP, NOMBRES, APELLIDOS, DIRECCION, DUI, NIT, ISSS, NUP, 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EMPLEADOS" msprop:Generator_UserTableName="EMPLEADOS" msprop:Generator_RowDeletedName="EMPLEADOSRowDeleted" msprop:Generator_TableClassName="EMPLEADOSDataTable" msprop:Generator_RowChangedName="EMPLEADOSRowChanged" msprop:Generator_RowClassName="EMPLEADOSRow" msprop:Generator_RowChangingName="EMPLEADOSRowChanging" msprop:Generator_RowEvArgName="EMPLEADOSRowChangeEvent" msprop:Generator_RowEvHandlerName="EMPLEADOSRowChangeEventHandler" msprop:Generator_TablePropName="EMPLEADOS" msprop:Generator_TableVarName="tableEMPLEADOS" msprop:Generator_RowDeletingName="EMPLEADOSRowDeleting">
+        <xs:element name="EMPLEADOS" msprop:Generator_UserTableName="EMPLEADOS" msprop:Generator_RowDeletedName="EMPLEADOSRowDeleted" msprop:Generator_RowChangedName="EMPLEADOSRowChanged" msprop:Generator_RowClassName="EMPLEADOSRow" msprop:Generator_RowChangingName="EMPLEADOSRowChanging" msprop:Generator_RowEvArgName="EMPLEADOSRowChangeEvent" msprop:Generator_RowEvHandlerName="EMPLEADOSRowChangeEventHandler" msprop:Generator_TableClassName="EMPLEADOSDataTable" msprop:Generator_TableVarName="tableEMPLEADOS" msprop:Generator_RowDeletingName="EMPLEADOSRowDeleting" msprop:Generator_TablePropName="EMPLEADOS">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_EMPLEADO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_EMPLEADO" msprop:Generator_ColumnPropNameInRow="ID_EMPLEADO" msprop:Generator_ColumnVarNameInTable="columnID_EMPLEADO" msprop:Generator_ColumnPropNameInTable="ID_EMPLEADOColumn" type="xs:int" />
@@ -392,6 +424,91 @@ SELECT ID_EMPLEADO, ID_AFP, NOMBRES, APELLIDOS, DIRECCION, DUI, NIT, ISSS, NUP, 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EMPLEADOS_AFP" msprop:Generator_UserTableName="EMPLEADOS_AFP" msprop:Generator_RowDeletedName="EMPLEADOS_AFPRowDeleted" msprop:Generator_TableClassName="EMPLEADOS_AFPDataTable" msprop:Generator_RowChangedName="EMPLEADOS_AFPRowChanged" msprop:Generator_RowClassName="EMPLEADOS_AFPRow" msprop:Generator_RowChangingName="EMPLEADOS_AFPRowChanging" msprop:Generator_RowEvArgName="EMPLEADOS_AFPRowChangeEvent" msprop:Generator_RowEvHandlerName="EMPLEADOS_AFPRowChangeEventHandler" msprop:Generator_TablePropName="EMPLEADOS_AFP" msprop:Generator_TableVarName="tableEMPLEADOS_AFP" msprop:Generator_RowDeletingName="EMPLEADOS_AFPRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_EMPLEADO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_EMPLEADO" msprop:Generator_ColumnPropNameInRow="ID_EMPLEADO" msprop:Generator_ColumnVarNameInTable="columnID_EMPLEADO" msprop:Generator_ColumnPropNameInTable="ID_EMPLEADOColumn" type="xs:int" />
+              <xs:element name="NOMBRES" msprop:Generator_UserColumnName="NOMBRES" msprop:Generator_ColumnPropNameInRow="NOMBRES" msprop:Generator_ColumnVarNameInTable="columnNOMBRES" msprop:Generator_ColumnPropNameInTable="NOMBRESColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APELLIDOS" msprop:Generator_UserColumnName="APELLIDOS" msprop:Generator_ColumnPropNameInRow="APELLIDOS" msprop:Generator_ColumnVarNameInTable="columnAPELLIDOS" msprop:Generator_ColumnPropNameInTable="APELLIDOSColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DIRECCION" msprop:Generator_UserColumnName="DIRECCION" msprop:Generator_ColumnPropNameInRow="DIRECCION" msprop:Generator_ColumnVarNameInTable="columnDIRECCION" msprop:Generator_ColumnPropNameInTable="DIRECCIONColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DUI" msprop:Generator_UserColumnName="DUI" msprop:Generator_ColumnPropNameInRow="DUI" msprop:Generator_ColumnVarNameInTable="columnDUI" msprop:Generator_ColumnPropNameInTable="DUIColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIT" msprop:Generator_UserColumnName="NIT" msprop:Generator_ColumnPropNameInRow="NIT" msprop:Generator_ColumnVarNameInTable="columnNIT" msprop:Generator_ColumnPropNameInTable="NITColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ISSS" msprop:Generator_UserColumnName="ISSS" msprop:Generator_ColumnPropNameInRow="ISSS" msprop:Generator_ColumnVarNameInTable="columnISSS" msprop:Generator_ColumnPropNameInTable="ISSSColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NUP" msprop:Generator_UserColumnName="NUP" msprop:Generator_ColumnPropNameInRow="NUP" msprop:Generator_ColumnVarNameInTable="columnNUP" msprop:Generator_ColumnPropNameInTable="NUPColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TELEFONOFIJO" msprop:Generator_UserColumnName="TELEFONOFIJO" msprop:Generator_ColumnPropNameInRow="TELEFONOFIJO" msprop:Generator_ColumnVarNameInTable="columnTELEFONOFIJO" msprop:Generator_ColumnPropNameInTable="TELEFONOFIJOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TELEFONOMOVIL" msprop:Generator_UserColumnName="TELEFONOMOVIL" msprop:Generator_ColumnPropNameInRow="TELEFONOMOVIL" msprop:Generator_ColumnVarNameInTable="columnTELEFONOMOVIL" msprop:Generator_ColumnPropNameInTable="TELEFONOMOVILColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMAIL" msprop:Generator_UserColumnName="EMAIL" msprop:Generator_ColumnPropNameInRow="EMAIL" msprop:Generator_ColumnVarNameInTable="columnEMAIL" msprop:Generator_ColumnPropNameInTable="EMAILColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SALARIONOMINAL" msprop:Generator_UserColumnName="SALARIONOMINAL" msprop:Generator_ColumnPropNameInRow="SALARIONOMINAL" msprop:Generator_ColumnVarNameInTable="columnSALARIONOMINAL" msprop:Generator_ColumnPropNameInTable="SALARIONOMINALColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AFP" msprop:Generator_UserColumnName="AFP" msprop:Generator_ColumnPropNameInRow="AFP" msprop:Generator_ColumnVarNameInTable="columnAFP" msprop:Generator_ColumnPropNameInTable="AFPColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -404,6 +521,10 @@ SELECT ID_EMPLEADO, ID_AFP, NOMBRES, APELLIDOS, DIRECCION, DUI, NIT, ISSS, NUP, 
     </xs:unique>
     <xs:unique name="EMPLEADOS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:EMPLEADOS" />
+      <xs:field xpath="mstns:ID_EMPLEADO" />
+    </xs:unique>
+    <xs:unique name="EMPLEADOS_AFP_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EMPLEADOS_AFP" />
       <xs:field xpath="mstns:ID_EMPLEADO" />
     </xs:unique>
   </xs:element>

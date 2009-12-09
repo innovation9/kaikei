@@ -33,6 +33,8 @@ namespace Kaikei {
         
         private EMPLEADOSDataTable tableEMPLEADOS;
         
+        private EMPLEADOS_AFPDataTable tableEMPLEADOS_AFP;
+        
         private global::System.Data.DataRelation relationFK_DESCUENT_FK_DESCUE_DESCUENT;
         
         private global::System.Data.DataRelation relationFK_DESCUENT_FK_EMPLEA_EMPLEADO;
@@ -76,6 +78,9 @@ namespace Kaikei {
                 }
                 if ((ds.Tables["EMPLEADOS"] != null)) {
                     base.Tables.Add(new EMPLEADOSDataTable(ds.Tables["EMPLEADOS"]));
+                }
+                if ((ds.Tables["EMPLEADOS_AFP"] != null)) {
+                    base.Tables.Add(new EMPLEADOS_AFPDataTable(ds.Tables["EMPLEADOS_AFP"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -128,6 +133,15 @@ namespace Kaikei {
         public EMPLEADOSDataTable EMPLEADOS {
             get {
                 return this.tableEMPLEADOS;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public EMPLEADOS_AFPDataTable EMPLEADOS_AFP {
+            get {
+                return this.tableEMPLEADOS_AFP;
             }
         }
         
@@ -202,6 +216,9 @@ namespace Kaikei {
                 if ((ds.Tables["EMPLEADOS"] != null)) {
                     base.Tables.Add(new EMPLEADOSDataTable(ds.Tables["EMPLEADOS"]));
                 }
+                if ((ds.Tables["EMPLEADOS_AFP"] != null)) {
+                    base.Tables.Add(new EMPLEADOS_AFPDataTable(ds.Tables["EMPLEADOS_AFP"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -256,6 +273,12 @@ namespace Kaikei {
                     this.tableEMPLEADOS.InitVars();
                 }
             }
+            this.tableEMPLEADOS_AFP = ((EMPLEADOS_AFPDataTable)(base.Tables["EMPLEADOS_AFP"]));
+            if ((initTable == true)) {
+                if ((this.tableEMPLEADOS_AFP != null)) {
+                    this.tableEMPLEADOS_AFP.InitVars();
+                }
+            }
             this.relationFK_DESCUENT_FK_DESCUE_DESCUENT = this.Relations["FK_DESCUENT_FK_DESCUE_DESCUENT"];
             this.relationFK_DESCUENT_FK_EMPLEA_EMPLEADO = this.Relations["FK_DESCUENT_FK_EMPLEA_EMPLEADO"];
             this.relationFK_EMPLEADO_FK_AFP_EM_AFPS = this.Relations["FK_EMPLEADO_FK_AFP_EM_AFPS"];
@@ -276,6 +299,8 @@ namespace Kaikei {
             base.Tables.Add(this.tableDESCUENTOS_EMPLEADOS);
             this.tableEMPLEADOS = new EMPLEADOSDataTable();
             base.Tables.Add(this.tableEMPLEADOS);
+            this.tableEMPLEADOS_AFP = new EMPLEADOS_AFPDataTable();
+            base.Tables.Add(this.tableEMPLEADOS_AFP);
             this.relationFK_DESCUENT_FK_DESCUE_DESCUENT = new global::System.Data.DataRelation("FK_DESCUENT_FK_DESCUE_DESCUENT", new global::System.Data.DataColumn[] {
                         this.tableDESCUENTOS.ID_DESCUENTOColumn}, new global::System.Data.DataColumn[] {
                         this.tableDESCUENTOS_EMPLEADOS.ID_DESCUENTOColumn}, false);
@@ -307,6 +332,11 @@ namespace Kaikei {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeEMPLEADOS() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeEMPLEADOS_AFP() {
             return false;
         }
         
@@ -370,6 +400,8 @@ namespace Kaikei {
         public delegate void DESCUENTOS_EMPLEADOSRowChangeEventHandler(object sender, DESCUENTOS_EMPLEADOSRowChangeEvent e);
         
         public delegate void EMPLEADOSRowChangeEventHandler(object sender, EMPLEADOSRowChangeEvent e);
+        
+        public delegate void EMPLEADOS_AFPRowChangeEventHandler(object sender, EMPLEADOS_AFPRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1564,6 +1596,410 @@ namespace Kaikei {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class EMPLEADOS_AFPDataTable : global::System.Data.TypedTableBase<EMPLEADOS_AFPRow> {
+            
+            private global::System.Data.DataColumn columnID_EMPLEADO;
+            
+            private global::System.Data.DataColumn columnNOMBRES;
+            
+            private global::System.Data.DataColumn columnAPELLIDOS;
+            
+            private global::System.Data.DataColumn columnDIRECCION;
+            
+            private global::System.Data.DataColumn columnDUI;
+            
+            private global::System.Data.DataColumn columnNIT;
+            
+            private global::System.Data.DataColumn columnISSS;
+            
+            private global::System.Data.DataColumn columnNUP;
+            
+            private global::System.Data.DataColumn columnTELEFONOFIJO;
+            
+            private global::System.Data.DataColumn columnTELEFONOMOVIL;
+            
+            private global::System.Data.DataColumn columnEMAIL;
+            
+            private global::System.Data.DataColumn columnSALARIONOMINAL;
+            
+            private global::System.Data.DataColumn columnAFP;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EMPLEADOS_AFPDataTable() {
+                this.TableName = "EMPLEADOS_AFP";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal EMPLEADOS_AFPDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected EMPLEADOS_AFPDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_EMPLEADOColumn {
+                get {
+                    return this.columnID_EMPLEADO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NOMBRESColumn {
+                get {
+                    return this.columnNOMBRES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn APELLIDOSColumn {
+                get {
+                    return this.columnAPELLIDOS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DIRECCIONColumn {
+                get {
+                    return this.columnDIRECCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DUIColumn {
+                get {
+                    return this.columnDUI;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NITColumn {
+                get {
+                    return this.columnNIT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ISSSColumn {
+                get {
+                    return this.columnISSS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NUPColumn {
+                get {
+                    return this.columnNUP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TELEFONOFIJOColumn {
+                get {
+                    return this.columnTELEFONOFIJO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TELEFONOMOVILColumn {
+                get {
+                    return this.columnTELEFONOMOVIL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn EMAILColumn {
+                get {
+                    return this.columnEMAIL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SALARIONOMINALColumn {
+                get {
+                    return this.columnSALARIONOMINAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn AFPColumn {
+                get {
+                    return this.columnAFP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EMPLEADOS_AFPRow this[int index] {
+                get {
+                    return ((EMPLEADOS_AFPRow)(this.Rows[index]));
+                }
+            }
+            
+            public event EMPLEADOS_AFPRowChangeEventHandler EMPLEADOS_AFPRowChanging;
+            
+            public event EMPLEADOS_AFPRowChangeEventHandler EMPLEADOS_AFPRowChanged;
+            
+            public event EMPLEADOS_AFPRowChangeEventHandler EMPLEADOS_AFPRowDeleting;
+            
+            public event EMPLEADOS_AFPRowChangeEventHandler EMPLEADOS_AFPRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddEMPLEADOS_AFPRow(EMPLEADOS_AFPRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EMPLEADOS_AFPRow AddEMPLEADOS_AFPRow(string NOMBRES, string APELLIDOS, string DIRECCION, string DUI, string NIT, string ISSS, string NUP, string TELEFONOFIJO, string TELEFONOMOVIL, string EMAIL, decimal SALARIONOMINAL, string AFP) {
+                EMPLEADOS_AFPRow rowEMPLEADOS_AFPRow = ((EMPLEADOS_AFPRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        NOMBRES,
+                        APELLIDOS,
+                        DIRECCION,
+                        DUI,
+                        NIT,
+                        ISSS,
+                        NUP,
+                        TELEFONOFIJO,
+                        TELEFONOMOVIL,
+                        EMAIL,
+                        SALARIONOMINAL,
+                        AFP};
+                rowEMPLEADOS_AFPRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEMPLEADOS_AFPRow);
+                return rowEMPLEADOS_AFPRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EMPLEADOS_AFPRow FindByID_EMPLEADO(int ID_EMPLEADO) {
+                return ((EMPLEADOS_AFPRow)(this.Rows.Find(new object[] {
+                            ID_EMPLEADO})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                EMPLEADOS_AFPDataTable cln = ((EMPLEADOS_AFPDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new EMPLEADOS_AFPDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnID_EMPLEADO = base.Columns["ID_EMPLEADO"];
+                this.columnNOMBRES = base.Columns["NOMBRES"];
+                this.columnAPELLIDOS = base.Columns["APELLIDOS"];
+                this.columnDIRECCION = base.Columns["DIRECCION"];
+                this.columnDUI = base.Columns["DUI"];
+                this.columnNIT = base.Columns["NIT"];
+                this.columnISSS = base.Columns["ISSS"];
+                this.columnNUP = base.Columns["NUP"];
+                this.columnTELEFONOFIJO = base.Columns["TELEFONOFIJO"];
+                this.columnTELEFONOMOVIL = base.Columns["TELEFONOMOVIL"];
+                this.columnEMAIL = base.Columns["EMAIL"];
+                this.columnSALARIONOMINAL = base.Columns["SALARIONOMINAL"];
+                this.columnAFP = base.Columns["AFP"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnID_EMPLEADO = new global::System.Data.DataColumn("ID_EMPLEADO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_EMPLEADO);
+                this.columnNOMBRES = new global::System.Data.DataColumn("NOMBRES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOMBRES);
+                this.columnAPELLIDOS = new global::System.Data.DataColumn("APELLIDOS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAPELLIDOS);
+                this.columnDIRECCION = new global::System.Data.DataColumn("DIRECCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIRECCION);
+                this.columnDUI = new global::System.Data.DataColumn("DUI", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDUI);
+                this.columnNIT = new global::System.Data.DataColumn("NIT", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNIT);
+                this.columnISSS = new global::System.Data.DataColumn("ISSS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnISSS);
+                this.columnNUP = new global::System.Data.DataColumn("NUP", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNUP);
+                this.columnTELEFONOFIJO = new global::System.Data.DataColumn("TELEFONOFIJO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTELEFONOFIJO);
+                this.columnTELEFONOMOVIL = new global::System.Data.DataColumn("TELEFONOMOVIL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTELEFONOMOVIL);
+                this.columnEMAIL = new global::System.Data.DataColumn("EMAIL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEMAIL);
+                this.columnSALARIONOMINAL = new global::System.Data.DataColumn("SALARIONOMINAL", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSALARIONOMINAL);
+                this.columnAFP = new global::System.Data.DataColumn("AFP", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAFP);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_EMPLEADO}, true));
+                this.columnID_EMPLEADO.AutoIncrement = true;
+                this.columnID_EMPLEADO.AutoIncrementSeed = -1;
+                this.columnID_EMPLEADO.AutoIncrementStep = -1;
+                this.columnID_EMPLEADO.AllowDBNull = false;
+                this.columnID_EMPLEADO.ReadOnly = true;
+                this.columnID_EMPLEADO.Unique = true;
+                this.columnNOMBRES.MaxLength = 25;
+                this.columnAPELLIDOS.MaxLength = 25;
+                this.columnDIRECCION.MaxLength = 30;
+                this.columnDUI.MaxLength = 9;
+                this.columnNIT.MaxLength = 14;
+                this.columnISSS.MaxLength = 8;
+                this.columnNUP.MaxLength = 12;
+                this.columnTELEFONOFIJO.MaxLength = 8;
+                this.columnTELEFONOMOVIL.MaxLength = 8;
+                this.columnEMAIL.MaxLength = 25;
+                this.columnAFP.MaxLength = 25;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EMPLEADOS_AFPRow NewEMPLEADOS_AFPRow() {
+                return ((EMPLEADOS_AFPRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new EMPLEADOS_AFPRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(EMPLEADOS_AFPRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.EMPLEADOS_AFPRowChanged != null)) {
+                    this.EMPLEADOS_AFPRowChanged(this, new EMPLEADOS_AFPRowChangeEvent(((EMPLEADOS_AFPRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.EMPLEADOS_AFPRowChanging != null)) {
+                    this.EMPLEADOS_AFPRowChanging(this, new EMPLEADOS_AFPRowChangeEvent(((EMPLEADOS_AFPRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.EMPLEADOS_AFPRowDeleted != null)) {
+                    this.EMPLEADOS_AFPRowDeleted(this, new EMPLEADOS_AFPRowChangeEvent(((EMPLEADOS_AFPRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.EMPLEADOS_AFPRowDeleting != null)) {
+                    this.EMPLEADOS_AFPRowDeleting(this, new EMPLEADOS_AFPRowChangeEvent(((EMPLEADOS_AFPRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveEMPLEADOS_AFPRow(EMPLEADOS_AFPRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                PlanillaDS ds = new PlanillaDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "EMPLEADOS_AFPDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2144,6 +2580,331 @@ namespace Kaikei {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class EMPLEADOS_AFPRow : global::System.Data.DataRow {
+            
+            private EMPLEADOS_AFPDataTable tableEMPLEADOS_AFP;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal EMPLEADOS_AFPRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableEMPLEADOS_AFP = ((EMPLEADOS_AFPDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_EMPLEADO {
+                get {
+                    return ((int)(this[this.tableEMPLEADOS_AFP.ID_EMPLEADOColumn]));
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.ID_EMPLEADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string NOMBRES {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.NOMBRESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NOMBRES\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.NOMBRESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string APELLIDOS {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.APELLIDOSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'APELLIDOS\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.APELLIDOSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DIRECCION {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.DIRECCIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DIRECCION\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.DIRECCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DUI {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.DUIColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DUI\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.DUIColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string NIT {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.NITColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NIT\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.NITColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string ISSS {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.ISSSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ISSS\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.ISSSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string NUP {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.NUPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NUP\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.NUPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TELEFONOFIJO {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.TELEFONOFIJOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TELEFONOFIJO\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.TELEFONOFIJOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TELEFONOMOVIL {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.TELEFONOMOVILColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TELEFONOMOVIL\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.TELEFONOMOVILColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string EMAIL {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.EMAILColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'EMAIL\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.EMAILColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal SALARIONOMINAL {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEMPLEADOS_AFP.SALARIONOMINALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SALARIONOMINAL\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.SALARIONOMINALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string AFP {
+                get {
+                    try {
+                        return ((string)(this[this.tableEMPLEADOS_AFP.AFPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AFP\' in table \'EMPLEADOS_AFP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEMPLEADOS_AFP.AFPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsNOMBRESNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.NOMBRESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetNOMBRESNull() {
+                this[this.tableEMPLEADOS_AFP.NOMBRESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsAPELLIDOSNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.APELLIDOSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetAPELLIDOSNull() {
+                this[this.tableEMPLEADOS_AFP.APELLIDOSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDIRECCIONNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.DIRECCIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDIRECCIONNull() {
+                this[this.tableEMPLEADOS_AFP.DIRECCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDUINull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.DUIColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDUINull() {
+                this[this.tableEMPLEADOS_AFP.DUIColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsNITNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.NITColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetNITNull() {
+                this[this.tableEMPLEADOS_AFP.NITColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsISSSNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.ISSSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetISSSNull() {
+                this[this.tableEMPLEADOS_AFP.ISSSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsNUPNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.NUPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetNUPNull() {
+                this[this.tableEMPLEADOS_AFP.NUPColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsTELEFONOFIJONull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.TELEFONOFIJOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetTELEFONOFIJONull() {
+                this[this.tableEMPLEADOS_AFP.TELEFONOFIJOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsTELEFONOMOVILNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.TELEFONOMOVILColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetTELEFONOMOVILNull() {
+                this[this.tableEMPLEADOS_AFP.TELEFONOMOVILColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsEMAILNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.EMAILColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetEMAILNull() {
+                this[this.tableEMPLEADOS_AFP.EMAILColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSALARIONOMINALNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.SALARIONOMINALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSALARIONOMINALNull() {
+                this[this.tableEMPLEADOS_AFP.SALARIONOMINALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsAFPNull() {
+                return this.IsNull(this.tableEMPLEADOS_AFP.AFPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetAFPNull() {
+                this[this.tableEMPLEADOS_AFP.AFPColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2254,6 +3015,37 @@ namespace Kaikei {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public EMPLEADOSRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class EMPLEADOS_AFPRowChangeEvent : global::System.EventArgs {
+            
+            private EMPLEADOS_AFPRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EMPLEADOS_AFPRowChangeEvent(EMPLEADOS_AFPRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public EMPLEADOS_AFPRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3876,6 +4668,179 @@ SELECT ID_EMPLEADO, ID_AFP, NOMBRES, APELLIDOS, DIRECCION, DUI, NIT, ISSS, NUP, 
                     string Original_EMAIL, 
                     global::System.Nullable<decimal> Original_SALARIONOMINAL) {
             return this.Update(ID_AFP, NOMBRES, APELLIDOS, DIRECCION, DUI, NIT, ISSS, NUP, TELEFONOFIJO, TELEFONOMOVIL, EMAIL, SALARIONOMINAL, Original_ID_EMPLEADO, Original_ID_AFP, Original_NOMBRES, Original_APELLIDOS, Original_DIRECCION, Original_DUI, Original_NIT, Original_ISSS, Original_NUP, Original_TELEFONOFIJO, Original_TELEFONOMOVIL, Original_EMAIL, Original_SALARIONOMINAL, Original_ID_EMPLEADO);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class EMPLEADOS_AFPTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public EMPLEADOS_AFPTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "EMPLEADOS_AFP";
+            tableMapping.ColumnMappings.Add("ID_EMPLEADO", "ID_EMPLEADO");
+            tableMapping.ColumnMappings.Add("NOMBRES", "NOMBRES");
+            tableMapping.ColumnMappings.Add("APELLIDOS", "APELLIDOS");
+            tableMapping.ColumnMappings.Add("DIRECCION", "DIRECCION");
+            tableMapping.ColumnMappings.Add("DUI", "DUI");
+            tableMapping.ColumnMappings.Add("NIT", "NIT");
+            tableMapping.ColumnMappings.Add("ISSS", "ISSS");
+            tableMapping.ColumnMappings.Add("NUP", "NUP");
+            tableMapping.ColumnMappings.Add("TELEFONOFIJO", "TELEFONOFIJO");
+            tableMapping.ColumnMappings.Add("TELEFONOMOVIL", "TELEFONOMOVIL");
+            tableMapping.ColumnMappings.Add("EMAIL", "EMAIL");
+            tableMapping.ColumnMappings.Add("SALARIONOMINAL", "SALARIONOMINAL");
+            tableMapping.ColumnMappings.Add("AFP", "AFP");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Kaikei.Properties.Settings.Default.KaikeiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT        EMPLEADOS.ID_EMPLEADO, EMPLEADOS.NOMBRES, EMPLEADOS.APELLIDOS, AFPS.NOMBRE AS AFP, EMPLEADOS.DIRECCION, EMPLEADOS.DUI, 
+                         EMPLEADOS.NIT, EMPLEADOS.ISSS, EMPLEADOS.NUP, EMPLEADOS.TELEFONOFIJO, EMPLEADOS.TELEFONOMOVIL, EMPLEADOS.EMAIL, 
+                         EMPLEADOS.SALARIONOMINAL
+FROM            AFPS INNER JOIN
+                         EMPLEADOS ON AFPS.ID_AFP = EMPLEADOS.ID_AFP";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(PlanillaDS.EMPLEADOS_AFPDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual PlanillaDS.EMPLEADOS_AFPDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            PlanillaDS.EMPLEADOS_AFPDataTable dataTable = new PlanillaDS.EMPLEADOS_AFPDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

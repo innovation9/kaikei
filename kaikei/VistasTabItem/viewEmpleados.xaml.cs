@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kaikei.PlanillaDSTableAdapters;
+using System.Data;
 
 namespace Kaikei.VistasTabItem
 {
@@ -19,9 +21,15 @@ namespace Kaikei.VistasTabItem
     /// </summary>
     public partial class viewEmpleados : UserControl
     {
+
+        EMPLEADOS_AFPTableAdapter eaTA;
         public viewEmpleados()
         {
             InitializeComponent();
+            eaTA = new EMPLEADOS_AFPTableAdapter();
+            PlanillaDS cgDS = new PlanillaDS();
+            eaTA.Fill(cgDS.EMPLEADOS_AFP);
+            this.dgEmpleadosAFP.ItemsSource = cgDS.EMPLEADOS_AFP.DefaultView;
         }
 
         private void dataGrid1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
