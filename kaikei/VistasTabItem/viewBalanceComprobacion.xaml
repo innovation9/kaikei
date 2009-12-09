@@ -9,18 +9,40 @@
 	x:Class="Kaikei.viewBalanceComprobacion"
 	x:Name="viewBalC"
 	d:DesignWidth="850" d:DesignHeight="680">
-
+	
 	<Grid x:Name="LayoutRoot">
-		<kaikei:ctlPlantillaTabItem Margin="0" d:LayoutOverrides="Width" Descripcion="Compara todas las cuentas con sus respectivos saldos" SubTitulo="Balance de Comprobacion">
+		<kaikei:ctlPlantillaTabItem Margin="0" d:LayoutOverrides="Width" Descripcion="Compara todas las cuentas con sus respectivos saldos" SubTitulo="Balance de Comprobacion" FondoBoton="{x:Null}">
 			<Grid Margin="0">
-				<Custom:DataGrid x:Name="dgBalComprobacion" Margin="25,20,35,80" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="70"/>
+				</Grid.RowDefinitions>
+				<Custom:DataGrid x:Name="dgBalComprobacion" Margin="25,10,35,10" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold" Grid.Row="1">
 					<Custom:DataGrid.Columns>
-						<Custom:DataGridTextColumn Header="CODIGO" Width="70" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding NOMBRE, Mode=Default}" SortMemberPath="NOMBRE" CanUserSort="False" SortDirection="Ascending" />
-						<Custom:DataGridTextColumn Header="NOMBRE DE LA CUENTA" IsReadOnly="True" MinWidth="600" Binding="{Binding DESCRIPCION, Mode=Default}" SortMemberPath="DESCRIPCION" CanUserSort="False" />
-						<Custom:DataGridTextColumn Header="DEBE" Width="150" CanUserReorder="False" CanUserResize="False" Binding="{Binding DEBE, Mode=Default}" SortMemberPath="DEBE" IsReadOnly="True" CanUserSort="False" />
-						<Custom:DataGridTextColumn Header="HABER" Width="150" CanUserReorder="False" CanUserResize="False" Binding="{Binding HABER, Mode=Default}" SortMemberPath="HABER" IsReadOnly="True" CanUserSort="False" />
+						<Custom:DataGridTextColumn Header="NO." Width="40" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding NUM, Mode=Default}" SortMemberPath="NOMBRE" CanUserSort="False" />
+						<Custom:DataGridTextColumn Header="CODIGO" Width="75" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding NOMBRE, Mode=Default}" SortMemberPath="NOMBRE" CanUserSort="False" />
+						<Custom:DataGridTextColumn Header="NOMBRE DE LA CUENTA" IsReadOnly="True" MinWidth="500" Binding="{Binding DESCRIPCION, Mode=Default}" SortMemberPath="DESCRIPCION" CanUserSort="False" />
+						<Custom:DataGridTextColumn Header="DEBE" Width="140" CanUserReorder="False" CanUserResize="False" Binding="{Binding DEBE, Mode=Default}" SortMemberPath="DEBE" IsReadOnly="True" CanUserSort="False" />
+						<Custom:DataGridTextColumn Header="HABER" Width="140" CanUserReorder="False" CanUserResize="False" Binding="{Binding HABER, Mode=Default}" SortMemberPath="HABER" IsReadOnly="True" CanUserSort="False" />
 					</Custom:DataGrid.Columns>
 				</Custom:DataGrid>
+				<Border Margin="25,5,35,0" BorderThickness="1" BorderBrush="Black">
+					<StackPanel x:Name="stackEncabezado">
+						<TextBlock Text="DELI QUEENE's" TextWrapping="Wrap" FontFamily="Comic Sans MS" FontSize="17.333" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,3,0,0"/>
+						<TextBlock Text="BALANCE DE COMPROBACION" TextWrapping="Wrap" FontSize="13.333" HorizontalAlignment="Center" Margin="0,3,0,0"/>
+						<TextBlock Text="DEL 1 AL 31 DE DICIEMBRE DEL 2009" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="13.333" Margin="0,1,0,5" FontStyle="Italic" Name="lblPeriodo" />
+					</StackPanel>
+				</Border>
+				<Border Margin="25,0,35,30" BorderThickness="0.5" BorderBrush="Black" Grid.Row="2">
+					<StackPanel x:Name="stackPie" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0">
+						<TextBlock Text="TOTAL DEBE: " TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Center" Margin="0" FontWeight="Bold" Foreground="#FF00239A"/>
+						<TextBlock x:Name="txtMontoD" Text="$0.00" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Center" Margin="7,0,0,0" FontWeight="Bold" Foreground="#FF9A0000"/>
+						<TextBlock Text="TOTAL HABER" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Center" Margin="150,0,0,0" FontWeight="Bold" Foreground="#FF00239A"/>
+						<TextBlock x:Name="txtMontoH" Text="$0.00" TextWrapping="Wrap" FontSize="16" HorizontalAlignment="Center" Margin="7,0,0,0" FontWeight="Bold" Foreground="#FF9A0000"/>
+					</StackPanel>
+				</Border>
+				<TextBlock x:Name="lblResultado" HorizontalAlignment="Center" Margin="25,0,35,5" VerticalAlignment="Bottom" Grid.Row="2" TextWrapping="Wrap" Text="SE CUMPLE EL PRINCIPIO DE PATIDA DOBLE EN EL BALANCE" FontFamily="Segoe Print" FontWeight="Bold" Foreground="#FFBB0000"/>
 			</Grid>
 		</kaikei:ctlPlantillaTabItem>
 	</Grid>

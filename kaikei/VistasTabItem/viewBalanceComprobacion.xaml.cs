@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
-using Kaikei.EstadosContablesTableAdapters;
+using Kaikei.ContaGeneralDSTableAdapters;
 using validateBLX;
 
 namespace Kaikei
@@ -21,77 +21,54 @@ namespace Kaikei
 	/// </summary>
 	public partial class viewBalanceComprobacion : UserControl
 	{
-        //private BALANCE_COMPROBACIONTableAdapter bcTA;
+        private GET_BALANCECOMPROBACIONTableAdapter bcTA;
+        private FuncionesTableAdapter funcTA;
 		public viewBalanceComprobacion()
 		{
 			this.InitializeComponent();
-            //TODO: Ingresar datos de EstadosContables
+            
+            //Cargamos en el encabezado las Fechas del periodo corresponediente
+            lblPeriodo.Text = string.Format("DEL {0} AL {1} DE {2} DEL {3}",
+                                            Kaikei.Properties.Settings.Default.FechaIP.Day,
+                                            Kaikei.Properties.Settings.Default.FechaFP.Day,
+                                            Kaikei.Properties.Settings.Default.FechaFP.ToString("MMMM").ToUpper(),
+                                            Kaikei.Properties.Settings.Default.FechaIP.Year);
 
-            BALANCE_COMPROBACIONTableAdapter bcTA = new BALANCE_COMPROBACIONTableAdapter();
-            EstadosContables ecDS = new EstadosContables();
-            DataTable datos = new DataTable("BALANCE_COMPROBACION");
-            DataTableReader origen = ecDS.BALANCE_COMPROBACION.CreateDataReader();
-            Double tHaber = 0.0;
-            Double tDebe = 0.0;
+            //Una vez establecido el encabezado procedemos a cargar los datos d la tabla, ejecutamos la
+            //funcion para rellenar los datos en la tabla y hacemos un filtro x las fechas definidas en el periodo
+            bcTA = new GET_BALANCECOMPROBACIONTableAdapter();
+            funcTA = new FuncionesTableAdapter();
 
-            bcTA.Fill(ecDS.BALANCE_COMPROBACION,new DateTime(DateTime.Now.Year,DateTime.Now.Month,1),
-                new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day).AddDays(-1));
+            ContaGeneralDS cgDS = new ContaGeneralDS();
+            bcTA.Fill(cgDS.GET_BALANCECOMPROBACION, Kaikei.Properties.Settings.Default.FechaIP, Kaikei.Properties.Settings.Default.FechaFP);
+            dgBalComprobacion.ItemsSource = cgDS.GET_BALANCECOMPROBACION.DefaultView;
 
-            datos.Columns.Add("NOMBRE");
-            datos.Columns.Add("DESCRIPCION");
-            datos.Columns.Add("DEBE");
-            datos.Columns.Add("HABER");
+            //Por ultimo, llamamos a las funciones de la Base de datos para cargar el total del DEBE y
+            //el total del haber al final de la pantalla
+            decimal? dMontoD = funcTA.GET_TOTALDEBE(Kaikei.Properties.Settings.Default.FechaIP, Kaikei.Properties.Settings.Default.FechaFP);
+            decimal? dMontoH = funcTA.GET_TOTALHABER(Kaikei.Properties.Settings.Default.FechaIP, Kaikei.Properties.Settings.Default.FechaFP);
 
-            while (origen.Read())
+            if (!dMontoD.HasValue || !dMontoH.HasValue)
             {
-                DataRow row = datos.NewRow();
-
-                row["NOMBRE"] = origen["NOMBRE"].ToString();
-                row["DESCRIPCION"] = origen["DESCRIPCION"].ToString();
-                if (Int32.Parse(origen["TIPO"].ToString()) >= 8)
-                {
-                    //activos y pasibos
-                    if (Validar.IsPositivo((Int32)Double.Parse(origen["SALDO"].ToString())))
-                    {
-                        row["HABER"] = "";
-                        row["DEBE"] = origen["SALDO"].ToString();
-                        tDebe += Double.Parse(origen["SALDO"].ToString());
-                    }
-                    else
-                    {
-                        row["DEBE"] = "";
-                        row["HABER"] = (-(Double.Parse(origen["SALDO"].ToString()))).ToString();
-                        tHaber += -(Double.Parse(origen["SALDO"].ToString()));
-                    }
-                }
-                else
-                {
-                    //capital
-                    if (Validar.IsPositivo((Int32)Double.Parse(origen["SALDO"].ToString())))
-                    {
-                        row["DEBE"] = "";
-                        row["HABER"] = origen["SALDO"].ToString();
-                        tHaber += Double.Parse(origen["SALDO"].ToString());
-                    }
-                    else
-                    {
-                        row["HABER"] = "";
-                        row["DEBE"] = (-(Double.Parse(origen["SALDO"].ToString()))).ToString();
-                        tDebe += -(Double.Parse(origen["SALDO"].ToString()));
-                    }
-                }
-                datos.Rows.Add(row);
+                dMontoD = 0m;
+                dMontoH = 0m;
             }
 
-            datos.Rows.Add(datos.NewRow());
-            DataRow Total = datos.NewRow();
-            Total["NOMBRE"] = "";
-            Total["DESCRIPCION"] = "TOTALES";
-            Total["DEBE"] = tDebe.ToString();
-            Total["HABER"] = tHaber.ToString();
-            datos.Rows.Add(Total);
+            txtMontoD.Text = string.Format("{0:C}", dMontoD);
+            txtMontoH.Text = string.Format("{0:C}", dMontoH);
 
-            dgBalComprobacion.ItemsSource = datos.DefaultView;
+            //Establecemos un mensaje para determinar si se cumple partida doble y si esta bueno el balance
+            //para poder habilitar el siguiente estado
+			if (dMontoD == dMontoH) {
+				lblResultado.Text="LA SUMA DEL DEBE CON LA SUMA DEL HABER SON IGUALES, POR TANTO SE CUMPLE EL PRINCIPIO DE PARTIDA DOBLE";
+				Kaikei.Properties.Settings.Default.IsValidoBC=true;
+			}
+			else{
+				lblResultado.Text="NO SE PUEDE CONTINUAR DEBIDO A QUE NO SE A CUMPLIDO EL PRINCIPIO DE PARTIDA DOBLE EN LA SUMA DEL DEBE CON EL HABER";
+				Kaikei.Properties.Settings.Default.IsValidoBC=false;
+			}
+			
+			Kaikei.Properties.Settings.Default.Save();
 		}
 	}
 }

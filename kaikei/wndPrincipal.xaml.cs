@@ -29,6 +29,15 @@ namespace Kaikei
         public wndPrincipal()
         {
             InitializeComponent();
+
+            //Tenemos que determinar el periodo contable en que nos encontramos, sabemos que el
+            //periodo comprende en un mes asi que calculamos la Fecha de Inicio del Mes y la fecha de
+            //finalizacion del mes
+            Kaikei.Properties.Settings.Default.FechaIP = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            Kaikei.Properties.Settings.Default.FechaFP = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month));
+            Kaikei.Properties.Settings.Default.Save();
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -37,5 +37,14 @@
     <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)">kaikei</Value>
     </Setting>
+    <Setting Name="FechaIP" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FechaFP" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="IsValidoBC" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
