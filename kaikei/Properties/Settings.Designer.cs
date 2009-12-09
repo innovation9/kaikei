@@ -71,7 +71,7 @@ namespace Kaikei.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<AVENIDA/\r\nCALLE>, <CASA/LOCAL>\r\n<CIUDAD><DEPARTAMENTO>")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Direccion")]
         public string EmpresaDireccion {
             get {
                 return ((string)(this["EmpresaDireccion"]));
@@ -117,21 +117,27 @@ namespace Kaikei.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("admin")]
         public string Usuario {
             get {
                 return ((string)(this["Usuario"]));
             }
+            set {
+                this["Usuario"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("kaikei")]
         public string Password {
             get {
                 return ((string)(this["Password"]));
+            }
+            set {
+                this["Password"] = value;
             }
         }
     }

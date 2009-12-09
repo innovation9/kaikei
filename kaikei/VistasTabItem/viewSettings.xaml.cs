@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kaikei.Properties;
+using kaikei.core;
 
 namespace Kaikei.VistasTabItem
 {
@@ -33,12 +34,31 @@ namespace Kaikei.VistasTabItem
             this.txtIVA.Text = (config.IVA * 100).ToString();
             this.txtEmpresaAdministrador.Text = config.EmpresaAdministrador;
             this.txtEmpresaContador.Text = config.EmpresaContador;
+            this.txtUsuario.Text = config.Usuario;
+            this.txtPasword.Text = config.Password;
+
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            //TODO: Validar
 
-            //TODO: Validar y guardar
+            config.EmpresaNombre = txtEmpresaNombre.Text;
+            config.EmpresaDireccion = txtEmpresaDireccion.Text;
+            config.EmpresaTelefono = txtEmpresaTel.Text;
+            config.EmpresaNIT = txtEmpresaNIT.Text;
+            config.IVA = Double.Parse(txtIVA.Text) / 100;
+            config.EmpresaAdministrador = txtEmpresaAdministrador.Text;
+            config.EmpresaContador = txtEmpresaContador.Text;
+            config.Usuario = txtUsuario.Text;
+            config.Password = txtPasword.Text;
+
+            
+            //No implementar
+            //config.Usuario = CSeguro.GetMD5(txtUsuario.Text);
+            //config.Password = CSeguro.GetMD5(txtPasword.Text);
+            config.Save();
+            MessageBox.Show("Propiedades Guardadas", "KaiKei System", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
