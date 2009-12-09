@@ -9,21 +9,21 @@
     <Grid>
         <local:ctlPlantillaTabItem SubTitulo="Empleados" Descripcion="Gestion de empleados.">
             <Grid>
-                <my:DataGrid AutoGenerateColumns="False" Margin="6,6,6,60" Name="dataGrid1" MouseDoubleClick="dataGrid1_MouseDoubleClick" >
+                <my:DataGrid AutoGenerateColumns="False" Margin="6,6,6,60" Name="dgEmpleadosAFP" MouseDoubleClick="dataGrid1_MouseDoubleClick" >
                     <my:DataGrid.Columns>
-                        <my:DataGridTextColumn Header="Id" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="Nombres" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="Apellidos" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="Direccion" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="AFP" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="DUI" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="NIT" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="ISSS" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="NUP" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="Telefono" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="Movil" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="E-mail" IsReadOnly="True" />
-                        <my:DataGridTextColumn Header="Salario" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="Id" IsReadOnly="True" Binding="{Binding ID_EMPLEADO, Mode=Default}" MinWidth="40" />
+                        <my:DataGridTextColumn Header="Nombres" IsReadOnly="True" Binding="{Binding NOMBRES, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="Apellidos" IsReadOnly="True" Binding="{Binding APELLIDOS, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="Direccion" IsReadOnly="True" Binding="{Binding DIRECCION, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="AFP" IsReadOnly="True" Binding="{Binding AFP, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="DUI" IsReadOnly="True" Binding="{Binding DUI, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="NIT" IsReadOnly="True" Binding="{Binding NIT, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="ISSS" IsReadOnly="True" Binding="{Binding ISSS, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="NUP" IsReadOnly="True" Binding="{Binding NUP, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="Telefono" IsReadOnly="True" Binding="{Binding TELEFONOFIJO, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="Movil" IsReadOnly="True" Binding="{Binding TELEFONOMOVIL, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="E-mail" IsReadOnly="True" Binding="{Binding EMAIL, Mode=Default}" MinWidth="80" />
+                        <my:DataGridTextColumn Header="Salario" IsReadOnly="True" Binding="{Binding SALARIONOMINAL, Mode=Default}" MinWidth="80" />
                         
                     </my:DataGrid.Columns>
                 </my:DataGrid>

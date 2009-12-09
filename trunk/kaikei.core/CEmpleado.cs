@@ -24,6 +24,12 @@ namespace kaikei.core
         public Double Salario { set; get; }
 
         public CEmpleado() { }
+        
+        public CEmpleado(CConeccion c)
+        {
+            this.conex = c;
+        }
+
         public CEmpleado(CConeccion c, int id)
         {
             this.conex = c;
@@ -78,21 +84,21 @@ namespace kaikei.core
         
         public int sqlInsert()
         {
-        //    try
-        //    {
-        //        return conex.sqlQuery(
-        //            "INSERT INTO EMPLEADOS (ID_AFP,NOMBRES,APELLIDOS,DIRECCION,DUI,NIT,ISSS," +
-        //            "NUP,TELEFONOFIJO,TELEFONOMOVIL,EMAIL,SALARIONOMINAL) " +
-        //            "VALUES ({0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11})", this.AFP.Id_AFP, this.Nombres,
-        //            this.Apellidos, this.Direccion, this.DUI.ToString(), this.NIT.ToString(), this.ISSS.ToString(),
-        //            this.NUP.ToString(), this.TelefonoFijo.ToString(), this.TelefonoMovil.ToString(), this.Email,
-        //            this.Salario.ToString());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-            return 0;
+            try
+            {
+                return conex.sqlQuery(
+                    "INSERT INTO EMPLEADOS (ID_AFP,NOMBRES,APELLIDOS,DIRECCION,DUI,NIT,ISSS," +
+                    "NUP,TELEFONOFIJO,TELEFONOMOVIL,EMAIL,SALARIONOMINAL) " +
+                    "VALUES ({0},'{1}','{2}','{3}',{4},{5},{6},{7},{8},{9},'{10}',{11})", this.AFP.Id_AFP, this.Nombres,
+                    this.Apellidos, this.Direccion, this.DUI.ToString(), this.NIT.ToString(), this.ISSS.ToString(),
+                    this.NUP.ToString(), this.TelefonoFijo.ToString(), this.TelefonoMovil.ToString(), this.Email,
+                    this.Salario.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         public int sqlDelete()
