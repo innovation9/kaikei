@@ -58,7 +58,8 @@ namespace Kaikei
             EmpleadoAgregar,
             EmpleadoGestionar,
             Planilla,
-            Propiedades
+            Propiedades,
+            OrdenFabricacion
         }
 
         private void CargarTabItem(TipoTab tipo)
@@ -100,6 +101,11 @@ namespace Kaikei
                         newTab.Name = "tabBalC";
                         newTab.Header = "Balance de Comprobacion";
                         newTab.Content = new viewBalanceComprobacion();
+                        break;
+                    case TipoTab.OrdenFabricacion:
+                        newTab.Name = "tabOrdenFab";
+                        newTab.Header = "Orden Fabricación";
+                        newTab.Content = new viewOrdenFabricacion();
                         break;
 
                     case TipoTab.EstadoCapital:
@@ -184,6 +190,11 @@ namespace Kaikei
         private void btnPropiedades_Click(object sender, RoutedEventArgs e)
         {
             CargarTabItem(TipoTab.Propiedades);
+        }
+
+        private void btnOFabriacion_Click(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.OrdenFabricacion);
         }
 
     }

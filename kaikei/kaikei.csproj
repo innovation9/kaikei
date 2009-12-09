@@ -155,6 +155,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VistasTabItem\viewOrdenFabricacion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="VistasTabItem\viewPlanilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -270,6 +274,9 @@
     </Compile>
     <Compile Include="VistasTabItem\ViewInventarioD.xaml.cs">
       <DependentUpon>ViewInventarioD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewOrdenFabricacion.xaml.cs">
+      <DependentUpon>viewOrdenFabricacion.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistasTabItem\viewPlanilla.xaml.cs">
       <DependentUpon>viewPlanilla.xaml</DependentUpon>

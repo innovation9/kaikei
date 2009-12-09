@@ -60,7 +60,7 @@
 					<StackPanel Margin="3,2,3,3">
 						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Efectuar Transaccion" FontFamily="{DynamicResource FontLabels}" FontSize="12" Click="mnu_EfecTransac_Click" />
 						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Catalogo de Cuentas" FontFamily="{DynamicResource FontLabels}" FontSize="12" Click="Button_Click_1" />
-						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Orden de Fabricacion" FontFamily="{DynamicResource FontLabels}" FontSize="12"/>
+						<Button Margin="15,2,5,2" Style="{DynamicResource StyleExpanderItem}" Content="Orden de Fabricacion" FontFamily="{DynamicResource FontLabels}" FontSize="12" Click="btnOFabriacion_Click" />
 					</StackPanel>
 				</ControlsWPF_JMP_Controls:ExpanderJMP>
 				<ControlsWPF_JMP_Controls:ExpanderJMP x:Name="expander_Inventario" Margin="10,7" Style="{DynamicResource SimpleExpander}" BorderThickness="1" FontFamily="{DynamicResource FontTituloExpander}" FontSize="{DynamicResource FontTituloExpander_Tamaño}" FontWeight="{DynamicResource FontTituloExpander_Estilo}" Foreground="#FF440092" IsExpanded="True" Header="Inventario" Imagen="Themes/mnu_Inventario.png">

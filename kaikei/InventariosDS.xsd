@@ -293,6 +293,24 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ONLY_MATERIAL_DISPONIBLETableAdapter" GeneratorDataComponentClassName="ONLY_MATERIAL_DISPONIBLETableAdapter" Name="ONLY_MATERIAL_DISPONIBLE" UserDataComponentName="ONLY_MATERIAL_DISPONIBLETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KaikeiConnectionString (Settings)" DbObjectName="Kaikei.dbo.ONLY_MATERIAL_DISPONIBLE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID_MATERIAL, NOMBRE, DISPONIBLES FROM dbo.ONLY_MATERIAL_DISPONIBLE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_MATERIAL" DataSetColumn="ID_MATERIAL" />
+              <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
+              <Mapping SourceColumn="DISPONIBLES" DataSetColumn="DISPONIBLES" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -304,19 +322,19 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
         <xs:element name="INVENTARIO_CARDEX" msprop:Generator_UserTableName="INVENTARIO_CARDEX" msprop:Generator_RowDeletedName="INVENTARIO_CARDEXRowDeleted" msprop:Generator_RowChangedName="INVENTARIO_CARDEXRowChanged" msprop:Generator_RowClassName="INVENTARIO_CARDEXRow" msprop:Generator_RowChangingName="INVENTARIO_CARDEXRowChanging" msprop:Generator_RowEvArgName="INVENTARIO_CARDEXRowChangeEvent" msprop:Generator_RowEvHandlerName="INVENTARIO_CARDEXRowChangeEventHandler" msprop:Generator_TableClassName="INVENTARIO_CARDEXDataTable" msprop:Generator_TableVarName="tableINVENTARIO_CARDEX" msprop:Generator_RowDeletingName="INVENTARIO_CARDEXRowDeleting" msprop:Generator_TablePropName="INVENTARIO_CARDEX">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
-              <xs:element name="FECHA" msprop:Generator_UserColumnName="FECHA" msprop:Generator_ColumnVarNameInTable="columnFECHA" msprop:Generator_ColumnPropNameInRow="FECHA" msprop:Generator_ColumnPropNameInTable="FECHAColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
+              <xs:element name="FECHA" msprop:Generator_UserColumnName="FECHA" msprop:Generator_ColumnPropNameInRow="FECHA" msprop:Generator_ColumnVarNameInTable="columnFECHA" msprop:Generator_ColumnPropNameInTable="FECHAColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="COMPRAS" msprop:Generator_UserColumnName="COMPRAS" msprop:Generator_ColumnVarNameInTable="columnCOMPRAS" msprop:Generator_ColumnPropNameInRow="COMPRAS" msprop:Generator_ColumnPropNameInTable="COMPRASColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="VENTAS" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VENTAS" msprop:Generator_ColumnVarNameInTable="columnVENTAS" msprop:Generator_ColumnPropNameInRow="VENTAS" msprop:Generator_ColumnPropNameInTable="VENTASColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="DIFERENCIA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DIFERENCIA" msprop:Generator_ColumnVarNameInTable="columnDIFERENCIA" msprop:Generator_ColumnPropNameInRow="DIFERENCIA" msprop:Generator_ColumnPropNameInTable="DIFERENCIAColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="PRECIOUNITARIO" msprop:Generator_UserColumnName="PRECIOUNITARIO" msprop:Generator_ColumnVarNameInTable="columnPRECIOUNITARIO" msprop:Generator_ColumnPropNameInRow="PRECIOUNITARIO" msprop:Generator_ColumnPropNameInTable="PRECIOUNITARIOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COMPRAS" msprop:Generator_UserColumnName="COMPRAS" msprop:Generator_ColumnPropNameInRow="COMPRAS" msprop:Generator_ColumnVarNameInTable="columnCOMPRAS" msprop:Generator_ColumnPropNameInTable="COMPRASColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="VENTAS" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VENTAS" msprop:Generator_ColumnPropNameInRow="VENTAS" msprop:Generator_ColumnVarNameInTable="columnVENTAS" msprop:Generator_ColumnPropNameInTable="VENTASColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DIFERENCIA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DIFERENCIA" msprop:Generator_ColumnPropNameInRow="DIFERENCIA" msprop:Generator_ColumnVarNameInTable="columnDIFERENCIA" msprop:Generator_ColumnPropNameInTable="DIFERENCIAColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="PRECIOUNITARIO" msprop:Generator_UserColumnName="PRECIOUNITARIO" msprop:Generator_ColumnPropNameInRow="PRECIOUNITARIO" msprop:Generator_ColumnVarNameInTable="columnPRECIOUNITARIO" msprop:Generator_ColumnPropNameInTable="PRECIOUNITARIOColumn" type="xs:decimal" minOccurs="0" />
               <xs:element name="DISPONIBILIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DISPONIBILIDAD" msprop:nullValue="_empty" msprop:Generator_ColumnVarNameInTable="columnDISPONIBILIDAD" msprop:Generator_ColumnPropNameInTable="DISPONIBILIDADColumn" msprop:Generator_ColumnPropNameInRow="DISPONIBILIDAD" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -324,28 +342,28 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PROVEEDOR" msprop:Generator_UserColumnName="PROVEEDOR" msprop:Generator_ColumnPropNameInRow="PROVEEDOR" msprop:Generator_ColumnVarNameInTable="columnPROVEEDOR" msprop:Generator_ColumnPropNameInTable="PROVEEDORColumn" minOccurs="0">
+              <xs:element name="PROVEEDOR" msprop:Generator_UserColumnName="PROVEEDOR" msprop:Generator_ColumnVarNameInTable="columnPROVEEDOR" msprop:Generator_ColumnPropNameInRow="PROVEEDOR" msprop:Generator_ColumnPropNameInTable="PROVEEDORColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="COMPRASUNIDAD" msprop:Generator_UserColumnName="COMPRASUNIDAD" msprop:Generator_ColumnPropNameInRow="COMPRASUNIDAD" msprop:Generator_ColumnVarNameInTable="columnCOMPRASUNIDAD" msprop:Generator_ColumnPropNameInTable="COMPRASUNIDADColumn" minOccurs="0">
+              <xs:element name="COMPRASUNIDAD" msprop:Generator_UserColumnName="COMPRASUNIDAD" msprop:Generator_ColumnVarNameInTable="columnCOMPRASUNIDAD" msprop:Generator_ColumnPropNameInRow="COMPRASUNIDAD" msprop:Generator_ColumnPropNameInTable="COMPRASUNIDADColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="36" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="VENTASUNIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VENTASUNIDAD" msprop:Generator_ColumnPropNameInRow="VENTASUNIDAD" msprop:Generator_ColumnVarNameInTable="columnVENTASUNIDAD" msprop:Generator_ColumnPropNameInTable="VENTASUNIDADColumn" minOccurs="0">
+              <xs:element name="VENTASUNIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VENTASUNIDAD" msprop:Generator_ColumnVarNameInTable="columnVENTASUNIDAD" msprop:Generator_ColumnPropNameInRow="VENTASUNIDAD" msprop:Generator_ColumnPropNameInTable="VENTASUNIDADColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="36" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TOTALUNIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TOTALUNIDAD" msprop:Generator_ColumnVarNameInTable="columnTOTALUNIDAD" msprop:Generator_ColumnPropNameInRow="TOTALUNIDAD" msprop:Generator_ColumnPropNameInTable="TOTALUNIDADColumn" minOccurs="0">
+              <xs:element name="TOTALUNIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TOTALUNIDAD" msprop:Generator_ColumnPropNameInRow="TOTALUNIDAD" msprop:Generator_ColumnVarNameInTable="columnTOTALUNIDAD" msprop:Generator_ColumnPropNameInTable="TOTALUNIDADColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="36" />
@@ -358,19 +376,19 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
         <xs:element name="INVENTARIO_DISPONIBLE" msprop:Generator_UserTableName="INVENTARIO_DISPONIBLE" msprop:Generator_RowDeletedName="INVENTARIO_DISPONIBLERowDeleted" msprop:Generator_RowChangedName="INVENTARIO_DISPONIBLERowChanged" msprop:Generator_RowClassName="INVENTARIO_DISPONIBLERow" msprop:Generator_RowChangingName="INVENTARIO_DISPONIBLERowChanging" msprop:Generator_RowEvArgName="INVENTARIO_DISPONIBLERowChangeEvent" msprop:Generator_RowEvHandlerName="INVENTARIO_DISPONIBLERowChangeEventHandler" msprop:Generator_TableClassName="INVENTARIO_DISPONIBLEDataTable" msprop:Generator_TableVarName="tableINVENTARIO_DISPONIBLE" msprop:Generator_RowDeletingName="INVENTARIO_DISPONIBLERowDeleting" msprop:Generator_TablePropName="INVENTARIO_DISPONIBLE">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="COMPRAS" msprop:Generator_UserColumnName="COMPRAS" msprop:Generator_ColumnPropNameInRow="COMPRAS" msprop:Generator_ColumnVarNameInTable="columnCOMPRAS" msprop:Generator_ColumnPropNameInTable="COMPRASColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="VENTAS" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VENTAS" msprop:Generator_ColumnPropNameInRow="VENTAS" msprop:Generator_ColumnVarNameInTable="columnVENTAS" msprop:Generator_ColumnPropNameInTable="VENTASColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="DIFERENCIA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DIFERENCIA" msprop:Generator_ColumnPropNameInRow="DIFERENCIA" msprop:Generator_ColumnVarNameInTable="columnDIFERENCIA" msprop:Generator_ColumnPropNameInTable="DIFERENCIAColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="DISPONIBILIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DISPONIBILIDAD" msprop:Generator_ColumnPropNameInRow="DISPONIBILIDAD" msprop:Generator_ColumnVarNameInTable="columnDISPONIBILIDAD" msprop:Generator_ColumnPropNameInTable="DISPONIBILIDADColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="UNIDADES" msprop:Generator_UserColumnName="UNIDADES" msprop:Generator_ColumnVarNameInTable="columnUNIDADES" msprop:Generator_ColumnPropNameInRow="UNIDADES" msprop:Generator_ColumnPropNameInTable="UNIDADESColumn" minOccurs="0">
+              <xs:element name="COMPRAS" msprop:Generator_UserColumnName="COMPRAS" msprop:Generator_ColumnVarNameInTable="columnCOMPRAS" msprop:Generator_ColumnPropNameInRow="COMPRAS" msprop:Generator_ColumnPropNameInTable="COMPRASColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="VENTAS" msdata:ReadOnly="true" msprop:Generator_UserColumnName="VENTAS" msprop:Generator_ColumnVarNameInTable="columnVENTAS" msprop:Generator_ColumnPropNameInRow="VENTAS" msprop:Generator_ColumnPropNameInTable="VENTASColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DIFERENCIA" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DIFERENCIA" msprop:Generator_ColumnVarNameInTable="columnDIFERENCIA" msprop:Generator_ColumnPropNameInRow="DIFERENCIA" msprop:Generator_ColumnPropNameInTable="DIFERENCIAColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DISPONIBILIDAD" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DISPONIBILIDAD" msprop:Generator_ColumnVarNameInTable="columnDISPONIBILIDAD" msprop:Generator_ColumnPropNameInRow="DISPONIBILIDAD" msprop:Generator_ColumnPropNameInTable="DISPONIBILIDADColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="UNIDADES" msprop:Generator_UserColumnName="UNIDADES" msprop:Generator_ColumnPropNameInRow="UNIDADES" msprop:Generator_ColumnVarNameInTable="columnUNIDADES" msprop:Generator_ColumnPropNameInTable="UNIDADESColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
@@ -380,51 +398,51 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="COMPRAS" msprop:Generator_UserTableName="COMPRAS" msprop:Generator_RowDeletedName="COMPRASRowDeleted" msprop:Generator_TableClassName="COMPRASDataTable" msprop:Generator_RowChangedName="COMPRASRowChanged" msprop:Generator_RowClassName="COMPRASRow" msprop:Generator_RowChangingName="COMPRASRowChanging" msprop:Generator_RowEvArgName="COMPRASRowChangeEvent" msprop:Generator_RowEvHandlerName="COMPRASRowChangeEventHandler" msprop:Generator_TablePropName="COMPRAS" msprop:Generator_TableVarName="tableCOMPRAS" msprop:Generator_RowDeletingName="COMPRASRowDeleting">
+        <xs:element name="COMPRAS" msprop:Generator_UserTableName="COMPRAS" msprop:Generator_RowDeletedName="COMPRASRowDeleted" msprop:Generator_RowChangedName="COMPRASRowChanged" msprop:Generator_RowClassName="COMPRASRow" msprop:Generator_RowChangingName="COMPRASRowChanging" msprop:Generator_RowEvArgName="COMPRASRowChangeEvent" msprop:Generator_RowEvHandlerName="COMPRASRowChangeEventHandler" msprop:Generator_TableClassName="COMPRASDataTable" msprop:Generator_TableVarName="tableCOMPRAS" msprop:Generator_RowDeletingName="COMPRASRowDeleting" msprop:Generator_TablePropName="COMPRAS">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_COMPRA" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_COMPRA" msprop:Generator_ColumnPropNameInRow="ID_COMPRA" msprop:Generator_ColumnVarNameInTable="columnID_COMPRA" msprop:Generator_ColumnPropNameInTable="ID_COMPRAColumn" type="xs:int" />
-              <xs:element name="ID_PROVEEDOR" msprop:Generator_UserColumnName="ID_PROVEEDOR" msprop:Generator_ColumnPropNameInRow="ID_PROVEEDOR" msprop:Generator_ColumnVarNameInTable="columnID_PROVEEDOR" msprop:Generator_ColumnPropNameInTable="ID_PROVEEDORColumn" type="xs:int" />
-              <xs:element name="FECHA" msprop:Generator_UserColumnName="FECHA" msprop:Generator_ColumnPropNameInRow="FECHA" msprop:Generator_ColumnVarNameInTable="columnFECHA" msprop:Generator_ColumnPropNameInTable="FECHAColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ID_COMPRA" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_COMPRA" msprop:Generator_ColumnVarNameInTable="columnID_COMPRA" msprop:Generator_ColumnPropNameInRow="ID_COMPRA" msprop:Generator_ColumnPropNameInTable="ID_COMPRAColumn" type="xs:int" />
+              <xs:element name="ID_PROVEEDOR" msprop:Generator_UserColumnName="ID_PROVEEDOR" msprop:Generator_ColumnVarNameInTable="columnID_PROVEEDOR" msprop:Generator_ColumnPropNameInRow="ID_PROVEEDOR" msprop:Generator_ColumnPropNameInTable="ID_PROVEEDORColumn" type="xs:int" />
+              <xs:element name="FECHA" msprop:Generator_UserColumnName="FECHA" msprop:Generator_ColumnVarNameInTable="columnFECHA" msprop:Generator_ColumnPropNameInRow="FECHA" msprop:Generator_ColumnPropNameInTable="FECHAColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DETALLE_COMPRA" msprop:Generator_UserTableName="DETALLE_COMPRA" msprop:Generator_RowDeletedName="DETALLE_COMPRARowDeleted" msprop:Generator_TableClassName="DETALLE_COMPRADataTable" msprop:Generator_RowChangedName="DETALLE_COMPRARowChanged" msprop:Generator_RowClassName="DETALLE_COMPRARow" msprop:Generator_RowChangingName="DETALLE_COMPRARowChanging" msprop:Generator_RowEvArgName="DETALLE_COMPRARowChangeEvent" msprop:Generator_RowEvHandlerName="DETALLE_COMPRARowChangeEventHandler" msprop:Generator_TablePropName="DETALLE_COMPRA" msprop:Generator_TableVarName="tableDETALLE_COMPRA" msprop:Generator_RowDeletingName="DETALLE_COMPRARowDeleting">
+        <xs:element name="DETALLE_COMPRA" msprop:Generator_UserTableName="DETALLE_COMPRA" msprop:Generator_RowDeletedName="DETALLE_COMPRARowDeleted" msprop:Generator_RowChangedName="DETALLE_COMPRARowChanged" msprop:Generator_RowClassName="DETALLE_COMPRARow" msprop:Generator_RowChangingName="DETALLE_COMPRARowChanging" msprop:Generator_RowEvArgName="DETALLE_COMPRARowChangeEvent" msprop:Generator_RowEvHandlerName="DETALLE_COMPRARowChangeEventHandler" msprop:Generator_TableClassName="DETALLE_COMPRADataTable" msprop:Generator_TableVarName="tableDETALLE_COMPRA" msprop:Generator_RowDeletingName="DETALLE_COMPRARowDeleting" msprop:Generator_TablePropName="DETALLE_COMPRA">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_COMPRA" msprop:Generator_UserColumnName="ID_COMPRA" msprop:Generator_ColumnPropNameInRow="ID_COMPRA" msprop:Generator_ColumnVarNameInTable="columnID_COMPRA" msprop:Generator_ColumnPropNameInTable="ID_COMPRAColumn" type="xs:int" />
-              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
-              <xs:element name="CANTIDAD" msprop:Generator_UserColumnName="CANTIDAD" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="PRECIOUNITARIO" msprop:Generator_UserColumnName="PRECIOUNITARIO" msprop:Generator_ColumnPropNameInRow="PRECIOUNITARIO" msprop:Generator_ColumnVarNameInTable="columnPRECIOUNITARIO" msprop:Generator_ColumnPropNameInTable="PRECIOUNITARIOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ID_COMPRA" msprop:Generator_UserColumnName="ID_COMPRA" msprop:Generator_ColumnVarNameInTable="columnID_COMPRA" msprop:Generator_ColumnPropNameInRow="ID_COMPRA" msprop:Generator_ColumnPropNameInTable="ID_COMPRAColumn" type="xs:int" />
+              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
+              <xs:element name="CANTIDAD" msprop:Generator_UserColumnName="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="PRECIOUNITARIO" msprop:Generator_UserColumnName="PRECIOUNITARIO" msprop:Generator_ColumnVarNameInTable="columnPRECIOUNITARIO" msprop:Generator_ColumnPropNameInRow="PRECIOUNITARIO" msprop:Generator_ColumnPropNameInTable="PRECIOUNITARIOColumn" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PROVEEDORES" msprop:Generator_UserTableName="PROVEEDORES" msprop:Generator_RowDeletedName="PROVEEDORESRowDeleted" msprop:Generator_TableClassName="PROVEEDORESDataTable" msprop:Generator_RowChangedName="PROVEEDORESRowChanged" msprop:Generator_RowClassName="PROVEEDORESRow" msprop:Generator_RowChangingName="PROVEEDORESRowChanging" msprop:Generator_RowEvArgName="PROVEEDORESRowChangeEvent" msprop:Generator_RowEvHandlerName="PROVEEDORESRowChangeEventHandler" msprop:Generator_TablePropName="PROVEEDORES" msprop:Generator_TableVarName="tablePROVEEDORES" msprop:Generator_RowDeletingName="PROVEEDORESRowDeleting">
+        <xs:element name="PROVEEDORES" msprop:Generator_UserTableName="PROVEEDORES" msprop:Generator_RowDeletedName="PROVEEDORESRowDeleted" msprop:Generator_RowChangedName="PROVEEDORESRowChanged" msprop:Generator_RowClassName="PROVEEDORESRow" msprop:Generator_RowChangingName="PROVEEDORESRowChanging" msprop:Generator_RowEvArgName="PROVEEDORESRowChangeEvent" msprop:Generator_RowEvHandlerName="PROVEEDORESRowChangeEventHandler" msprop:Generator_TableClassName="PROVEEDORESDataTable" msprop:Generator_TableVarName="tablePROVEEDORES" msprop:Generator_RowDeletingName="PROVEEDORESRowDeleting" msprop:Generator_TablePropName="PROVEEDORES">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_PROVEEDOR" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_PROVEEDOR" msprop:Generator_ColumnPropNameInRow="ID_PROVEEDOR" msprop:Generator_ColumnVarNameInTable="columnID_PROVEEDOR" msprop:Generator_ColumnPropNameInTable="ID_PROVEEDORColumn" type="xs:int" />
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+              <xs:element name="ID_PROVEEDOR" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_PROVEEDOR" msprop:Generator_ColumnVarNameInTable="columnID_PROVEEDOR" msprop:Generator_ColumnPropNameInRow="ID_PROVEEDOR" msprop:Generator_ColumnPropNameInTable="ID_PROVEEDORColumn" type="xs:int" />
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DIRECCION" msprop:Generator_UserColumnName="DIRECCION" msprop:Generator_ColumnPropNameInRow="DIRECCION" msprop:Generator_ColumnVarNameInTable="columnDIRECCION" msprop:Generator_ColumnPropNameInTable="DIRECCIONColumn" minOccurs="0">
+              <xs:element name="DIRECCION" msprop:Generator_UserColumnName="DIRECCION" msprop:Generator_ColumnVarNameInTable="columnDIRECCION" msprop:Generator_ColumnPropNameInRow="DIRECCION" msprop:Generator_ColumnPropNameInTable="DIRECCIONColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TELEFONO" msprop:Generator_UserColumnName="TELEFONO" msprop:Generator_ColumnPropNameInRow="TELEFONO" msprop:Generator_ColumnVarNameInTable="columnTELEFONO" msprop:Generator_ColumnPropNameInTable="TELEFONOColumn" minOccurs="0">
+              <xs:element name="TELEFONO" msprop:Generator_UserColumnName="TELEFONO" msprop:Generator_ColumnVarNameInTable="columnTELEFONO" msprop:Generator_ColumnPropNameInRow="TELEFONO" msprop:Generator_ColumnPropNameInTable="TELEFONOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="8" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NIT" msprop:Generator_UserColumnName="NIT" msprop:Generator_ColumnPropNameInRow="NIT" msprop:Generator_ColumnVarNameInTable="columnNIT" msprop:Generator_ColumnPropNameInTable="NITColumn" minOccurs="0">
+              <xs:element name="NIT" msprop:Generator_UserColumnName="NIT" msprop:Generator_ColumnVarNameInTable="columnNIT" msprop:Generator_ColumnPropNameInRow="NIT" msprop:Generator_ColumnPropNameInTable="NITColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="14" />
@@ -434,12 +452,12 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MATERIALES" msprop:Generator_UserTableName="MATERIALES" msprop:Generator_RowDeletedName="MATERIALESRowDeleted" msprop:Generator_TableClassName="MATERIALESDataTable" msprop:Generator_RowChangedName="MATERIALESRowChanged" msprop:Generator_RowClassName="MATERIALESRow" msprop:Generator_RowChangingName="MATERIALESRowChanging" msprop:Generator_RowEvArgName="MATERIALESRowChangeEvent" msprop:Generator_RowEvHandlerName="MATERIALESRowChangeEventHandler" msprop:Generator_TablePropName="MATERIALES" msprop:Generator_TableVarName="tableMATERIALES" msprop:Generator_RowDeletingName="MATERIALESRowDeleting">
+        <xs:element name="MATERIALES" msprop:Generator_UserTableName="MATERIALES" msprop:Generator_RowDeletedName="MATERIALESRowDeleted" msprop:Generator_RowChangedName="MATERIALESRowChanged" msprop:Generator_RowClassName="MATERIALESRow" msprop:Generator_RowChangingName="MATERIALESRowChanging" msprop:Generator_RowEvArgName="MATERIALESRowChangeEvent" msprop:Generator_RowEvHandlerName="MATERIALESRowChangeEventHandler" msprop:Generator_TableClassName="MATERIALESDataTable" msprop:Generator_TableVarName="tableMATERIALES" msprop:Generator_RowDeletingName="MATERIALESRowDeleting" msprop:Generator_TablePropName="MATERIALES">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_MATERIAL" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
-              <xs:element name="ID_MEDIDA" msprop:Generator_UserColumnName="ID_MEDIDA" msprop:Generator_ColumnPropNameInRow="ID_MEDIDA" msprop:Generator_ColumnVarNameInTable="columnID_MEDIDA" msprop:Generator_ColumnPropNameInTable="ID_MEDIDAColumn" type="xs:int" />
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+              <xs:element name="ID_MATERIAL" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
+              <xs:element name="ID_MEDIDA" msprop:Generator_UserColumnName="ID_MEDIDA" msprop:Generator_ColumnVarNameInTable="columnID_MEDIDA" msprop:Generator_ColumnPropNameInRow="ID_MEDIDA" msprop:Generator_ColumnPropNameInTable="ID_MEDIDAColumn" type="xs:int" />
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
@@ -449,7 +467,28 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MATERIALES_UNIDADES" msprop:Generator_UserTableName="MATERIALES_UNIDADES" msprop:Generator_RowDeletedName="MATERIALES_UNIDADESRowDeleted" msprop:Generator_TableClassName="MATERIALES_UNIDADESDataTable" msprop:Generator_RowChangedName="MATERIALES_UNIDADESRowChanged" msprop:Generator_RowClassName="MATERIALES_UNIDADESRow" msprop:Generator_RowChangingName="MATERIALES_UNIDADESRowChanging" msprop:Generator_RowEvArgName="MATERIALES_UNIDADESRowChangeEvent" msprop:Generator_RowEvHandlerName="MATERIALES_UNIDADESRowChangeEventHandler" msprop:Generator_TablePropName="MATERIALES_UNIDADES" msprop:Generator_TableVarName="tableMATERIALES_UNIDADES" msprop:Generator_RowDeletingName="MATERIALES_UNIDADESRowDeleting">
+        <xs:element name="MATERIALES_UNIDADES" msprop:Generator_UserTableName="MATERIALES_UNIDADES" msprop:Generator_RowDeletedName="MATERIALES_UNIDADESRowDeleted" msprop:Generator_RowChangedName="MATERIALES_UNIDADESRowChanged" msprop:Generator_RowClassName="MATERIALES_UNIDADESRow" msprop:Generator_RowChangingName="MATERIALES_UNIDADESRowChanging" msprop:Generator_RowEvArgName="MATERIALES_UNIDADESRowChangeEvent" msprop:Generator_RowEvHandlerName="MATERIALES_UNIDADESRowChangeEventHandler" msprop:Generator_TableClassName="MATERIALES_UNIDADESDataTable" msprop:Generator_TableVarName="tableMATERIALES_UNIDADES" msprop:Generator_RowDeletingName="MATERIALES_UNIDADESRowDeleting" msprop:Generator_TablePropName="MATERIALES_UNIDADES">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UNIDAD" msprop:Generator_UserColumnName="UNIDAD" msprop:Generator_ColumnVarNameInTable="columnUNIDAD" msprop:Generator_ColumnPropNameInRow="UNIDAD" msprop:Generator_ColumnPropNameInTable="UNIDADColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ONLY_MATERIAL_DISPONIBLE" msprop:Generator_UserTableName="ONLY_MATERIAL_DISPONIBLE" msprop:Generator_RowDeletedName="ONLY_MATERIAL_DISPONIBLERowDeleted" msprop:Generator_TableClassName="ONLY_MATERIAL_DISPONIBLEDataTable" msprop:Generator_RowChangedName="ONLY_MATERIAL_DISPONIBLERowChanged" msprop:Generator_RowClassName="ONLY_MATERIAL_DISPONIBLERow" msprop:Generator_RowChangingName="ONLY_MATERIAL_DISPONIBLERowChanging" msprop:Generator_RowEvArgName="ONLY_MATERIAL_DISPONIBLERowChangeEvent" msprop:Generator_RowEvHandlerName="ONLY_MATERIAL_DISPONIBLERowChangeEventHandler" msprop:Generator_TablePropName="ONLY_MATERIAL_DISPONIBLE" msprop:Generator_TableVarName="tableONLY_MATERIAL_DISPONIBLE" msprop:Generator_RowDeletingName="ONLY_MATERIAL_DISPONIBLERowDeleting">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_MATERIAL" msprop:Generator_UserColumnName="ID_MATERIAL" msprop:Generator_ColumnPropNameInRow="ID_MATERIAL" msprop:Generator_ColumnVarNameInTable="columnID_MATERIAL" msprop:Generator_ColumnPropNameInTable="ID_MATERIALColumn" type="xs:int" />
@@ -460,10 +499,10 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UNIDAD" msprop:Generator_UserColumnName="UNIDAD" msprop:Generator_ColumnPropNameInRow="UNIDAD" msprop:Generator_ColumnVarNameInTable="columnUNIDAD" msprop:Generator_ColumnPropNameInTable="UNIDADColumn" minOccurs="0">
+              <xs:element name="DISPONIBLES" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DISPONIBLES" msprop:Generator_ColumnPropNameInRow="DISPONIBLES" msprop:Generator_ColumnVarNameInTable="columnDISPONIBLES" msprop:Generator_ColumnPropNameInTable="DISPONIBLESColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="25" />
+                    <xs:maxLength value="48" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -494,6 +533,10 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
     </xs:unique>
     <xs:unique name="MATERIALES_UNIDADES_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:MATERIALES_UNIDADES" />
+      <xs:field xpath="mstns:ID_MATERIAL" />
+    </xs:unique>
+    <xs:unique name="ONLY_MATERIAL_DISPONIBLE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ONLY_MATERIAL_DISPONIBLE" />
       <xs:field xpath="mstns:ID_MATERIAL" />
     </xs:unique>
   </xs:element>
