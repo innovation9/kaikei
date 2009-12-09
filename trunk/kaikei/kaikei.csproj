@@ -258,6 +258,12 @@
       <DependentUpon>rEstadoCapital.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rEstadoResultados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rEstadoResultados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VistasTabItem\viewEmpleadoModificar.xaml.cs">
       <DependentUpon>viewEmpleadoModificar.xaml</DependentUpon>
     </Compile>
@@ -327,6 +333,10 @@
     <EmbeddedResource Include="rEstadoCapital.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rEstadoCapital.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rEstadoResultados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rEstadoResultados.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ContaGeneralDS.xsc">
