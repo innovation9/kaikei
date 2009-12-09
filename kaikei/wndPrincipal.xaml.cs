@@ -46,7 +46,8 @@ namespace Kaikei
             CatalogoCuentas,
             EmpleadoAgregar,
             EmpleadoGestionar,
-            Planilla
+            Planilla,
+            Propiedades
         }
 
         private void CargarTabItem(TipoTab tipo)
@@ -103,9 +104,14 @@ namespace Kaikei
                         newTab.Content = new viewEmpleados();
                         break; 
 #endif
+                    case TipoTab.Propiedades:
+                        newTab.Name = "tabPropiedades";
+                        newTab.Header = "Propiedades";
+                        newTab.Content = new viewSettings();
+                        break; 
                 }
 
-                //Agregamos a la tabla Has el nuevo control
+                //Agregamos a la tabla Hash el nuevo control
                 newTab.Tag = tipo;
                 tableTabs.Add(tipo, newTab);
                 tab_Ventanas.Items.Add(newTab);
@@ -151,6 +157,11 @@ namespace Kaikei
         private void mnu_BalCompro_CLICK(object sender, RoutedEventArgs e)
         {
             CargarTabItem(TipoTab.BalanceComprobacion);
+        }
+
+        private void btnPropiedades_Click(object sender, RoutedEventArgs e)
+        {
+            CargarTabItem(TipoTab.Propiedades);
         }
 
     }

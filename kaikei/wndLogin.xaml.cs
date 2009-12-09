@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using ControlsWPF_JMP.Ventanas;
 using System.Security;
 using kaikei.core;
+using Kaikei.Properties;
 
 namespace Kaikei
 {
@@ -20,10 +21,12 @@ namespace Kaikei
 	/// </summary>
 	public partial class wndLogin : WindowJMP
 	{
+        Settings config;
+
 		public wndLogin()
 		{
 			this.InitializeComponent();
-			
+            config = Settings.Default;
 			// Insert code required on object creation below this point.
 		}
 
@@ -52,7 +55,7 @@ namespace Kaikei
 
             //Una vez determinamos que no esten vacios los campos pasamos a comprobar si la contraseña
             //es correcta
-            if ((txtUsuario.Text == "admin") && (txtPassword.Password == "kaikei"))
+            if ((txtUsuario.Text == config.Usuario) && (txtPassword.Password == config.Password))
             {
                 wndPrincipal wnd = new wndPrincipal();
                 wnd.Show();
