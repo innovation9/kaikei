@@ -19,5 +19,25 @@
     <Setting Name="EmpresaNIT" Type="System.String" Scope="User">
       <Value Profile="(Default)">0000-000000-000-0</Value>
     </Setting>
+    <Setting Name="EmpresaDireccion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;AVENIDA/
+CALLE&gt;, &lt;CASA/LOCAL&gt;
+&lt;CIUDAD&gt;&lt;DEPARTAMENTO&gt;</Value>
+    </Setting>
+    <Setting Name="IVA" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.13</Value>
+    </Setting>
+    <Setting Name="EmpresaContador" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CONTADOR</Value>
+    </Setting>
+    <Setting Name="EmpresaAdministrador" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ADMINISTRADOR</Value>
+    </Setting>
+    <Setting Name="Usuario" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">admin</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">kaikei</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

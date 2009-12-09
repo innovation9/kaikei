@@ -146,6 +146,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="VistasTabItem\viewSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VistasTabItem\viewTransacciones.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -250,6 +254,9 @@
     </Compile>
     <Compile Include="VistasTabItem\viewPlanilla.xaml.cs">
       <DependentUpon>viewPlanilla.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewSettings.xaml.cs">
+      <DependentUpon>viewSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistasTabItem\viewTransacciones.xaml.cs">
       <DependentUpon>viewTransacciones.xaml</DependentUpon>

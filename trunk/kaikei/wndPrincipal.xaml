@@ -27,7 +27,8 @@
 				<kaikei:CloseableTabItem HorizontalAlignment="Left" Margin="290,0,0,0" VerticalAlignment="Bottom" Width="4" Height="2" Header="CloseableTabItem">
 					<Grid/>
 				</kaikei:CloseableTabItem>
-			</Grid>
+                <Button HorizontalAlignment="Right" Margin="0,0,230,5" Name="btnPropiedades" Width="75" Background="Transparent" Padding="0" Height="20" VerticalAlignment="Bottom" Click="btnPropiedades_Click">Propiedades</Button>
+            </Grid>
 		</Border>
         
 		<Border x:Name="border" HorizontalAlignment="Right" Width="250" BorderThickness="0,0,1,0" ScrollViewer.VerticalScrollBarVisibility="Auto">
