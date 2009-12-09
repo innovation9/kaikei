@@ -10,29 +10,29 @@
         <local:ctlPlantillaTabItem SubTitulo="Nuevo Empleado" Descripcion="Agregar un Nuevo empleado">
             <Grid Margin="0">
                 <Label Height="28" HorizontalAlignment="Left" Margin="20,20,0,0" Name="label1" VerticalAlignment="Top" Width="120">Nombres</Label>
-                <my:TextBoxJMP Height="23" Margin="146,20,0,0" Name="txtNombres" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="250" />
+                <my:TextBoxJMP Height="28" Margin="146,20,0,0" Name="txtNombres" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="250" />
                 <Label Height="28" HorizontalAlignment="Left" Margin="20,54,0,0" Name="label2" VerticalAlignment="Top" Width="120">Apellidos</Label>
-                <my:TextBoxJMP Height="23" Margin="146,54,0,0" Name="txtApellidos" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="250" />
+                <my:TextBoxJMP Height="28" Margin="146,54,0,0" Name="txtApellidos" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="250" />
                 <Label Height="28" HorizontalAlignment="Left" Margin="20,88,0,0" Name="label3" VerticalAlignment="Top" Width="120">Direccion</Label>
-                <my:TextBoxJMP Height="23" Margin="146,88,0,0" Name="txtDireccion" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="250" />
+                <my:TextBoxJMP Height="28" Margin="146,88,0,0" Name="txtDireccion" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="250" />
                 <Label Height="28" HorizontalAlignment="Left" Margin="20,122,0,0" Name="label4" VerticalAlignment="Top" Width="120">AFP</Label>
-                <ComboBox Margin="146,122,0,0" Name="txtAFP" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Background="Transparent" BorderBrush="LightGray" />
+                <ComboBox Margin="146,122,0,0" Name="txtAFP" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Background="Transparent" BorderBrush="LightGray" />
                 <Label Height="28" HorizontalAlignment="Left" Margin="20,156,0,0" Name="label5" VerticalAlignment="Top" Width="120">DUI</Label>
-                <my:TextBoxJMP Height="23" Margin="146,156,0,0" Name="txtDUI" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="150" />
+                <my:TextBoxJMP Height="28" Margin="146,156,0,0" Name="txtDUI" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="150" />
                 <Label Margin="302,156,0,0" Name="label6" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="36">NIT</Label>
-                <my:TextBoxJMP Margin="344,156,0,0" Name="txtNIT" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="150" Height="23" VerticalAlignment="Top" />
+                <my:TextBoxJMP Margin="428,156,0,0" Name="txtNIT" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="150" Height="28" VerticalAlignment="Top" />
                 <Label HorizontalAlignment="Left" Margin="20,190,0,0" Name="label7" Width="120" Height="28" VerticalAlignment="Top">ISSS</Label>
-                <my:TextBoxJMP Height="23" Margin="146,190,0,0" Name="txtISSS" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="150" />
+                <my:TextBoxJMP Height="28" Margin="146,190,0,0" Name="txtISSS" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="150" />
                 <Label Height="28" Margin="302,122,0,0" Name="label8" VerticalAlignment="Top" HorizontalAlignment="Left" Width="36">NUP</Label>
-                <my:TextBoxJMP Height="23" Margin="344,122,0,0" Name="txtNUP" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="150" />
+                <my:TextBoxJMP Height="28" Margin="428,117,0,0" Name="txtNUP" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="150" />
                 <Label Height="28" HorizontalAlignment="Left" Margin="20,224,0,0" Name="label9" VerticalAlignment="Top" Width="120">Telefono Fijo</Label>
-                <my:TextBoxJMP Height="23" HorizontalAlignment="Left" Margin="146,224,0,0" Name="txtTelefonoFijo" VerticalAlignment="Top" Width="150" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" />
+                <my:TextBoxJMP Height="28" HorizontalAlignment="Left" Margin="146,224,0,0" Name="txtTelefonoFijo" VerticalAlignment="Top" Width="150" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" />
                 <Label Height="28" Margin="302,224,0,0" Name="label10" VerticalAlignment="Top" HorizontalAlignment="Left" Width="120">Telefono Movil</Label>
-                <my:TextBoxJMP Height="23" HorizontalAlignment="Left" Margin="428,224,0,0" Name="txtTelefonoMovil" VerticalAlignment="Top" Width="150" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" />
+                <my:TextBoxJMP Height="28" HorizontalAlignment="Left" Margin="428,224,0,0" Name="txtTelefonoMovil" VerticalAlignment="Top" Width="150" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" />
                 <Label Height="28" HorizontalAlignment="Left" Margin="20,258,0,0" Name="label11" VerticalAlignment="Top" Width="120">E-mail</Label>
-                <my:TextBoxJMP Height="23" Margin="146,258,0,0" Name="txtEmail" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="250" />
+                <my:TextBoxJMP Height="28" Margin="146,258,0,0" Name="txtEmail" VerticalAlignment="Top" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" HorizontalAlignment="Left" Width="250" BorderThickness="0" Foreground="Black" />
                 <Label Height="28" HorizontalAlignment="Left" Margin="20,292,0,0" Name="label12" VerticalAlignment="Top" Width="120">Salario</Label>
-                <my:TextBoxJMP Height="23" HorizontalAlignment="Left" Margin="146,292,0,0" Name="txtSalario" VerticalAlignment="Top" Width="150" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" />
+                <my:TextBoxJMP Height="28" HorizontalAlignment="Left" Margin="146,292,0,0" Name="txtSalario" VerticalAlignment="Top" Width="150" xmlns:my="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP" BorderThickness="0" TextDecorations="None" Foreground="Black">0.0</my:TextBoxJMP>
             </Grid>
         </local:ctlPlantillaTabItem>
         <Button Height="23" HorizontalAlignment="Right" Margin="0,12,10,0" Name="btnSave" VerticalAlignment="Top" Width="75" Background="Transparent" Click="btnSave_Click">Guardar</Button>

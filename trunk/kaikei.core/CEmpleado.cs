@@ -14,12 +14,12 @@ namespace kaikei.core
         public String Nombres { set; get; }
         public String Apellidos { set; get; }
         public String Direccion { set; get; }
-        public int DUI { set; get; }
-        public int NIT { set; get; }
-        public int ISSS { set; get; }
-        public int NUP { set; get; }
-        public int TelefonoFijo { set; get; }
-        public int TelefonoMovil { set; get; }
+        public long DUI { set; get; }
+        public long NIT { set; get; }
+        public long ISSS { set; get; }
+        public long NUP { set; get; }
+        public long TelefonoFijo { set; get; }
+        public long TelefonoMovil { set; get; }
         public String Email { set; get; }
         public Double Salario { set; get; }
 
@@ -60,12 +60,12 @@ namespace kaikei.core
                 this.Nombres = r["NOMBRES"].ToString();
                 this.Apellidos = r["APELLIDOS"].ToString();
                 this.Direccion = r["DIRECCION"].ToString();
-                this.DUI = Int32.Parse(r["DUI"].ToString());
-                this.NIT = Int32.Parse(r["NIT"].ToString());
-                this.ISSS = Int32.Parse(r["ISSS"].ToString());
-                this.NUP = Int32.Parse(r["NUP"].ToString());
-                this.TelefonoFijo = Int32.Parse(r["TELEFONOFIJO"].ToString());
-                this.TelefonoFijo = Int32.Parse(r["TELEFONOMOVIL"].ToString());
+                this.DUI = long.Parse(r["DUI"].ToString()); 
+                this.NIT = long.Parse(r["NIT"].ToString());
+                this.ISSS = long.Parse(r["ISSS"].ToString());
+                this.NUP = long.Parse(r["NUP"].ToString());
+                this.TelefonoFijo = long.Parse(r["TELEFONOFIJO"].ToString());
+                this.TelefonoFijo = long.Parse(r["TELEFONOMOVIL"].ToString());
                 this.Email = r["EMAIL"].ToString();
                 this.Salario = Double.Parse(r["SALARIONOMINAL"].ToString());
             }

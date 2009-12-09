@@ -28,6 +28,7 @@ namespace Kaikei
 			this.InitializeComponent();
             
             //Cargamos en el encabezado las Fechas del periodo corresponediente
+            lblEmpresaNombre.Text = Kaikei.Properties.Settings.Default.EmpresaNombre;
             lblPeriodo.Text = string.Format("DEL {0} AL {1} DE {2} DEL {3}",
                                             Kaikei.Properties.Settings.Default.FechaIP.Day,
                                             Kaikei.Properties.Settings.Default.FechaFP.Day,

@@ -215,13 +215,16 @@
       <DependentUpon>EstadosContables.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormatoCampos.cs" />
-    <Compile Include="HandlerMathJMP.cs" />
     <Compile Include="InventariosDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InventariosDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MathEvalJMP.cs" />
+    <Compile Include="PlanillaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanillaDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -245,6 +248,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rBalanceGeneral.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rEstadoCapital.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rEstadoCapital.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VistasTabItem\viewEmpleadoModificar.xaml.cs">
@@ -313,6 +322,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rBalanceGeneral.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rEstadoCapital.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rEstadoCapital.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ContaGeneralDS.xsc">
       <DependentUpon>ContaGeneralDS.xsd</DependentUpon>
@@ -348,6 +361,17 @@
       <DependentUpon>InventariosDS.xsd</DependentUpon>
     </None>
     <None Include="KaiKei.snk" />
+    <None Include="PlanillaDS.xsc">
+      <DependentUpon>PlanillaDS.xsd</DependentUpon>
+    </None>
+    <None Include="PlanillaDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PlanillaDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PlanillaDS.xss">
+      <DependentUpon>PlanillaDS.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

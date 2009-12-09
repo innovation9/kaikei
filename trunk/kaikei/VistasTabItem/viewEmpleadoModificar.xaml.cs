@@ -36,6 +36,16 @@ namespace Kaikei.VistasTabItem
         {
             //validar y guardar
 
+            TabItem tabItem = e.Source as TabItem;
+            if (tabItem != null)
+            {
+                TabControl tabControl = tabItem.Parent as TabControl;
+                if (tabControl != null)
+                    tabControl.Items.Remove(tabItem);
+
+                //Tambien lo eliminamos de la tabla Hash
+                //tableTabs.Remove(tabItem.Tag);
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

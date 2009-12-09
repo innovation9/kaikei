@@ -29,7 +29,7 @@
 				</Custom:DataGrid>
 				<Border Margin="25,5,35,0" BorderThickness="1" BorderBrush="Black">
 					<StackPanel x:Name="stackEncabezado">
-						<TextBlock Text="DELI QUEENE's" TextWrapping="Wrap" FontFamily="Comic Sans MS" FontSize="17.333" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,3,0,0"/>
+						<TextBlock Text="DELI QUEENE's" TextWrapping="Wrap" FontFamily="Comic Sans MS" FontSize="17.333" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,3,0,0" Name="lblEmpresaNombre"/>
 						<TextBlock Text="BALANCE DE COMPROBACION" TextWrapping="Wrap" FontSize="13.333" HorizontalAlignment="Center" Margin="0,3,0,0"/>
 						<TextBlock Text="DEL 1 AL 31 DE DICIEMBRE DEL 2009" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="13.333" Margin="0,1,0,5" FontStyle="Italic" Name="lblPeriodo" />
 					</StackPanel>
