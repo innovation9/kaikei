@@ -23,5 +23,10 @@ namespace Kaikei.VistasTabItem
         {
             InitializeComponent();
         }
+
+        private void dataGrid1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
     }
 }

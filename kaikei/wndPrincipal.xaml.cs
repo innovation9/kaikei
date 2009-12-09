@@ -52,6 +52,8 @@ namespace Kaikei
             ComprasInventarios,
             BalanceGeneral,
             BalanceComprobacion,
+            EstadoCapital,
+            EstadoResultados,
             CatalogoCuentas,
             EmpleadoAgregar,
             EmpleadoGestionar,
@@ -100,7 +102,18 @@ namespace Kaikei
                         newTab.Content = new viewBalanceComprobacion();
                         break;
 
-#if false
+                    case TipoTab.EstadoCapital:
+                        newTab.Name = "tabEstCap";
+                        newTab.Header = "Estado de Capital";
+                        newTab.Content = new viewEstadoCapital();
+                        break;
+
+                    case TipoTab.EstadoResultados:
+                        newTab.Name = "tabEstRes";
+                        newTab.Header = "Estado de Resultados";
+                        newTab.Content = new viewEstadoResultados();
+                        break;
+
                     case TipoTab.EmpleadoAgregar:
                         newTab.Name = "tabNewEmp";
                         newTab.Header = "Agregar Empleado";
@@ -112,7 +125,7 @@ namespace Kaikei
                         newTab.Header = "Gestionar Empleados";
                         newTab.Content = new viewEmpleados();
                         break; 
-#endif
+
                     case TipoTab.Propiedades:
                         newTab.Name = "tabPropiedades";
                         newTab.Header = "Propiedades";

@@ -11,17 +11,45 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using kaikei.core;
+using Kaikei.Properties;
 
 namespace Kaikei.VistasTabItem
 {
     /// <summary>
-    /// Interaction logic for viewEmpleadoModificar.xaml
+    /// Interaction logic for viewEmpleadoNuevo.xaml
     /// </summary>
     public partial class viewEmpleadoModificar : UserControl
     {
-        public viewEmpleadoModificar()
+        CEmpleado empleado;
+
+        public viewEmpleadoModificar(int Id)
         {
             InitializeComponent();
+
+            //obtener datos
+            empleado = new CEmpleado(new CConeccion(Settings.Default.KaikeiConnectionString), Id);
+
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            //validar y guardar
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            //eliminar
+            //if(
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            //modificar
+            btnEdit.IsEnabled = false;
+            btnSave.IsEnabled = true;
+
         }
     }
 }
