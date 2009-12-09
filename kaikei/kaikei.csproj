@@ -215,11 +215,13 @@
       <DependentUpon>EstadosContables.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormatoCampos.cs" />
+    <Compile Include="HandlerMathJMP.cs" />
     <Compile Include="InventariosDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InventariosDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MathEvalJMP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
