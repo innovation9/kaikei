@@ -47,6 +47,10 @@ namespace Kaikei
 			//Generamos la Tabla para el detalle de la Transacciones y la conectamos al Grid
 			GenerarTabla();
 			dgDetalleT.ItemsSource=tblDetalle.DefaultView;
+
+            txtMonto.LostFocus += new RoutedEventHandler(HandlerMathJMP.NumeroDecimalMath);
+            txtDebe.LostFocus += new RoutedEventHandler(HandlerMathJMP.NumeroDecimalMath);
+            txtHaber.LostFocus += new RoutedEventHandler(HandlerMathJMP.NumeroDecimalMath);
 		}
 
         private void txtOperaciones_GotFocus(object sender, RoutedEventArgs e)

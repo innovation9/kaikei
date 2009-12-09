@@ -58,6 +58,9 @@ namespace Kaikei.VistasTabItem
             //Cargamos la fecha actual del sistema
             txtFecha.Text = DateTime.Today.ToString();
             txtProveedor.Focus();
+
+            txtTUnit.LostFocus += new RoutedEventHandler(HandlerMathJMP.NumeroEnteroMath);
+            txtPrecioU.LostFocus += new RoutedEventHandler(HandlerMathJMP.NumeroDecimalMath);
         }
 		
 	private void txtProveedor_GotFocus(object sender, RoutedEventArgs e)
