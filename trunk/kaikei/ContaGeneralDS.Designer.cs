@@ -37,6 +37,8 @@ namespace Kaikei {
         
         private CLASIFICACIONCUENTASDataTable tableCLASIFICACIONCUENTAS;
         
+        private GET_BALANCECOMPROBACIONDataTable tableGET_BALANCECOMPROBACION;
+        
         private global::System.Data.DataRelation relationFK_DETALLE__FK_CUENTA_CATALOGO;
         
         private global::System.Data.DataRelation relationFK_DETALLE__FK_TRANSA_TRANSACC;
@@ -88,6 +90,9 @@ namespace Kaikei {
                 }
                 if ((ds.Tables["CLASIFICACIONCUENTAS"] != null)) {
                     base.Tables.Add(new CLASIFICACIONCUENTASDataTable(ds.Tables["CLASIFICACIONCUENTAS"]));
+                }
+                if ((ds.Tables["GET_BALANCECOMPROBACION"] != null)) {
+                    base.Tables.Add(new GET_BALANCECOMPROBACIONDataTable(ds.Tables["GET_BALANCECOMPROBACION"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -158,6 +163,15 @@ namespace Kaikei {
         public CLASIFICACIONCUENTASDataTable CLASIFICACIONCUENTAS {
             get {
                 return this.tableCLASIFICACIONCUENTAS;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GET_BALANCECOMPROBACIONDataTable GET_BALANCECOMPROBACION {
+            get {
+                return this.tableGET_BALANCECOMPROBACION;
             }
         }
         
@@ -238,6 +252,9 @@ namespace Kaikei {
                 if ((ds.Tables["CLASIFICACIONCUENTAS"] != null)) {
                     base.Tables.Add(new CLASIFICACIONCUENTASDataTable(ds.Tables["CLASIFICACIONCUENTAS"]));
                 }
+                if ((ds.Tables["GET_BALANCECOMPROBACION"] != null)) {
+                    base.Tables.Add(new GET_BALANCECOMPROBACIONDataTable(ds.Tables["GET_BALANCECOMPROBACION"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -304,6 +321,12 @@ namespace Kaikei {
                     this.tableCLASIFICACIONCUENTAS.InitVars();
                 }
             }
+            this.tableGET_BALANCECOMPROBACION = ((GET_BALANCECOMPROBACIONDataTable)(base.Tables["GET_BALANCECOMPROBACION"]));
+            if ((initTable == true)) {
+                if ((this.tableGET_BALANCECOMPROBACION != null)) {
+                    this.tableGET_BALANCECOMPROBACION.InitVars();
+                }
+            }
             this.relationFK_DETALLE__FK_CUENTA_CATALOGO = this.Relations["FK_DETALLE__FK_CUENTA_CATALOGO"];
             this.relationFK_DETALLE__FK_TRANSA_TRANSACC = this.Relations["FK_DETALLE__FK_TRANSA_TRANSACC"];
             this.relationFK_TRANSACC_FK_OPERAC_OPERACIO = this.Relations["FK_TRANSACC_FK_OPERAC_OPERACIO"];
@@ -329,6 +352,8 @@ namespace Kaikei {
             base.Tables.Add(this.tableCLASIFICACION_CUENTAS);
             this.tableCLASIFICACIONCUENTAS = new CLASIFICACIONCUENTASDataTable();
             base.Tables.Add(this.tableCLASIFICACIONCUENTAS);
+            this.tableGET_BALANCECOMPROBACION = new GET_BALANCECOMPROBACIONDataTable();
+            base.Tables.Add(this.tableGET_BALANCECOMPROBACION);
             this.relationFK_DETALLE__FK_CUENTA_CATALOGO = new global::System.Data.DataRelation("FK_DETALLE__FK_CUENTA_CATALOGO", new global::System.Data.DataColumn[] {
                         this.tableCATALOGO_CUENTAS.ID_CUENTAColumn}, new global::System.Data.DataColumn[] {
                         this.tableDETALLE_TRANSACCIONES.ID_CUENTAColumn}, false);
@@ -374,6 +399,11 @@ namespace Kaikei {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeCLASIFICACIONCUENTAS() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeGET_BALANCECOMPROBACION() {
             return false;
         }
         
@@ -441,6 +471,8 @@ namespace Kaikei {
         public delegate void CLASIFICACION_CUENTASRowChangeEventHandler(object sender, CLASIFICACION_CUENTASRowChangeEvent e);
         
         public delegate void CLASIFICACIONCUENTASRowChangeEventHandler(object sender, CLASIFICACIONCUENTASRowChangeEvent e);
+        
+        public delegate void GET_BALANCECOMPROBACIONRowChangeEventHandler(object sender, GET_BALANCECOMPROBACIONRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2156,6 +2188,285 @@ namespace Kaikei {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GET_BALANCECOMPROBACIONDataTable : global::System.Data.TypedTableBase<GET_BALANCECOMPROBACIONRow> {
+            
+            private global::System.Data.DataColumn columnNUM;
+            
+            private global::System.Data.DataColumn columnNOMBRE;
+            
+            private global::System.Data.DataColumn columnDESCRIPCION;
+            
+            private global::System.Data.DataColumn columnDEBE;
+            
+            private global::System.Data.DataColumn columnHABER;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public GET_BALANCECOMPROBACIONDataTable() {
+                this.TableName = "GET_BALANCECOMPROBACION";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal GET_BALANCECOMPROBACIONDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected GET_BALANCECOMPROBACIONDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NUMColumn {
+                get {
+                    return this.columnNUM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NOMBREColumn {
+                get {
+                    return this.columnNOMBRE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DESCRIPCIONColumn {
+                get {
+                    return this.columnDESCRIPCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DEBEColumn {
+                get {
+                    return this.columnDEBE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn HABERColumn {
+                get {
+                    return this.columnHABER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public GET_BALANCECOMPROBACIONRow this[int index] {
+                get {
+                    return ((GET_BALANCECOMPROBACIONRow)(this.Rows[index]));
+                }
+            }
+            
+            public event GET_BALANCECOMPROBACIONRowChangeEventHandler GET_BALANCECOMPROBACIONRowChanging;
+            
+            public event GET_BALANCECOMPROBACIONRowChangeEventHandler GET_BALANCECOMPROBACIONRowChanged;
+            
+            public event GET_BALANCECOMPROBACIONRowChangeEventHandler GET_BALANCECOMPROBACIONRowDeleting;
+            
+            public event GET_BALANCECOMPROBACIONRowChangeEventHandler GET_BALANCECOMPROBACIONRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddGET_BALANCECOMPROBACIONRow(GET_BALANCECOMPROBACIONRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public GET_BALANCECOMPROBACIONRow AddGET_BALANCECOMPROBACIONRow(long NUM, string NOMBRE, string DESCRIPCION, decimal DEBE, decimal HABER) {
+                GET_BALANCECOMPROBACIONRow rowGET_BALANCECOMPROBACIONRow = ((GET_BALANCECOMPROBACIONRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        NUM,
+                        NOMBRE,
+                        DESCRIPCION,
+                        DEBE,
+                        HABER};
+                rowGET_BALANCECOMPROBACIONRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGET_BALANCECOMPROBACIONRow);
+                return rowGET_BALANCECOMPROBACIONRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                GET_BALANCECOMPROBACIONDataTable cln = ((GET_BALANCECOMPROBACIONDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GET_BALANCECOMPROBACIONDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnNUM = base.Columns["NUM"];
+                this.columnNOMBRE = base.Columns["NOMBRE"];
+                this.columnDESCRIPCION = base.Columns["DESCRIPCION"];
+                this.columnDEBE = base.Columns["DEBE"];
+                this.columnHABER = base.Columns["HABER"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnNUM = new global::System.Data.DataColumn("NUM", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNUM);
+                this.columnNOMBRE = new global::System.Data.DataColumn("NOMBRE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOMBRE);
+                this.columnDESCRIPCION = new global::System.Data.DataColumn("DESCRIPCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESCRIPCION);
+                this.columnDEBE = new global::System.Data.DataColumn("DEBE", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDEBE);
+                this.columnHABER = new global::System.Data.DataColumn("HABER", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHABER);
+                this.columnNOMBRE.MaxLength = 25;
+                this.columnDESCRIPCION.MaxLength = 40;
+                this.columnDEBE.ReadOnly = true;
+                this.columnHABER.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public GET_BALANCECOMPROBACIONRow NewGET_BALANCECOMPROBACIONRow() {
+                return ((GET_BALANCECOMPROBACIONRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GET_BALANCECOMPROBACIONRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(GET_BALANCECOMPROBACIONRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GET_BALANCECOMPROBACIONRowChanged != null)) {
+                    this.GET_BALANCECOMPROBACIONRowChanged(this, new GET_BALANCECOMPROBACIONRowChangeEvent(((GET_BALANCECOMPROBACIONRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GET_BALANCECOMPROBACIONRowChanging != null)) {
+                    this.GET_BALANCECOMPROBACIONRowChanging(this, new GET_BALANCECOMPROBACIONRowChangeEvent(((GET_BALANCECOMPROBACIONRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GET_BALANCECOMPROBACIONRowDeleted != null)) {
+                    this.GET_BALANCECOMPROBACIONRowDeleted(this, new GET_BALANCECOMPROBACIONRowChangeEvent(((GET_BALANCECOMPROBACIONRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GET_BALANCECOMPROBACIONRowDeleting != null)) {
+                    this.GET_BALANCECOMPROBACIONRowDeleting(this, new GET_BALANCECOMPROBACIONRowChangeEvent(((GET_BALANCECOMPROBACIONRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveGET_BALANCECOMPROBACIONRow(GET_BALANCECOMPROBACIONRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ContaGeneralDS ds = new ContaGeneralDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GET_BALANCECOMPROBACIONDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -2852,6 +3163,147 @@ namespace Kaikei {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class GET_BALANCECOMPROBACIONRow : global::System.Data.DataRow {
+            
+            private GET_BALANCECOMPROBACIONDataTable tableGET_BALANCECOMPROBACION;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal GET_BALANCECOMPROBACIONRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGET_BALANCECOMPROBACION = ((GET_BALANCECOMPROBACIONDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public long NUM {
+                get {
+                    try {
+                        return ((long)(this[this.tableGET_BALANCECOMPROBACION.NUMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NUM\' de la tabla \'GET_BALANCECOMPROBACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGET_BALANCECOMPROBACION.NUMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string NOMBRE {
+                get {
+                    try {
+                        return ((string)(this[this.tableGET_BALANCECOMPROBACION.NOMBREColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NOMBRE\' de la tabla \'GET_BALANCECOMPROBACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGET_BALANCECOMPROBACION.NOMBREColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DESCRIPCION {
+                get {
+                    try {
+                        return ((string)(this[this.tableGET_BALANCECOMPROBACION.DESCRIPCIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCRIPCION\' de la tabla \'GET_BALANCECOMPROBACION\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGET_BALANCECOMPROBACION.DESCRIPCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal DEBE {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableGET_BALANCECOMPROBACION.DEBEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DEBE\' de la tabla \'GET_BALANCECOMPROBACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGET_BALANCECOMPROBACION.DEBEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal HABER {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableGET_BALANCECOMPROBACION.HABERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'HABER\' de la tabla \'GET_BALANCECOMPROBACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGET_BALANCECOMPROBACION.HABERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsNUMNull() {
+                return this.IsNull(this.tableGET_BALANCECOMPROBACION.NUMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetNUMNull() {
+                this[this.tableGET_BALANCECOMPROBACION.NUMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsNOMBRENull() {
+                return this.IsNull(this.tableGET_BALANCECOMPROBACION.NOMBREColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetNOMBRENull() {
+                this[this.tableGET_BALANCECOMPROBACION.NOMBREColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDESCRIPCIONNull() {
+                return this.IsNull(this.tableGET_BALANCECOMPROBACION.DESCRIPCIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDESCRIPCIONNull() {
+                this[this.tableGET_BALANCECOMPROBACION.DESCRIPCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDEBENull() {
+                return this.IsNull(this.tableGET_BALANCECOMPROBACION.DEBEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDEBENull() {
+                this[this.tableGET_BALANCECOMPROBACION.DEBEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsHABERNull() {
+                return this.IsNull(this.tableGET_BALANCECOMPROBACION.HABERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetHABERNull() {
+                this[this.tableGET_BALANCECOMPROBACION.HABERColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -3024,6 +3476,37 @@ namespace Kaikei {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public CLASIFICACIONCUENTASRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class GET_BALANCECOMPROBACIONRowChangeEvent : global::System.EventArgs {
+            
+            private GET_BALANCECOMPROBACIONRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public GET_BALANCECOMPROBACIONRowChangeEvent(GET_BALANCECOMPROBACIONRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public GET_BALANCECOMPROBACIONRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5081,6 +5564,294 @@ SELECT ID_CLASIFICACION, NOMBRE FROM CLASIFICACION_CUENTAS WHERE (ID_CLASIFICACI
             ContaGeneralDS.CLASIFICACIONCUENTASDataTable dataTable = new ContaGeneralDS.CLASIFICACIONCUENTASDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GET_BALANCECOMPROBACIONTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public GET_BALANCECOMPROBACIONTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GET_BALANCECOMPROBACION";
+            tableMapping.ColumnMappings.Add("NUM", "NUM");
+            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE");
+            tableMapping.ColumnMappings.Add("DESCRIPCION", "DESCRIPCION");
+            tableMapping.ColumnMappings.Add("DEBE", "DEBE");
+            tableMapping.ColumnMappings.Add("HABER", "HABER");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Kaikei.Properties.Settings.Default.KaikeiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT NUM, NOMBRE, DESCRIPCION, DEBE, HABER FROM dbo.GET_BALANCECOMPROBACION(@Fe" +
+                "chaI, @FechaF)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaI", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaF", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ContaGeneralDS.GET_BALANCECOMPROBACIONDataTable dataTable, System.DateTime FechaI, System.DateTime FechaF) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FechaI));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaF));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ContaGeneralDS.GET_BALANCECOMPROBACIONDataTable GetData(System.DateTime FechaI, System.DateTime FechaF) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FechaI));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaF));
+            ContaGeneralDS.GET_BALANCECOMPROBACIONDataTable dataTable = new ContaGeneralDS.GET_BALANCECOMPROBACIONDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class FuncionesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Kaikei.Properties.Settings.Default.KaikeiConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "dbo.GET_TOTALDEBE";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.ReturnValue, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAI", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAF", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Kaikei.Properties.Settings.Default.KaikeiConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "dbo.GET_TOTALHABER";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.ReturnValue, 18, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAI", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAF", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<decimal> GET_TOTALDEBE(global::System.Nullable<global::System.DateTime> FECHAI, global::System.Nullable<global::System.DateTime> FECHAF) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((FECHAI.HasValue == true)) {
+                command.Parameters[1].Value = ((System.DateTime)(FECHAI.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((FECHAF.HasValue == true)) {
+                command.Parameters[2].Value = ((System.DateTime)(FECHAF.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            try {
+                command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((command.Parameters[0].Value == null) 
+                        || (command.Parameters[0].Value.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<decimal>();
+            }
+            else {
+                return new global::System.Nullable<decimal>(((decimal)(command.Parameters[0].Value)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<decimal> GET_TOTALHABER(global::System.Nullable<global::System.DateTime> FECHAI, global::System.Nullable<global::System.DateTime> FECHAF) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
+            if ((FECHAI.HasValue == true)) {
+                command.Parameters[1].Value = ((System.DateTime)(FECHAI.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((FECHAF.HasValue == true)) {
+                command.Parameters[2].Value = ((System.DateTime)(FECHAF.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            try {
+                command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((command.Parameters[0].Value == null) 
+                        || (command.Parameters[0].Value.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<decimal>();
+            }
+            else {
+                return new global::System.Nullable<decimal>(((decimal)(command.Parameters[0].Value)));
+            }
         }
     }
     
