@@ -53,8 +53,6 @@ namespace Kaikei {
         
         private global::System.Data.DataRelation relationFK_DETALLE__FK_CUENTA_CATALOGO3;
         
-        private global::System.Data.DataRelation relationFK_CCUENTAS_CLASIFICACION1;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,7 +360,6 @@ namespace Kaikei {
             this.relationFK_DETALLE__FK_CUENTA_CATALOGO1 = this.Relations["FK_DETALLE__FK_CUENTA_CATALOGO1"];
             this.relationFK_DETALLE__FK_CUENTA_CATALOGO2 = this.Relations["FK_DETALLE__FK_CUENTA_CATALOGO2"];
             this.relationFK_DETALLE__FK_CUENTA_CATALOGO3 = this.Relations["FK_DETALLE__FK_CUENTA_CATALOGO3"];
-            this.relationFK_CCUENTAS_CLASIFICACION1 = this.Relations["FK_CCUENTAS_CLASIFICACION1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -412,10 +409,6 @@ namespace Kaikei {
                         this.tableBALANCE_COMPROBACION.ID_CUENTAColumn}, new global::System.Data.DataColumn[] {
                         this.tableDETALLE_TRANSACCIONES.ID_CUENTAColumn}, false);
             this.Relations.Add(this.relationFK_DETALLE__FK_CUENTA_CATALOGO3);
-            this.relationFK_CCUENTAS_CLASIFICACION1 = new global::System.Data.DataRelation("FK_CCUENTAS_CLASIFICACION1", new global::System.Data.DataColumn[] {
-                        this.tableCLASIFICACION_CUENTAS.ID_CLASIFICACIONColumn}, new global::System.Data.DataColumn[] {
-                        this.tableESTADO_CAPITAL.ID_CLASIFICACIONColumn}, false);
-            this.Relations.Add(this.relationFK_CCUENTAS_CLASIFICACION1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2275,11 +2268,11 @@ namespace Kaikei {
             
             private global::System.Data.DataColumn columnDESCRIPCION;
             
-            private global::System.Data.DataColumn columnID_CLASIFICACION;
-            
             private global::System.Data.DataColumn columnDEBE;
             
             private global::System.Data.DataColumn columnHABER;
+            
+            private global::System.Data.DataColumn columnSALDO;
             
             private global::System.Data.DataColumn columnTIPO;
             
@@ -2328,13 +2321,6 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ID_CLASIFICACIONColumn {
-                get {
-                    return this.columnID_CLASIFICACION;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn DEBEColumn {
                 get {
                     return this.columnDEBE;
@@ -2345,6 +2331,13 @@ namespace Kaikei {
             public global::System.Data.DataColumn HABERColumn {
                 get {
                     return this.columnHABER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SALDOColumn {
+                get {
+                    return this.columnSALDO;
                 }
             }
             
@@ -2384,24 +2377,18 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public ESTADO_CAPITALRow AddESTADO_CAPITALRow(string NOMBRE, string DESCRIPCION, decimal DEBE, decimal HABER, string TIPO) {
+            public ESTADO_CAPITALRow AddESTADO_CAPITALRow(string NOMBRE, string DESCRIPCION, decimal DEBE, decimal HABER, decimal SALDO) {
                 ESTADO_CAPITALRow rowESTADO_CAPITALRow = ((ESTADO_CAPITALRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NOMBRE,
                         DESCRIPCION,
-                        null,
                         DEBE,
                         HABER,
-                        TIPO};
+                        SALDO,
+                        null};
                 rowESTADO_CAPITALRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowESTADO_CAPITALRow);
                 return rowESTADO_CAPITALRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public ESTADO_CAPITALRow FindByID_CLASIFICACION(int ID_CLASIFICACION) {
-                return ((ESTADO_CAPITALRow)(this.Rows.Find(new object[] {
-                            ID_CLASIFICACION})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2420,9 +2407,9 @@ namespace Kaikei {
             internal void InitVars() {
                 this.columnNOMBRE = base.Columns["NOMBRE"];
                 this.columnDESCRIPCION = base.Columns["DESCRIPCION"];
-                this.columnID_CLASIFICACION = base.Columns["ID_CLASIFICACION"];
                 this.columnDEBE = base.Columns["DEBE"];
                 this.columnHABER = base.Columns["HABER"];
+                this.columnSALDO = base.Columns["SALDO"];
                 this.columnTIPO = base.Columns["TIPO"];
             }
             
@@ -2432,27 +2419,24 @@ namespace Kaikei {
                 base.Columns.Add(this.columnNOMBRE);
                 this.columnDESCRIPCION = new global::System.Data.DataColumn("DESCRIPCION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDESCRIPCION);
-                this.columnID_CLASIFICACION = new global::System.Data.DataColumn("ID_CLASIFICACION", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_CLASIFICACION);
                 this.columnDEBE = new global::System.Data.DataColumn("DEBE", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDEBE);
                 this.columnHABER = new global::System.Data.DataColumn("HABER", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHABER);
-                this.columnTIPO = new global::System.Data.DataColumn("TIPO", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnSALDO = new global::System.Data.DataColumn("SALDO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSALDO);
+                this.columnTIPO = new global::System.Data.DataColumn("TIPO", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTIPO);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID_CLASIFICACION}, true));
                 this.columnNOMBRE.MaxLength = 25;
                 this.columnDESCRIPCION.MaxLength = 40;
-                this.columnID_CLASIFICACION.AutoIncrement = true;
-                this.columnID_CLASIFICACION.AutoIncrementSeed = -1;
-                this.columnID_CLASIFICACION.AutoIncrementStep = -1;
-                this.columnID_CLASIFICACION.AllowDBNull = false;
-                this.columnID_CLASIFICACION.ReadOnly = true;
-                this.columnID_CLASIFICACION.Unique = true;
                 this.columnDEBE.ReadOnly = true;
                 this.columnHABER.ReadOnly = true;
-                this.columnTIPO.MaxLength = 25;
+                this.columnSALDO.ReadOnly = true;
+                this.columnTIPO.AutoIncrement = true;
+                this.columnTIPO.AutoIncrementSeed = -1;
+                this.columnTIPO.AutoIncrementStep = -1;
+                this.columnTIPO.AllowDBNull = false;
+                this.columnTIPO.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3046,16 +3030,6 @@ namespace Kaikei {
                 }
                 else {
                     return ((CATALOGO_CUENTASRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CCUENTAS_CLASIFICACION"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public ESTADO_CAPITALRow[] GetESTADO_CAPITALRows() {
-                if ((this.Table.ChildRelations["FK_CCUENTAS_CLASIFICACION1"] == null)) {
-                    return new ESTADO_CAPITALRow[0];
-                }
-                else {
-                    return ((ESTADO_CAPITALRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CCUENTAS_CLASIFICACION1"])));
                 }
             }
         }
@@ -3700,16 +3674,6 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int ID_CLASIFICACION {
-                get {
-                    return ((int)(this[this.tableESTADO_CAPITAL.ID_CLASIFICACIONColumn]));
-                }
-                set {
-                    this[this.tableESTADO_CAPITAL.ID_CLASIFICACIONColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal DEBE {
                 get {
                     try {
@@ -3740,27 +3704,27 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string TIPO {
+            public decimal SALDO {
                 get {
                     try {
-                        return ((string)(this[this.tableESTADO_CAPITAL.TIPOColumn]));
+                        return ((decimal)(this[this.tableESTADO_CAPITAL.SALDOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TIPO\' in table \'ESTADO_CAPITAL\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SALDO\' in table \'ESTADO_CAPITAL\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableESTADO_CAPITAL.TIPOColumn] = value;
+                    this[this.tableESTADO_CAPITAL.SALDOColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public CLASIFICACION_CUENTASRow CLASIFICACION_CUENTASRow {
+            public int TIPO {
                 get {
-                    return ((CLASIFICACION_CUENTASRow)(this.GetParentRow(this.Table.ParentRelations["FK_CCUENTAS_CLASIFICACION1"])));
+                    return ((int)(this[this.tableESTADO_CAPITAL.TIPOColumn]));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_CCUENTAS_CLASIFICACION1"]);
+                    this[this.tableESTADO_CAPITAL.TIPOColumn] = value;
                 }
             }
             
@@ -3805,13 +3769,13 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsTIPONull() {
-                return this.IsNull(this.tableESTADO_CAPITAL.TIPOColumn);
+            public bool IsSALDONull() {
+                return this.IsNull(this.tableESTADO_CAPITAL.SALDOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetTIPONull() {
-                this[this.tableESTADO_CAPITAL.TIPOColumn] = global::System.Convert.DBNull;
+            public void SetSALDONull() {
+                this[this.tableESTADO_CAPITAL.SALDOColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5817,13 +5781,11 @@ FROM            CATALOGO_CUENTAS INNER JOIN
                          CLASIFICACION_CUENTAS ON CATALOGO_CUENTAS.ID_CLASIFICACION = CLASIFICACION_CUENTAS.ID_CLASIFICACION INNER JOIN
                          DETALLE_TRANSACCIONES ON CATALOGO_CUENTAS.ID_CUENTA = DETALLE_TRANSACCIONES.ID_CUENTA INNER JOIN
                          TRANSACCIONES ON DETALLE_TRANSACCIONES.ID_TRANSACCION = TRANSACCIONES.ID_TRANSACCION
-WHERE        (TRANSACCIONES.FECHA >= @FechaInicio) AND (TRANSACCIONES.FECHA <= @FechaFin) AND (CLASIFICACION_CUENTAS.ID_CLASIFICACION >= 2) AND 
-                         (CLASIFICACION_CUENTAS.ID_CLASIFICACION <= 8)
+WHERE        (TRANSACCIONES.FECHA <= @FechaFin) AND (CLASIFICACION_CUENTAS.ID_CLASIFICACION >= 2) AND (CLASIFICACION_CUENTAS.ID_CLASIFICACION <= 8)
 GROUP BY DETALLE_TRANSACCIONES.ID_CUENTA, CLASIFICACION_CUENTAS.ID_CLASIFICACION, CATALOGO_CUENTAS.NOMBRE, 
                          CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.NOMBRE
 ORDER BY CATALOGO_CUENTAS.NOMBRE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaInicio", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaFin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -5833,31 +5795,24 @@ FROM            CATALOGO_CUENTAS INNER JOIN
                          CLASIFICACION_CUENTAS ON CATALOGO_CUENTAS.ID_CLASIFICACION = CLASIFICACION_CUENTAS.ID_CLASIFICACION INNER JOIN
                          DETALLE_TRANSACCIONES ON CATALOGO_CUENTAS.ID_CUENTA = DETALLE_TRANSACCIONES.ID_CUENTA INNER JOIN
                          TRANSACCIONES ON DETALLE_TRANSACCIONES.ID_TRANSACCION = TRANSACCIONES.ID_TRANSACCION
-WHERE        (TRANSACCIONES.FECHA >= @FechaInicio) AND (TRANSACCIONES.FECHA <= @FechaFin) AND (CLASIFICACION_CUENTAS.ID_CLASIFICACION = 9)
-GROUP BY DETALLE_TRANSACCIONES.ID_CUENTA, CLASIFICACION_CUENTAS.ID_CLASIFICACION, TRANSACCIONES.FECHA, CATALOGO_CUENTAS.NOMBRE, 
+WHERE        (TRANSACCIONES.FECHA <= @FechaFin) AND (CLASIFICACION_CUENTAS.ID_CLASIFICACION = 9)
+GROUP BY DETALLE_TRANSACCIONES.ID_CUENTA, CLASIFICACION_CUENTAS.ID_CLASIFICACION, CATALOGO_CUENTAS.NOMBRE, 
                          CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.NOMBRE
 ORDER BY CATALOGO_CUENTAS.NOMBRE";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaInicio", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaFin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EstadosContables.BALANCE_GENERALDataTable dataTable, global::System.Nullable<global::System.DateTime> FechaInicio, global::System.Nullable<global::System.DateTime> FechaFin) {
+        public virtual int Fill(EstadosContables.BALANCE_GENERALDataTable dataTable, global::System.Nullable<global::System.DateTime> FechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((FechaInicio.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FechaInicio.Value));
+            if ((FechaFin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FechaFin.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((FechaFin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaFin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5869,19 +5824,13 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EstadosContables.BALANCE_GENERALDataTable GetData(global::System.Nullable<global::System.DateTime> FechaInicio, global::System.Nullable<global::System.DateTime> FechaFin) {
+        public virtual EstadosContables.BALANCE_GENERALDataTable GetData(global::System.Nullable<global::System.DateTime> FechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((FechaInicio.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FechaInicio.Value));
+            if ((FechaFin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FechaFin.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((FechaFin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaFin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             EstadosContables.BALANCE_GENERALDataTable dataTable = new EstadosContables.BALANCE_GENERALDataTable();
             this.Adapter.Fill(dataTable);
@@ -5891,19 +5840,13 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual EstadosContables.BALANCE_GENERALDataTable GetDataResultados(global::System.Nullable<global::System.DateTime> FechaInicio, global::System.Nullable<global::System.DateTime> FechaFin) {
+        public virtual EstadosContables.BALANCE_GENERALDataTable GetDataResultados(global::System.Nullable<global::System.DateTime> FechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((FechaInicio.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FechaInicio.Value));
+            if ((FechaFin.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(FechaFin.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((FechaFin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(FechaFin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             EstadosContables.BALANCE_GENERALDataTable dataTable = new EstadosContables.BALANCE_GENERALDataTable();
             this.Adapter.Fill(dataTable);
@@ -6227,9 +6170,9 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE";
             tableMapping.DataSetTable = "ESTADO_CAPITAL";
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE");
             tableMapping.ColumnMappings.Add("DESCRIPCION", "DESCRIPCION");
-            tableMapping.ColumnMappings.Add("ID_CLASIFICACION", "ID_CLASIFICACION");
             tableMapping.ColumnMappings.Add("DEBE", "DEBE");
             tableMapping.ColumnMappings.Add("HABER", "HABER");
+            tableMapping.ColumnMappings.Add("SALDO", "SALDO");
             tableMapping.ColumnMappings.Add("TIPO", "TIPO");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -6245,15 +6188,14 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        CATALOGO_CUENTAS.NOMBRE, CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.ID_CLASIFICACION, 
-                         SUM(DETALLE_TRANSACCIONES.DEBE) AS DEBE, SUM(DETALLE_TRANSACCIONES.HABER) AS HABER, CLASIFICACION_CUENTAS.NOMBRE AS TIPO
+            this._commandCollection[0].CommandText = @"SELECT        CATALOGO_CUENTAS.NOMBRE, CATALOGO_CUENTAS.DESCRIPCION, SUM(DETALLE_TRANSACCIONES.DEBE) AS DEBE, 
+                         SUM(DETALLE_TRANSACCIONES.HABER) AS HABER, SUM(DETALLE_TRANSACCIONES.DEBE) - SUM(DETALLE_TRANSACCIONES.HABER) AS SALDO, 
+                         CLASIFICACION_CUENTAS.ID_CLASIFICACION AS TIPO
 FROM            CATALOGO_CUENTAS INNER JOIN
                          CLASIFICACION_CUENTAS ON CATALOGO_CUENTAS.ID_CLASIFICACION = CLASIFICACION_CUENTAS.ID_CLASIFICACION INNER JOIN
-                         DETALLE_TRANSACCIONES ON CATALOGO_CUENTAS.ID_CUENTA = DETALLE_TRANSACCIONES.ID_CUENTA INNER JOIN
-                         TRANSACCIONES ON DETALLE_TRANSACCIONES.ID_TRANSACCION = TRANSACCIONES.ID_TRANSACCION INNER JOIN
-                         OPERACIONES ON TRANSACCIONES.ID_OPERACION = OPERACIONES.ID_OPERACION
+                         DETALLE_TRANSACCIONES ON CATALOGO_CUENTAS.ID_CUENTA = DETALLE_TRANSACCIONES.ID_CUENTA
 WHERE        (CLASIFICACION_CUENTAS.ID_CLASIFICACION >= 8)
-GROUP BY CLASIFICACION_CUENTAS.ID_CLASIFICACION, CATALOGO_CUENTAS.NOMBRE, CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.NOMBRE";
+GROUP BY CATALOGO_CUENTAS.NOMBRE, CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.ID_CLASIFICACION";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

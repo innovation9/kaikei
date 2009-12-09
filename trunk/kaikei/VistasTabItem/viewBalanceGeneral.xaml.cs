@@ -24,8 +24,6 @@ namespace Kaikei.VistasTabItem
     public partial class viewBalanceGeneral : UserControl
     {
         rBalanceGeneral bg = new rBalanceGeneral();
-        DateTime FechaInicio;
-        DateTime FechaFin;
         BALANCE_GENERALTableAdapter bgDatos;
         //DataTable Datos;
         
@@ -35,15 +33,13 @@ namespace Kaikei.VistasTabItem
             InitializeComponent();
             bgDatos =new BALANCE_GENERALTableAdapter();
             EstadosContables ec =new EstadosContables();
-            DateTime t = DateTime.Today;
-            FechaInicio = new DateTime(t.Year,t.Month,1);
-            FechaFin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-1);
-            bg.SetDataSource((DataTable)bgDatos.GetData(FechaInicio,FechaFin));
+            DateTime hoy = DateTime.Today;
+            bg.SetDataSource((DataTable)bgDatos.GetData(hoy));
             bg.SetParameterValue("EmpresaNombre", Kaikei.Properties.Settings.Default.EmpresaNombre);
             bg.SetParameterValue("txtRealizo", Kaikei.Properties.Settings.Default.EmpresaContador);
             bg.SetParameterValue("txtAutorizo", Kaikei.Properties.Settings.Default.EmpresaAdministrador);
-            bg.SetParameterValue("FechaReporte",String.Format("DEL {0}/{1}/{2} AL {3}/{1}/{2}",FechaInicio.Day,
-                FechaInicio.Month,FechaInicio.Year,FechaFin.Day));
+            bg.SetParameterValue("FechaReporte",String.Format("AL {0} de {1} de {2}",hoy.Day,
+                hoy.ToString("MMMM").ToUpper(),hoy.Year));
             
             this.crvBalanceGeneral.ReportSource = bg;
         }
