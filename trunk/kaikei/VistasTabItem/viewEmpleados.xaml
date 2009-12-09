@@ -5,11 +5,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:kaikei"
-    mc:Ignorable="d" d:DesignWidth="562.557" d:DesignHeight="456">
+    mc:Ignorable="d" d:DesignWidth="562.557" d:DesignHeight="456" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit">
     <Grid>
         <local:ctlPlantillaTabItem SubTitulo="Empleados" Descripcion="Gestion de empleados.">
             <Grid>
-                
+                <my:DataGrid AutoGenerateColumns="False" Margin="6,6,6,60" Name="dataGrid1" MouseDoubleClick="dataGrid1_MouseDoubleClick" >
+                    <my:DataGrid.Columns>
+                        <my:DataGridTextColumn Header="Id" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="Nombres" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="Apellidos" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="Direccion" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="AFP" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="DUI" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="NIT" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="ISSS" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="NUP" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="Telefono" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="Movil" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="E-mail" IsReadOnly="True" />
+                        <my:DataGridTextColumn Header="Salario" IsReadOnly="True" />
+                        
+                    </my:DataGrid.Columns>
+                </my:DataGrid>
             </Grid>
         </local:ctlPlantillaTabItem>
     </Grid>

@@ -11,13 +11,15 @@ namespace kaikei.core
         public enum TypeConeccion
         {
             WINDOW,
-            SQLSERVER
+            SQLSERVER,
+            APP
         }
 
         public String User {set; private get;}
         public String Password { set; private get; }
         public String Server { set; private get; }
         public String Database { set; private get; }
+        String ConnecctionString { set; get; }
         public TypeConeccion TipoConeccion { set; private get; }
 
         SqlConnection conex;
@@ -58,6 +60,13 @@ namespace kaikei.core
             this.Conectar();
         }
 
+        public CConeccion(String sc)
+        {
+            this.TipoConeccion = TypeConeccion.APP;
+            this.ConnecctionString = sc;
+            this.Conectar();
+        }
+
         /*
          * Regresa el estado actual de la coneccion.
          */
@@ -83,6 +92,10 @@ namespace kaikei.core
                 {
                     conex = new SqlConnection("server=" + this.Server + ";Trusted_Connection=yes;database=" +
                     this.Database + ";connection timeout=10;MultipleActiveResultSets=True");
+                }
+                else if (this.TipoConeccion == TypeConeccion.APP)
+                {
+                    conex = new SqlConnection(this.ConnecctionString);
                 }
 
                 conex.Open();

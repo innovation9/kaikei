@@ -15,23 +15,13 @@ using System.Windows.Shapes;
 namespace Kaikei.VistasTabItem
 {
     /// <summary>
-    /// Interaction logic for viewEmpleadoNuevo.xaml
+    /// Interaction logic for viewEstadoResultados.xaml
     /// </summary>
-    public partial class viewEmpleadoNuevo : UserControl
+    public partial class viewEstadoResultados : UserControl
     {
-        public viewEmpleadoNuevo()
+        public viewEstadoResultados()
         {
             InitializeComponent();
-        }
-
-        private void txtNombres_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnSave_Click(object sender, RoutedEventArgs e)
-        {
-            //validar y guardar
         }
     }
 }

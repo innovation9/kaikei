@@ -59,6 +59,10 @@
     <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Expression.Samples.Shaders, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c7dd7e4745814058, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Windows.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Windows.Design.Extensibility, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Windows.Design.Interaction, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.Windows.Design.Markup, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="PresentationFramework.Aero" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -92,6 +96,7 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WPFToolkit.VisualStudio.Design, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -107,6 +112,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="VistasTabItem\viewEmpleadoModificar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -126,15 +135,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="VistasTabItem\viewEmpleadoModificar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="VistasTabItem\viewEmpleadoNuevo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VistasTabItem\viewEmpleados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistasTabItem\viewEstadoCapital.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VistasTabItem\viewEstadoResultados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +241,9 @@
       <DependentUpon>rBalanceGeneral.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="VistasTabItem\viewEmpleadoModificar.xaml.cs">
+      <DependentUpon>viewEmpleadoModificar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VistasTabItem\viewBalanceComprobacion.xaml.cs">
       <DependentUpon>viewBalanceComprobacion.xaml</DependentUpon>
     </Compile>
@@ -240,14 +256,17 @@
     <Compile Include="VistasTabItem\viewComprasInv.xaml.cs">
       <DependentUpon>viewComprasInv.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VistasTabItem\viewEmpleadoModificar.xaml.cs">
-      <DependentUpon>viewEmpleadoModificar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="VistasTabItem\viewEmpleadoNuevo.xaml.cs">
       <DependentUpon>viewEmpleadoNuevo.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistasTabItem\viewEmpleados.xaml.cs">
       <DependentUpon>viewEmpleados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewEstadoCapital.xaml.cs">
+      <DependentUpon>viewEstadoCapital.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VistasTabItem\viewEstadoResultados.xaml.cs">
+      <DependentUpon>viewEstadoResultados.xaml</DependentUpon>
     </Compile>
     <Compile Include="VistasTabItem\ViewInventarioD.xaml.cs">
       <DependentUpon>ViewInventarioD.xaml</DependentUpon>
