@@ -15,10 +15,10 @@
 			<Grid Margin="0">
 				<Custom:DataGrid x:Name="dgBalComprobacion" Margin="25,20,35,80" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold">
 					<Custom:DataGrid.Columns>
-						<Custom:DataGridTextColumn Header="CODIGO" Width="70" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding NOMBRE, Mode=Default}" SortMemberPath="NOMBRE"/>
-						<Custom:DataGridTextColumn Header="NOMBRE DE LA CUENTA" IsReadOnly="True" MinWidth="600" Binding="{Binding DESCRIPCION, Mode=Default}" SortMemberPath="DESCRIPCION"/>
-						<Custom:DataGridTextColumn Header="DEBE" Width="150" CanUserReorder="False" CanUserResize="False" Binding="{Binding DEBE, Mode=Default}" SortMemberPath="DEBE" IsReadOnly="True"/>
-						<Custom:DataGridTextColumn Header="HABER" Width="150" CanUserReorder="False" CanUserResize="False" Binding="{Binding HABER, Mode=Default}" SortMemberPath="HABER" IsReadOnly="True"/>
+						<Custom:DataGridTextColumn Header="CODIGO" Width="70" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding NOMBRE, Mode=Default}" SortMemberPath="NOMBRE" CanUserSort="False" SortDirection="Ascending" />
+						<Custom:DataGridTextColumn Header="NOMBRE DE LA CUENTA" IsReadOnly="True" MinWidth="600" Binding="{Binding DESCRIPCION, Mode=Default}" SortMemberPath="DESCRIPCION" CanUserSort="False" />
+						<Custom:DataGridTextColumn Header="DEBE" Width="150" CanUserReorder="False" CanUserResize="False" Binding="{Binding DEBE, Mode=Default}" SortMemberPath="DEBE" IsReadOnly="True" CanUserSort="False" />
+						<Custom:DataGridTextColumn Header="HABER" Width="150" CanUserReorder="False" CanUserResize="False" Binding="{Binding HABER, Mode=Default}" SortMemberPath="HABER" IsReadOnly="True" CanUserSort="False" />
 					</Custom:DataGrid.Columns>
 				</Custom:DataGrid>
 			</Grid>
