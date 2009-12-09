@@ -34,9 +34,13 @@ namespace Kaikei.VistasTabItem
 
             bgDatos = new ESTADO_CAPITALTableAdapter();
             EstadosContables ecDS = new EstadosContables();
-            DateTime t = DateTime.Today;
-            FechaInicio = new DateTime(t.Year, t.Month, 1);
-            FechaFin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-1);
+            DateTime hoy = DateTime.Now;
+            FechaInicio = new DateTime(hoy.Year, hoy.Month, 1);
+            FechaFin = new DateTime(hoy.Year, hoy.Month, DateTime.DaysInMonth(hoy.Year, hoy.Month),23,59,59);
+            if (hoy.Day < FechaFin.Day)
+            {
+                FechaFin = hoy;
+            }
             DataTable Datos = new DataTable("ESTADO_CAPITAL");
             DataTableReader origen = ecDS.ESTADO_CAPITAL.CreateDataReader();
 
@@ -61,16 +65,16 @@ namespace Kaikei.VistasTabItem
                 if (validateBLX.Validar.IsPositivo((int)Double.Parse(origen["SALDO"].ToString())))
                 {
                     row["TIPO"] = "Desinversion";
-                    row["DEBE"] = Double.Parse(origen["SALDO"].ToString());
+                    row["DEBE"] = 0.0;
                     Saldo += Double.Parse(origen["SALDO"].ToString());
-                    row["HABER"] = 0.0;
+                    row["HABER"] = Double.Parse(origen["SALDO"].ToString()); ;
                 }
                 else
                 {
                     row["TIPO"] = "Inversion";
-                    row["HABER"] = -Double.Parse(origen["SALDO"].ToString());
+                    row["HABER"] = 0.0;
                     Saldo += Double.Parse(origen["SALDO"].ToString());
-                    row["DEBE"] = 0.0;
+                    row["DEBE"] = -Double.Parse(origen["SALDO"].ToString());
                 }
                 Datos.Rows.Add(row);
             }
