@@ -116,7 +116,7 @@ namespace Kaikei
                 tableTabs.Add(tipo, newTab);
                 tab_Ventanas.Items.Add(newTab);
                 tab_Ventanas.SelectedIndex = tab_Ventanas.Items.Count - 1;
-				newTab.Focus();
+                newTab.Focus();
             }
         }
 

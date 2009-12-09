@@ -54,6 +54,10 @@ namespace Kaikei.VistasTabItem
 			//Creamos la tabla detalle de Factura
 			GenerarTabla();
 			dgDetalleF.ItemsSource=tblDetalle.DefaultView;
+
+            //Cargamos la fecha actual del sistema
+            txtFecha.Text = DateTime.Today.ToString();
+            txtProveedor.Focus();
         }
 		
 	private void txtProveedor_GotFocus(object sender, RoutedEventArgs e)
@@ -222,6 +226,35 @@ namespace Kaikei.VistasTabItem
         txtTUnit.Text = "0";
         txtFecha.Focus();
         
+    }
+
+    private void txtProveedor_LostFocus(object sender, RoutedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(txtProveedor.Text.Trim()))
+        {
+            if (txtProveedor.SelectedValue == null)
+            {
+                if (MessageBox.Show(string.Format("El proveedor '{0}' no existe en el sistema. ¿Desea crearlo?", txtProveedor.Text), "¿Desea crear el proveedor?",
+                                MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes) == MessageBoxResult.Yes)
+                {
+
+                }
+                else
+                    try
+                    {
+                        txtProveedor.SelectedIndex = 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.Data.Clear();
+                        txtProveedor.Text = "";
+                    }
+                    finally
+                    {
+                        txtProveedor.Focus();
+                    }
+            }
+        }
     }
     }
 	
