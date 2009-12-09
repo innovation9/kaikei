@@ -60,14 +60,14 @@ namespace Kaikei.VistasTabItem
  
                 if (validateBLX.Validar.IsPositivo((int)s))
                 {
-                    row["TIPO"] = "Ingresos";
+                    row["TIPO"] = "Gastos";
                     row["DEBE"] = s;
                     Saldo += s;
                     row["HABER"] = 0.0;
                 }
                 else
                 {
-                    row["TIPO"] = "Gastos";
+                    row["TIPO"] = "Ingresos";
                     row["HABER"] = -s;
                     Saldo += s;
                     row["DEBE"] = 0.0;
