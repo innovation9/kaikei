@@ -39,6 +39,8 @@ namespace Kaikei {
         
         private MATERIALES_UNIDADESDataTable tableMATERIALES_UNIDADES;
         
+        private ONLY_MATERIAL_DISPONIBLEDataTable tableONLY_MATERIAL_DISPONIBLE;
+        
         private global::System.Data.DataRelation relationFK_COMPRAS_FK_PROVEE_PROVEEDO;
         
         private global::System.Data.DataRelation relationFK_DETALLE__FK_COMPRA_COMPRAS;
@@ -91,6 +93,9 @@ namespace Kaikei {
                 }
                 if ((ds.Tables["MATERIALES_UNIDADES"] != null)) {
                     base.Tables.Add(new MATERIALES_UNIDADESDataTable(ds.Tables["MATERIALES_UNIDADES"]));
+                }
+                if ((ds.Tables["ONLY_MATERIAL_DISPONIBLE"] != null)) {
+                    base.Tables.Add(new ONLY_MATERIAL_DISPONIBLEDataTable(ds.Tables["ONLY_MATERIAL_DISPONIBLE"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -174,6 +179,15 @@ namespace Kaikei {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ONLY_MATERIAL_DISPONIBLEDataTable ONLY_MATERIAL_DISPONIBLE {
+            get {
+                return this.tableONLY_MATERIAL_DISPONIBLE;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -253,6 +267,9 @@ namespace Kaikei {
                 if ((ds.Tables["MATERIALES_UNIDADES"] != null)) {
                     base.Tables.Add(new MATERIALES_UNIDADESDataTable(ds.Tables["MATERIALES_UNIDADES"]));
                 }
+                if ((ds.Tables["ONLY_MATERIAL_DISPONIBLE"] != null)) {
+                    base.Tables.Add(new ONLY_MATERIAL_DISPONIBLEDataTable(ds.Tables["ONLY_MATERIAL_DISPONIBLE"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -325,6 +342,12 @@ namespace Kaikei {
                     this.tableMATERIALES_UNIDADES.InitVars();
                 }
             }
+            this.tableONLY_MATERIAL_DISPONIBLE = ((ONLY_MATERIAL_DISPONIBLEDataTable)(base.Tables["ONLY_MATERIAL_DISPONIBLE"]));
+            if ((initTable == true)) {
+                if ((this.tableONLY_MATERIAL_DISPONIBLE != null)) {
+                    this.tableONLY_MATERIAL_DISPONIBLE.InitVars();
+                }
+            }
             this.relationFK_COMPRAS_FK_PROVEE_PROVEEDO = this.Relations["FK_COMPRAS_FK_PROVEE_PROVEEDO"];
             this.relationFK_DETALLE__FK_COMPRA_COMPRAS = this.Relations["FK_DETALLE__FK_COMPRA_COMPRAS"];
             this.relationFK_DETALLE__FK_COMPRA_MATERIAL = this.Relations["FK_DETALLE__FK_COMPRA_MATERIAL"];
@@ -351,6 +374,8 @@ namespace Kaikei {
             base.Tables.Add(this.tableMATERIALES);
             this.tableMATERIALES_UNIDADES = new MATERIALES_UNIDADESDataTable();
             base.Tables.Add(this.tableMATERIALES_UNIDADES);
+            this.tableONLY_MATERIAL_DISPONIBLE = new ONLY_MATERIAL_DISPONIBLEDataTable();
+            base.Tables.Add(this.tableONLY_MATERIAL_DISPONIBLE);
             this.relationFK_COMPRAS_FK_PROVEE_PROVEEDO = new global::System.Data.DataRelation("FK_COMPRAS_FK_PROVEE_PROVEEDO", new global::System.Data.DataColumn[] {
                         this.tablePROVEEDORES.ID_PROVEEDORColumn}, new global::System.Data.DataColumn[] {
                         this.tableCOMPRAS.ID_PROVEEDORColumn}, false);
@@ -397,6 +422,11 @@ namespace Kaikei {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeMATERIALES_UNIDADES() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeONLY_MATERIAL_DISPONIBLE() {
             return false;
         }
         
@@ -466,6 +496,8 @@ namespace Kaikei {
         public delegate void MATERIALESRowChangeEventHandler(object sender, MATERIALESRowChangeEvent e);
         
         public delegate void MATERIALES_UNIDADESRowChangeEventHandler(object sender, MATERIALES_UNIDADESRowChangeEvent e);
+        
+        public delegate void ONLY_MATERIAL_DISPONIBLERowChangeEventHandler(object sender, ONLY_MATERIAL_DISPONIBLERowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2527,6 +2559,268 @@ namespace Kaikei {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ONLY_MATERIAL_DISPONIBLEDataTable : global::System.Data.TypedTableBase<ONLY_MATERIAL_DISPONIBLERow> {
+            
+            private global::System.Data.DataColumn columnID_MATERIAL;
+            
+            private global::System.Data.DataColumn columnNOMBRE;
+            
+            private global::System.Data.DataColumn columnDISPONIBLES;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ONLY_MATERIAL_DISPONIBLEDataTable() {
+                this.TableName = "ONLY_MATERIAL_DISPONIBLE";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal ONLY_MATERIAL_DISPONIBLEDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected ONLY_MATERIAL_DISPONIBLEDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_MATERIALColumn {
+                get {
+                    return this.columnID_MATERIAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NOMBREColumn {
+                get {
+                    return this.columnNOMBRE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DISPONIBLESColumn {
+                get {
+                    return this.columnDISPONIBLES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ONLY_MATERIAL_DISPONIBLERow this[int index] {
+                get {
+                    return ((ONLY_MATERIAL_DISPONIBLERow)(this.Rows[index]));
+                }
+            }
+            
+            public event ONLY_MATERIAL_DISPONIBLERowChangeEventHandler ONLY_MATERIAL_DISPONIBLERowChanging;
+            
+            public event ONLY_MATERIAL_DISPONIBLERowChangeEventHandler ONLY_MATERIAL_DISPONIBLERowChanged;
+            
+            public event ONLY_MATERIAL_DISPONIBLERowChangeEventHandler ONLY_MATERIAL_DISPONIBLERowDeleting;
+            
+            public event ONLY_MATERIAL_DISPONIBLERowChangeEventHandler ONLY_MATERIAL_DISPONIBLERowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddONLY_MATERIAL_DISPONIBLERow(ONLY_MATERIAL_DISPONIBLERow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ONLY_MATERIAL_DISPONIBLERow AddONLY_MATERIAL_DISPONIBLERow(int ID_MATERIAL, string NOMBRE, string DISPONIBLES) {
+                ONLY_MATERIAL_DISPONIBLERow rowONLY_MATERIAL_DISPONIBLERow = ((ONLY_MATERIAL_DISPONIBLERow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ID_MATERIAL,
+                        NOMBRE,
+                        DISPONIBLES};
+                rowONLY_MATERIAL_DISPONIBLERow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowONLY_MATERIAL_DISPONIBLERow);
+                return rowONLY_MATERIAL_DISPONIBLERow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ONLY_MATERIAL_DISPONIBLERow FindByID_MATERIAL(int ID_MATERIAL) {
+                return ((ONLY_MATERIAL_DISPONIBLERow)(this.Rows.Find(new object[] {
+                            ID_MATERIAL})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                ONLY_MATERIAL_DISPONIBLEDataTable cln = ((ONLY_MATERIAL_DISPONIBLEDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ONLY_MATERIAL_DISPONIBLEDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnID_MATERIAL = base.Columns["ID_MATERIAL"];
+                this.columnNOMBRE = base.Columns["NOMBRE"];
+                this.columnDISPONIBLES = base.Columns["DISPONIBLES"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnID_MATERIAL = new global::System.Data.DataColumn("ID_MATERIAL", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_MATERIAL);
+                this.columnNOMBRE = new global::System.Data.DataColumn("NOMBRE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNOMBRE);
+                this.columnDISPONIBLES = new global::System.Data.DataColumn("DISPONIBLES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDISPONIBLES);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_MATERIAL}, true));
+                this.columnID_MATERIAL.AllowDBNull = false;
+                this.columnID_MATERIAL.Unique = true;
+                this.columnNOMBRE.MaxLength = 25;
+                this.columnDISPONIBLES.ReadOnly = true;
+                this.columnDISPONIBLES.MaxLength = 48;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ONLY_MATERIAL_DISPONIBLERow NewONLY_MATERIAL_DISPONIBLERow() {
+                return ((ONLY_MATERIAL_DISPONIBLERow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ONLY_MATERIAL_DISPONIBLERow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(ONLY_MATERIAL_DISPONIBLERow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ONLY_MATERIAL_DISPONIBLERowChanged != null)) {
+                    this.ONLY_MATERIAL_DISPONIBLERowChanged(this, new ONLY_MATERIAL_DISPONIBLERowChangeEvent(((ONLY_MATERIAL_DISPONIBLERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ONLY_MATERIAL_DISPONIBLERowChanging != null)) {
+                    this.ONLY_MATERIAL_DISPONIBLERowChanging(this, new ONLY_MATERIAL_DISPONIBLERowChangeEvent(((ONLY_MATERIAL_DISPONIBLERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ONLY_MATERIAL_DISPONIBLERowDeleted != null)) {
+                    this.ONLY_MATERIAL_DISPONIBLERowDeleted(this, new ONLY_MATERIAL_DISPONIBLERowChangeEvent(((ONLY_MATERIAL_DISPONIBLERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ONLY_MATERIAL_DISPONIBLERowDeleting != null)) {
+                    this.ONLY_MATERIAL_DISPONIBLERowDeleting(this, new ONLY_MATERIAL_DISPONIBLERowChangeEvent(((ONLY_MATERIAL_DISPONIBLERow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveONLY_MATERIAL_DISPONIBLERow(ONLY_MATERIAL_DISPONIBLERow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                InventariosDS ds = new InventariosDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ONLY_MATERIAL_DISPONIBLEDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -3471,6 +3765,83 @@ namespace Kaikei {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class ONLY_MATERIAL_DISPONIBLERow : global::System.Data.DataRow {
+            
+            private ONLY_MATERIAL_DISPONIBLEDataTable tableONLY_MATERIAL_DISPONIBLE;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal ONLY_MATERIAL_DISPONIBLERow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableONLY_MATERIAL_DISPONIBLE = ((ONLY_MATERIAL_DISPONIBLEDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_MATERIAL {
+                get {
+                    return ((int)(this[this.tableONLY_MATERIAL_DISPONIBLE.ID_MATERIALColumn]));
+                }
+                set {
+                    this[this.tableONLY_MATERIAL_DISPONIBLE.ID_MATERIALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string NOMBRE {
+                get {
+                    try {
+                        return ((string)(this[this.tableONLY_MATERIAL_DISPONIBLE.NOMBREColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NOMBRE\' de la tabla \'ONLY_MATERIAL_DISPONIBLE\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableONLY_MATERIAL_DISPONIBLE.NOMBREColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DISPONIBLES {
+                get {
+                    try {
+                        return ((string)(this[this.tableONLY_MATERIAL_DISPONIBLE.DISPONIBLESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DISPONIBLES\' de la tabla \'ONLY_MATERIAL_DISPONIBLE\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableONLY_MATERIAL_DISPONIBLE.DISPONIBLESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsNOMBRENull() {
+                return this.IsNull(this.tableONLY_MATERIAL_DISPONIBLE.NOMBREColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetNOMBRENull() {
+                this[this.tableONLY_MATERIAL_DISPONIBLE.NOMBREColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDISPONIBLESNull() {
+                return this.IsNull(this.tableONLY_MATERIAL_DISPONIBLE.DISPONIBLESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDISPONIBLESNull() {
+                this[this.tableONLY_MATERIAL_DISPONIBLE.DISPONIBLESColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -3674,6 +4045,37 @@ namespace Kaikei {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public MATERIALES_UNIDADESRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class ONLY_MATERIAL_DISPONIBLERowChangeEvent : global::System.EventArgs {
+            
+            private ONLY_MATERIAL_DISPONIBLERow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ONLY_MATERIAL_DISPONIBLERowChangeEvent(ONLY_MATERIAL_DISPONIBLERow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ONLY_MATERIAL_DISPONIBLERow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5486,6 +5888,165 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ONLY_MATERIAL_DISPONIBLETableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public ONLY_MATERIAL_DISPONIBLETableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ONLY_MATERIAL_DISPONIBLE";
+            tableMapping.ColumnMappings.Add("ID_MATERIAL", "ID_MATERIAL");
+            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE");
+            tableMapping.ColumnMappings.Add("DISPONIBLES", "DISPONIBLES");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Kaikei.Properties.Settings.Default.KaikeiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID_MATERIAL, NOMBRE, DISPONIBLES FROM dbo.ONLY_MATERIAL_DISPONIBLE";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(InventariosDS.ONLY_MATERIAL_DISPONIBLEDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual InventariosDS.ONLY_MATERIAL_DISPONIBLEDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            InventariosDS.ONLY_MATERIAL_DISPONIBLEDataTable dataTable = new InventariosDS.ONLY_MATERIAL_DISPONIBLEDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -5648,21 +6209,21 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._cOMPRASTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.COMPRAS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cOMPRASTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._mATERIALESTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.MATERIALES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._mATERIALESTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cOMPRASTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.COMPRAS.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cOMPRASTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5692,19 +6253,19 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._cOMPRASTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.COMPRAS.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cOMPRASTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._mATERIALESTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.MATERIALES.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._mATERIALESTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cOMPRASTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.COMPRAS.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cOMPRASTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5733,19 +6294,19 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._mATERIALESTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.MATERIALES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._mATERIALESTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._cOMPRASTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.COMPRAS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._cOMPRASTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._mATERIALESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.MATERIALES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._mATERIALESTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

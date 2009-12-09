@@ -1,0 +1,255 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:kaikei="clr-namespace:kaikei"
+	xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit" xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP"
+	x:Class="Kaikei.viewOrdenFabricacion"
+	x:Name="viewOFabricacion"
+	d:DesignWidth="850" d:DesignHeight="630">
+
+	<Grid x:Name="LayoutRoot">
+		<kaikei:ctlPlantillaTabItem Margin="0" d:LayoutOverrides="Width" Descripcion="Especifica una nueva orden de fabricacion para el calculo de costos de produccion y requisicion de materiales" SubTitulo="Orden de Fabricación" FondoBoton="{x:Null}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="1"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="5"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid x:Name="gridGeneral" Margin="0,0,10,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="45"/>
+						<RowDefinition Height="30"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="25"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock HorizontalAlignment="Left" Margin="-10,15,0,6.796" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Datos Generales de la Orden de Fabricacion" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="Height"/>
+					<Rectangle Margin="5,0,5,4" VerticalAlignment="Bottom" Height="0.8" Grid.ColumnSpan="2">
+						<Rectangle.Fill>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+								<GradientStop Color="White" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+								<GradientStop Color="#FFB31700" Offset="0.502"/>
+								<GradientStop Color="#FFDE9A90" Offset="0.217"/>
+								<GradientStop Color="#FFE7B7B0" Offset="0.81"/>
+							</LinearGradientBrush>
+						</Rectangle.Fill>
+					</Rectangle>
+					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Fecha de Expedicion:" TextWrapping="Wrap" VerticalAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Margin="415,0,0,0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Fecha Requerida por el Cliente:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<Custom:DatePicker x:Name="txtFechaExp" HorizontalAlignment="Left" Margin="125,0,0,0" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="Height" VerticalAlignment="Center" Width="150" TabIndex="0"/>
+					<Custom:DatePicker x:Name="txtFechaReq" Margin="598,0,0,0" Grid.Column="1" Grid.Row="1" TabIndex="0" HorizontalAlignment="Left" Width="150" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+				</Grid>
+				<Grid x:Name="gridProduccion" Margin="0,0,10,0" Grid.Row="2">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="45"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="25"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock HorizontalAlignment="Left" Margin="-10,15,0,6.796" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Datos de Produccion" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="Height"/>
+					<Rectangle Margin="5,0,5,4" VerticalAlignment="Bottom" Height="0.8" Grid.ColumnSpan="2">
+						<Rectangle.Fill>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+								<GradientStop Color="White" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+								<GradientStop Color="#FFB31700" Offset="0.502"/>
+								<GradientStop Color="#FFDE9A90" Offset="0.217"/>
+								<GradientStop Color="#FFE7B7B0" Offset="0.81"/>
+							</LinearGradientBrush>
+						</Rectangle.Fill>
+					</Rectangle>
+					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Articulo a fabricar:" TextWrapping="Wrap" VerticalAlignment="Center" d:LayoutOverrides="Height"/>
+					<TextBlock HorizontalAlignment="Left" Margin="359,0,0,0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Cantidad a producir:" TextWrapping="Wrap" VerticalAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Fecha de Inicio:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Margin="338,0,0,0" Grid.Column="1" Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Fecha de Finalizacion:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<Custom:DatePicker x:Name="txtFechaInicio" HorizontalAlignment="Left" Margin="95,0,0,0" Grid.Column="1" Grid.Row="2" d:LayoutOverrides="Height" Width="150" TabIndex="4" VerticalAlignment="Center"/>
+					<Custom:DatePicker x:Name="txtFechaFinalizacion" Margin="468,0,0,0" Grid.Column="1" Grid.Row="2" TabIndex="5" HorizontalAlignment="Left" Width="150" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtArticulo" HorizontalAlignment="Left" Margin="114,0,0,0" TabIndex="2" TextWrapping="Wrap" TextHelp="Nombre del Articulo a producir" VerticalAlignment="Center" Grid.Column="1" d:LayoutOverrides="HorizontalAlignment, GridBox" Grid.Row="1" Width="225">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtCantidad" HorizontalAlignment="Left" Margin="482,0,0,0" TabIndex="3" TextWrapping="Wrap" TextHelp="Numero" VerticalAlignment="Center" Width="60" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="GridBox" Text="0">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+					<TextBlock HorizontalAlignment="Left" Margin="580,8.21,0,5.83" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Especificaciones:" TextWrapping="Wrap" d:LayoutOverrides="Height"/>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtEspecificaciones" HorizontalAlignment="Left" Margin="682,0,0,0" TabIndex="3" TextWrapping="Wrap" TextHelp="Especificaciones del articulo a fabricar" VerticalAlignment="Center" Width="225" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="GridBox">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+				</Grid>
+				<Grid x:Name="gridReqMateriales" Margin="0,0,10,0" Grid.Row="4">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="45"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="125"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="25"/>
+						<ColumnDefinition Width="*"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock HorizontalAlignment="Left" Margin="-10,15,0,6.796" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Requisicion de Materiales [Materia Prima]" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="Height"/>
+					<Rectangle Margin="5,0,5,4" VerticalAlignment="Bottom" Height="0.8" Grid.ColumnSpan="2">
+						<Rectangle.Fill>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+								<GradientStop Color="White" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+								<GradientStop Color="#FFB31700" Offset="0.502"/>
+								<GradientStop Color="#FFDE9A90" Offset="0.217"/>
+								<GradientStop Color="#FFE7B7B0" Offset="0.81"/>
+							</LinearGradientBrush>
+						</Rectangle.Fill>
+					</Rectangle>
+					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Material:" TextWrapping="Wrap" VerticalAlignment="Center" d:LayoutOverrides="Height"/>
+					<TextBlock HorizontalAlignment="Left" Margin="426,0,0,0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Cantidad Requerida:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtCantidadReq" HorizontalAlignment="Left" Margin="549,0,0,0" TabIndex="7" TextWrapping="Wrap" TextHelp="No." Width="50" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="Height, GridBox" Text="0" VerticalAlignment="Center">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+					<ComboBox x:Name="txtMaterial" HorizontalAlignment="Left" Margin="59,0,0,0" Width="300" Grid.Row="1" IsEditable="True" StaysOpenOnEdit="True" ItemsSource="{Binding}" DisplayMemberPath="{Binding DESCRIPCION, Mode=Default}" SelectedValuePath="{Binding ID_OPERACION, Mode=Default}" MaxDropDownHeight="80" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" TabIndex="6" VerticalAlignment="Center" IsSynchronizedWithCurrentItem="True" Grid.Column="1" GotFocus="combo_GotFocus" />
+					<TextBlock Margin="610,0,0,0" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" TextWrapping="Wrap" DataContext="{Binding Items, ElementName=txtMaterial}" FontStyle="Italic" Text="{Binding DISPONIBLES, Mode=Default}" Grid.Column="1" HorizontalAlignment="Left" Width="150" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<Custom:DataGrid x:Name="dgReqMateriales" Margin="25,10" Grid.Row="2" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold" Grid.ColumnSpan="2">
+						<Custom:DataGrid.Columns>
+							<Custom:DataGridTextColumn Header="CODIGO" Width="70" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding CODIGO, Mode=Default}"/>
+							<Custom:DataGridTextColumn Header="NOMBRE DEL MATERIAL" IsReadOnly="True" MinWidth="600" Binding="{Binding NOMBRE, Mode=Default}"/>
+							<Custom:DataGridTextColumn Header="CANTIDAD" Width="120" CanUserReorder="False" CanUserResize="False" Binding="{Binding CANTIDAD, Mode=Default}" SortMemberPath="CANTIDAD"/>
+						</Custom:DataGrid.Columns>
+					</Custom:DataGrid>
+					<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnAMaterial" HorizontalAlignment="Left" Margin="800,0,0,0" Content="Añadir Material" Icon="..\IconosBotones\boton_Add.png" Width="130" TabIndex="5" IsDefault="True" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+						<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:ButtonJMP.Resources>
+					</ControlsWPF_JMP_Controls:ButtonJMP>
+				</Grid>
+				<Grid x:Name="gridMODCIF" Margin="0,0,10,0" Grid.Row="6">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="25"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="25"/>
+						<ColumnDefinition Width="0.5*"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock Margin="-10,10,105.633,6.796" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Costos de Mano de Obra Directa [MOD]" TextWrapping="Wrap" Grid.Column="1" d:LayoutOverrides="Width, Height"/>
+					<Rectangle Margin="5,0,5,4" VerticalAlignment="Bottom" Height="0.8" Grid.ColumnSpan="2">
+						<Rectangle.Fill>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+								<GradientStop Color="White" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+								<GradientStop Color="#FFB31700" Offset="0.502"/>
+								<GradientStop Color="#FFDE9A90" Offset="0.217"/>
+								<GradientStop Color="#FFE7B7B0" Offset="0.81"/>
+							</LinearGradientBrush>
+						</Rectangle.Fill>
+					</Rectangle>
+					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="No. de Obreros:" TextWrapping="Wrap" VerticalAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Margin="44,0,0,0" Grid.Column="2" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Fecha Requerida por el Cliente:" TextWrapping="Wrap" VerticalAlignment="Center"/>
+					<TextBlock Margin="-10,10,105.633,6.796" FontFamily="{DynamicResource FontTitulos}" FontSize="{DynamicResource FontTitulos_Tamaño}" FontWeight="{DynamicResource FontTitulos_Estilo}" Foreground="{DynamicResource ColorLetras_Titulos}" Text="Costos Indirectos de Fabricacion [CIF]" TextWrapping="Wrap" Grid.Column="3" d:LayoutOverrides="Width, Height"/>
+					<Rectangle Margin="5,0,5,4" VerticalAlignment="Bottom" Height="0.8" Grid.ColumnSpan="2" Grid.Column="2">
+						<Rectangle.Fill>
+							<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" MappingMode="RelativeToBoundingBox">
+								<GradientStop Color="White" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+								<GradientStop Color="#FFB31700" Offset="0.502"/>
+								<GradientStop Color="#FFDE9A90" Offset="0.217"/>
+								<GradientStop Color="#FFE7B7B0" Offset="0.81"/>
+							</LinearGradientBrush>
+						</Rectangle.Fill>
+					</Rectangle>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtNoObreros" HorizontalAlignment="Left" Margin="98,0,0,0" TabIndex="7" TextWrapping="Wrap" TextHelp="NO." Width="40" Grid.Column="1" Grid.Row="1" Text="0" d:LayoutOverrides="HorizontalAlignment, Height, GridBox" VerticalAlignment="Center">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+					<TextBlock HorizontalAlignment="Left" Margin="187,0,0,0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Salario por Hora [$]:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtSalarioxHora" HorizontalAlignment="Left" Margin="309,0,0,0" TabIndex="7" TextWrapping="Wrap" TextHelp="$" Width="80" Grid.Column="1" Grid.Row="1" Text="0" d:LayoutOverrides="Height, GridBox" VerticalAlignment="Center">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Numero de horas:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtMODNumeroHoras" HorizontalAlignment="Left" Margin="110,0,0,0" TabIndex="7" TextWrapping="Wrap" TextHelp="NO." Width="80" Grid.Column="1" Grid.Row="2" Text="0" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="3" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Tasa del GIF (1 - 100):" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtGIFTasa" HorizontalAlignment="Left" Margin="128,0,0,0" TabIndex="7" TextWrapping="Wrap" TextHelp="%" Width="40" Grid.Column="3" Grid.Row="1" Text="1" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+					<TextBlock HorizontalAlignment="Left" Margin="200,0,0,0" Grid.Column="3" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Monto [$]:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtGIFMonto" HorizontalAlignment="Left" Margin="268,0,0,0" TabIndex="7" TextWrapping="Wrap" TextHelp="$" Width="100" Grid.Column="3" Grid.Row="1" Text="0" d:LayoutOverrides="Height" VerticalAlignment="Center">
+						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
+					</ControlsWPF_JMP_Controls:TextBoxJMP>
+					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="3" Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Toltal de CIF:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Margin="82,0,0,0" Grid.Column="3" Grid.Row="2" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" Text="$0.00" TextWrapping="Wrap" VerticalAlignment="Center"/>
+				</Grid>
+			</Grid>
+		</kaikei:ctlPlantillaTabItem>
+	</Grid>
+</UserControl>
