@@ -60,14 +60,14 @@ namespace Kaikei.VistasTabItem
 
                 if (validateBLX.Validar.IsPositivo((int)Double.Parse(origen["SALDO"].ToString())))
                 {
-                    row["TIPO"] = "Inversion";
+                    row["TIPO"] = "Desinversion";
                     row["DEBE"] = Double.Parse(origen["SALDO"].ToString());
                     Saldo += Double.Parse(origen["SALDO"].ToString());
                     row["HABER"] = 0.0;
                 }
                 else
                 {
-                    row["TIPO"] = "Desinversion";
+                    row["TIPO"] = "Inversion";
                     row["HABER"] = -Double.Parse(origen["SALDO"].ToString());
                     Saldo += Double.Parse(origen["SALDO"].ToString());
                     row["DEBE"] = 0.0;
