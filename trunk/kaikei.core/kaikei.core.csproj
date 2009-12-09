@@ -50,6 +50,7 @@
     <Compile Include="CAfp.cs" />
     <Compile Include="CConnection.cs" />
     <Compile Include="CEmpleado.cs" />
+    <Compile Include="CSeguro.cs" />
     <Compile Include="CPlanilla.cs" />
     <Compile Include="IConeccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

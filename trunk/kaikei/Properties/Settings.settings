@@ -20,9 +20,7 @@
       <Value Profile="(Default)">0000-000000-000-0</Value>
     </Setting>
     <Setting Name="EmpresaDireccion" Type="System.String" Scope="User">
-      <Value Profile="(Default)">&lt;AVENIDA/
-CALLE&gt;, &lt;CASA/LOCAL&gt;
-&lt;CIUDAD&gt;&lt;DEPARTAMENTO&gt;</Value>
+      <Value Profile="(Default)">Direccion</Value>
     </Setting>
     <Setting Name="IVA" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0.13</Value>
@@ -33,10 +31,10 @@ CALLE&gt;, &lt;CASA/LOCAL&gt;
     <Setting Name="EmpresaAdministrador" Type="System.String" Scope="User">
       <Value Profile="(Default)">ADMINISTRADOR</Value>
     </Setting>
-    <Setting Name="Usuario" Type="System.String" Scope="Application">
+    <Setting Name="Usuario" Type="System.String" Scope="User">
       <Value Profile="(Default)">admin</Value>
     </Setting>
-    <Setting Name="Password" Type="System.String" Scope="Application">
+    <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)">kaikei</Value>
     </Setting>
   </Settings>

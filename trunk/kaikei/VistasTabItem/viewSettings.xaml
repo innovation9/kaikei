@@ -41,6 +41,6 @@
                 </GroupBox>
             </Grid>
         </local:ctlPlantillaTabItem>
-        <Button Height="23" HorizontalAlignment="Right" Margin="0,12,10,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click">Guardar</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,12,10,0" Name="btnSave" VerticalAlignment="Top" Width="75" Click="btnSave_Click">Guardar</Button>
     </Grid>
 </UserControl>
