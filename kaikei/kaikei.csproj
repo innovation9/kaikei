@@ -252,6 +252,7 @@
       <DependentUpon>rBalanceGeneral.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ValidacionesJMP.cs" />
     <Compile Include="rEstadoCapital.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -453,6 +454,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IconosBotones\boton_Compra.png" />
+    <Resource Include="IconosBotones\boton_CrearOF.png" />
     <Content Include="Recursos\ControlsWPF_JMP.dll" />
     <Content Include="Recursos\Expression.Samples.Shaders.dll" />
     <Content Include="Recursos\validateBLX.dll" />
