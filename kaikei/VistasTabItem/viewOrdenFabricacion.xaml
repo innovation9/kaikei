@@ -8,21 +8,20 @@
 	xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit" xmlns:ControlsWPF_JMP_Controls="clr-namespace:ControlsWPF_JMP.Controls;assembly=ControlsWPF_JMP"
 	x:Class="Kaikei.viewOrdenFabricacion"
 	x:Name="viewOFabricacion"
-	d:DesignWidth="850" d:DesignHeight="630">
+	d:DesignWidth="900" d:DesignHeight="700">
 
 	<Grid x:Name="LayoutRoot">
 		<kaikei:ctlPlantillaTabItem Margin="0" d:LayoutOverrides="Width" Descripcion="Especifica una nueva orden de fabricacion para el calculo de costos de produccion y requisicion de materiales" SubTitulo="Orden de Fabricación" FondoBoton="{x:Null}">
 			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
+					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
+					<RowDefinition Height="10"/>
 					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="1"/>
-					<RowDefinition Height="Auto"/>
-					<RowDefinition Height="5"/>
+					<RowDefinition Height="10"/>
 					<RowDefinition Height="*"/>
+
 				</Grid.RowDefinitions>
 				<Grid x:Name="gridGeneral" Margin="0,0,10,0">
 					<Grid.RowDefinitions>
@@ -107,11 +106,11 @@
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
 				</Grid>
-				<Grid x:Name="gridReqMateriales" Margin="0,0,10,0" Grid.Row="4">
+				<Grid x:Name="gridReqMateriales" Margin="0,0,10,0" Grid.Row="6">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="45"/>
 						<RowDefinition Height="30"/>
-						<RowDefinition Height="125"/>
+						<RowDefinition Height="*"/>
 					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="25"/>
@@ -131,7 +130,7 @@
 					</Rectangle>
 					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Material:" TextWrapping="Wrap" VerticalAlignment="Center" d:LayoutOverrides="Height"/>
 					<TextBlock HorizontalAlignment="Left" Margin="426,0,0,0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Cantidad Requerida:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtCantidadReq" HorizontalAlignment="Left" Margin="549,0,0,0" TabIndex="7" TextWrapping="Wrap" TextHelp="No." Width="50" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="Height, GridBox" Text="0" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtCantidadReq" HorizontalAlignment="Left" Margin="549,0,0,0" TabIndex="12" TextWrapping="Wrap" TextHelp="No." Width="50" Grid.Column="1" Grid.Row="1" d:LayoutOverrides="Height, GridBox" Text="0" VerticalAlignment="Center">
 						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -140,16 +139,25 @@
 							</ResourceDictionary>
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
-					<ComboBox x:Name="txtMaterial" HorizontalAlignment="Left" Margin="59,0,0,0" Width="300" Grid.Row="1" IsEditable="True" StaysOpenOnEdit="True" ItemsSource="{Binding}" DisplayMemberPath="{Binding DESCRIPCION, Mode=Default}" SelectedValuePath="{Binding ID_OPERACION, Mode=Default}" MaxDropDownHeight="80" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" TabIndex="6" VerticalAlignment="Center" IsSynchronizedWithCurrentItem="True" Grid.Column="1" GotFocus="combo_GotFocus" />
+					<ComboBox x:Name="txtMaterial" HorizontalAlignment="Left" Margin="59,0,0,0" Width="300" Grid.Row="1" IsEditable="True" StaysOpenOnEdit="True" ItemsSource="{Binding}" DisplayMemberPath="{Binding DESCRIPCION, Mode=Default}" SelectedValuePath="{Binding ID_OPERACION, Mode=Default}" MaxDropDownHeight="80" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" TabIndex="11" VerticalAlignment="Center" IsSynchronizedWithCurrentItem="True" Grid.Column="1" GotFocus="combo_GotFocus" />
 					<TextBlock Margin="610,0,0,0" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" TextWrapping="Wrap" DataContext="{Binding Items, ElementName=txtMaterial}" FontStyle="Italic" Text="{Binding DISPONIBLES, Mode=Default}" Grid.Column="1" HorizontalAlignment="Left" Width="150" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-					<Custom:DataGrid x:Name="dgReqMateriales" Margin="25,10" Grid.Row="2" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold" Grid.ColumnSpan="2">
+					<Custom:DataGrid x:Name="dgReqMateriales" Margin="0,10,25,50" Grid.Row="2" TabIndex="7" AutoGenerateColumns="False" CanUserResizeRows="False" FontWeight="Bold" Grid.Column="1" d:LayoutOverrides="GridBox">
 						<Custom:DataGrid.Columns>
 							<Custom:DataGridTextColumn Header="CODIGO" Width="70" CanUserReorder="False" CanUserResize="False" IsReadOnly="True" Binding="{Binding CODIGO, Mode=Default}"/>
 							<Custom:DataGridTextColumn Header="NOMBRE DEL MATERIAL" IsReadOnly="True" MinWidth="600" Binding="{Binding NOMBRE, Mode=Default}"/>
 							<Custom:DataGridTextColumn Header="CANTIDAD" Width="120" CanUserReorder="False" CanUserResize="False" Binding="{Binding CANTIDAD, Mode=Default}" SortMemberPath="CANTIDAD"/>
 						</Custom:DataGrid.Columns>
 					</Custom:DataGrid>
-					<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnAMaterial" HorizontalAlignment="Left" Margin="800,0,0,0" Content="Añadir Material" Icon="..\IconosBotones\boton_Add.png" Width="130" TabIndex="8" IsDefault="True" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnAMaterial" HorizontalAlignment="Left" Margin="800,0,0,0" Content="Añadir Material" Icon="..\IconosBotones\boton_Add.png" Width="130" TabIndex="13" IsDefault="True" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Click="btnAMaterial_Click">
+						<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
+							<ResourceDictionary>
+								<ResourceDictionary.MergedDictionaries>
+									<ResourceDictionary Source="/Kaikei;Component/Themes/Generic.xaml"/>
+								</ResourceDictionary.MergedDictionaries>
+							</ResourceDictionary>
+						</ControlsWPF_JMP_Controls:ButtonJMP.Resources>
+					</ControlsWPF_JMP_Controls:ButtonJMP>
+					<ControlsWPF_JMP_Controls:ButtonJMP x:Name="btnCrearOF" HorizontalAlignment="Right" Margin="0,0,25,10" Content="Crear Orden Fab" Icon="/Kaikei;Component/IconosBotones/boton_CrearOF.png" Width="140" TabIndex="14" IsDefault="True" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Click="btnCrearOF_Click">
 						<ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -159,7 +167,7 @@
 						</ControlsWPF_JMP_Controls:ButtonJMP.Resources>
 					</ControlsWPF_JMP_Controls:ButtonJMP>
 				</Grid>
-				<Grid x:Name="gridMODCIF" Margin="0,0,10,0" Grid.Row="6">
+				<Grid x:Name="gridMODCIF" Margin="0,0,10,0" Grid.Row="4">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="40"/>
 						<RowDefinition Height="30"/>
@@ -197,7 +205,7 @@
 							</LinearGradientBrush>
 						</Rectangle.Fill>
 					</Rectangle>
-					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtNoObreros" HorizontalAlignment="Left" Margin="98,0,0,0" TabIndex="9" TextWrapping="Wrap" TextHelp="NO." Width="40" Grid.Column="1" Grid.Row="1" Text="0" d:LayoutOverrides="HorizontalAlignment, Height, GridBox" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtNoObreros" HorizontalAlignment="Left" Margin="98,0,0,0" TabIndex="6" TextWrapping="Wrap" TextHelp="NO." Width="40" Grid.Column="1" Grid.Row="1" Text="0" d:LayoutOverrides="HorizontalAlignment, Height, GridBox" VerticalAlignment="Center" LostFocus="CalculoMOD_LostFocus">
 						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -207,7 +215,7 @@
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
 					<TextBlock HorizontalAlignment="Left" Margin="187,0,0,0" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Salario por Hora [$]:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtSalarioxHora" HorizontalAlignment="Left" Margin="309,0,0,0" TabIndex="10" TextWrapping="Wrap" TextHelp="$" Width="80" Grid.Column="1" Grid.Row="1" Text="0" d:LayoutOverrides="Height, GridBox" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtSalarioxHora" HorizontalAlignment="Left" Margin="309,0,0,0" TabIndex="7" TextWrapping="Wrap" TextHelp="$" Width="80" Grid.Column="1" Grid.Row="1" Text="0" d:LayoutOverrides="Height, GridBox" VerticalAlignment="Center" LostFocus="CalculoMODDec_LostFocus">
 						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -217,7 +225,7 @@
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
 					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="1" Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Numero de horas:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtMODNumeroHoras" HorizontalAlignment="Left" Margin="110,0,0,0" TabIndex="11" TextWrapping="Wrap" TextHelp="NO." Width="80" Grid.Column="1" Grid.Row="2" Text="0" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtMODNumeroHoras" HorizontalAlignment="Left" Margin="110,0,0,0" TabIndex="8" TextWrapping="Wrap" TextHelp="NO." Width="50" Grid.Column="1" Grid.Row="2" Text="0" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center" LostFocus="CalculoMOD_LostFocus">
 						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -227,7 +235,7 @@
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
 					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="3" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Tasa del GIF (1 - 100):" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtGIFTasa" HorizontalAlignment="Left" Margin="128,0,0,0" TabIndex="12" TextWrapping="Wrap" TextHelp="%" Width="40" Grid.Column="3" Grid.Row="1" Text="1" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtGIFTasa" HorizontalAlignment="Left" Margin="128,0,0,0" TabIndex="9" TextWrapping="Wrap" TextHelp="%" Width="40" Grid.Column="3" Grid.Row="1" Text="1" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Center" MaxLines="3" LostFocus="CalculoTasa_LostFocus">
 						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -237,7 +245,7 @@
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
 					<TextBlock HorizontalAlignment="Left" Margin="200,0,0,0" Grid.Column="3" Grid.Row="1" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Monto [$]:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtGIFMonto" HorizontalAlignment="Left" Margin="268,0,0,0" TabIndex="13" TextWrapping="Wrap" TextHelp="$" Width="100" Grid.Column="3" Grid.Row="1" Text="0" d:LayoutOverrides="Height" VerticalAlignment="Center">
+					<ControlsWPF_JMP_Controls:TextBoxJMP x:Name="txtGIFMonto" HorizontalAlignment="Left" Margin="268,0,0,0" TabIndex="10" TextWrapping="Wrap" TextHelp="$" Width="100" Grid.Column="3" Grid.Row="1" Text="1" d:LayoutOverrides="Height" VerticalAlignment="Center" LostFocus="CalculoTasa_LostFocus">
 						<ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 							<ResourceDictionary>
 								<ResourceDictionary.MergedDictionaries>
@@ -247,7 +255,9 @@
 						</ControlsWPF_JMP_Controls:TextBoxJMP.Resources>
 					</ControlsWPF_JMP_Controls:TextBoxJMP>
 					<TextBlock HorizontalAlignment="Left" Margin="0" Grid.Column="3" Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Toltal de CIF:" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
-					<TextBlock HorizontalAlignment="Left" Margin="82,0,0,0" Grid.Column="3" Grid.Row="2" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" Text="$0.00" TextWrapping="Wrap" VerticalAlignment="Center"/>
+					<TextBlock HorizontalAlignment="Left" Margin="82,0,0,0" Grid.Column="3" Grid.Row="2" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" Text="$0.00" TextWrapping="Wrap" VerticalAlignment="Center" Name="lblTotalGIF" />
+					<TextBlock Grid.Row="2" FontFamily="{DynamicResource FontLabels}" FontSize="{DynamicResource FonLabels_Tamaño}" FontWeight="{DynamicResource FonLabels_Estilo}" Text="Toltal de MOD:" TextWrapping="Wrap" Margin="187,0,0,0" Grid.Column="1" d:LayoutOverrides="Width, Height" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+					<TextBlock HorizontalAlignment="Left" Margin="280,0,0,0" Grid.Row="2" FontFamily="{DynamicResource FontTextBox}" FontSize="{DynamicResource FontTextBox_Tamaño}" FontWeight="{DynamicResource FontTextBox_Estilo}" Text="$0.00" TextWrapping="Wrap" x:Name="lblTotalMOD" Grid.Column="1" d:LayoutOverrides="Height" VerticalAlignment="Center" />
 				</Grid>
 			</Grid>
 		</kaikei:ctlPlantillaTabItem>

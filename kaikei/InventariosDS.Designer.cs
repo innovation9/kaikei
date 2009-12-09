@@ -41,11 +41,21 @@ namespace Kaikei {
         
         private ONLY_MATERIAL_DISPONIBLEDataTable tableONLY_MATERIAL_DISPONIBLE;
         
+        private ORDEN_FABRICACIONDataTable tableORDEN_FABRICACION;
+        
+        private REQUISICION_MATERIALESDataTable tableREQUISICION_MATERIALES;
+        
         private global::System.Data.DataRelation relationFK_COMPRAS_FK_PROVEE_PROVEEDO;
         
         private global::System.Data.DataRelation relationFK_DETALLE__FK_COMPRA_COMPRAS;
         
         private global::System.Data.DataRelation relationFK_DETALLE__FK_COMPRA_MATERIAL;
+        
+        private global::System.Data.DataRelation relationFK_REQUISIC_PK_COMPRA_COMPRAS;
+        
+        private global::System.Data.DataRelation relationFK_REQUISIC_PK_MATERI_MATERIAL;
+        
+        private global::System.Data.DataRelation relationFK_REQUISIC_PK_OF_REQ_ORDEN_FA;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -96,6 +106,12 @@ namespace Kaikei {
                 }
                 if ((ds.Tables["ONLY_MATERIAL_DISPONIBLE"] != null)) {
                     base.Tables.Add(new ONLY_MATERIAL_DISPONIBLEDataTable(ds.Tables["ONLY_MATERIAL_DISPONIBLE"]));
+                }
+                if ((ds.Tables["ORDEN_FABRICACION"] != null)) {
+                    base.Tables.Add(new ORDEN_FABRICACIONDataTable(ds.Tables["ORDEN_FABRICACION"]));
+                }
+                if ((ds.Tables["REQUISICION_MATERIALES"] != null)) {
+                    base.Tables.Add(new REQUISICION_MATERIALESDataTable(ds.Tables["REQUISICION_MATERIALES"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,6 +204,24 @@ namespace Kaikei {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ORDEN_FABRICACIONDataTable ORDEN_FABRICACION {
+            get {
+                return this.tableORDEN_FABRICACION;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public REQUISICION_MATERIALESDataTable REQUISICION_MATERIALES {
+            get {
+                return this.tableREQUISICION_MATERIALES;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -270,6 +304,12 @@ namespace Kaikei {
                 if ((ds.Tables["ONLY_MATERIAL_DISPONIBLE"] != null)) {
                     base.Tables.Add(new ONLY_MATERIAL_DISPONIBLEDataTable(ds.Tables["ONLY_MATERIAL_DISPONIBLE"]));
                 }
+                if ((ds.Tables["ORDEN_FABRICACION"] != null)) {
+                    base.Tables.Add(new ORDEN_FABRICACIONDataTable(ds.Tables["ORDEN_FABRICACION"]));
+                }
+                if ((ds.Tables["REQUISICION_MATERIALES"] != null)) {
+                    base.Tables.Add(new REQUISICION_MATERIALESDataTable(ds.Tables["REQUISICION_MATERIALES"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -348,9 +388,24 @@ namespace Kaikei {
                     this.tableONLY_MATERIAL_DISPONIBLE.InitVars();
                 }
             }
+            this.tableORDEN_FABRICACION = ((ORDEN_FABRICACIONDataTable)(base.Tables["ORDEN_FABRICACION"]));
+            if ((initTable == true)) {
+                if ((this.tableORDEN_FABRICACION != null)) {
+                    this.tableORDEN_FABRICACION.InitVars();
+                }
+            }
+            this.tableREQUISICION_MATERIALES = ((REQUISICION_MATERIALESDataTable)(base.Tables["REQUISICION_MATERIALES"]));
+            if ((initTable == true)) {
+                if ((this.tableREQUISICION_MATERIALES != null)) {
+                    this.tableREQUISICION_MATERIALES.InitVars();
+                }
+            }
             this.relationFK_COMPRAS_FK_PROVEE_PROVEEDO = this.Relations["FK_COMPRAS_FK_PROVEE_PROVEEDO"];
             this.relationFK_DETALLE__FK_COMPRA_COMPRAS = this.Relations["FK_DETALLE__FK_COMPRA_COMPRAS"];
             this.relationFK_DETALLE__FK_COMPRA_MATERIAL = this.Relations["FK_DETALLE__FK_COMPRA_MATERIAL"];
+            this.relationFK_REQUISIC_PK_COMPRA_COMPRAS = this.Relations["FK_REQUISIC_PK_COMPRA_COMPRAS"];
+            this.relationFK_REQUISIC_PK_MATERI_MATERIAL = this.Relations["FK_REQUISIC_PK_MATERI_MATERIAL"];
+            this.relationFK_REQUISIC_PK_OF_REQ_ORDEN_FA = this.Relations["FK_REQUISIC_PK_OF_REQ_ORDEN_FA"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -376,6 +431,10 @@ namespace Kaikei {
             base.Tables.Add(this.tableMATERIALES_UNIDADES);
             this.tableONLY_MATERIAL_DISPONIBLE = new ONLY_MATERIAL_DISPONIBLEDataTable();
             base.Tables.Add(this.tableONLY_MATERIAL_DISPONIBLE);
+            this.tableORDEN_FABRICACION = new ORDEN_FABRICACIONDataTable();
+            base.Tables.Add(this.tableORDEN_FABRICACION);
+            this.tableREQUISICION_MATERIALES = new REQUISICION_MATERIALESDataTable();
+            base.Tables.Add(this.tableREQUISICION_MATERIALES);
             this.relationFK_COMPRAS_FK_PROVEE_PROVEEDO = new global::System.Data.DataRelation("FK_COMPRAS_FK_PROVEE_PROVEEDO", new global::System.Data.DataColumn[] {
                         this.tablePROVEEDORES.ID_PROVEEDORColumn}, new global::System.Data.DataColumn[] {
                         this.tableCOMPRAS.ID_PROVEEDORColumn}, false);
@@ -388,6 +447,18 @@ namespace Kaikei {
                         this.tableMATERIALES.ID_MATERIALColumn}, new global::System.Data.DataColumn[] {
                         this.tableDETALLE_COMPRA.ID_MATERIALColumn}, false);
             this.Relations.Add(this.relationFK_DETALLE__FK_COMPRA_MATERIAL);
+            this.relationFK_REQUISIC_PK_COMPRA_COMPRAS = new global::System.Data.DataRelation("FK_REQUISIC_PK_COMPRA_COMPRAS", new global::System.Data.DataColumn[] {
+                        this.tableCOMPRAS.ID_COMPRAColumn}, new global::System.Data.DataColumn[] {
+                        this.tableREQUISICION_MATERIALES.ID_COMPRAColumn}, false);
+            this.Relations.Add(this.relationFK_REQUISIC_PK_COMPRA_COMPRAS);
+            this.relationFK_REQUISIC_PK_MATERI_MATERIAL = new global::System.Data.DataRelation("FK_REQUISIC_PK_MATERI_MATERIAL", new global::System.Data.DataColumn[] {
+                        this.tableMATERIALES.ID_MATERIALColumn}, new global::System.Data.DataColumn[] {
+                        this.tableREQUISICION_MATERIALES.ID_MATERIALColumn}, false);
+            this.Relations.Add(this.relationFK_REQUISIC_PK_MATERI_MATERIAL);
+            this.relationFK_REQUISIC_PK_OF_REQ_ORDEN_FA = new global::System.Data.DataRelation("FK_REQUISIC_PK_OF_REQ_ORDEN_FA", new global::System.Data.DataColumn[] {
+                        this.tableORDEN_FABRICACION.ID_ORDENColumn}, new global::System.Data.DataColumn[] {
+                        this.tableREQUISICION_MATERIALES.ID_ORDENColumn}, false);
+            this.Relations.Add(this.relationFK_REQUISIC_PK_OF_REQ_ORDEN_FA);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -427,6 +498,16 @@ namespace Kaikei {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeONLY_MATERIAL_DISPONIBLE() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeORDEN_FABRICACION() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeREQUISICION_MATERIALES() {
             return false;
         }
         
@@ -499,6 +580,10 @@ namespace Kaikei {
         
         public delegate void ONLY_MATERIAL_DISPONIBLERowChangeEventHandler(object sender, ONLY_MATERIAL_DISPONIBLERowChangeEvent e);
         
+        public delegate void ORDEN_FABRICACIONRowChangeEventHandler(object sender, ORDEN_FABRICACIONRowChangeEvent e);
+        
+        public delegate void REQUISICION_MATERIALESRowChangeEventHandler(object sender, REQUISICION_MATERIALESRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -530,6 +615,8 @@ namespace Kaikei {
             private global::System.Data.DataColumn columnVENTASUNIDAD;
             
             private global::System.Data.DataColumn columnTOTALUNIDAD;
+            
+            private global::System.Data.DataColumn columnID_COMPRA;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public INVENTARIO_CARDEXDataTable() {
@@ -646,6 +733,13 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_COMPRAColumn {
+                get {
+                    return this.columnID_COMPRA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -674,7 +768,7 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public INVENTARIO_CARDEXRow AddINVENTARIO_CARDEXRow(int ID_MATERIAL, System.DateTime FECHA, string NOMBRE, int COMPRAS, int VENTAS, int DIFERENCIA, decimal PRECIOUNITARIO, string DISPONIBILIDAD, string PROVEEDOR, string COMPRASUNIDAD, string VENTASUNIDAD, string TOTALUNIDAD) {
+            public INVENTARIO_CARDEXRow AddINVENTARIO_CARDEXRow(int ID_MATERIAL, System.DateTime FECHA, string NOMBRE, int COMPRAS, int VENTAS, int DIFERENCIA, decimal PRECIOUNITARIO, string DISPONIBILIDAD, string PROVEEDOR, string COMPRASUNIDAD, string VENTASUNIDAD, string TOTALUNIDAD, int ID_COMPRA) {
                 INVENTARIO_CARDEXRow rowINVENTARIO_CARDEXRow = ((INVENTARIO_CARDEXRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_MATERIAL,
@@ -688,7 +782,8 @@ namespace Kaikei {
                         PROVEEDOR,
                         COMPRASUNIDAD,
                         VENTASUNIDAD,
-                        TOTALUNIDAD};
+                        TOTALUNIDAD,
+                        ID_COMPRA};
                 rowINVENTARIO_CARDEXRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowINVENTARIO_CARDEXRow);
                 return rowINVENTARIO_CARDEXRow;
@@ -726,6 +821,7 @@ namespace Kaikei {
                 this.columnCOMPRASUNIDAD = base.Columns["COMPRASUNIDAD"];
                 this.columnVENTASUNIDAD = base.Columns["VENTASUNIDAD"];
                 this.columnTOTALUNIDAD = base.Columns["TOTALUNIDAD"];
+                this.columnID_COMPRA = base.Columns["ID_COMPRA"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -754,6 +850,8 @@ namespace Kaikei {
                 base.Columns.Add(this.columnVENTASUNIDAD);
                 this.columnTOTALUNIDAD = new global::System.Data.DataColumn("TOTALUNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTOTALUNIDAD);
+                this.columnID_COMPRA = new global::System.Data.DataColumn("ID_COMPRA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_COMPRA);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_MATERIAL}, true));
                 this.columnID_MATERIAL.AllowDBNull = false;
@@ -769,6 +867,7 @@ namespace Kaikei {
                 this.columnVENTASUNIDAD.MaxLength = 36;
                 this.columnTOTALUNIDAD.ReadOnly = true;
                 this.columnTOTALUNIDAD.MaxLength = 36;
+                this.columnID_COMPRA.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2821,6 +2920,675 @@ namespace Kaikei {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ORDEN_FABRICACIONDataTable : global::System.Data.TypedTableBase<ORDEN_FABRICACIONRow> {
+            
+            private global::System.Data.DataColumn columnID_ORDEN;
+            
+            private global::System.Data.DataColumn columnFECHAEXPEDICION;
+            
+            private global::System.Data.DataColumn columnFECHAENTREGA;
+            
+            private global::System.Data.DataColumn columnFECHAINICIADA;
+            
+            private global::System.Data.DataColumn columnFECHAFINALIZADA;
+            
+            private global::System.Data.DataColumn columnARTICULO;
+            
+            private global::System.Data.DataColumn columnCANTIDAD;
+            
+            private global::System.Data.DataColumn columnESPECIFICACIONES;
+            
+            private global::System.Data.DataColumn columnMOD_NoObreros;
+            
+            private global::System.Data.DataColumn columnMOD_Horas;
+            
+            private global::System.Data.DataColumn columnMOD_SalxHora;
+            
+            private global::System.Data.DataColumn columnCIF_Monto;
+            
+            private global::System.Data.DataColumn columnCIF_P;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ORDEN_FABRICACIONDataTable() {
+                this.TableName = "ORDEN_FABRICACION";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal ORDEN_FABRICACIONDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected ORDEN_FABRICACIONDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_ORDENColumn {
+                get {
+                    return this.columnID_ORDEN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn FECHAEXPEDICIONColumn {
+                get {
+                    return this.columnFECHAEXPEDICION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn FECHAENTREGAColumn {
+                get {
+                    return this.columnFECHAENTREGA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn FECHAINICIADAColumn {
+                get {
+                    return this.columnFECHAINICIADA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn FECHAFINALIZADAColumn {
+                get {
+                    return this.columnFECHAFINALIZADA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ARTICULOColumn {
+                get {
+                    return this.columnARTICULO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CANTIDADColumn {
+                get {
+                    return this.columnCANTIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ESPECIFICACIONESColumn {
+                get {
+                    return this.columnESPECIFICACIONES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MOD_NoObrerosColumn {
+                get {
+                    return this.columnMOD_NoObreros;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MOD_HorasColumn {
+                get {
+                    return this.columnMOD_Horas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn MOD_SalxHoraColumn {
+                get {
+                    return this.columnMOD_SalxHora;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CIF_MontoColumn {
+                get {
+                    return this.columnCIF_Monto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CIF_PColumn {
+                get {
+                    return this.columnCIF_P;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ORDEN_FABRICACIONRow this[int index] {
+                get {
+                    return ((ORDEN_FABRICACIONRow)(this.Rows[index]));
+                }
+            }
+            
+            public event ORDEN_FABRICACIONRowChangeEventHandler ORDEN_FABRICACIONRowChanging;
+            
+            public event ORDEN_FABRICACIONRowChangeEventHandler ORDEN_FABRICACIONRowChanged;
+            
+            public event ORDEN_FABRICACIONRowChangeEventHandler ORDEN_FABRICACIONRowDeleting;
+            
+            public event ORDEN_FABRICACIONRowChangeEventHandler ORDEN_FABRICACIONRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddORDEN_FABRICACIONRow(ORDEN_FABRICACIONRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ORDEN_FABRICACIONRow AddORDEN_FABRICACIONRow(System.DateTime FECHAEXPEDICION, System.DateTime FECHAENTREGA, System.DateTime FECHAINICIADA, System.DateTime FECHAFINALIZADA, string ARTICULO, int CANTIDAD, string ESPECIFICACIONES, int MOD_NoObreros, int MOD_Horas, decimal MOD_SalxHora, decimal CIF_Monto, float CIF_P) {
+                ORDEN_FABRICACIONRow rowORDEN_FABRICACIONRow = ((ORDEN_FABRICACIONRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        FECHAEXPEDICION,
+                        FECHAENTREGA,
+                        FECHAINICIADA,
+                        FECHAFINALIZADA,
+                        ARTICULO,
+                        CANTIDAD,
+                        ESPECIFICACIONES,
+                        MOD_NoObreros,
+                        MOD_Horas,
+                        MOD_SalxHora,
+                        CIF_Monto,
+                        CIF_P};
+                rowORDEN_FABRICACIONRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowORDEN_FABRICACIONRow);
+                return rowORDEN_FABRICACIONRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ORDEN_FABRICACIONRow FindByID_ORDEN(int ID_ORDEN) {
+                return ((ORDEN_FABRICACIONRow)(this.Rows.Find(new object[] {
+                            ID_ORDEN})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                ORDEN_FABRICACIONDataTable cln = ((ORDEN_FABRICACIONDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ORDEN_FABRICACIONDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnID_ORDEN = base.Columns["ID_ORDEN"];
+                this.columnFECHAEXPEDICION = base.Columns["FECHAEXPEDICION"];
+                this.columnFECHAENTREGA = base.Columns["FECHAENTREGA"];
+                this.columnFECHAINICIADA = base.Columns["FECHAINICIADA"];
+                this.columnFECHAFINALIZADA = base.Columns["FECHAFINALIZADA"];
+                this.columnARTICULO = base.Columns["ARTICULO"];
+                this.columnCANTIDAD = base.Columns["CANTIDAD"];
+                this.columnESPECIFICACIONES = base.Columns["ESPECIFICACIONES"];
+                this.columnMOD_NoObreros = base.Columns["MOD_NoObreros"];
+                this.columnMOD_Horas = base.Columns["MOD_Horas"];
+                this.columnMOD_SalxHora = base.Columns["MOD_SalxHora"];
+                this.columnCIF_Monto = base.Columns["CIF_Monto"];
+                this.columnCIF_P = base.Columns["CIF_P"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnID_ORDEN = new global::System.Data.DataColumn("ID_ORDEN", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_ORDEN);
+                this.columnFECHAEXPEDICION = new global::System.Data.DataColumn("FECHAEXPEDICION", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHAEXPEDICION);
+                this.columnFECHAENTREGA = new global::System.Data.DataColumn("FECHAENTREGA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHAENTREGA);
+                this.columnFECHAINICIADA = new global::System.Data.DataColumn("FECHAINICIADA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHAINICIADA);
+                this.columnFECHAFINALIZADA = new global::System.Data.DataColumn("FECHAFINALIZADA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHAFINALIZADA);
+                this.columnARTICULO = new global::System.Data.DataColumn("ARTICULO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnARTICULO);
+                this.columnCANTIDAD = new global::System.Data.DataColumn("CANTIDAD", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD);
+                this.columnESPECIFICACIONES = new global::System.Data.DataColumn("ESPECIFICACIONES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnESPECIFICACIONES);
+                this.columnMOD_NoObreros = new global::System.Data.DataColumn("MOD_NoObreros", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMOD_NoObreros);
+                this.columnMOD_Horas = new global::System.Data.DataColumn("MOD_Horas", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMOD_Horas);
+                this.columnMOD_SalxHora = new global::System.Data.DataColumn("MOD_SalxHora", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMOD_SalxHora);
+                this.columnCIF_Monto = new global::System.Data.DataColumn("CIF_Monto", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCIF_Monto);
+                this.columnCIF_P = new global::System.Data.DataColumn("CIF_P", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCIF_P);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_ORDEN}, true));
+                this.columnID_ORDEN.AutoIncrement = true;
+                this.columnID_ORDEN.AutoIncrementSeed = -1;
+                this.columnID_ORDEN.AutoIncrementStep = -1;
+                this.columnID_ORDEN.AllowDBNull = false;
+                this.columnID_ORDEN.ReadOnly = true;
+                this.columnID_ORDEN.Unique = true;
+                this.columnARTICULO.MaxLength = 50;
+                this.columnESPECIFICACIONES.MaxLength = 100;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ORDEN_FABRICACIONRow NewORDEN_FABRICACIONRow() {
+                return ((ORDEN_FABRICACIONRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ORDEN_FABRICACIONRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(ORDEN_FABRICACIONRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ORDEN_FABRICACIONRowChanged != null)) {
+                    this.ORDEN_FABRICACIONRowChanged(this, new ORDEN_FABRICACIONRowChangeEvent(((ORDEN_FABRICACIONRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ORDEN_FABRICACIONRowChanging != null)) {
+                    this.ORDEN_FABRICACIONRowChanging(this, new ORDEN_FABRICACIONRowChangeEvent(((ORDEN_FABRICACIONRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ORDEN_FABRICACIONRowDeleted != null)) {
+                    this.ORDEN_FABRICACIONRowDeleted(this, new ORDEN_FABRICACIONRowChangeEvent(((ORDEN_FABRICACIONRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ORDEN_FABRICACIONRowDeleting != null)) {
+                    this.ORDEN_FABRICACIONRowDeleting(this, new ORDEN_FABRICACIONRowChangeEvent(((ORDEN_FABRICACIONRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveORDEN_FABRICACIONRow(ORDEN_FABRICACIONRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                InventariosDS ds = new InventariosDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ORDEN_FABRICACIONDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class REQUISICION_MATERIALESDataTable : global::System.Data.TypedTableBase<REQUISICION_MATERIALESRow> {
+            
+            private global::System.Data.DataColumn columnID_MATERIAL;
+            
+            private global::System.Data.DataColumn columnID_ORDEN;
+            
+            private global::System.Data.DataColumn columnID_COMPRA;
+            
+            private global::System.Data.DataColumn columnCANTIDAD;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESDataTable() {
+                this.TableName = "REQUISICION_MATERIALES";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal REQUISICION_MATERIALESDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected REQUISICION_MATERIALESDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_MATERIALColumn {
+                get {
+                    return this.columnID_MATERIAL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_ORDENColumn {
+                get {
+                    return this.columnID_ORDEN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ID_COMPRAColumn {
+                get {
+                    return this.columnID_COMPRA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CANTIDADColumn {
+                get {
+                    return this.columnCANTIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESRow this[int index] {
+                get {
+                    return ((REQUISICION_MATERIALESRow)(this.Rows[index]));
+                }
+            }
+            
+            public event REQUISICION_MATERIALESRowChangeEventHandler REQUISICION_MATERIALESRowChanging;
+            
+            public event REQUISICION_MATERIALESRowChangeEventHandler REQUISICION_MATERIALESRowChanged;
+            
+            public event REQUISICION_MATERIALESRowChangeEventHandler REQUISICION_MATERIALESRowDeleting;
+            
+            public event REQUISICION_MATERIALESRowChangeEventHandler REQUISICION_MATERIALESRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddREQUISICION_MATERIALESRow(REQUISICION_MATERIALESRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESRow AddREQUISICION_MATERIALESRow(MATERIALESRow parentMATERIALESRowByFK_REQUISIC_PK_MATERI_MATERIAL, ORDEN_FABRICACIONRow parentORDEN_FABRICACIONRowByFK_REQUISIC_PK_OF_REQ_ORDEN_FA, COMPRASRow parentCOMPRASRowByFK_REQUISIC_PK_COMPRA_COMPRAS, int CANTIDAD) {
+                REQUISICION_MATERIALESRow rowREQUISICION_MATERIALESRow = ((REQUISICION_MATERIALESRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null,
+                        CANTIDAD};
+                if ((parentMATERIALESRowByFK_REQUISIC_PK_MATERI_MATERIAL != null)) {
+                    columnValuesArray[0] = parentMATERIALESRowByFK_REQUISIC_PK_MATERI_MATERIAL[0];
+                }
+                if ((parentORDEN_FABRICACIONRowByFK_REQUISIC_PK_OF_REQ_ORDEN_FA != null)) {
+                    columnValuesArray[1] = parentORDEN_FABRICACIONRowByFK_REQUISIC_PK_OF_REQ_ORDEN_FA[0];
+                }
+                if ((parentCOMPRASRowByFK_REQUISIC_PK_COMPRA_COMPRAS != null)) {
+                    columnValuesArray[2] = parentCOMPRASRowByFK_REQUISIC_PK_COMPRA_COMPRAS[0];
+                }
+                rowREQUISICION_MATERIALESRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowREQUISICION_MATERIALESRow);
+                return rowREQUISICION_MATERIALESRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                REQUISICION_MATERIALESDataTable cln = ((REQUISICION_MATERIALESDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new REQUISICION_MATERIALESDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnID_MATERIAL = base.Columns["ID_MATERIAL"];
+                this.columnID_ORDEN = base.Columns["ID_ORDEN"];
+                this.columnID_COMPRA = base.Columns["ID_COMPRA"];
+                this.columnCANTIDAD = base.Columns["CANTIDAD"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnID_MATERIAL = new global::System.Data.DataColumn("ID_MATERIAL", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_MATERIAL);
+                this.columnID_ORDEN = new global::System.Data.DataColumn("ID_ORDEN", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_ORDEN);
+                this.columnID_COMPRA = new global::System.Data.DataColumn("ID_COMPRA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_COMPRA);
+                this.columnCANTIDAD = new global::System.Data.DataColumn("CANTIDAD", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD);
+                this.columnID_MATERIAL.AllowDBNull = false;
+                this.columnID_ORDEN.AllowDBNull = false;
+                this.columnID_COMPRA.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESRow NewREQUISICION_MATERIALESRow() {
+                return ((REQUISICION_MATERIALESRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new REQUISICION_MATERIALESRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(REQUISICION_MATERIALESRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.REQUISICION_MATERIALESRowChanged != null)) {
+                    this.REQUISICION_MATERIALESRowChanged(this, new REQUISICION_MATERIALESRowChangeEvent(((REQUISICION_MATERIALESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.REQUISICION_MATERIALESRowChanging != null)) {
+                    this.REQUISICION_MATERIALESRowChanging(this, new REQUISICION_MATERIALESRowChangeEvent(((REQUISICION_MATERIALESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.REQUISICION_MATERIALESRowDeleted != null)) {
+                    this.REQUISICION_MATERIALESRowDeleted(this, new REQUISICION_MATERIALESRowChangeEvent(((REQUISICION_MATERIALESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.REQUISICION_MATERIALESRowDeleting != null)) {
+                    this.REQUISICION_MATERIALESRowDeleting(this, new REQUISICION_MATERIALESRowChangeEvent(((REQUISICION_MATERIALESRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveREQUISICION_MATERIALESRow(REQUISICION_MATERIALESRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                InventariosDS ds = new InventariosDS();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "REQUISICION_MATERIALESDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -3008,6 +3776,16 @@ namespace Kaikei {
                 }
                 set {
                     this[this.tableINVENTARIO_CARDEX.TOTALUNIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_COMPRA {
+                get {
+                    return ((int)(this[this.tableINVENTARIO_CARDEX.ID_COMPRAColumn]));
+                }
+                set {
+                    this[this.tableINVENTARIO_CARDEX.ID_COMPRAColumn] = value;
                 }
             }
             
@@ -3377,6 +4155,16 @@ namespace Kaikei {
                     return ((DETALLE_COMPRARow[])(base.GetChildRows(this.Table.ChildRelations["FK_DETALLE__FK_COMPRA_COMPRAS"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESRow[] GetREQUISICION_MATERIALESRows() {
+                if ((this.Table.ChildRelations["FK_REQUISIC_PK_COMPRA_COMPRAS"] == null)) {
+                    return new REQUISICION_MATERIALESRow[0];
+                }
+                else {
+                    return ((REQUISICION_MATERIALESRow[])(base.GetChildRows(this.Table.ChildRelations["FK_REQUISIC_PK_COMPRA_COMPRAS"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3687,6 +4475,16 @@ namespace Kaikei {
                     return ((DETALLE_COMPRARow[])(base.GetChildRows(this.Table.ChildRelations["FK_DETALLE__FK_COMPRA_MATERIAL"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESRow[] GetREQUISICION_MATERIALESRows() {
+                if ((this.Table.ChildRelations["FK_REQUISIC_PK_MATERI_MATERIAL"] == null)) {
+                    return new REQUISICION_MATERIALESRow[0];
+                }
+                else {
+                    return ((REQUISICION_MATERIALESRow[])(base.GetChildRows(this.Table.ChildRelations["FK_REQUISIC_PK_MATERI_MATERIAL"])));
+                }
+            }
         }
         
         /// <summary>
@@ -3838,6 +4636,447 @@ namespace Kaikei {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetDISPONIBLESNull() {
                 this[this.tableONLY_MATERIAL_DISPONIBLE.DISPONIBLESColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class ORDEN_FABRICACIONRow : global::System.Data.DataRow {
+            
+            private ORDEN_FABRICACIONDataTable tableORDEN_FABRICACION;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal ORDEN_FABRICACIONRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableORDEN_FABRICACION = ((ORDEN_FABRICACIONDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_ORDEN {
+                get {
+                    return ((int)(this[this.tableORDEN_FABRICACION.ID_ORDENColumn]));
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.ID_ORDENColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime FECHAEXPEDICION {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableORDEN_FABRICACION.FECHAEXPEDICIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHAEXPEDICION\' de la tabla \'ORDEN_FABRICACION\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.FECHAEXPEDICIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime FECHAENTREGA {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableORDEN_FABRICACION.FECHAENTREGAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHAENTREGA\' de la tabla \'ORDEN_FABRICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.FECHAENTREGAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime FECHAINICIADA {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableORDEN_FABRICACION.FECHAINICIADAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHAINICIADA\' de la tabla \'ORDEN_FABRICACION\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.FECHAINICIADAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime FECHAFINALIZADA {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableORDEN_FABRICACION.FECHAFINALIZADAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHAFINALIZADA\' de la tabla \'ORDEN_FABRICACION\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.FECHAFINALIZADAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string ARTICULO {
+                get {
+                    try {
+                        return ((string)(this[this.tableORDEN_FABRICACION.ARTICULOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ARTICULO\' de la tabla \'ORDEN_FABRICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.ARTICULOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int CANTIDAD {
+                get {
+                    try {
+                        return ((int)(this[this.tableORDEN_FABRICACION.CANTIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD\' de la tabla \'ORDEN_FABRICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.CANTIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string ESPECIFICACIONES {
+                get {
+                    try {
+                        return ((string)(this[this.tableORDEN_FABRICACION.ESPECIFICACIONESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ESPECIFICACIONES\' de la tabla \'ORDEN_FABRICACION\' es DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.ESPECIFICACIONESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int MOD_NoObreros {
+                get {
+                    try {
+                        return ((int)(this[this.tableORDEN_FABRICACION.MOD_NoObrerosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MOD_NoObreros\' de la tabla \'ORDEN_FABRICACION\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.MOD_NoObrerosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int MOD_Horas {
+                get {
+                    try {
+                        return ((int)(this[this.tableORDEN_FABRICACION.MOD_HorasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MOD_Horas\' de la tabla \'ORDEN_FABRICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.MOD_HorasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal MOD_SalxHora {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableORDEN_FABRICACION.MOD_SalxHoraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MOD_SalxHora\' de la tabla \'ORDEN_FABRICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.MOD_SalxHoraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public decimal CIF_Monto {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableORDEN_FABRICACION.CIF_MontoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CIF_Monto\' de la tabla \'ORDEN_FABRICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.CIF_MontoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public float CIF_P {
+                get {
+                    try {
+                        return ((float)(this[this.tableORDEN_FABRICACION.CIF_PColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CIF_P\' de la tabla \'ORDEN_FABRICACION\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableORDEN_FABRICACION.CIF_PColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFECHAEXPEDICIONNull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.FECHAEXPEDICIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFECHAEXPEDICIONNull() {
+                this[this.tableORDEN_FABRICACION.FECHAEXPEDICIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFECHAENTREGANull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.FECHAENTREGAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFECHAENTREGANull() {
+                this[this.tableORDEN_FABRICACION.FECHAENTREGAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFECHAINICIADANull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.FECHAINICIADAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFECHAINICIADANull() {
+                this[this.tableORDEN_FABRICACION.FECHAINICIADAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsFECHAFINALIZADANull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.FECHAFINALIZADAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetFECHAFINALIZADANull() {
+                this[this.tableORDEN_FABRICACION.FECHAFINALIZADAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsARTICULONull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.ARTICULOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetARTICULONull() {
+                this[this.tableORDEN_FABRICACION.ARTICULOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCANTIDADNull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.CANTIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCANTIDADNull() {
+                this[this.tableORDEN_FABRICACION.CANTIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsESPECIFICACIONESNull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.ESPECIFICACIONESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetESPECIFICACIONESNull() {
+                this[this.tableORDEN_FABRICACION.ESPECIFICACIONESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMOD_NoObrerosNull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.MOD_NoObrerosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMOD_NoObrerosNull() {
+                this[this.tableORDEN_FABRICACION.MOD_NoObrerosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMOD_HorasNull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.MOD_HorasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMOD_HorasNull() {
+                this[this.tableORDEN_FABRICACION.MOD_HorasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsMOD_SalxHoraNull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.MOD_SalxHoraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetMOD_SalxHoraNull() {
+                this[this.tableORDEN_FABRICACION.MOD_SalxHoraColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCIF_MontoNull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.CIF_MontoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCIF_MontoNull() {
+                this[this.tableORDEN_FABRICACION.CIF_MontoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCIF_PNull() {
+                return this.IsNull(this.tableORDEN_FABRICACION.CIF_PColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCIF_PNull() {
+                this[this.tableORDEN_FABRICACION.CIF_PColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESRow[] GetREQUISICION_MATERIALESRows() {
+                if ((this.Table.ChildRelations["FK_REQUISIC_PK_OF_REQ_ORDEN_FA"] == null)) {
+                    return new REQUISICION_MATERIALESRow[0];
+                }
+                else {
+                    return ((REQUISICION_MATERIALESRow[])(base.GetChildRows(this.Table.ChildRelations["FK_REQUISIC_PK_OF_REQ_ORDEN_FA"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class REQUISICION_MATERIALESRow : global::System.Data.DataRow {
+            
+            private REQUISICION_MATERIALESDataTable tableREQUISICION_MATERIALES;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal REQUISICION_MATERIALESRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableREQUISICION_MATERIALES = ((REQUISICION_MATERIALESDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_MATERIAL {
+                get {
+                    return ((int)(this[this.tableREQUISICION_MATERIALES.ID_MATERIALColumn]));
+                }
+                set {
+                    this[this.tableREQUISICION_MATERIALES.ID_MATERIALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_ORDEN {
+                get {
+                    return ((int)(this[this.tableREQUISICION_MATERIALES.ID_ORDENColumn]));
+                }
+                set {
+                    this[this.tableREQUISICION_MATERIALES.ID_ORDENColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ID_COMPRA {
+                get {
+                    return ((int)(this[this.tableREQUISICION_MATERIALES.ID_COMPRAColumn]));
+                }
+                set {
+                    this[this.tableREQUISICION_MATERIALES.ID_COMPRAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int CANTIDAD {
+                get {
+                    try {
+                        return ((int)(this[this.tableREQUISICION_MATERIALES.CANTIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD\' de la tabla \'REQUISICION_MATERIALES\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableREQUISICION_MATERIALES.CANTIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public COMPRASRow COMPRASRow {
+                get {
+                    return ((COMPRASRow)(this.GetParentRow(this.Table.ParentRelations["FK_REQUISIC_PK_COMPRA_COMPRAS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_REQUISIC_PK_COMPRA_COMPRAS"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public MATERIALESRow MATERIALESRow {
+                get {
+                    return ((MATERIALESRow)(this.GetParentRow(this.Table.ParentRelations["FK_REQUISIC_PK_MATERI_MATERIAL"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_REQUISIC_PK_MATERI_MATERIAL"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ORDEN_FABRICACIONRow ORDEN_FABRICACIONRow {
+                get {
+                    return ((ORDEN_FABRICACIONRow)(this.GetParentRow(this.Table.ParentRelations["FK_REQUISIC_PK_OF_REQ_ORDEN_FA"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_REQUISIC_PK_OF_REQ_ORDEN_FA"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCANTIDADNull() {
+                return this.IsNull(this.tableREQUISICION_MATERIALES.CANTIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCANTIDADNull() {
+                this[this.tableREQUISICION_MATERIALES.CANTIDADColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4088,6 +5327,68 @@ namespace Kaikei {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class ORDEN_FABRICACIONRowChangeEvent : global::System.EventArgs {
+            
+            private ORDEN_FABRICACIONRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ORDEN_FABRICACIONRowChangeEvent(ORDEN_FABRICACIONRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public ORDEN_FABRICACIONRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class REQUISICION_MATERIALESRowChangeEvent : global::System.EventArgs {
+            
+            private REQUISICION_MATERIALESRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESRowChangeEvent(REQUISICION_MATERIALESRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public REQUISICION_MATERIALESRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace Kaikei.InventariosDSTableAdapters {
@@ -4220,6 +5521,7 @@ namespace Kaikei.InventariosDSTableAdapters {
             tableMapping.ColumnMappings.Add("COMPRASUNIDAD", "COMPRASUNIDAD");
             tableMapping.ColumnMappings.Add("VENTASUNIDAD", "VENTASUNIDAD");
             tableMapping.ColumnMappings.Add("TOTALUNIDAD", "TOTALUNIDAD");
+            tableMapping.ColumnMappings.Add("ID_COMPRA", "ID_COMPRA");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4231,20 +5533,27 @@ namespace Kaikei.InventariosDSTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_MATERIAL, FECHA, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, PRECIOUNITARIO, D" +
-                "ISPONIBILIDAD, COMPRASUNIDAD, PROVEEDOR, VENTASUNIDAD, TOTALUNIDAD FROM INVENTAR" +
-                "IO_CARDEX";
+                "ISPONIBILIDAD, COMPRASUNIDAD, PROVEEDOR, VENTASUNIDAD, TOTALUNIDAD, ID_COMPRA FR" +
+                "OM INVENTARIO_CARDEX";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID_MATERIAL, FECHA, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, PRECIOUNITARIO, D" +
-                "ISPONIBILIDAD, COMPRASUNIDAD, PROVEEDOR, VENTASUNIDAD, TOTALUNIDAD FROM INVENTAR" +
-                "IO_CARDEX WHERE (ID_MATERIAL = @IDM)";
+            this._commandCollection[1].CommandText = @"SELECT        ID_MATERIAL, FECHA, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, PRECIOUNITARIO, DISPONIBILIDAD, COMPRASUNIDAD, PROVEEDOR, VENTASUNIDAD, 
+                         TOTALUNIDAD, ID_COMPRA
+FROM            INVENTARIO_CARDEX
+WHERE        (ID_MATERIAL = @IDM)
+ORDER BY FECHA";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDM", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_MATERIAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT ID_MATERIAL, FECHA, NOMBRE, COMPRAS, VENTAS, DIFERENCIA, PRECIOUNITARIO, DISPONIBILIDAD, COMPRASUNIDAD, PROVEEDOR, VENTASUNIDAD, TOTALUNIDAD, ID_COMPRA FROM INVENTARIO_CARDEX WHERE (ID_MATERIAL = @IDMaterial) AND (DISPONIBILIDAD = 'D') ORDER BY FECHA";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDMaterial", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_MATERIAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4288,6 +5597,30 @@ namespace Kaikei.InventariosDSTableAdapters {
         public virtual InventariosDS.INVENTARIO_CARDEXDataTable GetDataByID(int IDM) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDM));
+            InventariosDS.INVENTARIO_CARDEXDataTable dataTable = new InventariosDS.INVENTARIO_CARDEXDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByIDMaterial(InventariosDS.INVENTARIO_CARDEXDataTable dataTable, int IDMaterial) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDMaterial));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual InventariosDS.INVENTARIO_CARDEXDataTable GetDataByIDMaterial(int IDMaterial) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(IDMaterial));
             InventariosDS.INVENTARIO_CARDEXDataTable dataTable = new InventariosDS.INVENTARIO_CARDEXDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -6047,6 +7380,1093 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ORDEN_FABRICACIONTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public ORDEN_FABRICACIONTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ORDEN_FABRICACION";
+            tableMapping.ColumnMappings.Add("ID_ORDEN", "ID_ORDEN");
+            tableMapping.ColumnMappings.Add("FECHAEXPEDICION", "FECHAEXPEDICION");
+            tableMapping.ColumnMappings.Add("FECHAENTREGA", "FECHAENTREGA");
+            tableMapping.ColumnMappings.Add("FECHAINICIADA", "FECHAINICIADA");
+            tableMapping.ColumnMappings.Add("FECHAFINALIZADA", "FECHAFINALIZADA");
+            tableMapping.ColumnMappings.Add("ARTICULO", "ARTICULO");
+            tableMapping.ColumnMappings.Add("CANTIDAD", "CANTIDAD");
+            tableMapping.ColumnMappings.Add("ESPECIFICACIONES", "ESPECIFICACIONES");
+            tableMapping.ColumnMappings.Add("MOD_NoObreros", "MOD_NoObreros");
+            tableMapping.ColumnMappings.Add("MOD_Horas", "MOD_Horas");
+            tableMapping.ColumnMappings.Add("MOD_SalxHora", "MOD_SalxHora");
+            tableMapping.ColumnMappings.Add("CIF_Monto", "CIF_Monto");
+            tableMapping.ColumnMappings.Add("CIF_P", "CIF_P");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ORDEN_FABRICACION] WHERE (([ID_ORDEN] = @Original_ID_ORDEN) AND ((@IsNull_FECHAEXPEDICION = 1 AND [FECHAEXPEDICION] IS NULL) OR ([FECHAEXPEDICION] = @Original_FECHAEXPEDICION)) AND ((@IsNull_FECHAENTREGA = 1 AND [FECHAENTREGA] IS NULL) OR ([FECHAENTREGA] = @Original_FECHAENTREGA)) AND ((@IsNull_FECHAINICIADA = 1 AND [FECHAINICIADA] IS NULL) OR ([FECHAINICIADA] = @Original_FECHAINICIADA)) AND ((@IsNull_FECHAFINALIZADA = 1 AND [FECHAFINALIZADA] IS NULL) OR ([FECHAFINALIZADA] = @Original_FECHAFINALIZADA)) AND ((@IsNull_ARTICULO = 1 AND [ARTICULO] IS NULL) OR ([ARTICULO] = @Original_ARTICULO)) AND ((@IsNull_CANTIDAD = 1 AND [CANTIDAD] IS NULL) OR ([CANTIDAD] = @Original_CANTIDAD)) AND ((@IsNull_ESPECIFICACIONES = 1 AND [ESPECIFICACIONES] IS NULL) OR ([ESPECIFICACIONES] = @Original_ESPECIFICACIONES)) AND ((@IsNull_MOD_NoObreros = 1 AND [MOD_NoObreros] IS NULL) OR ([MOD_NoObreros] = @Original_MOD_NoObreros)) AND ((@IsNull_MOD_Horas = 1 AND [MOD_Horas] IS NULL) OR ([MOD_Horas] = @Original_MOD_Horas)) AND ((@IsNull_MOD_SalxHora = 1 AND [MOD_SalxHora] IS NULL) OR ([MOD_SalxHora] = @Original_MOD_SalxHora)) AND ((@IsNull_CIF_Monto = 1 AND [CIF_Monto] IS NULL) OR ([CIF_Monto] = @Original_CIF_Monto)) AND ((@IsNull_CIF_P = 1 AND [CIF_P] IS NULL) OR ([CIF_P] = @Original_CIF_P)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_ORDEN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_ORDEN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHAEXPEDICION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAEXPEDICION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHAEXPEDICION", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAEXPEDICION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHAENTREGA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAENTREGA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHAENTREGA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAENTREGA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHAINICIADA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAINICIADA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHAINICIADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAINICIADA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHAFINALIZADA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAFINALIZADA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHAFINALIZADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAFINALIZADA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ARTICULO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ARTICULO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ARTICULO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ARTICULO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CANTIDAD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CANTIDAD", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CANTIDAD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CANTIDAD", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ESPECIFICACIONES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ESPECIFICACIONES", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ESPECIFICACIONES", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ESPECIFICACIONES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOD_NoObreros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_NoObreros", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOD_NoObreros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_NoObreros", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOD_Horas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_Horas", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOD_Horas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_Horas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOD_SalxHora", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_SalxHora", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOD_SalxHora", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_SalxHora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CIF_Monto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_Monto", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CIF_Monto", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_Monto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CIF_P", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_P", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CIF_P", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_P", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ORDEN_FABRICACION] ([FECHAEXPEDICION], [FECHAENTREGA], [FECHAINICIADA], [FECHAFINALIZADA], [ARTICULO], [CANTIDAD], [ESPECIFICACIONES], [MOD_NoObreros], [MOD_Horas], [MOD_SalxHora], [CIF_Monto], [CIF_P]) VALUES (@FECHAEXPEDICION, @FECHAENTREGA, @FECHAINICIADA, @FECHAFINALIZADA, @ARTICULO, @CANTIDAD, @ESPECIFICACIONES, @MOD_NoObreros, @MOD_Horas, @MOD_SalxHora, @CIF_Monto, @CIF_P);
+SELECT ID_ORDEN, FECHAEXPEDICION, FECHAENTREGA, FECHAINICIADA, FECHAFINALIZADA, ARTICULO, CANTIDAD, ESPECIFICACIONES, MOD_NoObreros, MOD_Horas, MOD_SalxHora, CIF_Monto, CIF_P FROM ORDEN_FABRICACION WHERE (ID_ORDEN = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAEXPEDICION", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAEXPEDICION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAENTREGA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAENTREGA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAINICIADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAINICIADA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAFINALIZADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAFINALIZADA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ARTICULO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ARTICULO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CANTIDAD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CANTIDAD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ESPECIFICACIONES", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ESPECIFICACIONES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOD_NoObreros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_NoObreros", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOD_Horas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_Horas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOD_SalxHora", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_SalxHora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CIF_Monto", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_Monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CIF_P", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_P", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[ORDEN_FABRICACION] SET [FECHAEXPEDICION] = @FECHAEXPEDICION, [FECHA" +
+                "ENTREGA] = @FECHAENTREGA, [FECHAINICIADA] = @FECHAINICIADA, [FECHAFINALIZADA] = " +
+                "@FECHAFINALIZADA, [ARTICULO] = @ARTICULO, [CANTIDAD] = @CANTIDAD, [ESPECIFICACIO" +
+                "NES] = @ESPECIFICACIONES, [MOD_NoObreros] = @MOD_NoObreros, [MOD_Horas] = @MOD_H" +
+                "oras, [MOD_SalxHora] = @MOD_SalxHora, [CIF_Monto] = @CIF_Monto, [CIF_P] = @CIF_P" +
+                " WHERE (([ID_ORDEN] = @Original_ID_ORDEN) AND ((@IsNull_FECHAEXPEDICION = 1 AND " +
+                "[FECHAEXPEDICION] IS NULL) OR ([FECHAEXPEDICION] = @Original_FECHAEXPEDICION)) A" +
+                "ND ((@IsNull_FECHAENTREGA = 1 AND [FECHAENTREGA] IS NULL) OR ([FECHAENTREGA] = @" +
+                "Original_FECHAENTREGA)) AND ((@IsNull_FECHAINICIADA = 1 AND [FECHAINICIADA] IS N" +
+                "ULL) OR ([FECHAINICIADA] = @Original_FECHAINICIADA)) AND ((@IsNull_FECHAFINALIZA" +
+                "DA = 1 AND [FECHAFINALIZADA] IS NULL) OR ([FECHAFINALIZADA] = @Original_FECHAFIN" +
+                "ALIZADA)) AND ((@IsNull_ARTICULO = 1 AND [ARTICULO] IS NULL) OR ([ARTICULO] = @O" +
+                "riginal_ARTICULO)) AND ((@IsNull_CANTIDAD = 1 AND [CANTIDAD] IS NULL) OR ([CANTI" +
+                "DAD] = @Original_CANTIDAD)) AND ((@IsNull_ESPECIFICACIONES = 1 AND [ESPECIFICACI" +
+                "ONES] IS NULL) OR ([ESPECIFICACIONES] = @Original_ESPECIFICACIONES)) AND ((@IsNu" +
+                "ll_MOD_NoObreros = 1 AND [MOD_NoObreros] IS NULL) OR ([MOD_NoObreros] = @Origina" +
+                "l_MOD_NoObreros)) AND ((@IsNull_MOD_Horas = 1 AND [MOD_Horas] IS NULL) OR ([MOD_" +
+                "Horas] = @Original_MOD_Horas)) AND ((@IsNull_MOD_SalxHora = 1 AND [MOD_SalxHora]" +
+                " IS NULL) OR ([MOD_SalxHora] = @Original_MOD_SalxHora)) AND ((@IsNull_CIF_Monto " +
+                "= 1 AND [CIF_Monto] IS NULL) OR ([CIF_Monto] = @Original_CIF_Monto)) AND ((@IsNu" +
+                "ll_CIF_P = 1 AND [CIF_P] IS NULL) OR ([CIF_P] = @Original_CIF_P)));\r\nSELECT ID_O" +
+                "RDEN, FECHAEXPEDICION, FECHAENTREGA, FECHAINICIADA, FECHAFINALIZADA, ARTICULO, C" +
+                "ANTIDAD, ESPECIFICACIONES, MOD_NoObreros, MOD_Horas, MOD_SalxHora, CIF_Monto, CI" +
+                "F_P FROM ORDEN_FABRICACION WHERE (ID_ORDEN = @ID_ORDEN)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAEXPEDICION", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAEXPEDICION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAENTREGA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAENTREGA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAINICIADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAINICIADA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHAFINALIZADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAFINALIZADA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ARTICULO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ARTICULO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CANTIDAD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CANTIDAD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ESPECIFICACIONES", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ESPECIFICACIONES", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOD_NoObreros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_NoObreros", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOD_Horas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_Horas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MOD_SalxHora", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_SalxHora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CIF_Monto", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_Monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CIF_P", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_P", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_ORDEN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_ORDEN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHAEXPEDICION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAEXPEDICION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHAEXPEDICION", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAEXPEDICION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHAENTREGA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAENTREGA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHAENTREGA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAENTREGA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHAINICIADA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAINICIADA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHAINICIADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAINICIADA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHAFINALIZADA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAFINALIZADA", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHAFINALIZADA", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHAFINALIZADA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ARTICULO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ARTICULO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ARTICULO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ARTICULO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CANTIDAD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CANTIDAD", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CANTIDAD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CANTIDAD", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ESPECIFICACIONES", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ESPECIFICACIONES", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ESPECIFICACIONES", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ESPECIFICACIONES", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOD_NoObreros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_NoObreros", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOD_NoObreros", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_NoObreros", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOD_Horas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_Horas", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOD_Horas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_Horas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MOD_SalxHora", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_SalxHora", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MOD_SalxHora", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MOD_SalxHora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CIF_Monto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_Monto", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CIF_Monto", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_Monto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CIF_P", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_P", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CIF_P", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CIF_P", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_ORDEN", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_ORDEN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Kaikei.Properties.Settings.Default.KaikeiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID_ORDEN, FECHAEXPEDICION, FECHAENTREGA, FECHAINICIADA, FECHAFINALIZADA, A" +
+                "RTICULO, CANTIDAD, ESPECIFICACIONES, MOD_NoObreros, MOD_Horas, MOD_SalxHora, CIF" +
+                "_Monto, CIF_P FROM dbo.ORDEN_FABRICACION";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(InventariosDS.ORDEN_FABRICACIONDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual InventariosDS.ORDEN_FABRICACIONDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            InventariosDS.ORDEN_FABRICACIONDataTable dataTable = new InventariosDS.ORDEN_FABRICACIONDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(InventariosDS.ORDEN_FABRICACIONDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(InventariosDS dataSet) {
+            return this.Adapter.Update(dataSet, "ORDEN_FABRICACION");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID_ORDEN, global::System.Nullable<global::System.DateTime> Original_FECHAEXPEDICION, global::System.Nullable<global::System.DateTime> Original_FECHAENTREGA, global::System.Nullable<global::System.DateTime> Original_FECHAINICIADA, global::System.Nullable<global::System.DateTime> Original_FECHAFINALIZADA, string Original_ARTICULO, global::System.Nullable<int> Original_CANTIDAD, string Original_ESPECIFICACIONES, global::System.Nullable<int> Original_MOD_NoObreros, global::System.Nullable<int> Original_MOD_Horas, global::System.Nullable<decimal> Original_MOD_SalxHora, global::System.Nullable<decimal> Original_CIF_Monto, global::System.Nullable<float> Original_CIF_P) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_ORDEN));
+            if ((Original_FECHAEXPEDICION.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_FECHAEXPEDICION.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHAENTREGA.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_FECHAENTREGA.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHAINICIADA.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_FECHAINICIADA.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHAFINALIZADA.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_FECHAFINALIZADA.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ARTICULO == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_ARTICULO));
+            }
+            if ((Original_CANTIDAD.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_CANTIDAD.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ESPECIFICACIONES == null)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_ESPECIFICACIONES));
+            }
+            if ((Original_MOD_NoObreros.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_MOD_NoObreros.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MOD_Horas.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_MOD_Horas.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MOD_SalxHora.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_MOD_SalxHora.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CIF_Monto.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_CIF_Monto.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CIF_P.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((float)(Original_CIF_P.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> FECHAEXPEDICION, global::System.Nullable<global::System.DateTime> FECHAENTREGA, global::System.Nullable<global::System.DateTime> FECHAINICIADA, global::System.Nullable<global::System.DateTime> FECHAFINALIZADA, string ARTICULO, global::System.Nullable<int> CANTIDAD, string ESPECIFICACIONES, global::System.Nullable<int> MOD_NoObreros, global::System.Nullable<int> MOD_Horas, global::System.Nullable<decimal> MOD_SalxHora, global::System.Nullable<decimal> CIF_Monto, global::System.Nullable<float> CIF_P) {
+            if ((FECHAEXPEDICION.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(FECHAEXPEDICION.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((FECHAENTREGA.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(FECHAENTREGA.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((FECHAINICIADA.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(FECHAINICIADA.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((FECHAFINALIZADA.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(FECHAFINALIZADA.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((ARTICULO == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ARTICULO));
+            }
+            if ((CANTIDAD.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(CANTIDAD.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((ESPECIFICACIONES == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(ESPECIFICACIONES));
+            }
+            if ((MOD_NoObreros.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(MOD_NoObreros.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((MOD_Horas.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(MOD_Horas.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((MOD_SalxHora.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(MOD_SalxHora.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((CIF_Monto.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(CIF_Monto.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((CIF_P.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((float)(CIF_P.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<global::System.DateTime> FECHAEXPEDICION, 
+                    global::System.Nullable<global::System.DateTime> FECHAENTREGA, 
+                    global::System.Nullable<global::System.DateTime> FECHAINICIADA, 
+                    global::System.Nullable<global::System.DateTime> FECHAFINALIZADA, 
+                    string ARTICULO, 
+                    global::System.Nullable<int> CANTIDAD, 
+                    string ESPECIFICACIONES, 
+                    global::System.Nullable<int> MOD_NoObreros, 
+                    global::System.Nullable<int> MOD_Horas, 
+                    global::System.Nullable<decimal> MOD_SalxHora, 
+                    global::System.Nullable<decimal> CIF_Monto, 
+                    global::System.Nullable<float> CIF_P, 
+                    int Original_ID_ORDEN, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHAEXPEDICION, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHAENTREGA, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHAINICIADA, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHAFINALIZADA, 
+                    string Original_ARTICULO, 
+                    global::System.Nullable<int> Original_CANTIDAD, 
+                    string Original_ESPECIFICACIONES, 
+                    global::System.Nullable<int> Original_MOD_NoObreros, 
+                    global::System.Nullable<int> Original_MOD_Horas, 
+                    global::System.Nullable<decimal> Original_MOD_SalxHora, 
+                    global::System.Nullable<decimal> Original_CIF_Monto, 
+                    global::System.Nullable<float> Original_CIF_P, 
+                    int ID_ORDEN) {
+            if ((FECHAEXPEDICION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(FECHAEXPEDICION.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((FECHAENTREGA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(FECHAENTREGA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((FECHAINICIADA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(FECHAINICIADA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((FECHAFINALIZADA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(FECHAFINALIZADA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((ARTICULO == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ARTICULO));
+            }
+            if ((CANTIDAD.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(CANTIDAD.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((ESPECIFICACIONES == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(ESPECIFICACIONES));
+            }
+            if ((MOD_NoObreros.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(MOD_NoObreros.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((MOD_Horas.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(MOD_Horas.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((MOD_SalxHora.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(MOD_SalxHora.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((CIF_Monto.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(CIF_Monto.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((CIF_P.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((float)(CIF_P.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_ID_ORDEN));
+            if ((Original_FECHAEXPEDICION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_FECHAEXPEDICION.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHAENTREGA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_FECHAENTREGA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHAINICIADA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_FECHAINICIADA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHAFINALIZADA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((System.DateTime)(Original_FECHAFINALIZADA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ARTICULO == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_ARTICULO));
+            }
+            if ((Original_CANTIDAD.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_CANTIDAD.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ESPECIFICACIONES == null)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_ESPECIFICACIONES));
+            }
+            if ((Original_MOD_NoObreros.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_MOD_NoObreros.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MOD_Horas.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_MOD_Horas.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_MOD_SalxHora.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((decimal)(Original_MOD_SalxHora.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CIF_Monto.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((decimal)(Original_CIF_Monto.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CIF_P.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((float)(Original_CIF_P.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(ID_ORDEN));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<global::System.DateTime> FECHAEXPEDICION, 
+                    global::System.Nullable<global::System.DateTime> FECHAENTREGA, 
+                    global::System.Nullable<global::System.DateTime> FECHAINICIADA, 
+                    global::System.Nullable<global::System.DateTime> FECHAFINALIZADA, 
+                    string ARTICULO, 
+                    global::System.Nullable<int> CANTIDAD, 
+                    string ESPECIFICACIONES, 
+                    global::System.Nullable<int> MOD_NoObreros, 
+                    global::System.Nullable<int> MOD_Horas, 
+                    global::System.Nullable<decimal> MOD_SalxHora, 
+                    global::System.Nullable<decimal> CIF_Monto, 
+                    global::System.Nullable<float> CIF_P, 
+                    int Original_ID_ORDEN, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHAEXPEDICION, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHAENTREGA, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHAINICIADA, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHAFINALIZADA, 
+                    string Original_ARTICULO, 
+                    global::System.Nullable<int> Original_CANTIDAD, 
+                    string Original_ESPECIFICACIONES, 
+                    global::System.Nullable<int> Original_MOD_NoObreros, 
+                    global::System.Nullable<int> Original_MOD_Horas, 
+                    global::System.Nullable<decimal> Original_MOD_SalxHora, 
+                    global::System.Nullable<decimal> Original_CIF_Monto, 
+                    global::System.Nullable<float> Original_CIF_P) {
+            return this.Update(FECHAEXPEDICION, FECHAENTREGA, FECHAINICIADA, FECHAFINALIZADA, ARTICULO, CANTIDAD, ESPECIFICACIONES, MOD_NoObreros, MOD_Horas, MOD_SalxHora, CIF_Monto, CIF_P, Original_ID_ORDEN, Original_FECHAEXPEDICION, Original_FECHAENTREGA, Original_FECHAINICIADA, Original_FECHAFINALIZADA, Original_ARTICULO, Original_CANTIDAD, Original_ESPECIFICACIONES, Original_MOD_NoObreros, Original_MOD_Horas, Original_MOD_SalxHora, Original_CIF_Monto, Original_CIF_P, Original_ID_ORDEN);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class REQUISICION_MATERIALESTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public REQUISICION_MATERIALESTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "REQUISICION_MATERIALES";
+            tableMapping.ColumnMappings.Add("ID_MATERIAL", "ID_MATERIAL");
+            tableMapping.ColumnMappings.Add("ID_ORDEN", "ID_ORDEN");
+            tableMapping.ColumnMappings.Add("ID_COMPRA", "ID_COMPRA");
+            tableMapping.ColumnMappings.Add("CANTIDAD", "CANTIDAD");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[REQUISICION_MATERIALES] ([ID_MATERIAL], [ID_ORDEN], [ID_COMPRA" +
+                "], [CANTIDAD]) VALUES (@ID_MATERIAL, @ID_ORDEN, @ID_COMPRA, @CANTIDAD)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_MATERIAL", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_MATERIAL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_ORDEN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_ORDEN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_COMPRA", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_COMPRA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CANTIDAD", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CANTIDAD", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Kaikei.Properties.Settings.Default.KaikeiConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID_MATERIAL, ID_ORDEN, ID_COMPRA, CANTIDAD FROM dbo.REQUISICION_MATERIALES" +
+                "";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(InventariosDS.REQUISICION_MATERIALESDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual InventariosDS.REQUISICION_MATERIALESDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            InventariosDS.REQUISICION_MATERIALESDataTable dataTable = new InventariosDS.REQUISICION_MATERIALESDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(InventariosDS.REQUISICION_MATERIALESDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(InventariosDS dataSet) {
+            return this.Adapter.Update(dataSet, "REQUISICION_MATERIALES");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int ID_MATERIAL, int ID_ORDEN, int ID_COMPRA, global::System.Nullable<int> CANTIDAD) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_MATERIAL));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(ID_ORDEN));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ID_COMPRA));
+            if ((CANTIDAD.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(CANTIDAD.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class FuncionesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Kaikei.Properties.Settings.Default.KaikeiConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "dbo.GET_MAXUNIT_MATERIAL";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_MATERIAL", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Connection = new global::System.Data.SqlClient.SqlConnection(global::Kaikei.Properties.Settings.Default.KaikeiConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandText = "dbo.GET_NOLAST_ORDEN_FAB";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> GET_MAXUNIT_MATERIAL(global::System.Nullable<int> ID_MATERIAL) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((ID_MATERIAL.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(ID_MATERIAL.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            try {
+                command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((command.Parameters[0].Value == null) 
+                        || (command.Parameters[0].Value.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(command.Parameters[0].Value)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> GET_NOLAST_ORDEN_FAB() {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[1]));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            try {
+                command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((command.Parameters[0].Value == null) 
+                        || (command.Parameters[0].Value.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(command.Parameters[0].Value)));
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -6066,6 +8486,10 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
         private PROVEEDORESTableAdapter _pROVEEDORESTableAdapter;
         
         private MATERIALESTableAdapter _mATERIALESTableAdapter;
+        
+        private ORDEN_FABRICACIONTableAdapter _oRDEN_FABRICACIONTableAdapter;
+        
+        private REQUISICION_MATERIALESTableAdapter _rEQUISICION_MATERIALESTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -6134,6 +8558,32 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
+            "", "System.Drawing.Design.UITypeEditor")]
+        public ORDEN_FABRICACIONTableAdapter ORDEN_FABRICACIONTableAdapter {
+            get {
+                return this._oRDEN_FABRICACIONTableAdapter;
+            }
+            set {
+                this._oRDEN_FABRICACIONTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
+            "", "System.Drawing.Design.UITypeEditor")]
+        public REQUISICION_MATERIALESTableAdapter REQUISICION_MATERIALESTableAdapter {
+            get {
+                return this._rEQUISICION_MATERIALESTableAdapter;
+            }
+            set {
+                this._rEQUISICION_MATERIALESTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -6166,6 +8616,14 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                             && (this._mATERIALESTableAdapter.Connection != null))) {
                     return this._mATERIALESTableAdapter.Connection;
                 }
+                if (((this._oRDEN_FABRICACIONTableAdapter != null) 
+                            && (this._oRDEN_FABRICACIONTableAdapter.Connection != null))) {
+                    return this._oRDEN_FABRICACIONTableAdapter.Connection;
+                }
+                if (((this._rEQUISICION_MATERIALESTableAdapter != null) 
+                            && (this._rEQUISICION_MATERIALESTableAdapter.Connection != null))) {
+                    return this._rEQUISICION_MATERIALESTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -6190,6 +8648,12 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                 if ((this._mATERIALESTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._oRDEN_FABRICACIONTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._rEQUISICION_MATERIALESTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -6209,6 +8673,15 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._oRDEN_FABRICACIONTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ORDEN_FABRICACION.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._oRDEN_FABRICACIONTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._mATERIALESTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.MATERIALES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6224,6 +8697,15 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._cOMPRASTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._rEQUISICION_MATERIALESTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.REQUISICION_MATERIALES.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._rEQUISICION_MATERIALESTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -6253,6 +8735,14 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._oRDEN_FABRICACIONTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ORDEN_FABRICACION.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._oRDEN_FABRICACIONTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._mATERIALESTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.MATERIALES.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -6266,6 +8756,14 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._cOMPRASTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._rEQUISICION_MATERIALESTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.REQUISICION_MATERIALES.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._rEQUISICION_MATERIALESTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -6294,6 +8792,14 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._rEQUISICION_MATERIALESTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.REQUISICION_MATERIALES.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rEQUISICION_MATERIALESTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._cOMPRASTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.COMPRAS.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -6307,6 +8813,14 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._mATERIALESTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._oRDEN_FABRICACIONTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ORDEN_FABRICACION.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._oRDEN_FABRICACIONTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -6372,6 +8886,16 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
             }
             if (((this._mATERIALESTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._mATERIALESTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
+                        "sma cadena de conexión.");
+            }
+            if (((this._oRDEN_FABRICACIONTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._oRDEN_FABRICACIONTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
+                        "sma cadena de conexión.");
+            }
+            if (((this._rEQUISICION_MATERIALESTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._rEQUISICION_MATERIALESTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
                         "sma cadena de conexión.");
             }
@@ -6441,6 +8965,24 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                     if (this._mATERIALESTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._mATERIALESTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._mATERIALESTableAdapter.Adapter);
+                    }
+                }
+                if ((this._oRDEN_FABRICACIONTableAdapter != null)) {
+                    revertConnections.Add(this._oRDEN_FABRICACIONTableAdapter, this._oRDEN_FABRICACIONTableAdapter.Connection);
+                    this._oRDEN_FABRICACIONTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._oRDEN_FABRICACIONTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._oRDEN_FABRICACIONTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._oRDEN_FABRICACIONTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._oRDEN_FABRICACIONTableAdapter.Adapter);
+                    }
+                }
+                if ((this._rEQUISICION_MATERIALESTableAdapter != null)) {
+                    revertConnections.Add(this._rEQUISICION_MATERIALESTableAdapter, this._rEQUISICION_MATERIALESTableAdapter.Connection);
+                    this._rEQUISICION_MATERIALESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._rEQUISICION_MATERIALESTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._rEQUISICION_MATERIALESTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._rEQUISICION_MATERIALESTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._rEQUISICION_MATERIALESTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -6516,6 +9058,14 @@ SELECT ID_MATERIAL, ID_MEDIDA, NOMBRE FROM MATERIALES WHERE (ID_MATERIAL = @ID_M
                 if ((this._mATERIALESTableAdapter != null)) {
                     this._mATERIALESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._mATERIALESTableAdapter]));
                     this._mATERIALESTableAdapter.Transaction = null;
+                }
+                if ((this._oRDEN_FABRICACIONTableAdapter != null)) {
+                    this._oRDEN_FABRICACIONTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._oRDEN_FABRICACIONTableAdapter]));
+                    this._oRDEN_FABRICACIONTableAdapter.Transaction = null;
+                }
+                if ((this._rEQUISICION_MATERIALESTableAdapter != null)) {
+                    this._rEQUISICION_MATERIALESTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rEQUISICION_MATERIALESTableAdapter]));
+                    this._rEQUISICION_MATERIALESTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
