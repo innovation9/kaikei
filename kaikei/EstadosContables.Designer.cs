@@ -1902,9 +1902,9 @@ namespace Kaikei {
             
             private global::System.Data.DataColumn columnDESCRIPCION;
             
-            private global::System.Data.DataColumn columnTIPO;
-            
             private global::System.Data.DataColumn columnSALDO;
+            
+            private global::System.Data.DataColumn columnTIPO;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public BALANCE_COMPROBACIONDataTable() {
@@ -1972,16 +1972,16 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn TIPOColumn {
+            public global::System.Data.DataColumn SALDOColumn {
                 get {
-                    return this.columnTIPO;
+                    return this.columnSALDO;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SALDOColumn {
+            public global::System.Data.DataColumn TIPOColumn {
                 get {
-                    return this.columnSALDO;
+                    return this.columnTIPO;
                 }
             }
             
@@ -2014,7 +2014,7 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public BALANCE_COMPROBACIONRow AddBALANCE_COMPROBACIONRow(decimal DEBE, decimal HABER, int ID_CUENTA, string NOMBRE, string DESCRIPCION, string TIPO, decimal SALDO) {
+            public BALANCE_COMPROBACIONRow AddBALANCE_COMPROBACIONRow(decimal DEBE, decimal HABER, int ID_CUENTA, string NOMBRE, string DESCRIPCION, decimal SALDO, int TIPO) {
                 BALANCE_COMPROBACIONRow rowBALANCE_COMPROBACIONRow = ((BALANCE_COMPROBACIONRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         DEBE,
@@ -2022,8 +2022,8 @@ namespace Kaikei {
                         ID_CUENTA,
                         NOMBRE,
                         DESCRIPCION,
-                        TIPO,
-                        SALDO};
+                        SALDO,
+                        TIPO};
                 rowBALANCE_COMPROBACIONRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBALANCE_COMPROBACIONRow);
                 return rowBALANCE_COMPROBACIONRow;
@@ -2048,8 +2048,8 @@ namespace Kaikei {
                 this.columnID_CUENTA = base.Columns["ID_CUENTA"];
                 this.columnNOMBRE = base.Columns["NOMBRE"];
                 this.columnDESCRIPCION = base.Columns["DESCRIPCION"];
-                this.columnTIPO = base.Columns["TIPO"];
                 this.columnSALDO = base.Columns["SALDO"];
+                this.columnTIPO = base.Columns["TIPO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2064,17 +2064,17 @@ namespace Kaikei {
                 base.Columns.Add(this.columnNOMBRE);
                 this.columnDESCRIPCION = new global::System.Data.DataColumn("DESCRIPCION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDESCRIPCION);
-                this.columnTIPO = new global::System.Data.DataColumn("TIPO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTIPO);
                 this.columnSALDO = new global::System.Data.DataColumn("SALDO", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSALDO);
+                this.columnTIPO = new global::System.Data.DataColumn("TIPO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIPO);
                 this.columnDEBE.ReadOnly = true;
                 this.columnHABER.ReadOnly = true;
                 this.columnID_CUENTA.AllowDBNull = false;
                 this.columnNOMBRE.MaxLength = 25;
                 this.columnDESCRIPCION.MaxLength = 40;
-                this.columnTIPO.MaxLength = 25;
                 this.columnSALDO.ReadOnly = true;
+                this.columnTIPO.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2902,21 +2902,6 @@ namespace Kaikei {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string TIPO {
-                get {
-                    try {
-                        return ((string)(this[this.tableBALANCE_COMPROBACION.TIPOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TIPO\' in table \'BALANCE_COMPROBACION\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBALANCE_COMPROBACION.TIPOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public decimal SALDO {
                 get {
                     try {
@@ -2928,6 +2913,16 @@ namespace Kaikei {
                 }
                 set {
                     this[this.tableBALANCE_COMPROBACION.SALDOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int TIPO {
+                get {
+                    return ((int)(this[this.tableBALANCE_COMPROBACION.TIPOColumn]));
+                }
+                set {
+                    this[this.tableBALANCE_COMPROBACION.TIPOColumn] = value;
                 }
             }
             
@@ -2969,16 +2964,6 @@ namespace Kaikei {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetDESCRIPCIONNull() {
                 this[this.tableBALANCE_COMPROBACION.DESCRIPCIONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsTIPONull() {
-                return this.IsNull(this.tableBALANCE_COMPROBACION.TIPOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetTIPONull() {
-                this[this.tableBALANCE_COMPROBACION.TIPOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5016,8 +5001,8 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE";
             tableMapping.ColumnMappings.Add("ID_CUENTA", "ID_CUENTA");
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE");
             tableMapping.ColumnMappings.Add("DESCRIPCION", "DESCRIPCION");
-            tableMapping.ColumnMappings.Add("TIPO", "TIPO");
             tableMapping.ColumnMappings.Add("SALDO", "SALDO");
+            tableMapping.ColumnMappings.Add("TIPO", "TIPO");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5032,16 +5017,16 @@ ORDER BY CATALOGO_CUENTAS.NOMBRE";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT     SUM(DETALLE_TRANSACCIONES.DEBE) AS DEBE, SUM(DETALLE_TRANSACCIONES.HABER) AS HABER,
-					  SUM(DETALLE_TRANSACCIONES.DEBE) - SUM(DETALLE_TRANSACCIONES.HABER) AS SALDO, DETALLE_TRANSACCIONES.ID_CUENTA, 
-                      CATALOGO_CUENTAS.NOMBRE, CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.NOMBRE AS TIPO
-FROM         CATALOGO_CUENTAS INNER JOIN
-                      CLASIFICACION_CUENTAS ON CATALOGO_CUENTAS.ID_CLASIFICACION = CLASIFICACION_CUENTAS.ID_CLASIFICACION INNER JOIN
-                      DETALLE_TRANSACCIONES ON CATALOGO_CUENTAS.ID_CUENTA = DETALLE_TRANSACCIONES.ID_CUENTA INNER JOIN
-                      TRANSACCIONES ON DETALLE_TRANSACCIONES.ID_TRANSACCION = TRANSACCIONES.ID_TRANSACCION
+            this._commandCollection[0].CommandText = @"SELECT        SUM(DETALLE_TRANSACCIONES.DEBE) AS DEBE, SUM(DETALLE_TRANSACCIONES.HABER) AS HABER, SUM(DETALLE_TRANSACCIONES.DEBE) 
+                         - SUM(DETALLE_TRANSACCIONES.HABER) AS SALDO, DETALLE_TRANSACCIONES.ID_CUENTA, CATALOGO_CUENTAS.NOMBRE, 
+                         CATALOGO_CUENTAS.DESCRIPCION, CATALOGO_CUENTAS.ID_CLASIFICACION AS TIPO
+FROM            CATALOGO_CUENTAS INNER JOIN
+                         CLASIFICACION_CUENTAS ON CATALOGO_CUENTAS.ID_CLASIFICACION = CLASIFICACION_CUENTAS.ID_CLASIFICACION INNER JOIN
+                         DETALLE_TRANSACCIONES ON CATALOGO_CUENTAS.ID_CUENTA = DETALLE_TRANSACCIONES.ID_CUENTA INNER JOIN
+                         TRANSACCIONES ON DETALLE_TRANSACCIONES.ID_TRANSACCION = TRANSACCIONES.ID_TRANSACCION
 WHERE        (TRANSACCIONES.FECHA >= @FechaInicio) AND (TRANSACCIONES.FECHA <= @FechaFin)
 GROUP BY DETALLE_TRANSACCIONES.ID_CUENTA, CLASIFICACION_CUENTAS.ID_CLASIFICACION, TRANSACCIONES.FECHA, CATALOGO_CUENTAS.NOMBRE, 
-                         CATALOGO_CUENTAS.DESCRIPCION, CLASIFICACION_CUENTAS.NOMBRE
+                         CATALOGO_CUENTAS.DESCRIPCION, CATALOGO_CUENTAS.ID_CLASIFICACION
 ORDER BY CATALOGO_CUENTAS.NOMBRE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaInicio", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
