@@ -27,18 +27,51 @@ namespace Kaikei.VistasTabItem
         DateTime FechaInicio;
         DateTime FechaFin;
         ESTADO_CAPITALTableAdapter bgDatos;
-        //DataTable Datos;
 
         public viewEstadoCapital()
         {
             InitializeComponent();
 
             bgDatos = new ESTADO_CAPITALTableAdapter();
-            EstadosContables ec = new EstadosContables();
+            EstadosContables ecDS = new EstadosContables();
             DateTime t = DateTime.Today;
             FechaInicio = new DateTime(t.Year, t.Month, 1);
             FechaFin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-1);
-            bg.SetDataSource((DataTable)bgDatos.GetData());
+            DataTable Datos = new DataTable("ESTADO_CAPITAL");
+            DataTableReader origen = ecDS.ESTADO_CAPITAL.CreateDataReader();
+            bgDatos.Fill(ecDS.ESTADO_CAPITAL, FechaInicio, FechaFin);
+           
+            Datos.Columns.Add("CODIGO");
+            Datos.Columns.Add("NOMBRE");
+            Datos.Columns.Add("DEBE",typeof(Double));
+            Datos.Columns.Add("HABER", typeof(Double));
+            Datos.Columns.Add("SALDO");
+            Datos.Columns.Add("TIPO");
+
+            while (origen.Read())
+            {
+                DataRow row = Datos.NewRow();
+
+                row["CODIGO"] = origen["CODIGO"];
+                row["NOMBRE"] = origen["NOMBRE"];
+                row["SALDO"] = "";
+
+                if (validateBLX.Validar.IsPositivo((int)Double.Parse(origen["SALDO"].ToString())))
+                {
+                    row["TIPO"] = "Inversion";
+                    row["DEBE"] = Double.Parse(origen["SALDO"].ToString());
+                    row["HABER"] = 0.0;
+                }
+                else
+                {
+                    row["TIPO"] = "Desinversion";
+                    row["DEBE"] = Double.Parse(origen["SALDO"].ToString());
+                    row["HABER"] = 0.0;
+                }
+                Datos.Rows.Add(row);
+            }
+
+            bg.SetDataSource(Datos.DefaultView);
             bg.SetParameterValue("EmpresaNombre", Kaikei.Properties.Settings.Default.EmpresaNombre);
             bg.SetParameterValue("txtRealizo", Kaikei.Properties.Settings.Default.EmpresaContador);
             bg.SetParameterValue("txtAutorizo", Kaikei.Properties.Settings.Default.EmpresaAdministrador);
