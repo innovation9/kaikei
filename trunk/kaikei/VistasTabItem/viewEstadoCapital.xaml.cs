@@ -39,8 +39,10 @@ namespace Kaikei.VistasTabItem
             FechaFin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-1);
             DataTable Datos = new DataTable("ESTADO_CAPITAL");
             DataTableReader origen = ecDS.ESTADO_CAPITAL.CreateDataReader();
+
+            Double Saldo = 0.0;
+
             bgDatos.Fill(ecDS.ESTADO_CAPITAL, FechaInicio, FechaFin);
-           
             Datos.Columns.Add("CODIGO");
             Datos.Columns.Add("NOMBRE");
             Datos.Columns.Add("DEBE",typeof(Double));
@@ -60,13 +62,15 @@ namespace Kaikei.VistasTabItem
                 {
                     row["TIPO"] = "Inversion";
                     row["DEBE"] = Double.Parse(origen["SALDO"].ToString());
+                    Saldo += Double.Parse(origen["SALDO"].ToString());
                     row["HABER"] = 0.0;
                 }
                 else
                 {
                     row["TIPO"] = "Desinversion";
-                    row["DEBE"] = Double.Parse(origen["SALDO"].ToString());
-                    row["HABER"] = 0.0;
+                    row["HABER"] = -Double.Parse(origen["SALDO"].ToString());
+                    Saldo += Double.Parse(origen["SALDO"].ToString());
+                    row["DEBE"] = 0.0;
                 }
                 Datos.Rows.Add(row);
             }
@@ -75,8 +79,9 @@ namespace Kaikei.VistasTabItem
             bg.SetParameterValue("EmpresaNombre", Kaikei.Properties.Settings.Default.EmpresaNombre);
             bg.SetParameterValue("txtRealizo", Kaikei.Properties.Settings.Default.EmpresaContador);
             bg.SetParameterValue("txtAutorizo", Kaikei.Properties.Settings.Default.EmpresaAdministrador);
-            bg.SetParameterValue("FechaReporte", String.Format("DEL {0}/{1}/{2} AL {3}/{1}/{2}", FechaInicio.Day,
-                FechaInicio.Month, FechaInicio.Year, FechaFin.Day));
+            bg.SetParameterValue("FechaReporte", String.Format("DEL {0} AL {1} DE {2} De {3}", FechaInicio.Day,
+                FechaFin.Day, FechaInicio.ToString("MMMM").ToUpper(), FechaInicio.Year));
+            bg.SetParameterValue("txtSALDO", Saldo);
 
             this.crvEstadoCapital.ReportSource = bg;
         }
