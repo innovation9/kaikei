@@ -1,0 +1,1 @@
+Sistema contable con funciones de partida doble e IVA para panaderias
